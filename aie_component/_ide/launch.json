@@ -1,0 +1,66 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "aie_component_x86_1",
+      "debugType": "x86simulator",
+      "type": "gdb",
+      "x86SimOptions": "${workspaceFolder}/aie_component/build/x86sim/Work/options/x86sim.options",
+      "request": "launch",
+      "target": "${workspaceFolder}/aie_component/build/x86sim/Work/pthread/sim.out",
+      "cwd": "${workspaceFolder}/aie_component/build/x86sim",
+      "gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+      "valuesFormatting": "prettyPrinters",
+      "autorun": [
+        "python import sys; sys.path.insert(0, \u0027/home/light/FPGA/2026.1/Vitis/tps/lnx64/gcc-8.3.0/share/gcc-8.3.0/python\u0027)",
+        "python from libstdcxx.v6 import printers; printers.register_libstdcxx_printers(None)",
+        "python import sys; sys.path.insert(0, \u0027/home/light/FPGA/2026.1/Vitis/vitis-server/scripts/aie-pretty-printers\u0027)",
+        "source /home/light/FPGA/2026.1/Vitis/vitis-server/scripts/aie-pretty-printers/gdbinit_aie_printers"
+      ]
+    },
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "aie_component_aiesim_1",
+      "debugType": "aiesimulator",
+      "autoAttachProcessChildren": false,
+      "target": {
+        "targetConnectionId": "XRTServer",
+        "peersIniPath": "../../_ide/.peers.ini",
+        "context": "MemSock"
+      },
+      "aieSimulatorOptions": {
+        "enablePipelineView": false,
+        "packageDirectory": "./Work",
+        "inputDirectory": "../..",
+        "additionalArgs": "",
+        "trace": {
+          "enableTrace": false,
+          "traceType": "onlineWdb",
+          "vcdFileName": "foo",
+          "generateXpe": false,
+          "traceModules": {
+            "io": true,
+            "dma": true,
+            "memory": true,
+            "core": true,
+            "shim": true,
+            "streamSwitch": false
+          },
+          "columnSelectionForTrace": [],
+          "rowSelectionForTrace": [],
+          "timeWindowForTrace": {
+            "start": "",
+            "end": ""
+          }
+        },
+        "profile": {
+          "enableProfiling": false,
+          "profileAllCores": true,
+          "cores": ""
+        }
+      },
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

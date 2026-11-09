@@ -1,0 +1,2299 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=add_vec' from hls_config.cfg(10)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=1' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../src/main.cpp in debug mode
+../../../../src/main.cpp:19:5: error: no template named 'ap_unit'
+    ap_unit<64> in_data = in_packet.data();
+    ^
+../../../../src/main.cpp:19:27: error: no matching function for call to object of type 'Type_data' (aka 'ap_uint<64>')
+    ap_unit<64> in_data = in_packet.data();
+                          ^~~~~~~~~~~~~~
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1093:51: note: candidate function not viable: requires 2 arguments, but 0 were provided
+  AP_INLINE AP_NODEBUG ap_range_ref<_AP_W, _AP_S> operator()(int Hi, int Lo) {
+                                                  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1097:51: note: candidate function not viable: requires 2 arguments, but 0 were provided
+  AP_INLINE AP_NODEBUG ap_range_ref<_AP_W, _AP_S> operator()(int Hi, int Lo) const {
+                                                  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1102:51: note: candidate function template not viable: requires 2 arguments, but 0 were provided
+  AP_INLINE AP_NODEBUG ap_range_ref<_AP_W, _AP_S> operator()(
+                                                  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1111:51: note: candidate function template not viable: requires 2 arguments, but 0 were provided
+  AP_INLINE AP_NODEBUG ap_range_ref<_AP_W, _AP_S> operator()(
+                                                  ^
+../../../../src/main.cpp:21:5: error: no template named 'ap_unit'
+    ap_unit<32> msb =
+    ^
+../../../../src/main.cpp:22:38: error: invalid operands to binary expression ('const struct cint16' and 'cint16')
+        hamming_window_2048[(2 * i)] * ((cint16) in_data.range(63, 32));
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7076:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_FLOAT(float)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7058:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(C_TYPE i_op,                          \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7076:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7064:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(const ap_private<_AP_W, _AP_S>& op,   \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7077:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_FLOAT(double)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7058:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(C_TYPE i_op,                          \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7077:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7064:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(const ap_private<_AP_W, _AP_S>& op,   \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7181:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7181:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7182:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7182:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7183:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7183:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7184:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7184:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7185:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(short, sizeof(short) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7185:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7186:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned short, sizeof(unsigned short) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7186:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7187:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(int, sizeof(int) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7187:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7188:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned int, sizeof(unsigned int) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7188:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7189:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(long, sizeof(long) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7189:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7190:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned long, sizeof(unsigned long) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7190:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7191:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(ap_slong, sizeof(ap_slong) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7191:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7192:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(ap_ulong, sizeof(ap_ulong) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7192:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7249:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_MIX_RANGE(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7206:3: note: expanded from macro 'OP_BIN_MIX_RANGE'
+  operator BIN_OP(const _private_range_ref<_AP_W1, _AP_S1>& op1,            \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7249:1: note: candidate template ignored: could not match 'const ap_private<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7213:3: note: expanded from macro 'OP_BIN_MIX_RANGE'
+  operator BIN_OP(const ap_private<_AP_W1, _AP_S1>& op1,                    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7336:1: note: candidate template ignored: could not match 'const _private_bit_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_MIX_BIT(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7282:3: note: expanded from macro 'OP_BIN_MIX_BIT'
+  operator BIN_OP(const _private_bit_ref<_AP_W1, _AP_S1>& op1,                \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7336:1: note: candidate template ignored: could not match 'const ap_private<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7288:3: note: expanded from macro 'OP_BIN_MIX_BIT'
+  operator BIN_OP(const ap_private<_AP_W1, _AP_S1>& op1,                      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7433:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7433:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7434:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7434:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7435:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7435:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7436:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7436:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7437:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(short, sizeof(short) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7437:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7438:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned short, sizeof(unsigned short) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7438:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7439:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(int, sizeof(int) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7439:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7440:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned int, sizeof(unsigned int) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7440:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7441:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(long, sizeof(long) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7441:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7442:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned long, sizeof(unsigned long) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7442:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7443:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(ap_slong, sizeof(ap_slong) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7443:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7444:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(ap_ulong, sizeof(ap_ulong) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7444:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7460:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7452:7: note: expanded from macro 'REF_BIN_OP'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& lhs,            \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1470:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+OP_BIN_AP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1458:7: note: expanded from macro 'OP_BIN_AP'
+      operator Sym(const ap_int_base<_AP_W, _AP_S>& op,                       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1546:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_WITH_FLOAT(float)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1528:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(C_TYPE i_op,                           \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1546:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1534:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op,   \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1547:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_WITH_FLOAT(double)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1528:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(C_TYPE i_op,                           \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1547:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1534:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op,   \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1571:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_WITH_HALF(half)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1566:3: note: expanded from macro 'ALL_OP_WITH_HALF'
+  OP_BIN_WITH_HALF(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1553:31: note: expanded from macro 'OP_BIN_WITH_HALF'
+  AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(C_TYPE i_op,                           \
+                              ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1571:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1566:3: note: expanded from macro 'ALL_OP_WITH_HALF'
+  OP_BIN_WITH_HALF(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1559:31: note: expanded from macro 'OP_BIN_WITH_HALF'
+  AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op,   \
+                              ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1603:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1603:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1604:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1604:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1605:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1605:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1606:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1606:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1607:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(short, _AP_SIZE_short, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1607:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1608:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned short, _AP_SIZE_short, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1608:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1609:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(int, _AP_SIZE_int, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1609:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1610:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned int, _AP_SIZE_int, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1610:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1611:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(long, _AP_SIZE_long, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1611:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1612:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned long, _AP_SIZE_long, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1612:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1613:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(ap_slong, _AP_SIZE_ap_slong, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1613:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1614:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(ap_ulong, _AP_SIZE_ap_slong, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1614:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1827:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_WITH_RANGE(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1813:3: note: expanded from macro 'OP_BIN_WITH_RANGE'
+  operator BIN_OP(const ap_range_ref<_AP_W1, _AP_S1>& op1,                   \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1827:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1820:3: note: expanded from macro 'OP_BIN_WITH_RANGE'
+  operator BIN_OP(const ap_int_base<_AP_W1, _AP_S1>& op1,                    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1936:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_WITH_BIT(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1923:3: note: expanded from macro 'OP_BIN_WITH_BIT'
+  operator BIN_OP(const ap_int_base<_AP_W1, _AP_S1>& op1,                      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1936:1: note: candidate template ignored: could not match 'const ap_bit_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1929:3: note: expanded from macro 'OP_BIN_WITH_BIT'
+  operator BIN_OP(const ap_bit_ref<_AP_W1, _AP_S1>& op1,                       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1095:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1095:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1096:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1096:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1097:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1097:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1098:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1098:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1099:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(short, _AP_SIZE_short, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1099:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1100:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned short, _AP_SIZE_short, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1100:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1101:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(int, _AP_SIZE_int, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1101:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1102:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned int, _AP_SIZE_int, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1102:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1103:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(long, _AP_SIZE_long, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1103:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1104:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned long, _AP_SIZE_long, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1104:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1105:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(ap_slong, _AP_SIZE_ap_slong, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1105:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1106:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(ap_ulong, _AP_SIZE_ap_slong, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1106:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1148:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1140:7: note: expanded from macro 'REF_BIN_OP'
+      operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& lhs,                   \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1197:1: note: candidate template ignored: could not match 'const ap_concat_ref<_AP_LW1, _AP_LT1, _AP_LW2, _AP_LT2>' against 'const struct cint16'
+SYN_CONCAT_REF_BIN_OP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1189:3: note: expanded from macro 'SYN_CONCAT_REF_BIN_OP'
+  operator BIN_OP(                                                        \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2376:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2376:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2377:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2377:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2378:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2378:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2379:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2379:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2380:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(short, _AP_SIZE_short, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2380:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2381:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned short, _AP_SIZE_short, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2381:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2382:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(int, _AP_SIZE_int, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2382:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2383:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned int, _AP_SIZE_int, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2383:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2384:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(long, _AP_SIZE_long, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2384:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2385:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned long, _AP_SIZE_long, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2385:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2386:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(ap_slong, _AP_SIZE_ap_slong, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2386:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2387:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(ap_ulong, _AP_SIZE_ap_slong, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2387:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2466:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W2, _AP_S2>' against 'const struct cint16'
+AF_BIN_OP_WITH_AP_INT(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2413:3: note: expanded from macro 'AF_BIN_OP_WITH_AP_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2466:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2423:3: note: expanded from macro 'AF_BIN_OP_WITH_AP_INT'
+  operator BIN_OP(                                                          \
+  ^
+../../../../src/main.cpp:23:17: error: use of undeclared identifier 'lsb'; did you mean 'msb'?
+    ap_unit<32> lsb =
+                ^~~
+                msb
+../../../../src/main.cpp:21:17: note: 'msb' declared here
+    ap_unit<32> msb =
+                ^
+../../../../src/main.cpp:23:16: error: expected ';' after expression
+    ap_unit<32> lsb =
+               ^
+               ;
+../../../../src/main.cpp:23:5: error: use of undeclared identifier 'ap_unit'
+    ap_unit<32> lsb =
+    ^
+../../../../src/main.cpp:24:42: error: invalid operands to binary expression ('const struct cint16' and 'cint16')
+        hamming_window_2048[(2 * i + 1)] * ((cint16)in_data.range(31, 0));
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7076:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_FLOAT(float)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7058:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(C_TYPE i_op,                          \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7076:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7064:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(const ap_private<_AP_W, _AP_S>& op,   \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7077:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_FLOAT(double)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7058:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(C_TYPE i_op,                          \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7077:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7071:3: note: expanded from macro 'OPS_MIX_FLOAT'
+  OP_BIN_MIX_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7064:20: note: expanded from macro 'OP_BIN_MIX_FLOAT'
+  AP_INLINE C_TYPE operator BIN_OP(const ap_private<_AP_W, _AP_S>& op,   \
+                   ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7181:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7181:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7182:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7182:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7183:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7183:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7184:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7184:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7185:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(short, sizeof(short) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7185:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7186:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned short, sizeof(unsigned short) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7186:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7187:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(int, sizeof(int) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7187:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7188:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned int, sizeof(unsigned int) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7188:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7189:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(long, sizeof(long) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7189:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7190:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(unsigned long, sizeof(unsigned long) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7190:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7191:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(ap_slong, sizeof(ap_slong) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7191:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7192:1: note: candidate template ignored: could not match 'ap_private<_AP_W, _AP_S>' against 'cint16'
+OPS_MIX_INT(ap_ulong, sizeof(ap_ulong) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7093:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(C_TYPE i_op, const ap_private<_AP_W, _AP_S>& op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7192:1: note: candidate template ignored: could not match 'const ap_private<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7152:3: note: expanded from macro 'OPS_MIX_INT'
+  OP_BIN_MIX_INT(*, C_TYPE, (_AP_W2), (_AP_S2), mult)    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7099:7: note: expanded from macro 'OP_BIN_MIX_INT'
+      operator BIN_OP(const ap_private<_AP_W, _AP_S>& op, C_TYPE i_op) {       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7249:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_MIX_RANGE(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7206:3: note: expanded from macro 'OP_BIN_MIX_RANGE'
+  operator BIN_OP(const _private_range_ref<_AP_W1, _AP_S1>& op1,            \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7249:1: note: candidate template ignored: could not match 'const ap_private<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7213:3: note: expanded from macro 'OP_BIN_MIX_RANGE'
+  operator BIN_OP(const ap_private<_AP_W1, _AP_S1>& op1,                    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7336:1: note: candidate template ignored: could not match 'const _private_bit_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_MIX_BIT(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7282:3: note: expanded from macro 'OP_BIN_MIX_BIT'
+  operator BIN_OP(const _private_bit_ref<_AP_W1, _AP_S1>& op1,                \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7336:1: note: candidate template ignored: could not match 'const ap_private<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7288:3: note: expanded from macro 'OP_BIN_MIX_BIT'
+  operator BIN_OP(const ap_private<_AP_W1, _AP_S1>& op1,                      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7433:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7433:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7434:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7434:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7435:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7435:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7436:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7436:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7437:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(short, sizeof(short) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7437:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7438:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned short, sizeof(unsigned short) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7438:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7439:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(int, sizeof(int) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7439:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7440:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned int, sizeof(unsigned int) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7440:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7441:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(long, sizeof(long) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7441:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7442:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(unsigned long, sizeof(unsigned long) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7442:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7443:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(ap_slong, sizeof(ap_slong) * 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7443:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7444:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_MIX_INT(ap_ulong, sizeof(ap_ulong) * 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7406:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& op,              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7444:1: note: candidate template ignored: could not match '_private_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7424:3: note: expanded from macro 'REF_BIN_MIX_INT'
+  REF_BIN_OP_MIX_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7415:7: note: expanded from macro 'REF_BIN_OP_MIX_INT'
+      operator BIN_OP(C_TYPE op2,                                              \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7460:1: note: candidate template ignored: could not match 'const _private_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_private.h:7452:7: note: expanded from macro 'REF_BIN_OP'
+      operator BIN_OP(const _private_range_ref<_AP_W, _AP_S>& lhs,            \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1470:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+OP_BIN_AP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1458:7: note: expanded from macro 'OP_BIN_AP'
+      operator Sym(const ap_int_base<_AP_W, _AP_S>& op,                       \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1546:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_WITH_FLOAT(float)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1528:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(C_TYPE i_op,                           \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1546:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1534:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op,   \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1547:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_WITH_FLOAT(double)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1528:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(C_TYPE i_op,                           \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1547:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1541:3: note: expanded from macro 'ALL_OP_WITH_FLOAT'
+  OP_BIN_WITH_FLOAT(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1534:45: note: expanded from macro 'OP_BIN_WITH_FLOAT'
+  HLS_CONSTEXPR AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op,   \
+                                            ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1571:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_WITH_HALF(half)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1566:3: note: expanded from macro 'ALL_OP_WITH_HALF'
+  OP_BIN_WITH_HALF(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1553:31: note: expanded from macro 'OP_BIN_WITH_HALF'
+  AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(C_TYPE i_op,                           \
+                              ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1571:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1566:3: note: expanded from macro 'ALL_OP_WITH_HALF'
+  OP_BIN_WITH_HALF(*, C_TYPE) \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1559:31: note: expanded from macro 'OP_BIN_WITH_HALF'
+  AP_INLINE AP_NODEBUG C_TYPE operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op,   \
+                              ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1603:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1603:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1604:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1604:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1605:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1605:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1606:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1606:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1607:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(short, _AP_SIZE_short, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1607:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1608:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned short, _AP_SIZE_short, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1608:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1609:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(int, _AP_SIZE_int, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1609:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1610:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned int, _AP_SIZE_int, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1610:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1611:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(long, _AP_SIZE_long, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1611:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1612:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(unsigned long, _AP_SIZE_long, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1612:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1613:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(ap_slong, _AP_SIZE_ap_slong, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1613:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1614:1: note: candidate template ignored: could not match 'ap_int_base<_AP_W, _AP_S>' against 'cint16'
+ALL_OP_BIN_WITH_INT(ap_ulong, _AP_SIZE_ap_slong, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1583:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(C_TYPE i_op, const ap_int_base<_AP_W, _AP_S>& op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1614:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W, _AP_S>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1594:3: note: expanded from macro 'ALL_OP_BIN_WITH_INT'
+  OP_BIN_WITH_INT(*, C_TYPE, _AP_W2, _AP_S2, mult)  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1589:3: note: expanded from macro 'OP_BIN_WITH_INT'
+  operator BIN_OP(const ap_int_base<_AP_W, _AP_S>& op, C_TYPE i_op) {      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1827:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_WITH_RANGE(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1813:3: note: expanded from macro 'OP_BIN_WITH_RANGE'
+  operator BIN_OP(const ap_range_ref<_AP_W1, _AP_S1>& op1,                   \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1827:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1820:3: note: expanded from macro 'OP_BIN_WITH_RANGE'
+  operator BIN_OP(const ap_int_base<_AP_W1, _AP_S1>& op1,                    \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1936:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W1, _AP_S1>' against 'const struct cint16'
+OP_BIN_WITH_BIT(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1923:3: note: expanded from macro 'OP_BIN_WITH_BIT'
+  operator BIN_OP(const ap_int_base<_AP_W1, _AP_S1>& op1,                      \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1936:1: note: candidate template ignored: could not match 'const ap_bit_ref<_AP_W1, _AP_S1>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_base.h:1929:3: note: expanded from macro 'OP_BIN_WITH_BIT'
+  operator BIN_OP(const ap_bit_ref<_AP_W1, _AP_S1>& op1,                       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1095:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1095:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1096:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1096:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1097:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1097:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1098:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1098:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1099:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(short, _AP_SIZE_short, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1099:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1100:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned short, _AP_SIZE_short, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1100:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1101:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(int, _AP_SIZE_int, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1101:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1102:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned int, _AP_SIZE_int, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1102:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1103:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(long, _AP_SIZE_long, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1103:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1104:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(unsigned long, _AP_SIZE_long, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1104:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1105:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(ap_slong, _AP_SIZE_ap_slong, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1105:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1106:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP_WITH_INT_ARITH(ap_ulong, _AP_SIZE_ap_slong, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1075:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& op, C_TYPE op2) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1106:1: note: candidate template ignored: could not match 'ap_range_ref<_AP_W, _AP_S>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1091:3: note: expanded from macro 'REF_BIN_OP_WITH_INT_ARITH'
+  REF_BIN_OP_WITH_INT(*, mult, C_TYPE, (_AP_W2), (_AP_S2))  \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1082:3: note: expanded from macro 'REF_BIN_OP_WITH_INT'
+  operator BIN_OP(C_TYPE op2, const ap_range_ref<_AP_W, _AP_S>& op) {       \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1148:1: note: candidate template ignored: could not match 'const ap_range_ref<_AP_W, _AP_S>' against 'const struct cint16'
+REF_BIN_OP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1140:7: note: expanded from macro 'REF_BIN_OP'
+      operator BIN_OP(const ap_range_ref<_AP_W, _AP_S>& lhs,                   \
+      ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1197:1: note: candidate template ignored: could not match 'const ap_concat_ref<_AP_LW1, _AP_LT1, _AP_LW2, _AP_LT2>' against 'const struct cint16'
+SYN_CONCAT_REF_BIN_OP(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_int_ref.h:1189:3: note: expanded from macro 'SYN_CONCAT_REF_BIN_OP'
+  operator BIN_OP(                                                        \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2376:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(bool, 1, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2376:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2377:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(char, 8, CHAR_IS_SIGNED)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2377:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2378:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(signed char, 8, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2378:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2379:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned char, 8, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2379:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2380:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(short, _AP_SIZE_short, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2380:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2381:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned short, _AP_SIZE_short, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2381:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2382:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(int, _AP_SIZE_int, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2382:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2383:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned int, _AP_SIZE_int, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2383:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2384:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(long, _AP_SIZE_long, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2384:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2385:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(unsigned long, _AP_SIZE_long, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2385:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2386:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(ap_slong, _AP_SIZE_ap_slong, true)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2386:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2387:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+ALL_AF_OP_WITH_INT(ap_ulong, _AP_SIZE_ap_slong, false)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2297:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2387:1: note: candidate template ignored: could not match 'ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2351:3: note: expanded from macro 'ALL_AF_OP_WITH_INT'
+  AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2306:3: note: expanded from macro 'AF_BIN_OP_WITH_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2466:1: note: candidate template ignored: could not match 'const ap_int_base<_AP_W2, _AP_S2>' against 'const struct cint16'
+AF_BIN_OP_WITH_AP_INT(*, mult)
+^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2413:3: note: expanded from macro 'AF_BIN_OP_WITH_AP_INT'
+  operator BIN_OP(                                                          \
+  ^
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2466:1: note: candidate template ignored: could not match 'const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>' against 'const struct cint16'
+/home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_base.h:2423:3: note: expanded from macro 'AF_BIN_OP_WITH_AP_INT'
+  operator BIN_OP(                                                          \
+  ^
+../../../../src/main.cpp:27:18: error: use of undeclared identifier 'lsb'
+    out_0.data = lsb;
+                 ^
+9 errors generated.
+make: *** [csim.mk:97: obj/main.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: CSIM Failed
+INFO: [HLS 200-112] Total CPU user time: 3.01 seconds. Total CPU system time: 0.45 seconds. Total elapsed time: 3.42 seconds; peak allocated memory: 384.020 MB.

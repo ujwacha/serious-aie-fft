@@ -1,0 +1,87 @@
+#pragma once
+
+#include <adf.h>
+#include <aie_api/aie.hpp>
+
+using namespace adf;
+
+// ---------------------------------------------------------------------------
+// log_kernel_better
+//
+// Same job as log_kernel, but the histogram is inverted and the mask is
+// emitted as one uint16 per 16-bin block instead of packed uint32 words:
+//
+//   old: for each block mean, increment hist[bin]          (128 random RMWs)
+//   new: for each block, compute bin index once, vectorized
+//        for each candidate bin, count equal indices with
+//        aie::eq(...).count()                              (2 vector compares)
+//
+// The count loop stops as soon as the cumulative count reaches the median,
+// so the fine pass normally evaluates ~17 of the 64 bins (span = 4*median
+// puts the median near bin 16).  The coarse pass usually stops in bin 0.
+//
+// Per frame, in_len = 2048:
+//   1. power per bin: |x|^2
+//   2. block mean: sum of 16 consecutive powers / 16   -> 128 values
+//   3. linear histogram of the 128 block means, 64 bins:
+//        coarse pass over [0, 4 * mean(block means)] -> rough median m0
+//        fine pass   over [0, 4 * m0]                -> half-filled histogram
+//   4. mode of the half-filled histogram (the most frequent bin below the
+//      median) -> noise floor.  For Gamma(16) the mode is at 15/16 of the
+//      mean, so mode * 16/15 is the per-bin noise mean.
+//   5. threshold = mean * 10^(thr_db / 10)     (linear, done in the kernel)
+//      default thr_db = 8.393 dB  ->  -ln(1e-3), i.e. Pfa = 1e-3 per bin
+//   6. mask = block keep flag: aie::gt(power, threshold) on the 16 powers of
+//      the block; if any lane is true the whole uint16 is 0xFFFF, else 0.
+//   7. data = every kept 16-bin block, 16 cint16 (64 B), in ascending order
+//
+// Outputs:
+//   mask : kBlocks (128) uint16 words, one per 16-bin block.
+//          Each word is 0x0000 or 0xFFFF (all 16 bits = block keep flag).
+//          Logically this is the same 256 bytes as the old 64 x uint32
+//          packing (two 16-bit fields per word).  Check the graph/PLIO
+//          packing: if uint16 elements occupy 32-bit stream slots, the PL
+//          sees 128 x 32-bit words instead.
+//   data : 16 cint16 per kept 16-bin block.  Mask word b is written just
+//          before data block b, so the PL can consume the two streams in
+//          lockstep: read a uint16, and if it is 0xFFFF read the next 64 B.
+//          (The old "all mask words before any data" order is gone; if the
+//          PL needs the full mask first, restore the two-pass version.)
+//
+// in_len must be kMaxFrame (2048) for now: the count loop reads all 128
+// entries of bidx in two 64-lane vectors.
+// ---------------------------------------------------------------------------
+
+class log_kernel_better {
+public:
+  static constexpr int kMaxFrame = 2048;
+  static constexpr int kBlock    = 16;
+  static constexpr int kBlocks   = kMaxFrame / kBlock;  // 128
+  static constexpr int kHistBins = 64;
+
+private:
+  int32 in_len;
+  float thr_mult;                       // 10^(thr_db / 10)
+
+  alignas(64) cint16 xbuf[kMaxFrame];             // 8 KB, raw input samples
+  alignas(64) float  pbuf[kMaxFrame];             // 8 KB, |x|^2 per bin
+  alignas(64) float  bmean[kBlocks];              // 128 block means
+  // One byte per block: its histogram bin index (0..63).  This is not the
+  // histogram itself; it is the list of samples that the count loop scans.
+  alignas(64) int8   bidx[kBlocks];               // 128
+  // Counts of the half-filled histogram (bins up to the median).  128 max,
+  // so uint8 is enough.  Bins past the median stay zero.
+  alignas(64) uint8  hcnt[kHistBins];             // 64
+
+public:
+  log_kernel_better(int32 _in_len, float _thr_db = 8.393f);
+
+  void run(input_stream<cint16> &in,
+           output_stream<uint16> &mask,
+           output_stream<cint16> &data);
+
+  static void registerKernelClass(void)
+  {
+    REGISTER_FUNCTION(log_kernel_better::run);
+  }
+};

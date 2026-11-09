@@ -1,0 +1,38 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=add_vec' from hls_config.cfg(9)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z020clg484-1Q' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z020-clg484-1Q'
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(4)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=1' from hls_config.cfg(6)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../tb/test.cpp in debug mode
+   Compiling ../../../../src/main.cpp in debug mode
+In file included from ../../../../src/main.cpp:1:
+../../../../src/main.h:4:1: error: '#pragma HLS' is only allowed in function scope
+#pragma HLS INTERFACE m_axi port=a depth=N offset=slave bundle=gmem_a
+^
+../../../../src/main.h:5:1: error: '#pragma HLS' is only allowed in function scope
+#pragma HLS INTERFACE m_axi port=b depth=N offset=slave bundle=gmem_b
+^
+../../../../src/main.h:6:1: error: '#pragma HLS' is only allowed in function scope
+#pragma HLS INTERFACE m_axi port=c depth=N offset=slave bundle=gmem_c
+^
+3 errors generated.
+make: *** [csim.mk:97: obj/main.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: CSIM Failed
+INFO: [HLS 200-112] Total CPU user time: 2.75 seconds. Total CPU system time: 0.61 seconds. Total elapsed time: 3.27 seconds; peak allocated memory: 376.270 MB.

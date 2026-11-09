@@ -1,0 +1,25 @@
+[
+  {
+    "arguments": [
+      "/home/light/FPGA/2026.1/Vitis/aietools/tps/lnx64/gcc/bin/g++",
+      "-c",
+      "-I/home/light/FPGA/2026.1/Vitis/aietools/include",
+      "-I/home/light/FPGA/2026.1/Vitis/aietools/include",
+      "-I/home/light/FPGA/2026.1/tps/xf_dsp/L1/include/aie",
+      "-I/home/light/FPGA/2026.1/tps/xf_dsp/L1/src/aie",
+      "-I/home/light/FPGA/2026.1/tps/xf_dsp/L2/include/aie",
+      "-I/home/light/MajorProject/serious-aie-fft/aie_component",
+      "-I/home/light/MajorProject/serious-aie-fft/aie_component/src",
+      "/home/light/MajorProject/serious-aie-fft/aie_component/src/graph.cpp",
+      "--aie.enable-hidden-option-error\u003dfalse",
+      "--aie.extra-option\u003dkeep-intermediate-results\u003d2"
+    ],
+    "file": "/home/light/MajorProject/serious-aie-fft/aie_component/src/graph.cpp",
+    "directory": "/home/light/MajorProject/serious-aie-fft/aie_component"
+  },
+  {
+    "directory": "/home/light/MajorProject/serious-aie-fft/aie_component",
+    "command": "/home/light/FPGA/2026.1/Vitis/aietools/lnx64.o/tools/clang/bin/clang++ -fPIC -c -o wrap_/home/light/MajorProject/serious-aie-fft/aie_component/src/.aie_kernel_template.cpp.o -D__AIENGINE__ -D__AIEARCH__\u003d1 -std\u003dc++17 -D__X86SIM__ -D__PTHREAD_API__ -DHLS_STREAM_THREAD_SAFE -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -I/home/light/FPGA/2026.1/Vitis/include -I/home/light/FPGA/2026.1/Vitis/aietools/include -I/home/light/FPGA/2026.1/Vitis/aietools/data/osci_systemc/include -I/home/light/FPGA/2026.1/Vitis/aietools/tps/boost_1_72_0 -I/home/light/FPGA/2026.1/Vitis/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-16/include -I/home/light/FPGA/2026.1/Vitis/aietools/data/versal_prod/lib -I/home/light/FPGA/2026.1/Vitis/aietools/tps/lnx64/target/chessdir -I/home/light/FPGA/2026.1/Vitis/aietools/data/versal_prod/lib/designware/DWFC_fp/include -I/home/light/FPGA/2026.1/Vitis/aietools/data/versal_prod/lib/designware/DWFC_fp_multifunc/include -I/home/light/FPGA/2026.1/Vitis/aietools/data/versal_prod/lib/designware/dwfc_multifunc/include -include /home/light/FPGA/2026.1/Vitis/aietools/include/adf/x86sim/aieNative.h -std\u003dc++2a -stdlib\u003dlibc++ /home/light/MajorProject/serious-aie-fft/aie_component/src/.aie_kernel_template.cpp",
+    "file": "/home/light/MajorProject/serious-aie-fft/aie_component/src/.aie_kernel_template.cpp"
+  }
+]

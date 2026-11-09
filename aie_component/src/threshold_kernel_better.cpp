@@ -1,0 +1,274 @@
+#include <adf.h>
+#include <aie_api/aie.hpp>
+
+#include "adf/window/types.h"
+#include "adf/x86sim/streamApi.h"
+#include "threshold_kernel_better.h"
+
+namespace {
+
+using fvec = aie::vector<float, 16>;
+
+// The block means are Gamma(16).  Its continuous mode is at (16-1) = 15
+// units, while the mean is 16 units, so mean = mode * 16/15.  The histogram
+// mode (bin with the largest count) is an estimate of that value.
+constexpr float kModeToMean = 16.0f / 15.0f;
+
+constexpr int kBins = threshold_kernel_better::kHistBins; // 64
+constexpr int kBlocks = threshold_kernel_better::kBlocks; // 128
+
+// 2^x for x in [-126, 126]. One call per frame, used only to turn the
+// threshold-in-dB into a linear multiplier.
+__aie_inline float exp2_approx(float x) {
+  if (x < -126.0f)
+    x = -126.0f;
+  if (x > 126.0f)
+    x = 126.0f;
+
+  int e = static_cast<int>(x); // truncates toward zero
+  float f = x - static_cast<float>(e);
+  if (f < 0.0f) {
+    f += 1.0f;
+    e -= 1;
+  } // f in [0, 1)
+
+  const float y = f * 0.6931471805599453f; // f * ln(2)
+
+  // e^y, degree 5 (error < 2e-4 over y in [0, ln 2))
+  float p = 1.0f / 120.0f;
+  p = p * y + 1.0f / 24.0f;
+  p = p * y + 1.0f / 6.0f;
+  p = p * y + 0.5f;
+  p = p * y + 1.0f;
+  p = p * y + 1.0f;
+
+  union {
+    uint32 u;
+    float f;
+  } s;
+  s.u = static_cast<uint32>(e + 127) << 23;
+  return p * s.f;
+}
+
+// Map the 128 block means to histogram bin indices 0..63, one byte each.
+// This replaces the 128 scalar hist[bin]++ operations: the random read-modify-
+// writes are gone, and the bin index is produced 16 lanes at a time.
+__aie_inline void build_bidx(const float *bmean, float span, int8 *bidx) {
+  if (!(span > 0.0f))
+    span = 1.0f;
+
+  const float inv = static_cast<float>(kBins) / span;
+
+  for (int i = 0; i < kBlocks; i += 16) {
+    const fvec f = aie::load_v<16>(&bmean[i]);
+    // f * (64/span) -> nearest bin.  A half-bin offset at the boundary is
+    // irrelevant to the median estimate; values above the span are clamped
+    // into the top bin so all 128 blocks are still counted.
+    const auto scaled = aie::mul(f, inv).to_vector<float>();
+    auto idx = aie::to_fixed<int32>(scaled);
+    idx = aie::min(aie::max(idx, (int32)0), (int32)(kBins - 1));
+    // int32 -> int16 -> int8; each step is the default "previous type".
+    const auto idx16 = aie::pack(idx);
+    aie::store_v(&bidx[i], aie::pack(idx16));
+  }
+}
+
+// How many of the 128 bin indices are equal to x.  Two 512-bit int8 compares
+// and two mask popcounts; no memory writes and no loop-carried dependency.
+__aie_inline unsigned count_bin(int8 x, const int8 *bidx) {
+  const auto v0 = aie::load_v<64>(bidx);
+  const auto v1 = aie::load_v<64>(bidx + 64);
+  return aie::eq(v0, x).count() + aie::eq(v1, x).count();
+}
+
+// Build the bin-index list for this span, then walk bins from 0 until the
+// median bucket is found.  Every count up to that bucket is stored in hcnt;
+// bins past the median stay zero.  The median value is returned for the
+// coarse pass, whose job is only to set the fine span.
+__aie_inline float hist_fill(const float *bmean, float span, int8 *bidx,
+                             uint8 *hcnt) {
+  if (!(span > 0.0f))
+    span = 1.0f;
+
+  build_bidx(bmean, span, bidx);
+
+  // 64 bytes: one 512-bit store.
+  aie::store_v(&hcnt[0], aie::zeros<uint8, kBins>());
+
+  const int target = (kBlocks * 50 + 50) / 100; // median: 64
+
+  int cum = 0;
+  int bin = 0;
+  float frac = 0.0f;
+
+  for (bin = 0; bin < kBins; ++bin) {
+    const unsigned c = count_bin(static_cast<int8>(bin), bidx);
+    hcnt[bin] = static_cast<uint8>(c);
+
+    const int prev = cum;
+    cum += static_cast<int>(c);
+    if (cum >= target) {
+      frac = (target - prev) / static_cast<float>(c);
+      break;
+    }
+  }
+  if (bin >= kBins)
+    bin = kBins - 1;
+
+  return (static_cast<float>(bin) + frac) * (span / static_cast<float>(kBins));
+}
+
+} // namespace
+
+threshold_kernel_better::threshold_kernel_better(int32 _in_len, float _thr_db)
+    : in_len(_in_len) {
+  // 10^(thr_db/10) = 2^(thr_db * log2(10)/10)
+  thr_mult = exp2_approx(_thr_db * 0.3321928094887362f);
+
+  aie::set_rounding(aie::rounding_mode::symmetric_inf);
+  aie::set_saturation(aie::saturation_mode::saturate);
+}
+
+void threshold_kernel_better::run(input_stream<cint16> *in0,
+			    input_stream<cint16>* in1,                            
+                            output_stream<cint16>* data0,
+                            output_stream<cint16>* data1) {
+  const int nb = in_len / kBlock;
+
+  // ---- pass 1: buffer the input, 16-bin mean, total ---------------------
+  float total = 0.0f;
+
+  for (int b = 0; b < nb; ++b) {
+    // 1. Read evens from in0 and odds from in1
+    const aie::vector<cint16, 4> e0 = readincr_v<4>(in0); // x[0], x[2], x[4], x[6]
+    const aie::vector<cint16, 4> o0 = readincr_v<4>(in1); // x[1], x[3], x[5], x[7]
+    
+    const aie::vector<cint16, 4> e1 = readincr_v<4>(in0); // x[8], x[10], x[12], x[14]
+    const aie::vector<cint16, 4> o1 = readincr_v<4>(in1); // x[9], x[11], x[13], x[15]
+
+    // 2. Interleave them to reconstruct the linear sequence
+    // interleave_zip(a, b, step) with step=1 gives: a[0], b[0], a[1], b[1]...
+    const auto [v0lo, v0hi] = aie::interleave_zip(e0, o0, 1);
+    const auto [v1lo, v1hi] = aie::interleave_zip(e1, o1, 1);
+    const auto v0 = aie::concat(v0lo, v0hi); // x[0]..x[7]
+    const auto v1 = aie::concat(v1lo, v1hi); // x[8]..x[15]
+    
+    // 3. Concatenate to get the final 16-element vector
+    const auto v  = aie::concat(v0, v1);            // 16 elements (x[0]..x[15])
+
+    aie::store_v(&xbuf[b * kBlock], v); // keep the raw samples for the PL
+
+    // |x|^2 as int32 (acc48 internally), then to float.
+    const fvec f = aie::to_float(aie::abs_square(v));
+
+    // Keep the powers so the mask pass is just compares, no recompute.
+    aie::store_v(&pbuf[b * kBlock], f);
+
+    // Divide by 16 every time: one value per block.
+    const float m = aie::reduce_add(f) * (1.0f / 16.0f);
+    bmean[b] = m;
+    total += m;
+  }
+  
+  // ---- pass 2: histogram of the block means -----------------------------
+  // Coarse pass over 4*mean gives a rough median; that median sets the fine
+  // span, so dense targets cannot inflate the bins at the noise floor.
+  const float mean = (nb > 0) ? (total / static_cast<float>(nb)) : 0.0f;
+  const float span0 = 4.0f * mean;
+  const float m0 = hist_fill(bmean, span0, bidx, hcnt);
+
+  const float span = 4.0f * m0;
+  hist_fill(bmean, span, bidx, hcnt); // hcnt = half-filled histogram
+
+  // Mode of the half-filled histogram: max count, then the mask of bins that
+  // equal it.  Ties are resolved to the centre of the tied plateau.
+  const auto hv = aie::load_v<64>(hcnt);
+  const uint8 mx = aie::reduce_max(hv);
+  const auto mm = aie::eq(hv, mx);
+  const unsigned lo = __builtin_ctzll(mm.to_uint64());
+  const unsigned hi = 63u - static_cast<unsigned>(mm.clz());
+  const float mode_bin = 0.5f * static_cast<float>(lo + hi);
+  const float mode = (mode_bin + 0.5f) * (span * (1.0f / 64.0f));
+
+  const float nf = mode * kModeToMean; // mode -> per-bin noise mean
+  // ---- pass 3: mask + surviving blocks, one pass -------------------------
+  const float thr = nf * thr_mult;
+
+  // Two blocks per iteration: two power vectors loaded at once, two
+  // keep-flags computed at once, one 32-bit mask word written at once.
+  // Block 2k  -> low  16 bits of the word
+  // Block 2k+1 -> high 16 bits of the word
+
+
+
+  
+  for (int b = 0; b < nb; b += 2) {
+    const fvec f0 = aie::load_v<16>(&pbuf[b * kBlock]);
+    const fvec f1 = aie::load_v<16>(&pbuf[(b + 1) * kBlock]);
+
+    const bool keep0 = aie::gt(f0, thr).count() != 0;
+    const bool keep1 = aie::gt(f1, thr).count() != 0;
+
+    const uint32 m0 = keep0 ? 0x0000FFFFu : 0u; // low  half
+    const uint32 m1 = keep1 ? 0xFFFF0000u : 0u; // high half
+    // writeincr(mask, m0 | m1);                   // one 32-bit beat
+
+    marry[b/2] = m0 | m1;
+
+  }
+
+  // first push the mask
+  
+  for (int i = 0; i < kBlocks / 2; ++i) {
+    const uint32 packed = marry[i];
+    cint16 mask_word;
+    mask_word.real = (packed & 0x0000FFFFu) ? -1 : 0;
+    mask_word.imag = (packed & 0xFFFF0000u) ? -1 : 0;
+    const cint16 zero_word = {0, 0};
+    writeincr(data0, mask_word);
+    writeincr(data1, zero_word);
+  }
+
+  // 3. Push the payload data, alternating between data0 and data1
+  bool d0turn = false; // false = data0, true = data1
+
+  for (int i = 0; i < kBlocks / 2; i++) {
+    uint32 mask = marry[i];
+
+    // --- Low half: Block 2*i ---
+    if (mask & 0x0000FFFF) {
+      const int b = 2 * i;
+      const auto a0 = aie::load_v<4>(&xbuf[b * kBlock + 0]);
+      const auto a1 = aie::load_v<4>(&xbuf[b * kBlock + 4]);
+      const auto a2 = aie::load_v<4>(&xbuf[b * kBlock + 8]);
+      const auto a3 = aie::load_v<4>(&xbuf[b * kBlock + 12]);
+
+      if (d0turn) {
+        writeincr_v4(data1, a0); writeincr_v4(data1, a1);
+        writeincr_v4(data1, a2); writeincr_v4(data1, a3);
+      } else {
+        writeincr_v4(data0, a0); writeincr_v4(data0, a1);
+        writeincr_v4(data0, a2); writeincr_v4(data0, a3);
+      }
+      d0turn = !d0turn; // Flip stream for the next block
+    }
+
+    // --- High half: Block 2*i + 1 ---
+    if (mask & 0xFFFF0000) {
+      const int b = 2 * i + 1;
+      const auto a0 = aie::load_v<4>(&xbuf[b * kBlock + 0]);
+      const auto a1 = aie::load_v<4>(&xbuf[b * kBlock + 4]);
+      const auto a2 = aie::load_v<4>(&xbuf[b * kBlock + 8]);
+      const auto a3 = aie::load_v<4>(&xbuf[b * kBlock + 12]);
+
+      if (d0turn) {
+        writeincr_v4(data1, a0); writeincr_v4(data1, a1);
+        writeincr_v4(data1, a2); writeincr_v4(data1, a3);
+      } else {
+        writeincr_v4(data0, a0); writeincr_v4(data0, a1);
+        writeincr_v4(data0, a2); writeincr_v4(data0, a3);
+      }
+      d0turn = !d0turn; // Flip stream for next block
+    }
+  }
+}

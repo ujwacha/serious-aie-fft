@@ -1,0 +1,27 @@
+[
+  {
+    "directory": "/home/light/MajorProject/serious-aie-fft/central-controller-element",
+    "arguments": [
+      "/home/light/FPGA/2026.1/Vitis/lnx64/tools/clang-16/bin/clang++",
+      "--gcc-toolchain=/home/light/FPGA/2026.1/Vitis/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/home/light/FPGA/2026.1/Vitis/common/technology/autopilot",
+      "-fhlstoplevel=kernel",
+      "-c",
+      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp"
+    ],
+    "file": "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp"
+  },
+  {
+    "directory": "/home/light/MajorProject/serious-aie-fft/central-controller-element",
+    "arguments": [
+      "/home/light/FPGA/2026.1/Vitis/lnx64/tools/clang-16/bin/clang++",
+      "--gcc-toolchain=/home/light/FPGA/2026.1/Vitis/tps/lnx64/gcc-8.3.0",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=/home/light/FPGA/2026.1/Vitis/include",
+      "-c",
+      "/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp"
+    ],
+    "file": "/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp"
+  }
+]

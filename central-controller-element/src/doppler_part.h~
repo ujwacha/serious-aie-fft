@@ -1,0 +1,15 @@
+#ifndef DOPPLER_PART_H
+#define DOPPLER_PART_H
+
+#include "main.h"
+
+/* Turn the per-chirp mask packets into the range indices that need a Doppler
+ * pass.  mask_in is the internal stream produced by aie_consume_one(). */
+void seq_generator(hls::stream<MaskPacket> &mask_in,
+                   hls::stream<ap_uint<16>> &idx_out);
+
+/* Run the Doppler stage for each range index arriving on idx_in, reading the
+ * range-FFT frame from mm. */
+void doppler(ap_uint<32> *mm, hls::stream<ap_uint<16>> &idx_in);
+
+#endif /* DOPPLER_PART_H */

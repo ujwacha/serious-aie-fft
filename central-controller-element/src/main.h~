@@ -1,0 +1,38 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+#include <ap_axi_sdata.h>
+#include <hls_stream.h>
+#include "hamming.h"
+
+typedef ap_axiu<32, 0, 0, 0> pkt;
+typedef ap_axiu<64, 0, 0, 0> pkt_adc;
+
+struct MaskPacket {
+    ap_uint<128> mask;
+    ap_uint<16>   seq;
+    ap_uint<16>   chirp;
+};
+
+/* One range/sequence coordinate handed from seq_generator to doppler. */
+struct Addr {
+    ap_uint<16> index;
+    ap_uint<16> seq;
+};
+
+// helper — exposed for testbench unit test
+void build_mask_indices(const ap_uint<32> *mask_words,
+                        unsigned int      *idxs,
+                        unsigned int      &count);
+
+extern "C" {
+void kernel(ap_uint<32>         *mm,
+            hls::stream<pkt_adc> &in_adc0,
+            hls::stream<pkt>     &out00,
+            hls::stream<pkt>     &out01,
+            hls::stream<pkt>     &in_aie00,
+            hls::stream<pkt>     &in_aie01,
+            unsigned int          num_chirps);
+}
+
+#endif

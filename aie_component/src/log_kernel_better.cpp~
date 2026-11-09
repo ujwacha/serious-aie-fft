@@ -1,0 +1,204 @@
+#include <adf.h>
+#include <aie_api/aie.hpp>
+
+#include "log_kernel_better.h"
+#include "adf/x86sim/streamApi.h"
+
+namespace {
+
+using fvec = aie::vector<float, 16>;
+
+// The block means are Gamma(16).  Its continuous mode is at (16-1) = 15
+// units, while the mean is 16 units, so mean = mode * 16/15.  The histogram
+// mode (bin with the largest count) is an estimate of that value.
+constexpr float kModeToMean = 16.0f / 15.0f;
+
+constexpr int kBins   = log_kernel_better::kHistBins;  // 64
+constexpr int kBlocks = log_kernel_better::kBlocks;    // 128
+
+// 2^x for x in [-126, 126]. One call per frame, used only to turn the
+// threshold-in-dB into a linear multiplier.
+__aie_inline float exp2_approx(float x)
+{
+  if (x < -126.0f) x = -126.0f;
+  if (x >  126.0f) x =  126.0f;
+
+  int   e = static_cast<int>(x);          // truncates toward zero
+  float f = x - static_cast<float>(e);
+  if (f < 0.0f) { f += 1.0f; e -= 1; }    // f in [0, 1)
+
+  const float y = f * 0.6931471805599453f;   // f * ln(2)
+
+  // e^y, degree 5 (error < 2e-4 over y in [0, ln 2))
+  float p = 1.0f / 120.0f;
+  p = p * y + 1.0f / 24.0f;
+  p = p * y + 1.0f / 6.0f;
+  p = p * y + 0.5f;
+  p = p * y + 1.0f;
+  p = p * y + 1.0f;
+
+  union { uint32 u; float f; } s;
+  s.u = static_cast<uint32>(e + 127) << 23;
+  return p * s.f;
+}
+
+// Map the 128 block means to histogram bin indices 0..63, one byte each.
+// This replaces the 128 scalar hist[bin]++ operations: the random read-modify-
+// writes are gone, and the bin index is produced 16 lanes at a time.
+__aie_inline void build_bidx(const float *bmean, float span, int8 *bidx)
+{
+  if (!(span > 0.0f)) span = 1.0f;
+
+  const float inv = static_cast<float>(kBins) / span;
+
+  for (int i = 0; i < kBlocks; i += 16) {
+    const fvec f = aie::load_v<16>(&bmean[i]);
+    // f * (64/span) -> nearest bin.  A half-bin offset at the boundary is
+    // irrelevant to the median estimate; values above the span are clamped
+    // into the top bin so all 128 blocks are still counted.
+    auto idx = aie::to_fixed<int32>(aie::mul(f, inv));
+    idx = aie::min(aie::max(idx, (int32)0), (int32)(kBins - 1));
+    // int32 -> int16 -> int8; each step is the default "previous type".
+    const auto idx16 = aie::pack(idx);
+    aie::store_v(&bidx[i], aie::pack(idx16));
+  }
+}
+
+// How many of the 128 bin indices are equal to x.  Two 512-bit int8 compares
+// and two mask popcounts; no memory writes and no loop-carried dependency.
+__aie_inline unsigned count_bin(int8 x, const int8 *bidx)
+{
+  const auto v0 = aie::load_v<64>(bidx);
+  const auto v1 = aie::load_v<64>(bidx + 64);
+  return aie::eq(v0, x).count() + aie::eq(v1, x).count();
+}
+
+// Build the bin-index list for this span, then walk bins from 0 until the
+// median bucket is found.  Every count up to that bucket is stored in hcnt;
+// bins past the median stay zero.  The median value is returned for the
+// coarse pass, whose job is only to set the fine span.
+__aie_inline float hist_fill(const float *bmean, float span, int8 *bidx,
+                             uint8 *hcnt)
+{
+  if (!(span > 0.0f)) span = 1.0f;
+
+  build_bidx(bmean, span, bidx);
+
+  // 64 bytes: one 512-bit store.
+  aie::store_v(&hcnt[0], aie::zeros<uint8, kBins>());
+
+  const int target = (kBlocks * 50 + 50) / 100;   // median: 64
+
+  int   cum  = 0;
+  int   bin  = 0;
+  float frac = 0.0f;
+
+  for (bin = 0; bin < kBins; ++bin) {
+    const unsigned c = count_bin(static_cast<int8>(bin), bidx);
+    hcnt[bin] = static_cast<uint8>(c);
+
+    const int prev = cum;
+    cum += static_cast<int>(c);
+    if (cum >= target) {
+      frac = (target - prev) / static_cast<float>(c);
+      break;
+    }
+  }
+  if (bin >= kBins) bin = kBins - 1;
+
+  return (static_cast<float>(bin) + frac) * (span / static_cast<float>(kBins));
+}
+
+} // namespace
+
+log_kernel_better::log_kernel_better(int32 _in_len, float _thr_db)
+  : in_len(_in_len)
+{
+  // 10^(thr_db/10) = 2^(thr_db * log2(10)/10)
+  thr_mult = exp2_approx(_thr_db * 0.3321928094887362f);
+
+  aie::set_rounding(aie::rounding_mode::symmetric_inf);
+  aie::set_saturation(aie::saturation_mode::saturate);
+}
+
+void log_kernel_better::run(input_stream<cint16> &in,
+                            output_stream<uint16> &mask,
+                            output_stream<cint16> &data)
+{
+  const int nb = in_len / kBlock;
+
+  // ---- pass 1: buffer the input, 16-bin mean, total ---------------------
+  float total = 0.0f;
+
+  for (int b = 0; b < nb; ++b) {
+    const auto a0 = readincr_v4(in);
+    const auto a1 = readincr_v4(in);
+    const auto a2 = readincr_v4(in);
+    const auto a3 = readincr_v4(in);
+
+    const auto v = aie::concat(aie::concat(a0, a1), aie::concat(a2, a3));
+    aie::store_v(&xbuf[b * kBlock], v);     // keep the raw samples for the PL
+
+    // |x|^2 as int32 (acc48 internally), then to float.
+    const fvec f = aie::to_float(aie::abs_square(v));
+
+    // Keep the powers so the mask pass is just compares, no recompute.
+    aie::store_v(&pbuf[b * kBlock], f);
+
+    // Divide by 16 every time: one value per block.
+    const float m = aie::reduce_add(f) * (1.0f / 16.0f);
+    bmean[b] = m;
+    total += m;
+  }
+
+  // ---- pass 2: histogram of the block means -----------------------------
+  // Coarse pass over 4*mean gives a rough median; that median sets the fine
+  // span, so dense targets cannot inflate the bins at the noise floor.
+  const float mean  = (nb > 0) ? (total / static_cast<float>(nb)) : 0.0f;
+  const float span0 = 4.0f * mean;
+  const float m0    = hist_fill(bmean, span0, bidx, hcnt);
+
+  const float span = 4.0f * m0;
+  hist_fill(bmean, span, bidx, hcnt);        // hcnt = half-filled histogram
+
+  // Mode of the half-filled histogram: max count, then the mask of bins that
+  // equal it.  Ties are resolved to the centre of the tied plateau.
+  const auto hv = aie::load_v<64>(hcnt);
+  const uint8 mx = aie::reduce_max(hv);
+  const auto mm = aie::eq(hv, mx);
+  const unsigned lo = __builtin_ctzll(mm.to_uint64());
+  const unsigned hi = 63u - static_cast<unsigned>(mm.clz());
+  const float mode_bin = 0.5f * static_cast<float>(lo + hi);
+  const float mode = (mode_bin + 0.5f) * (span * (1.0f / 64.0f));
+
+  const float nf = mode * kModeToMean;       // mode -> per-bin noise mean
+
+  // ---- pass 3: mask + surviving blocks, one pass -------------------------
+  const float thr = nf * thr_mult;           // linear threshold
+
+  for (int b = 0; b < nb; ++b) {
+    const fvec f = aie::load_v<16>(&pbuf[b * kBlock]);
+
+    // aie::gt gives one bit per bin.  If any bin is above threshold, the
+    // whole block is kept: all 16 bits of this word become 1.
+    const bool keep = aie::gt(f, thr).count() != 0;
+
+    // Mask word first, then the block it describes.  The PL can consume
+    // mask word b and data block b in lockstep.
+    writeincr(mask, keep ? static_cast<uint16>(0xFFFFu)
+                         : static_cast<uint16>(0u));
+
+    if (keep) {
+      // 16 cint16 = 64 B, four native v4 stream writes.
+      const auto d0 = aie::load_v<4>(&xbuf[b * kBlock +  0]);
+      const auto d1 = aie::load_v<4>(&xbuf[b * kBlock +  4]);
+      const auto d2 = aie::load_v<4>(&xbuf[b * kBlock +  8]);
+      const auto d3 = aie::load_v<4>(&xbuf[b * kBlock + 12]);
+
+      writeincr(data, d0);
+      writeincr(data, d1);
+      writeincr(data, d2);
+      writeincr(data, d3);
+    }
+  }
+}

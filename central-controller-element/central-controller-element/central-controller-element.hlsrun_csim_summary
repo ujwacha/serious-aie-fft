@@ -1,0 +1,164 @@
+<ENTRY>
+{
+ "thisFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/central-controller-element.hlsrun_csim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sat Nov  7 19:09:37 2026",
+ "timestampMillis": "1794057877522",
+ "buildStep": {
+  "cmdId": "b8dd067f-75f6-44b9-ab60-9e2418784682",
+  "name": "vitis-run",
+  "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/logs/central-controller-element.steps.log",
+  "commandLine": "/home/light/FPGA/2026.1/Vitis/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg --work_dir central-controller-element ",
+  "args": [
+   "--mode",
+   "hls",
+   "--csim",
+   "--config",
+   "/home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg",
+   "--work_dir",
+   "central-controller-element"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/light/MajorProject/serious-aie-fft/central-controller-element"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  7 19:09:37 2026",
+ "timestampMillis": "1794057877522",
+ "status": {
+  "cmdId": "b8dd067f-75f6-44b9-ab60-9e2418784682",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sat Nov  7 19:09:42 2026",
+ "timestampMillis": "1794057882934",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_C_SIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "kernel",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2026.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat Nov  7 19:09:42 2026",
+ "timestampMillis": "1794057882936",
+ "buildStep": {
+  "cmdId": "d92f164a-6f84-4e56-a439-98b4a7b58fb2",
+  "name": "",
+  "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/light/MajorProject/serious-aie-fft/central-controller-element"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  7 19:09:42 2026",
+ "timestampMillis": "1794057882936",
+ "status": {
+  "cmdId": "d92f164a-6f84-4e56-a439-98b4a7b58fb2",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  7 19:11:36 2026",
+ "timestampMillis": "1794057996608",
+ "status": {
+  "cmdId": "d92f164a-6f84-4e56-a439-98b4a7b58fb2",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  7 19:11:36 2026",
+ "timestampMillis": "1794057996773",
+ "status": {
+  "cmdId": "b8dd067f-75f6-44b9-ab60-9e2418784682",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  7 19:11:36 2026",
+ "timestampMillis": "1794057996773",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  7 19:11:36 2026",
+ "timestampMillis": "1794057996773",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

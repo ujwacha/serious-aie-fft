@@ -1,0 +1,10 @@
+part=xa7z020clg484-1Q
+
+[hls]
+package.output.format=ip_catalog
+package.output.syn=false
+syn.interface.default_axi=1
+syn.file=./src/main.h
+syn.file=./src/main.cpp
+syn.top=add_vec
+tb.file=./tb/test.cpp

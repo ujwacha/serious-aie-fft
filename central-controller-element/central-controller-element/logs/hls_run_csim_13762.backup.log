@@ -1,0 +1,61 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(11)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from hls_config.cfg(13)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+make: 'csim.exe' is up to date.
+TB: windowed 256 chirps (524288 samples) -> tb/work/windowed{0,1}.txt
+TB: running AIE (bash /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/run_aie.sh 256)
+run_aie: 32/256 chirps
+run_aie: 64/256 chirps
+run_aie: 96/256 chirps
+run_aie: 128/256 chirps
+run_aie: 160/256 chirps
+run_aie: 192/256 chirps
+run_aie: 224/256 chirps
+run_aie: 256/256 chirps
+run_aie: 256 chirps done -> tb/work/aie{0,1}.txt
+TB: AIE returned 35280 / 33168 words
+TB: captured 524288 DRAM words + 256 mask packets
+TB: python3 /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/golden.py --check --chirps 256
+
+== chain check ==
+  scene           : sparse
+  chirps          : 256
+  noise floor     : 139.725..244.516  threshold: 965.103..1688.912
+  model keeps     : 2228/32768 blocks (per chirp 4..23)
+  windowed0: 262144 samples match exactly
+  windowed1: 262144 samples match exactly
+  AIE stream sizes: ok (35280/33168 words, 256 chirps)
+  AIE mask        : MISMATCH in 10 block(s), first chirp 7 block 74 (power 1297.0 vs threshold 1375.2)
+  AIE mask stream1: all zero
+  AIE payload     : max 0.706 / rms 0.408 cint16 units
+  DRAM            : 524288 words match the AIE payload exactly (2228 blocks x 16 over 256 chirps)
+  mask packets    : 256 packets, seq=0, chirp=c, 128 bits match
+
+  RESULT: FAIL
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 262144
+@E Simulation failed: Function 'main' returns nonzero value '1'.
+ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: CSIM Failed
+INFO: [HLS 200-112] Total CPU user time: 83.34 seconds. Total CPU system time: 28.13 seconds. Total elapsed time: 105.85 seconds; peak allocated memory: 376.348 MB.

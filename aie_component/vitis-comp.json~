@@ -1,0 +1,17 @@
+{
+  "name": "aie_component",
+  "type": "AI_ENGINE",
+  "part": "xa7z010clg225-1I",
+  "configuration": {
+    "componentType": "AI_ENGINE",
+    "aieGraphFiles": [],
+    "aieCompilerOptions": "",
+    "aieCompilerConfigurations": [],
+    "configFiles": [
+      "aiecompiler.cfg"
+    ]
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_aie_component",
+  "templateFlow": "VITIS"
+}

@@ -1,0 +1,133 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(11)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from hls_config.cfg(13)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../src/main.cpp in debug mode
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:2:8: error: unknown type name 'cint16'; did you mean 'xint16'?
+static cint16 bits_to_cint16(ap_uint<32> bits) {
+       ^~~~~~
+       xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:3:3: error: unknown type name 'cint16'; did you mean 'xint16'?
+  cint16 c;
+  ^~~~~~
+  xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:4:4: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  c.real = (short)bits.range(15, 0);  // low 16 = I
+  ~^~~~~
+../../../../src/complex-math.h:5:4: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  c.imag = (short)bits.range(31, 16); // high 16 = Q
+  ~^~~~~
+../../../../src/complex-math.h:9:35: error: unknown type name 'cint16'; did you mean 'xint16'?
+static ap_uint<32> cint16_to_bits(cint16 c) {
+                                  ^~~~~~
+                                  xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:11:49: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  bits.range(15, 0) = (ap_uint<16>)(ap_int<16>)c.real;
+                                               ~^~~~~
+../../../../src/complex-math.h:12:50: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  bits.range(31, 16) = (ap_uint<16>)(ap_int<16>)c.imag;
+                                                ~^~~~~
+../../../../src/complex-math.h:16:8: error: unknown type name 'cint16'; did you mean 'xint16'?
+static cint16 cmul(cint16 a, cint16 b) {
+       ^~~~~~
+       xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:16:20: error: unknown type name 'cint16'; did you mean 'xint16'?
+static cint16 cmul(cint16 a, cint16 b) {
+                   ^~~~~~
+                   xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:16:30: error: unknown type name 'cint16'; did you mean 'xint16'?
+static cint16 cmul(cint16 a, cint16 b) {
+                             ^~~~~~
+                             xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:17:3: error: unknown type name 'cint16'; did you mean 'xint16'?
+  cint16 r;
+  ^~~~~~
+  xint16
+/home/light/FPGA/2026.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:120:18: note: 'xint16' declared here
+typedef int16_t  xint16;
+                 ^
+In file included from ../../../../src/main.cpp:5:
+In file included from ../../../../src/range_part.h:1:
+../../../../src/complex-math.h:18:4: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.real = (a.real * b.real - a.imag * b.imag) >> 15;
+  ~^~~~~
+../../../../src/complex-math.h:18:14: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.real = (a.real * b.real - a.imag * b.imag) >> 15;
+            ~^~~~~
+../../../../src/complex-math.h:18:23: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.real = (a.real * b.real - a.imag * b.imag) >> 15;
+                     ~^~~~~
+../../../../src/complex-math.h:18:32: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.real = (a.real * b.real - a.imag * b.imag) >> 15;
+                              ~^~~~~
+../../../../src/complex-math.h:18:41: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.real = (a.real * b.real - a.imag * b.imag) >> 15;
+                                       ~^~~~~
+../../../../src/complex-math.h:19:4: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.imag = (a.real * b.imag + a.imag * b.real) >> 15;
+  ~^~~~~
+../../../../src/complex-math.h:19:14: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.imag = (a.real * b.imag + a.imag * b.real) >> 15;
+            ~^~~~~
+../../../../src/complex-math.h:19:23: error: member reference base type 'xint16' (aka 'short') is not a structure or union
+  r.imag = (a.real * b.imag + a.imag * b.real) >> 15;
+                     ~^~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [csim.mk:97: obj/main.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: CSIM Failed
+INFO: [HLS 200-112] Total CPU user time: 3.96 seconds. Total CPU system time: 0.59 seconds. Total elapsed time: 4.45 seconds; peak allocated memory: 384.156 MB.

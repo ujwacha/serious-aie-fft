@@ -1,0 +1,13 @@
+# Vitis HLS writes compile_commands.json with flags a normal language server
+# does not understand (-fhls, -hls-syn-headers-dir=..., -fhlstoplevel=...).
+# Strip them and add the HLS header directories so ap_uint / ap_int / cint16 /
+# hls::stream resolve in clangd even if Vitis regenerates the file.
+CompileFlags:
+  Remove:
+    - -fhls
+    - -fhlstoplevel
+    - -hls-syn-headers-dir
+    - -hls-sim-headers-dir
+  Add:
+    - -I/home/light/FPGA/2026.1/Vitis/include
+    - -I/home/light/FPGA/2026.1/Vitis/common/technology/autopilot

@@ -1,0 +1,626 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.h' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.cpp' from hls_config.cfg(11)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.h' from hls_config.cfg(12)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.cpp' from hls_config.cfg(13)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.h' from hls_config.cfg(14)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.cpp' from hls_config.cfg(15)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(16)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(17)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from hls_config.cfg(19)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 9.96 seconds. CPU system time: 0.92 seconds. Elapsed time: 10.84 seconds; current allocated memory: 376.508 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'src/complex-math.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'src/doppler_part.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'src/range_part.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'src/main.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 45.18 seconds. CPU system time: 3.29 seconds. Elapsed time: 48.74 seconds; current allocated memory: 383.719 MB.
+INFO: [HLS 200-1995] There were 8,039 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:34:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:35:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:36:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:37:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:38:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:39:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:40:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:41:1)
+WARNING: [HLS 214-191] The stream pragma on function argument, in 'call' is unsupported (src/main.cpp:42:1)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_248_5' is marked as complete unroll implied by the pipeline pragma (src/doppler_part.cpp:248:23)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_257_6' is marked as complete unroll implied by the pipeline pragma (src/doppler_part.cpp:257:25)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_91_5' is marked as complete unroll implied by the pipeline pragma (src/range_part.cpp:91:26)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_85_4' is marked as complete unroll implied by the pipeline pragma (src/range_part.cpp:85:26)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_101_6' is marked as complete unroll implied by the pipeline pragma (src/range_part.cpp:101:25)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_248_5' (src/doppler_part.cpp:248:23) in function 'aie_consume_doppler' completely with a factor of 16 (src/doppler_part.cpp:176:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_257_6' (src/doppler_part.cpp:257:25) in function 'aie_consume_doppler' completely with a factor of 16 (src/doppler_part.cpp:176:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_257_6' (src/doppler_part.cpp:257:25) in function 'aie_consume_doppler' has been removed because the loop is unrolled completely (src/doppler_part.cpp:258:1)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_91_5' (src/range_part.cpp:91:26) in function 'aie_range_consume' completely with a factor of 16 (src/range_part.cpp:60:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_91_5' (src/range_part.cpp:91:26) in function 'aie_range_consume' has been removed because the loop is unrolled completely (src/range_part.cpp:92:1)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_85_4' (src/range_part.cpp:85:26) in function 'aie_range_consume' completely with a factor of 16 (src/range_part.cpp:60:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_85_4' (src/range_part.cpp:85:26) in function 'aie_range_consume' has been removed because the loop is unrolled completely (src/range_part.cpp:86:1)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_101_6' (src/range_part.cpp:101:25) in function 'aie_range_consume' completely with a factor of 16 (src/range_part.cpp:60:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_101_6' (src/range_part.cpp:101:25) in function 'aie_range_consume' has been removed because the loop is unrolled completely (src/range_part.cpp:102:1)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_109_7' (src/range_part.cpp:109:23) in function 'aie_range_consume' completely with a factor of 64 (src/range_part.cpp:60:0)
+INFO: [HLS 200-1995] There were 3,568 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,045 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-178] Inlining function 'bits_to_cint16(ap_uint<32>)' into 'adc_forward(hls::stream<hls::axis<ap_uint<64>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, unsigned int)' (src/range_part.cpp:26:0)
+INFO: [HLS 214-178] Inlining function 'cmul(cint16, cint16)' into 'adc_forward(hls::stream<hls::axis<ap_uint<64>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, unsigned int)' (src/range_part.cpp:26:0)
+INFO: [HLS 214-178] Inlining function 'cint16_to_bits(cint16)' into 'adc_forward(hls::stream<hls::axis<ap_uint<64>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, unsigned int)' (src/range_part.cpp:26:0)
+INFO: [HLS 214-178] Inlining function 'build_mask_indices(ap_uint<32> const*, unsigned int*, unsigned int&)' into 'aie_range_consume(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<MaskPacket, 0>&, ap_uint<32>*, unsigned int, unsigned int)' (src/range_part.cpp:60:0)
+INFO: [HLS 214-178] Inlining function 'range_bin_ptr(ap_uint<32>*, ap_uint<16>, ap_uint<16>, ap_uint<16>)' into 'aie_range_consume(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<MaskPacket, 0>&, ap_uint<32>*, unsigned int, unsigned int)' (src/range_part.cpp:60:0)
+INFO: [HLS 214-178] Inlining function 'bits_to_cint16(ap_uint<32>)' into 'doppler_forward_one(ap_uint<32>*, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&)' (src/doppler_part.cpp:124:0)
+INFO: [HLS 214-178] Inlining function 'cmul(cint16, cint16)' into 'doppler_forward_one(ap_uint<32>*, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&)' (src/doppler_part.cpp:124:0)
+INFO: [HLS 214-178] Inlining function 'cint16_to_bits(cint16)' into 'doppler_forward_one(ap_uint<32>*, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&)' (src/doppler_part.cpp:124:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2026.1/hls_product/continuous/738/2026.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::mantissa() const' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2026.1/hls_product/continuous/738/2026.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::expv() const' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2026.1/hls_product/continuous/738/2026.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::__signbit() const' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2026.1/hls_product/continuous/738/2026.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' into 'int generic_cast_IEEE754<int, float>(float, bool)' (/wrk/ci/prod/2026.1/hls_product/continuous/738/2026.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:116:0)
+INFO: [HLS 214-178] Inlining function 'int generic_cast_IEEE754<int, float>(float, bool)' into '__hls_fptosi_float_i32' (/wrk/ci/prod/2026.1/hls_product/continuous/738/2026.1/src/shared/hls/clib/hlsmath/src/lib_floatconversion.cpp:51:0)
+INFO: [HLS 214-178] Inlining function '__hls_fptosi_float_i32' into 'histogram_index(float, float)' (src/doppler_part.cpp:152:0)
+INFO: [HLS 214-178] Inlining function 'bits_to_cint16(ap_uint<32>)' into 'aie_consume_doppler(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<DopplerMaskPacket, 0>&, ap_uint<32>*, ap_uint<16>, ap_uint<16>)' (src/doppler_part.cpp:176:0)
+INFO: [HLS 214-178] Inlining function 'hls::sqrt(float)' into 'aie_consume_doppler(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<DopplerMaskPacket, 0>&, ap_uint<32>*, ap_uint<16>, ap_uint<16>)' (src/doppler_part.cpp:176:0)
+INFO: [HLS 214-178] Inlining function 'histogram_index(float, float)' into 'aie_consume_doppler(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<DopplerMaskPacket, 0>&, ap_uint<32>*, ap_uint<16>, ap_uint<16>)' (src/doppler_part.cpp:176:0)
+INFO: [HLS 214-178] Inlining function 'doppler_bin_ptr(ap_uint<32>*, ap_uint<16>, ap_uint<16>, ap_uint<16>)' into 'aie_consume_doppler(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<DopplerMaskPacket, 0>&, ap_uint<32>*, ap_uint<16>, ap_uint<16>)' (src/doppler_part.cpp:176:0)
+INFO: [HLS 214-178] Inlining function 'cint16_to_bits(cint16)' into 'aie_consume_doppler(hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<DopplerMaskPacket, 0>&, ap_uint<32>*, ap_uint<16>, ap_uint<16>)' (src/doppler_part.cpp:176:0)
+INFO: [HLS 214-178] Inlining function 'range_bin_ptr(ap_uint<32>*, ap_uint<16>, ap_uint<16>, ap_uint<16>)' into 'doppler(ap_uint<32>*, hls::stream<Addr, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<DopplerMaskPacket, 0>&)' (src/doppler_part.cpp:84:0)
+INFO: [HLS 200-1995] There were 2,654 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,131 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,130 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,130 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,169 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,732 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'mm'. (src/doppler_part.cpp:84:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'mask_stream' with compact=bit mode in 160-bits (src/main.cpp:46:27)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'idx_stream' with compact=bit mode in 32-bits (src/main.cpp:47:21)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'doppler_mask_stream' with compact=bit mode in 2816-bits (src/main.cpp:48:34)
+INFO: [HLS 214-241] Aggregating maxi variable 'mm' with compact=none mode in 32-bits
+INFO: [HLS 200-1995] There were 3,304 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,227 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-376] Pipelining loop< unknown> at  due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_221_3> at src/doppler_part.cpp:221:21 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_49_2> at src/doppler_part.cpp:49:26 due to pipeline_loops threshold
+INFO: [HLS 214-376] Pipelining loop< VITIS_LOOP_10_1> at src/range_part.cpp:10:20 due to pipeline_loops threshold
+INFO: [HLS 214-437] Disabling loop flattening for loop 'VITIS_LOOP_28_1'. (src/doppler_part.cpp:28:20)
+INFO: [HLS 214-437] Disabling loop flattening for loop 'VITIS_LOOP_269_7'. (src/doppler_part.cpp:269:21)
+INFO: [HLS 200-1995] There were 3,089 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-449] Partitioning array 'buf' dimension 1 due to constant index. (src/range_part.cpp:82:19)
+INFO: [HLS 214-248] Applying array_partition to 'buf': Complete partitioning on dimension 1. (src/range_part.cpp:82:19)
+INFO: [HLS 200-1995] There were 2,957 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,861 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-115] Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/range_part.cpp:105:5)
+INFO: [HLS 214-115] Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/doppler_part.cpp:261:5)
+INFO: [HLS 214-115] Multiple burst reads of length 16 and bit width 32 in loop 'VITIS_LOOP_101_3'(src/doppler_part.cpp:101:25) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/doppler_part.cpp:101:25)
+INFO: [HLS 200-1995] There were 2,589 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 214-475] Merging processes 'doppler', 'seq_generator' and 'aie_range_consume' in function 'kernel' due to writes on 'gmem' (src/main.cpp:16:0)
+INFO: [HLS 200-1995] There were 2,388 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 13.75 seconds. CPU system time: 0.8 seconds. Elapsed time: 15.19 seconds; current allocated memory: 387.727 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 387.727 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.21 seconds; current allocated memory: 391.555 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] src/doppler_part.cpp:42: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.31 seconds. CPU system time: 0 seconds. Elapsed time: 0.33 seconds; current allocated memory: 395.840 MB.
+WARNING: [XFORM 203-731] Internal stream variable 'mask_stream' is invalid: it has no data consumer.
+INFO: [XFORM 203-712] Applying dataflow to function 'kernel' (src/main.cpp:11:1), detected/extracted 2 process function(s): 
+	 'adc_forward'
+	 'Block_entry_gmem_wr_proc'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/doppler_part.cpp:32:22) to (src/doppler_part.cpp:41:11) in function 'seq_generator'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/doppler_part.cpp:283:1) to (src/doppler_part.cpp:282:23) in function 'aie_consume_doppler'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'aie_consume_doppler' (src/doppler_part.cpp:5:23)...15 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1.11 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.16 seconds; current allocated memory: 421.301 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_97_2'(src/doppler_part.cpp:97:22) and 'VITIS_LOOP_101_3'(src/doppler_part.cpp:101:25) in function 'doppler' into perfectly nested loops.
+INFO: [HLS 200-2259] Flattening a loop nest with inner loop 'VITIS_LOOP_101_3' (src/doppler_part.cpp:101:25) and outer loop 'VITIS_LOOP_97_2' (src/doppler_part.cpp:97:22) in function 'doppler' successfully.
+INFO: [HLS 200-2259] Flattening a loop nest with inner loop 'VITIS_LOOP_28_2' (src/range_part.cpp:28:22) and outer loop 'VITIS_LOOP_27_1' (src/range_part.cpp:27:20) in function 'adc_forward' successfully.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.79 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.87 seconds; current allocated memory: 591.414 MB.
+INFO: [HLS 200-2255] Checking Wire Delay Status: Wire Delay Mode is ON
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'kernel' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'adc_forward' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_27_1_VITIS_LOOP_28_2'.
+WARNING: [HLS 200-887] Cannot meet target clock period from basic block for.inc to 'add' operation 42 bit ('add_ln27', src/range_part.cpp:27) (combination delay: 4.5214 ns) to honor II or Latency constraint in region 'VITIS_LOOP_27_1_VITIS_LOOP_28_2'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+WARNING: [HLS 200-887] Cannot meet target clock period from basic block for.inc to 'store' operation ('indvar_flatten_write_ln27', src/range_part.cpp:27) of variable 'add_ln27', src/range_part.cpp:27 42 bit on local variable 'indvar_flatten' (combination delay: 6.1094 ns) to honor II or Latency constraint in region 'VITIS_LOOP_27_1_VITIS_LOOP_28_2'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 6, loop 'VITIS_LOOP_27_1_VITIS_LOOP_28_2'
+WARNING: [HLS 200-871] Estimated clock period (6.109 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'adc_forward' consists of the following:
+	'store' operation ('indvar_flatten_write_ln0') of constant 0 42 bit on local variable 'indvar_flatten' [25]  (1.588 ns)
+	'load' operation 42 bit ('indvar_flatten_load', src/range_part.cpp:27) on local variable 'indvar_flatten' [29]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln27', src/range_part.cpp:27) [30]  (2.933 ns)
+	'store' operation ('indvar_flatten_write_ln27', src/range_part.cpp:27) of variable 'add_ln27', src/range_part.cpp:27 42 bit on local variable 'indvar_flatten' [75]  (1.588 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.15 seconds; current allocated memory: 593.129 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 593.129 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_range_consume_Pipeline_VITIS_LOOP_69_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_69_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_69_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 593.500 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 593.500 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_10_1'.
+WARNING: [HLS 200-880] The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'br' operation ('br_ln18', src/range_part.cpp:18->src/range_part.cpp:76) and 'add' operation 32 bit ('n', src/range_part.cpp:15->src/range_part.cpp:76).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'br' operation ('br_ln18', src/range_part.cpp:18->src/range_part.cpp:76) and 'add' operation 32 bit ('n', src/range_part.cpp:15->src/range_part.cpp:76).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'br' operation ('br_ln18', src/range_part.cpp:18->src/range_part.cpp:76) and 'add' operation 32 bit ('n', src/range_part.cpp:15->src/range_part.cpp:76).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 7, loop 'VITIS_LOOP_10_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 594.199 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 594.199 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_range_consume_Pipeline_VITIS_LOOP_78_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_78_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 16, Depth = 27, loop 'VITIS_LOOP_78_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 597.230 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 597.230 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_range_consume' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 599.348 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 599.348 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'seq_generator_Pipeline_VITIS_LOOP_49_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_49_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_49_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 599.348 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 599.348 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'seq_generator' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 599.348 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 599.348 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_97_2_VITIS_LOOP_101_3'.
+WARNING: [HLS 200-887] Cannot meet target clock period from basic block for.inc.i to 'store' operation ('indvar_flatten_write_ln97', src/doppler_part.cpp:97->src/main.cpp:56) of variable 'add_ln97_1', src/doppler_part.cpp:97->src/main.cpp:56 13 bit on local variable 'indvar_flatten' (combination delay: 4.8555 ns) to honor II or Latency constraint in region 'VITIS_LOOP_97_2_VITIS_LOOP_101_3'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+WARNING: [HLS 200-887] Cannot meet target clock period from 'icmp' operation 1 bit ('icmp_ln101', src/doppler_part.cpp:101->src/main.cpp:56) to 'store' operation ('j_write_ln101', src/doppler_part.cpp:101->src/main.cpp:56) of variable 'add_ln101', src/doppler_part.cpp:101->src/main.cpp:56 5 bit on local variable 'j', src/doppler_part.cpp:101->src/main.cpp:56 (combination delay: 6.363 ns) to honor II or Latency constraint in region 'VITIS_LOOP_97_2_VITIS_LOOP_101_3'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 13, loop 'VITIS_LOOP_97_2_VITIS_LOOP_101_3'
+WARNING: [HLS 200-871] Estimated clock period (6.363 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3' consists of the following:
+	'load' operation 5 bit ('j_load', src/doppler_part.cpp:101->src/main.cpp:56) on local variable 'j', src/doppler_part.cpp:101->src/main.cpp:56 [22]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln101', src/doppler_part.cpp:101->src/main.cpp:56) [26]  (1.780 ns)
+	'select' operation 5 bit ('select_ln97', src/doppler_part.cpp:97->src/main.cpp:56) [27]  (1.215 ns)
+	'add' operation 5 bit ('add_ln101', src/doppler_part.cpp:101->src/main.cpp:56) [55]  (1.780 ns)
+	'store' operation ('j_write_ln101', src/doppler_part.cpp:101->src/main.cpp:56) of variable 'add_ln101', src/doppler_part.cpp:101->src/main.cpp:56 5 bit on local variable 'j', src/doppler_part.cpp:101->src/main.cpp:56 [58]  (1.588 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 599.504 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 599.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'doppler_forward_one' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_125_1'.
+WARNING: [HLS 200-887] Cannot meet target clock period from basic block for.inc to 'store' operation ('i_write_ln125', src/doppler_part.cpp:125) of variable 'add_ln125', src/doppler_part.cpp:125 9 bit on local variable 'i', src/doppler_part.cpp:125 (combination delay: 4.999 ns) to honor II or Latency constraint in region 'VITIS_LOOP_125_1'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_125_1'
+WARNING: [HLS 200-871] Estimated clock period (4.999 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'doppler_forward_one' consists of the following:
+	'store' operation ('i_write_ln125', src/doppler_part.cpp:125) of constant 0 9 bit on local variable 'i', src/doppler_part.cpp:125 [19]  (1.588 ns)
+	'load' operation 9 bit ('i', src/doppler_part.cpp:125) on local variable 'i', src/doppler_part.cpp:125 [22]  (0.000 ns)
+	'add' operation 9 bit ('add_ln125', src/doppler_part.cpp:125) [68]  (1.823 ns)
+	'store' operation ('i_write_ln125', src/doppler_part.cpp:125) of variable 'add_ln125', src/doppler_part.cpp:125 9 bit on local variable 'i', src/doppler_part.cpp:125 [69]  (1.588 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 599.957 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 599.957 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler_Pipeline_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'Loop 1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 600.242 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 600.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-1015] Estimated delay Estimated delay (6.312ns)  of 'sitofp' operation 32 bit ('conv', src/doppler_part.cpp:199) exceeds the target cycle time (target cycle time: 5.000ns, clock uncertainty: 1.350ns, effective cycle time: 3.650ns).
+
+Resolution: For help on HLS 200-1015 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1015.html
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_184_1'.
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 7, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 9, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' (loop 'VITIS_LOOP_184_1'): Unable to enforce a carried dependence constraint (II = 10, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', src/doppler_part.cpp:182) of variable 'mean', src/doppler_part.cpp:203 32 bit on local variable 'mean', src/doppler_part.cpp:182 and 'fadd' operation 32 bit ('mean', src/doppler_part.cpp:203).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 11, Depth = 79, loop 'VITIS_LOOP_184_1'
+WARNING: [HLS 200-871] Estimated clock period (6.312 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' consists of the following:
+	'sitofp' operation 32 bit ('conv', src/doppler_part.cpp:199) [52]  (6.312 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 600.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 600.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler_Pipeline_VITIS_LOOP_210_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_210_2'.
+WARNING: [HLS 200-880] The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_210_2' (loop 'VITIS_LOOP_210_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('reuse_reg_write_ln213', src/doppler_part.cpp:213) of variable 'add_ln213', src/doppler_part.cpp:213 32 bit on local variable 'reuse_reg' and 'add' operation 32 bit ('add_ln213', src/doppler_part.cpp:213).
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 53, loop 'VITIS_LOOP_210_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 602.137 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 602.137 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler_Pipeline_VITIS_LOOP_221_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_221_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 6, loop 'VITIS_LOOP_221_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 602.637 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 602.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler_Pipeline_VITIS_LOOP_244_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_244_4'.
+WARNING: [HLS 200-448] Lower bound of II is 16 due to multiple operations accessing 'gmem' m_axi write: operation list {bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261), bus write operation ('gmem_addr_write_ln261', src/doppler_part.cpp:261) on port 'gmem' (src/doppler_part.cpp:261)}
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 16, Depth = 45, loop 'VITIS_LOOP_244_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 606.941 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 606.941 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler_Pipeline_VITIS_LOOP_282_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_282_8'.
+WARNING: [HLS 200-887] Cannot meet target clock period from basic block for.body141 to 'store' operation ('i_write_ln282', src/doppler_part.cpp:282) of variable 'add_ln282', src/doppler_part.cpp:282 7 bit on local variable 'i', src/doppler_part.cpp:282 (combination delay: 5.046 ns) to honor II or Latency constraint in region 'VITIS_LOOP_282_8'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'VITIS_LOOP_282_8'
+WARNING: [HLS 200-871] Estimated clock period (5.046 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_282_8' consists of the following:
+	'store' operation ('i_write_ln282', src/doppler_part.cpp:282) of constant 0 7 bit on local variable 'i', src/doppler_part.cpp:282 [6]  (1.588 ns)
+	'load' operation 7 bit ('i', src/doppler_part.cpp:282) on local variable 'i', src/doppler_part.cpp:282 [9]  (0.000 ns)
+	'add' operation 7 bit ('add_ln282', src/doppler_part.cpp:282) [11]  (1.870 ns)
+	'store' operation ('i_write_ln282', src/doppler_part.cpp:282) of variable 'add_ln282', src/doppler_part.cpp:282 7 bit on local variable 'i', src/doppler_part.cpp:282 [27]  (1.588 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 606.941 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 606.941 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aie_consume_doppler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-1015] Estimated delay Estimated delay (6.312ns)  of 'sitofp' operation 32 bit ('conv4', src/doppler_part.cpp:235) exceeds the target cycle time (target cycle time: 5.000ns, clock uncertainty: 1.350ns, effective cycle time: 3.650ns).
+
+Resolution: For help on HLS 200-1015 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1015.html
+WARNING: [HLS 200-871] Estimated clock period (6.312 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'aie_consume_doppler' consists of the following:
+	'sitofp' operation 32 bit ('conv4', src/doppler_part.cpp:235) [55]  (6.312 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 609.988 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 609.988 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'doppler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-871] Estimated clock period (4.639 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'doppler' consists of the following:
+	'call' operation ('_ln113', src/doppler_part.cpp:113->src/main.cpp:56) to 'doppler_forward_one' [58]  (4.639 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 609.988 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 609.988 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Block_entry_gmem_wr_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 610.090 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 610.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'kernel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-871] Estimated clock period (4.521 ns) exceeds the target (target clock period: 5.000 ns, clock uncertainty: 1.350 ns, effective delay budget: 3.650 ns).
+Resolution: For help on HLS 200-871 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'kernel' consists of the following:
+	'call' operation ('_ln53', src/main.cpp:53) to 'adc_forward' [101]  (4.521 ns)
+
+Resolution: For help on HLS 200-1016 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 610.090 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 610.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'adc_forward' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'adc_forward' pipeline 'VITIS_LOOP_27_1_VITIS_LOOP_28_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_15ns_31_2_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'adc_forward'.
+INFO: [HLS 200-2168] Implementing memory 'kernel_adc_forward_hamming_window_2048_real_ROM_AUTO_1R' using auto ROMs with 2 copies to ensure enough ports to satisfy II or latency constraints.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 611.320 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_range_consume_Pipeline_VITIS_LOOP_69_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_range_consume_Pipeline_VITIS_LOOP_69_2' pipeline 'VITIS_LOOP_69_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_range_consume_Pipeline_VITIS_LOOP_69_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 612.434 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' pipeline 'VITIS_LOOP_10_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_range_consume_Pipeline_VITIS_LOOP_10_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 613.375 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_range_consume_Pipeline_VITIS_LOOP_78_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_range_consume_Pipeline_VITIS_LOOP_78_3' pipeline 'VITIS_LOOP_78_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_range_consume_Pipeline_VITIS_LOOP_78_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 617.109 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_range_consume' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_range_consume'.
+INFO: [RTMG 210-278] Implementing memory 'kernel_aie_range_consume_mask_head_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'kernel_aie_range_consume_adr_buf_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.22 seconds; current allocated memory: 623.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'seq_generator_Pipeline_VITIS_LOOP_49_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'seq_generator_Pipeline_VITIS_LOOP_49_2' pipeline 'VITIS_LOOP_49_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'bitselect_1ns_128ns_7ns_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'seq_generator_Pipeline_VITIS_LOOP_49_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.21 seconds; current allocated memory: 633.340 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'seq_generator' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'seqs_done' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'bitset_128ns_128ns_7ns_1s_128_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'seq_generator'.
+INFO: [RTMG 210-278] Implementing memory 'kernel_seq_generator_mask_seqs_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 633.340 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3' pipeline 'VITIS_LOOP_97_2_VITIS_LOOP_101_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 633.340 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'doppler_forward_one' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'doppler_forward_one' pipeline 'VITIS_LOOP_125_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_15ns_31_2_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'doppler_forward_one'.
+INFO: [HLS 200-2168] Implementing memory 'kernel_doppler_forward_one_hamming_window_256_real_ROM_AUTO_1R' using auto ROMs with 2 copies to ensure enough ports to satisfy II or latency constraints.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 634.746 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler_Pipeline_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_consume_doppler_Pipeline_1' pipeline 'Loop 1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler_Pipeline_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 636.590 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1' pipeline 'VITIS_LOOP_184_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_10_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_8_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_28_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sitofp_32s_32_7_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler_Pipeline_VITIS_LOOP_184_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 637.281 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler_Pipeline_VITIS_LOOP_210_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_consume_doppler_Pipeline_VITIS_LOOP_210_2' pipeline 'VITIS_LOOP_210_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_30_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_8_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'lshr_79ns_32ns_79_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'shl_79ns_32ns_79_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler_Pipeline_VITIS_LOOP_210_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 640.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler_Pipeline_VITIS_LOOP_221_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler_Pipeline_VITIS_LOOP_221_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 643.141 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler_Pipeline_VITIS_LOOP_244_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_consume_doppler_Pipeline_VITIS_LOOP_244_4' pipeline 'VITIS_LOOP_244_4' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'bitset_16ns_16ns_4ns_1ns_16_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_4_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler_Pipeline_VITIS_LOOP_244_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 647.035 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler_Pipeline_VITIS_LOOP_282_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'aie_consume_doppler_Pipeline_VITIS_LOOP_282_8' pipeline 'VITIS_LOOP_282_8' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler_Pipeline_VITIS_LOOP_282_8'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.23 seconds; current allocated memory: 656.629 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aie_consume_doppler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_10_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_4_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_8_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sitofp_32ns_32_7_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aie_consume_doppler'.
+INFO: [RTMG 210-278] Implementing memory 'kernel_aie_consume_doppler_histogram_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'kernel_aie_consume_doppler_in_data_real_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'kernel_aie_consume_doppler_in_data_mag_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'kernel_aie_consume_doppler_dmask_data_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 658.430 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'doppler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+ERROR: [RTGEN 206-102] Illegal connection is found on FIFO pin 'doppler|mask_stream' connecting to 'call_ln114'('aie_consume_doppler|doppler_mask_stream').
+INFO: [HLS 200-1993] This is most likely due to a stream that is either never read or never written
+INFO: [RTGEN 206-100] Finished creating RTL model for 'doppler'.
+ERROR: [HLS 200-103] RTL generation terminated by exceptions!
+ERROR: Synthesis failed.
+INFO: [HLS 200-112] Total CPU user time: 74.77 seconds. Total CPU system time: 5.32 seconds. Total elapsed time: 81.18 seconds; peak allocated memory: 667.559 MB.

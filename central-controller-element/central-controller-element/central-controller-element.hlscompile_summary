@@ -1,0 +1,255 @@
+<ENTRY>
+{
+ "thisFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/central-controller-element.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Mon Nov  9 15:19:49 2026",
+ "timestampMillis": "1794216889919",
+ "buildStep": {
+  "cmdId": "cc374fae-2f50-4543-9661-d52339bcf454",
+  "name": "v++",
+  "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/logs/central-controller-element.steps.log",
+  "commandLine": "/home/light/FPGA/2026.1/Vitis/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg --work_dir central-controller-element ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "/home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg",
+   "--work_dir",
+   "central-controller-element"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg",
+    "content": "part=xa7z030fbg484-1I\n# part=xa7z020clg484-1Q\n\n[hls]\npackage.output.format=ip_catalog\npackage.output.syn=false\nsyn.interface.default_axi=0\nsyn.file=./src/main.h\nsyn.file=./src/main.cpp\nsyn.file=./src/range_part.h\nsyn.file=./src/range_part.cpp\nsyn.file=./src/doppler_part.h\nsyn.file=./src/doppler_part.cpp\nsyn.file=./src/angle_part.h\nsyn.file=./src/angle_part.cpp\nsyn.file=./src/complex-math.h\nsyn.file=./src/complex-math.cpp\nsyn.file=./src/hamming.h\nsyn.top=kernel\ntb.file=./tb/test.cpp\nclock=5"
+   }
+  ],
+  "cwd": "/home/light/MajorProject/serious-aie-fft/central-controller-element"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Nov  9 15:19:49 2026",
+ "timestampMillis": "1794216889919",
+ "status": {
+  "cmdId": "cc374fae-2f50-4543-9661-d52339bcf454",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Mon Nov  9 15:19:55 2026",
+ "timestampMillis": "1794216895264",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "kernel",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2026.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Mon Nov  9 15:19:55 2026",
+ "timestampMillis": "1794216895265",
+ "buildStep": {
+  "cmdId": "28e26bec-25b8-41f7-a7f0-a7a76774e871",
+  "name": "",
+  "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/light/MajorProject/serious-aie-fft/central-controller-element"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Nov  9 15:19:55 2026",
+ "timestampMillis": "1794216895266",
+ "status": {
+  "cmdId": "28e26bec-25b8-41f7-a7f0-a7a76774e871",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:19:55 2026",
+ "timestampMillis": "1794216895266",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:19:55 2026",
+ "timestampMillis": "1794216895266",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:19:55 2026",
+ "timestampMillis": "1794216895266",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991053",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991054",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991054",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991054",
+ "status": {
+  "cmdId": "28e26bec-25b8-41f7-a7f0-a7a76774e871",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991358",
+ "status": {
+  "cmdId": "cc374fae-2f50-4543-9661-d52339bcf454",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991391",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/reports/v++_compile_central-controller-element_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Nov  9 15:21:31 2026",
+ "timestampMillis": "1794216991391",
+ "report": {
+  "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/reports/.db/v++_compile_central-controller-element_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

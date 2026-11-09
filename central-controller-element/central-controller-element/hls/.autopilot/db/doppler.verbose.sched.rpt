@@ -1,0 +1,201 @@
+
+
+================================================================
+== Vitis HLS Report for 'doppler'
+================================================================
+* Date:           Mon Nov  9 15:21:25 2026
+
+* Version:        2026.1 (Build 6493734 on Jun 16 2026)
+* Project:        central-controller-element
+* Solution:       hls
+* Product family: azynq
+* Target device:  xa7z030-fbg484-1I
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  7.026 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+---------------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) |   Iteration   |  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |    Latency    |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+---------------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_91_1    |        ?|        ?|  77121 ~ 82257|          -|          -|     ?|        no|
+        | + VITIS_LOOP_112_4  |    68912|    74048|    4307 ~ 4628|          -|          -|    16|        no|
+        +---------------------+---------+---------+---------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 7
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 2 
+6 --> 7 
+7 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 0, i1 %in_d_03_V_last_V, i1 0, i1 0, void @empty_10"   --->   Operation 8 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 0, i1 %in_d_02_V_last_V, i1 0, i1 0, void @empty_11"   --->   Operation 9 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 0, i1 %out_d_03_V_last_V, i1 0, i1 0, void @empty_15"   --->   Operation 10 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 0, i1 %out_d_02_V_last_V, i1 0, i1 0, void @empty_37"   --->   Operation 11 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %idx_stream, void @empty_9, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty_35, i32 0, i32 0, void @empty_13, i32 0, i32 201326592, void @empty_16, void @empty_2, void @empty_13, i32 16, i32 16, i32 16, i32 16, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, void @empty_1, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, void @empty_1, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, void @empty_1, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, void @empty_1, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i2816 %doppler_mask_stream, void @empty_9, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%mm_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %mm"   --->   Operation 19 'read' 'mm_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%window = alloca i64 1" [src/doppler_part.cpp:89]   --->   Operation 20 'alloca' 'window' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%br_ln91 = br void %for.cond" [src/doppler_part.cpp:91]   --->   Operation 21 'br' 'br_ln91' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.82>
+ST_2 : Operation 22 [1/1] ( I:1.82ns O:1.82ns )   --->   "%idx_stream_read = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %idx_stream" [src/doppler_part.cpp:92]   --->   Operation 22 'read' 'idx_stream_read' <Predicate = true> <Delay = 1.82> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.52> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%a_index = trunc i32 %idx_stream_read" [src/doppler_part.cpp:92]   --->   Operation 23 'trunc' 'a_index' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.07>
+ST_3 : Operation 24 [1/1] (2.07ns)   --->   "%icmp_ln93 = icmp_eq  i16 %a_index, i16 65535" [src/doppler_part.cpp:93]   --->   Operation 24 'icmp' 'icmp_ln93' <Predicate = true> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln93 = br i1 %icmp_ln93, void %VITIS_LOOP_97_2, void %for.end30.critedge" [src/doppler_part.cpp:93]   --->   Operation 25 'br' 'br_ln93' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%a_seq = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %idx_stream_read, i32 16, i32 31" [src/doppler_part.cpp:92]   --->   Operation 26 'partselect' 'a_seq' <Predicate = (!icmp_ln93)> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%tmp = partselect i13 @_ssdm_op_PartSelect.i13.i32.i32.i32, i32 %idx_stream_read, i32 16, i32 28" [src/doppler_part.cpp:97]   --->   Operation 27 'partselect' 'tmp' <Predicate = (!icmp_ln93)> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_1 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i13.i3.i16, i13 %tmp, i3 0, i16 %a_index" [src/doppler_part.cpp:97]   --->   Operation 28 'bitconcatenate' 'tmp_1' <Predicate = (!icmp_ln93)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%fence_ln97 = fence void @_ssdm_op_Fence, i32 %idx_stream, i32 4294967295, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, i2816 %doppler_mask_stream, i32 0" [src/doppler_part.cpp:97]   --->   Operation 29 'fence' 'fence_ln97' <Predicate = (!icmp_ln93)> <Delay = 0.00>
+ST_3 : Operation 30 [2/2] (0.00ns)   --->   "%call_ln97 = call void @doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3, i32 %window, i32 %tmp_1, i64 %mm_read, i32 %gmem" [src/doppler_part.cpp:97]   --->   Operation 30 'call' 'call_ln97' <Predicate = (!icmp_ln93)> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%ret_ln118 = ret" [src/doppler_part.cpp:118]   --->   Operation 31 'ret' 'ret_ln118' <Predicate = (icmp_ln93)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 1.58>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%specloopname_ln91 = specloopname void @_ssdm_op_SpecLoopName, void @empty_30" [src/doppler_part.cpp:91]   --->   Operation 32 'specloopname' 'specloopname_ln91' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/2] (0.00ns)   --->   "%call_ln97 = call void @doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3, i32 %window, i32 %tmp_1, i64 %mm_read, i32 %gmem" [src/doppler_part.cpp:97]   --->   Operation 33 'call' 'call_ln97' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_4 : Operation 34 [1/1] (1.58ns)   --->   "%br_ln112 = br void %for.inc27" [src/doppler_part.cpp:112]   --->   Operation 34 'br' 'br_ln112' <Predicate = true> <Delay = 1.58>
+
+State 5 <SV = 4> <Delay = 2.07>
+ST_5 : Operation 35 [1/1] (0.00ns)   --->   "%b = phi i5 %b_1, void %for.inc27.split, i5 0, void %VITIS_LOOP_97_2"   --->   Operation 35 'phi' 'b' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 36 [1/1] (1.78ns)   --->   "%icmp_ln112 = icmp_eq  i5 %b, i5 16" [src/doppler_part.cpp:112]   --->   Operation 36 'icmp' 'icmp_ln112' <Predicate = true> <Delay = 1.78> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 37 [1/1] (1.78ns)   --->   "%b_1 = add i5 %b, i5 1" [src/doppler_part.cpp:112]   --->   Operation 37 'add' 'b_1' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%br_ln112 = br i1 %icmp_ln112, void %for.inc27.split, void %cleanup.cont" [src/doppler_part.cpp:112]   --->   Operation 38 'br' 'br_ln112' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 39 [1/1] (0.00ns)   --->   "%trunc_ln112 = trunc i5 %b" [src/doppler_part.cpp:112]   --->   Operation 39 'trunc' 'trunc_ln112' <Predicate = (!icmp_ln112)> <Delay = 0.00>
+ST_5 : Operation 40 [1/1] (0.00ns)   --->   "%zext_ln115 = zext i4 %trunc_ln112" [src/doppler_part.cpp:115]   --->   Operation 40 'zext' 'zext_ln115' <Predicate = (!icmp_ln112)> <Delay = 0.00>
+ST_5 : Operation 41 [1/1] (2.07ns)   --->   "%add_ln115 = add i16 %a_index, i16 %zext_ln115" [src/doppler_part.cpp:115]   --->   Operation 41 'add' 'add_ln115' <Predicate = (!icmp_ln112)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%br_ln91 = br void %for.cond" [src/doppler_part.cpp:91]   --->   Operation 42 'br' 'br_ln91' <Predicate = (icmp_ln112)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 3.26>
+ST_6 : Operation 43 [2/2] (1.54ns)   --->   "%call_ln113 = call void @doppler_forward_one, i32 %window, i4 %trunc_ln112, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i15 %hamming_window_256_real" [src/doppler_part.cpp:113]   --->   Operation 43 'call' 'call_ln113' <Predicate = true> <Delay = 1.54> <CoreType = "Generic">   --->   Generic Core
+ST_6 : Operation 44 [2/2] (3.26ns)   --->   "%call_ln114 = call void @aie_consume_doppler, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, i2816 %doppler_mask_stream, i32 %gmem, i64 %mm_read, i16 %a_seq, i16 %add_ln115" [src/doppler_part.cpp:114]   --->   Operation 44 'call' 'call_ln114' <Predicate = true> <Delay = 3.26> <CoreType = "Generic">   --->   Generic Core
+
+State 7 <SV = 6> <Delay = 4.63>
+ST_7 : Operation 45 [1/1] (0.00ns)   --->   "%speclooptripcount_ln112 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 16, i64 16, i64 16" [src/doppler_part.cpp:112]   --->   Operation 45 'speclooptripcount' 'speclooptripcount_ln112' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 46 [1/1] (0.00ns)   --->   "%specloopname_ln112 = specloopname void @_ssdm_op_SpecLoopName, void @empty_29" [src/doppler_part.cpp:112]   --->   Operation 46 'specloopname' 'specloopname_ln112' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 47 [1/2] (4.63ns)   --->   "%call_ln113 = call void @doppler_forward_one, i32 %window, i4 %trunc_ln112, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i15 %hamming_window_256_real" [src/doppler_part.cpp:113]   --->   Operation 47 'call' 'call_ln113' <Predicate = true> <Delay = 4.63> <CoreType = "Generic">   --->   Generic Core
+ST_7 : Operation 48 [1/2] (1.56ns)   --->   "%call_ln114 = call void @aie_consume_doppler, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, i2816 %doppler_mask_stream, i32 %gmem, i64 %mm_read, i16 %a_seq, i16 %add_ln115" [src/doppler_part.cpp:114]   --->   Operation 48 'call' 'call_ln114' <Predicate = true> <Delay = 1.56> <CoreType = "Generic">   --->   Generic Core
+ST_7 : Operation 49 [1/1] (0.00ns)   --->   "%br_ln112 = br void %for.inc27" [src/doppler_part.cpp:112]   --->   Operation 49 'br' 'br_ln112' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5.000ns, clock uncertainty: 1.350ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 1.825ns
+The critical path consists of the following:
+	fifo read operation ('idx_stream_read', src/doppler_part.cpp:92) on port 'idx_stream' (src/doppler_part.cpp:92) [37]  (1.825 ns)
+
+ <State 3>: 2.077ns
+The critical path consists of the following:
+	'icmp' operation 1 bit ('icmp_ln93', src/doppler_part.cpp:93) [39]  (2.077 ns)
+
+ <State 4>: 1.588ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation 5 bit ('b') with incoming values : ('b', src/doppler_part.cpp:112) [50]  (1.588 ns)
+	'br' operation ('br_ln112', src/doppler_part.cpp:112) [48]  (1.588 ns)
+
+ <State 5>: 2.077ns
+The critical path consists of the following:
+	'phi' operation 5 bit ('b') with incoming values : ('b', src/doppler_part.cpp:112) [50]  (0.000 ns)
+	'add' operation 16 bit ('add_ln115', src/doppler_part.cpp:115) [60]  (2.077 ns)
+
+ <State 6>: 3.263ns
+The critical path consists of the following:
+	'call' operation ('call_ln114', src/doppler_part.cpp:114) to 'aie_consume_doppler' [61]  (3.263 ns)
+
+ <State 7>: 4.639ns
+The critical path consists of the following:
+	'call' operation ('call_ln113', src/doppler_part.cpp:113) to 'doppler_forward_one' [58]  (4.639 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,19 @@
+{
+  "name": "aie_component",
+  "type": "AI_ENGINE",
+  "part": "xcvc1902-vsva2197-2MP-e-S",
+  "configuration": {
+    "componentType": "AI_ENGINE",
+    "aieGraphFiles": [
+      "src/graph.cpp"
+    ],
+    "aieCompilerOptions": "",
+    "aieCompilerConfigurations": [],
+    "configFiles": [
+      "aiecompiler.cfg"
+    ]
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_aie_component",
+  "templateFlow": "VITIS"
+}
