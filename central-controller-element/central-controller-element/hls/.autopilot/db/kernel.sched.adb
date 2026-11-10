@@ -1448,7 +1448,7 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<Asap>0</Asap>
-				<Alap>0</Alap>
+				<Alap>1</Alap>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
@@ -1461,7 +1461,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>1.00</m_delay>
-				<m_topoIndex>1</m_topoIndex>
+				<m_topoIndex>2</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_41">
@@ -1493,7 +1493,7 @@
 					<bitwidth>64</bitwidth>
 				</Value>
 				<Asap>0</Asap>
-				<Alap>0</Alap>
+				<Alap>1</Alap>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
@@ -1506,7 +1506,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>1.00</m_delay>
-				<m_topoIndex>2</m_topoIndex>
+				<m_topoIndex>3</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_42">
@@ -1564,7 +1564,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>3</m_topoIndex>
+				<m_topoIndex>1</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_43">
@@ -1632,10 +1632,10 @@
 				</oprand_edges>
 				<opcode>call</opcode>
 				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>1</m_isOnCriticalPath>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>1</m_isStartOfPath>
-				<m_delay>4.52</m_delay>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
 				<m_topoIndex>4</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -1781,9 +1781,9 @@
 				</oprand_edges>
 				<opcode>call</opcode>
 				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isOnCriticalPath>1</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_isStartOfPath>1</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
 				<m_topoIndex>6</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
@@ -1830,8 +1830,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>3</Asap>
-				<Alap>3</Alap>
+				<Asap>4</Asap>
+				<Alap>4</Alap>
 				<oprand_edges>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -3286,14 +3286,14 @@
 		<item class_id="37" tracking_level="0" version="0">
 			<first>99</first>
 			<second class_id="38" tracking_level="0" version="0">
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>100</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3322,13 +3322,13 @@
 			<first>106</first>
 			<second>
 				<first>3</first>
-				<second>0</second>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>116</first>
 			<second>
-				<first>3</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3340,7 +3340,7 @@
 			<first>117</first>
 			<second class_id="41" tracking_level="0" version="0">
 				<first>0</first>
-				<second>3</second>
+				<second>4</second>
 			</second>
 		</item>
 	</bblk_ent_exit>

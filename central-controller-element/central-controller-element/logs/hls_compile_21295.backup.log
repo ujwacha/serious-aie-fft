@@ -1,0 +1,48 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.h' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.cpp' from hls_config.cfg(11)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.h' from hls_config.cfg(12)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.cpp' from hls_config.cfg(13)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.h' from hls_config.cfg(14)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.cpp' from hls_config.cfg(15)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.h' from hls_config.cfg(16)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.cpp' from hls_config.cfg(17)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(18)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(19)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'clock=5' from hls_config.cfg(21)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 8.9 seconds. CPU system time: 0.88 seconds. Elapsed time: 9.82 seconds; current allocated memory: 376.410 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'src/complex-math.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'src/angle_part.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'src/doppler_part.cpp' ... 
+ERROR: [HLS 207-6962] Invalid Directive: for current device, div + fabric is invalid combination for bind_op (src/doppler_part.cpp:297:13)
+ERROR: [HLS 207-4637] use of undeclared identifier 'mask' (src/doppler_part.cpp:318:7)
+ERROR: [HLS 207-4637] use of undeclared identifier 'mask' (src/doppler_part.cpp:325:7)
+ERROR: [HLS 207-4637] use of undeclared identifier 'mask' (src/doppler_part.cpp:341:20)
+ERROR: syntax check failed.
+INFO: [HLS 200-112] Total CPU user time: 22.65 seconds. Total CPU system time: 2.3 seconds. Total elapsed time: 25.17 seconds; peak allocated memory: 378.465 MB.

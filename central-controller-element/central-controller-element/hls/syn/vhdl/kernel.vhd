@@ -151,7 +151,7 @@ architecture behav of kernel is
     attribute DowngradeIPIdentifiedWarnings of behav : architecture is "yes";
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=195,HLS_SYN_DSP=0,HLS_SYN_FF=12895,HLS_SYN_LUT=13106,HLS_VERSION=2026_1}";
+    "kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=196,HLS_SYN_DSP=0,HLS_SYN_FF=10993,HLS_SYN_LUT=14932,HLS_VERSION=2026_1}";
     constant C_S_AXI_DATA_WIDTH : INTEGER := 32;
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER := 32;
@@ -284,21 +284,21 @@ architecture behav of kernel is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        in_adc0_TVALID : IN STD_LOGIC;
-        out_r_00_TREADY : IN STD_LOGIC;
-        out_r_01_TREADY : IN STD_LOGIC;
         in_adc0_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
+        in_adc0_TVALID : IN STD_LOGIC;
         in_adc0_TREADY : OUT STD_LOGIC;
         in_adc0_TKEEP : IN STD_LOGIC_VECTOR (7 downto 0);
         in_adc0_TSTRB : IN STD_LOGIC_VECTOR (7 downto 0);
         in_adc0_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
         out_r_00_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
         out_r_00_TVALID : OUT STD_LOGIC;
+        out_r_00_TREADY : IN STD_LOGIC;
         out_r_00_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
         out_r_00_TSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
         out_r_00_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
         out_r_01_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
         out_r_01_TVALID : OUT STD_LOGIC;
+        out_r_01_TREADY : IN STD_LOGIC;
         out_r_01_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
         out_r_01_TSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
         out_r_01_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
@@ -724,21 +724,21 @@ begin
         ap_continue => adc_forward_U0_ap_continue,
         ap_idle => adc_forward_U0_ap_idle,
         ap_ready => adc_forward_U0_ap_ready,
-        in_adc0_TVALID => in_adc0_TVALID,
-        out_r_00_TREADY => out_r_00_TREADY,
-        out_r_01_TREADY => out_r_01_TREADY,
         in_adc0_TDATA => in_adc0_TDATA,
+        in_adc0_TVALID => in_adc0_TVALID,
         in_adc0_TREADY => adc_forward_U0_in_adc0_TREADY,
         in_adc0_TKEEP => in_adc0_TKEEP,
         in_adc0_TSTRB => in_adc0_TSTRB,
         in_adc0_TLAST => in_adc0_TLAST,
         out_r_00_TDATA => adc_forward_U0_out_r_00_TDATA,
         out_r_00_TVALID => adc_forward_U0_out_r_00_TVALID,
+        out_r_00_TREADY => out_r_00_TREADY,
         out_r_00_TKEEP => adc_forward_U0_out_r_00_TKEEP,
         out_r_00_TSTRB => adc_forward_U0_out_r_00_TSTRB,
         out_r_00_TLAST => adc_forward_U0_out_r_00_TLAST,
         out_r_01_TDATA => adc_forward_U0_out_r_01_TDATA,
         out_r_01_TVALID => adc_forward_U0_out_r_01_TVALID,
+        out_r_01_TREADY => out_r_01_TREADY,
         out_r_01_TKEEP => adc_forward_U0_out_r_01_TKEEP,
         out_r_01_TSTRB => adc_forward_U0_out_r_01_TSTRB,
         out_r_01_TLAST => adc_forward_U0_out_r_01_TLAST,

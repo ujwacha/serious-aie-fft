@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=195,HLS_SYN_DSP=0,HLS_SYN_FF=12895,HLS_SYN_LUT=13106,HLS_VERSION=2026_1}" *)
+(* CORE_GENERATION_INFO="kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=196,HLS_SYN_DSP=0,HLS_SYN_FF=10993,HLS_SYN_LUT=14932,HLS_VERSION=2026_1}" *)
 
 (* DowngradeIPIdentifiedWarnings="yes" *)
 module kernel (
@@ -526,21 +526,21 @@ kernel_adc_forward adc_forward_U0(
     .ap_continue(adc_forward_U0_ap_continue),
     .ap_idle(adc_forward_U0_ap_idle),
     .ap_ready(adc_forward_U0_ap_ready),
-    .in_adc0_TVALID(in_adc0_TVALID),
-    .out_r_00_TREADY(out_r_00_TREADY),
-    .out_r_01_TREADY(out_r_01_TREADY),
     .in_adc0_TDATA(in_adc0_TDATA),
+    .in_adc0_TVALID(in_adc0_TVALID),
     .in_adc0_TREADY(adc_forward_U0_in_adc0_TREADY),
     .in_adc0_TKEEP(in_adc0_TKEEP),
     .in_adc0_TSTRB(in_adc0_TSTRB),
     .in_adc0_TLAST(in_adc0_TLAST),
     .out_r_00_TDATA(adc_forward_U0_out_r_00_TDATA),
     .out_r_00_TVALID(adc_forward_U0_out_r_00_TVALID),
+    .out_r_00_TREADY(out_r_00_TREADY),
     .out_r_00_TKEEP(adc_forward_U0_out_r_00_TKEEP),
     .out_r_00_TSTRB(adc_forward_U0_out_r_00_TSTRB),
     .out_r_00_TLAST(adc_forward_U0_out_r_00_TLAST),
     .out_r_01_TDATA(adc_forward_U0_out_r_01_TDATA),
     .out_r_01_TVALID(adc_forward_U0_out_r_01_TVALID),
+    .out_r_01_TREADY(out_r_01_TREADY),
     .out_r_01_TKEEP(adc_forward_U0_out_r_01_TKEEP),
     .out_r_01_TSTRB(adc_forward_U0_out_r_01_TSTRB),
     .out_r_01_TLAST(adc_forward_U0_out_r_01_TLAST),

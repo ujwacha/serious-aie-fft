@@ -55483,7 +55483,7 @@ struct DopplerMaskPacket {
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    float data[86];
+    int32_t data[86];
 };
 
 
@@ -55539,10 +55539,17 @@ void kernel(ap_uint<32> *mm,
 
 
 
+
 void dummy(hls::stream<DopplerMaskPacket> &mask_stream);
 # 2 "src/angle_part.cpp" 2
 
 void dummy(hls::stream<DopplerMaskPacket> &mask_stream) {
-  DopplerMaskPacket p = mask_stream.read();
-  (void)p;
+
+
+
+  VITIS_LOOP_7_1: for (;;) {
+    DopplerMaskPacket p = mask_stream.read();
+    if (p.rank == 0xFFFF)
+      break;
+  }
 }

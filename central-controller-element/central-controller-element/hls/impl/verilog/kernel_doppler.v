@@ -95,13 +95,12 @@ module kernel_doppler (
         doppler_mask_stream_fifo_cap
 );
 
-parameter    ap_ST_fsm_state1 = 7'd1;
-parameter    ap_ST_fsm_state2 = 7'd2;
-parameter    ap_ST_fsm_state3 = 7'd4;
-parameter    ap_ST_fsm_state4 = 7'd8;
-parameter    ap_ST_fsm_state5 = 7'd16;
-parameter    ap_ST_fsm_state6 = 7'd32;
-parameter    ap_ST_fsm_state7 = 7'd64;
+parameter    ap_ST_fsm_state1 = 6'd1;
+parameter    ap_ST_fsm_state2 = 6'd2;
+parameter    ap_ST_fsm_state3 = 6'd4;
+parameter    ap_ST_fsm_state4 = 6'd8;
+parameter    ap_ST_fsm_state5 = 6'd16;
+parameter    ap_ST_fsm_state6 = 6'd32;
 
 input   ap_clk;
 input   ap_rst;
@@ -208,139 +207,141 @@ reg[3:0] out_d_03_TSTRB;
 reg[0:0] out_d_03_TLAST;
 reg in_d_02_TREADY;
 reg in_d_03_TREADY;
+reg[2815:0] doppler_mask_stream_din;
+reg doppler_mask_stream_write;
 
-(* fsm_encoding = "none" *) reg   [6:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [5:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    idx_stream_blk_n;
 wire    ap_CS_fsm_state2;
-reg   [31:0] idx_stream_read_reg_323;
-wire   [15:0] a_index_fu_211_p1;
-reg   [15:0] a_index_reg_329;
-reg   [15:0] a_seq_reg_339;
-wire    ap_CS_fsm_state3;
-wire   [31:0] tmp_1_fu_238_p4;
-reg   [31:0] tmp_1_reg_344;
-wire   [4:0] b_1_fu_298_p2;
-reg   [4:0] b_1_reg_352;
-wire    ap_CS_fsm_state5;
-wire   [3:0] trunc_ln112_fu_304_p1;
-reg   [3:0] trunc_ln112_reg_357;
-wire   [15:0] add_ln115_fu_312_p2;
-reg   [15:0] add_ln115_reg_362;
+reg    doppler_mask_stream_blk_n;
+wire    ap_CS_fsm_state6;
+wire   [15:0] a_index_fu_223_p1;
+reg   [15:0] a_index_reg_341;
+reg   [15:0] a_seq_reg_349;
+wire   [31:0] tmp_1_fu_253_p4;
+reg   [31:0] tmp_1_reg_354;
+wire   [4:0] b_1_fu_314_p2;
+reg   [4:0] b_1_reg_362;
+wire    ap_CS_fsm_state4;
+wire   [3:0] trunc_ln113_fu_320_p1;
+reg   [3:0] trunc_ln113_reg_367;
+wire   [15:0] add_ln116_fu_329_p2;
+reg   [15:0] add_ln116_reg_372;
 reg   [11:0] window_address0;
 reg    window_ce0;
 reg    window_we0;
 wire   [31:0] window_q0;
 reg    window_ce1;
 wire   [31:0] window_q1;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_done;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_idle;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_ready;
-wire   [11:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_address0;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_ce0;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_we0;
-wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_d0;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWVALID;
-wire   [63:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWADDR;
-wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWID;
-wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWLEN;
-wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWSIZE;
-wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWBURST;
-wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWLOCK;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWCACHE;
-wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWPROT;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWQOS;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWREGION;
-wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWUSER;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WVALID;
-wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WDATA;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WSTRB;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WLAST;
-wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WID;
-wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WUSER;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARVALID;
-wire   [63:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARADDR;
-wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARID;
-wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARLEN;
-wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARSIZE;
-wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARBURST;
-wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARLOCK;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARCACHE;
-wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARPROT;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARQOS;
-wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARREGION;
-wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARUSER;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_RREADY;
-wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_BREADY;
-wire    grp_doppler_forward_one_fu_160_ap_start;
-wire    grp_doppler_forward_one_fu_160_ap_done;
-wire    grp_doppler_forward_one_fu_160_ap_idle;
-wire    grp_doppler_forward_one_fu_160_ap_ready;
-wire    grp_doppler_forward_one_fu_160_out_d_02_TREADY;
-wire    grp_doppler_forward_one_fu_160_out_d_03_TREADY;
-wire   [11:0] grp_doppler_forward_one_fu_160_in_adc0_address0;
-wire    grp_doppler_forward_one_fu_160_in_adc0_ce0;
-wire   [11:0] grp_doppler_forward_one_fu_160_in_adc0_address1;
-wire    grp_doppler_forward_one_fu_160_in_adc0_ce1;
-wire   [31:0] grp_doppler_forward_one_fu_160_out_d_02_TDATA;
-wire    grp_doppler_forward_one_fu_160_out_d_02_TVALID;
-wire   [3:0] grp_doppler_forward_one_fu_160_out_d_02_TKEEP;
-wire   [3:0] grp_doppler_forward_one_fu_160_out_d_02_TSTRB;
-wire   [0:0] grp_doppler_forward_one_fu_160_out_d_02_TLAST;
-wire   [31:0] grp_doppler_forward_one_fu_160_out_d_03_TDATA;
-wire    grp_doppler_forward_one_fu_160_out_d_03_TVALID;
-wire   [3:0] grp_doppler_forward_one_fu_160_out_d_03_TKEEP;
-wire   [3:0] grp_doppler_forward_one_fu_160_out_d_03_TSTRB;
-wire   [0:0] grp_doppler_forward_one_fu_160_out_d_03_TLAST;
-wire    grp_aie_consume_doppler_fu_184_ap_start;
-wire    grp_aie_consume_doppler_fu_184_ap_done;
-wire    grp_aie_consume_doppler_fu_184_ap_idle;
-wire    grp_aie_consume_doppler_fu_184_ap_ready;
-wire    grp_aie_consume_doppler_fu_184_in_d_02_TREADY;
-wire    grp_aie_consume_doppler_fu_184_in_d_03_TREADY;
-wire   [2815:0] grp_aie_consume_doppler_fu_184_doppler_mask_stream_din;
-wire    grp_aie_consume_doppler_fu_184_doppler_mask_stream_write;
-wire    grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWVALID;
-wire   [63:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWADDR;
-wire   [0:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWID;
-wire   [31:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWLEN;
-wire   [2:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWSIZE;
-wire   [1:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWBURST;
-wire   [1:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWLOCK;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWCACHE;
-wire   [2:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWPROT;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWQOS;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWREGION;
-wire   [0:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWUSER;
-wire    grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WVALID;
-wire   [31:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WDATA;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WSTRB;
-wire    grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WLAST;
-wire   [0:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WID;
-wire   [0:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WUSER;
-wire    grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARVALID;
-wire   [63:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARADDR;
-wire   [0:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARID;
-wire   [31:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARLEN;
-wire   [2:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARSIZE;
-wire   [1:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARBURST;
-wire   [1:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARLOCK;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARCACHE;
-wire   [2:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARPROT;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARQOS;
-wire   [3:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARREGION;
-wire   [0:0] grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARUSER;
-wire    grp_aie_consume_doppler_fu_184_m_axi_gmem_0_RREADY;
-wire    grp_aie_consume_doppler_fu_184_m_axi_gmem_0_BREADY;
-reg   [4:0] b_reg_140;
-wire    ap_CS_fsm_state7;
-reg    ap_block_state7_on_subcall_done;
-wire    ap_CS_fsm_state4;
-reg    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start_reg;
-wire   [0:0] icmp_ln93_fu_215_p2;
-reg    grp_doppler_forward_one_fu_160_ap_start_reg;
-wire    ap_CS_fsm_state6;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_done;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_idle;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_ready;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWVALID;
+wire   [63:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWADDR;
+wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWID;
+wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWLEN;
+wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWSIZE;
+wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWBURST;
+wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWLOCK;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWCACHE;
+wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWPROT;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWQOS;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWREGION;
+wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWUSER;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WVALID;
+wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WDATA;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WSTRB;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WLAST;
+wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WID;
+wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WUSER;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARVALID;
+wire   [63:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARADDR;
+wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARID;
+wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARLEN;
+wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARSIZE;
+wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARBURST;
+wire   [1:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARLOCK;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARCACHE;
+wire   [2:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARPROT;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARQOS;
+wire   [3:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARREGION;
+wire   [0:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARUSER;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_RREADY;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_BREADY;
+wire   [11:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_address0;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_ce0;
+wire    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_we0;
+wire   [31:0] grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_d0;
+wire    grp_doppler_forward_one_fu_172_ap_start;
+wire    grp_doppler_forward_one_fu_172_ap_done;
+wire    grp_doppler_forward_one_fu_172_ap_idle;
+wire    grp_doppler_forward_one_fu_172_ap_ready;
+wire    grp_doppler_forward_one_fu_172_out_d_02_TREADY;
+wire    grp_doppler_forward_one_fu_172_out_d_03_TREADY;
+wire   [11:0] grp_doppler_forward_one_fu_172_in_adc0_address0;
+wire    grp_doppler_forward_one_fu_172_in_adc0_ce0;
+wire   [11:0] grp_doppler_forward_one_fu_172_in_adc0_address1;
+wire    grp_doppler_forward_one_fu_172_in_adc0_ce1;
+wire   [31:0] grp_doppler_forward_one_fu_172_out_d_02_TDATA;
+wire    grp_doppler_forward_one_fu_172_out_d_02_TVALID;
+wire   [3:0] grp_doppler_forward_one_fu_172_out_d_02_TKEEP;
+wire   [3:0] grp_doppler_forward_one_fu_172_out_d_02_TSTRB;
+wire   [0:0] grp_doppler_forward_one_fu_172_out_d_02_TLAST;
+wire   [31:0] grp_doppler_forward_one_fu_172_out_d_03_TDATA;
+wire    grp_doppler_forward_one_fu_172_out_d_03_TVALID;
+wire   [3:0] grp_doppler_forward_one_fu_172_out_d_03_TKEEP;
+wire   [3:0] grp_doppler_forward_one_fu_172_out_d_03_TSTRB;
+wire   [0:0] grp_doppler_forward_one_fu_172_out_d_03_TLAST;
+wire    grp_aie_consume_doppler_fu_196_ap_start;
+wire    grp_aie_consume_doppler_fu_196_ap_done;
+wire    grp_aie_consume_doppler_fu_196_ap_idle;
+wire    grp_aie_consume_doppler_fu_196_ap_ready;
+wire    grp_aie_consume_doppler_fu_196_in_d_02_TREADY;
+wire    grp_aie_consume_doppler_fu_196_in_d_03_TREADY;
+wire   [2815:0] grp_aie_consume_doppler_fu_196_doppler_mask_stream_din;
+wire    grp_aie_consume_doppler_fu_196_doppler_mask_stream_write;
+wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWVALID;
+wire   [63:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWADDR;
+wire   [0:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWID;
+wire   [31:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWLEN;
+wire   [2:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWSIZE;
+wire   [1:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWBURST;
+wire   [1:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWLOCK;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWCACHE;
+wire   [2:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWPROT;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWQOS;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWREGION;
+wire   [0:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWUSER;
+wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WVALID;
+wire   [31:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WDATA;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WSTRB;
+wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WLAST;
+wire   [0:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WID;
+wire   [0:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WUSER;
+wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARVALID;
+wire   [63:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARADDR;
+wire   [0:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARID;
+wire   [31:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARLEN;
+wire   [2:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARSIZE;
+wire   [1:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARBURST;
+wire   [1:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARLOCK;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARCACHE;
+wire   [2:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARPROT;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARQOS;
+wire   [3:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARREGION;
+wire   [0:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARUSER;
+wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_RREADY;
+wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_BREADY;
+reg   [4:0] b_reg_152;
+wire    ap_CS_fsm_state5;
+reg    ap_block_state5_on_subcall_done;
+wire    ap_CS_fsm_state3;
+reg    grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start_reg;
+wire   [0:0] icmp_ln93_fu_227_p2;
+reg    grp_doppler_forward_one_fu_172_ap_start_reg;
+wire   [0:0] icmp_ln113_fu_308_p2;
 reg   [31:0] out_d_02_TDATA_reg;
 reg   [3:0] out_d_02_TKEEP_reg;
 reg   [3:0] out_d_02_TSTRB_reg;
@@ -349,26 +350,24 @@ reg   [31:0] out_d_03_TDATA_reg;
 reg   [3:0] out_d_03_TKEEP_reg;
 reg   [3:0] out_d_03_TSTRB_reg;
 reg   [0:0] out_d_03_TLAST_reg;
-reg    grp_aie_consume_doppler_fu_184_ap_start_reg;
-wire   [12:0] tmp_fu_229_p4;
-wire   [15:0] zext_ln115_fu_308_p1;
-wire   [0:0] icmp_ln112_fu_292_p2;
-reg   [6:0] ap_NS_fsm;
+reg    grp_aie_consume_doppler_fu_196_ap_start_reg;
+wire   [12:0] tmp_fu_243_p4;
+wire   [15:0] zext_ln116_fu_325_p1;
+reg   [5:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
-wire    ap_ST_fsm_state3_blk;
-reg    ap_ST_fsm_state4_blk;
-wire    ap_ST_fsm_state5_blk;
-wire    ap_ST_fsm_state6_blk;
-reg    ap_ST_fsm_state7_blk;
+reg    ap_ST_fsm_state3_blk;
+wire    ap_ST_fsm_state4_blk;
+reg    ap_ST_fsm_state5_blk;
+reg    ap_ST_fsm_state6_blk;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 7'd1;
-#0 grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start_reg = 1'b0;
-#0 grp_doppler_forward_one_fu_160_ap_start_reg = 1'b0;
-#0 grp_aie_consume_doppler_fu_184_ap_start_reg = 1'b0;
+#0 ap_CS_fsm = 6'd1;
+#0 grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start_reg = 1'b0;
+#0 grp_doppler_forward_one_fu_172_ap_start_reg = 1'b0;
+#0 grp_aie_consume_doppler_fu_196_ap_start_reg = 1'b0;
 end
 
 kernel_doppler_window_RAM_AUTO_1R1W #(
@@ -381,61 +380,55 @@ window_U(
     .address0(window_address0),
     .ce0(window_ce0),
     .we0(window_we0),
-    .d0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_d0),
+    .d0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_d0),
     .q0(window_q0),
-    .address1(grp_doppler_forward_one_fu_160_in_adc0_address1),
+    .address1(grp_doppler_forward_one_fu_172_in_adc0_address1),
     .ce1(window_ce1),
     .q1(window_q1)
 );
 
-kernel_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3 grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151(
+kernel_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3 grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start),
-    .ap_done(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_done),
-    .ap_idle(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_idle),
-    .ap_ready(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_ready),
-    .window_address0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_address0),
-    .window_ce0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_ce0),
-    .window_we0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_we0),
-    .window_d0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_d0),
-    .zext_ln98(tmp_1_reg_344),
-    .mm(mm),
-    .m_axi_gmem_0_AWVALID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWVALID),
+    .ap_start(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start),
+    .ap_done(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_done),
+    .ap_idle(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_idle),
+    .ap_ready(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_ready),
+    .m_axi_gmem_0_AWVALID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWVALID),
     .m_axi_gmem_0_AWREADY(1'b0),
-    .m_axi_gmem_0_AWADDR(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWADDR),
-    .m_axi_gmem_0_AWID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWID),
-    .m_axi_gmem_0_AWLEN(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWLEN),
-    .m_axi_gmem_0_AWSIZE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWSIZE),
-    .m_axi_gmem_0_AWBURST(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWBURST),
-    .m_axi_gmem_0_AWLOCK(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWLOCK),
-    .m_axi_gmem_0_AWCACHE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWCACHE),
-    .m_axi_gmem_0_AWPROT(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWPROT),
-    .m_axi_gmem_0_AWQOS(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWQOS),
-    .m_axi_gmem_0_AWREGION(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWREGION),
-    .m_axi_gmem_0_AWUSER(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_AWUSER),
-    .m_axi_gmem_0_WVALID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WVALID),
+    .m_axi_gmem_0_AWADDR(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWADDR),
+    .m_axi_gmem_0_AWID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWID),
+    .m_axi_gmem_0_AWLEN(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWLEN),
+    .m_axi_gmem_0_AWSIZE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWSIZE),
+    .m_axi_gmem_0_AWBURST(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWBURST),
+    .m_axi_gmem_0_AWLOCK(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWLOCK),
+    .m_axi_gmem_0_AWCACHE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWCACHE),
+    .m_axi_gmem_0_AWPROT(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWPROT),
+    .m_axi_gmem_0_AWQOS(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWQOS),
+    .m_axi_gmem_0_AWREGION(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWREGION),
+    .m_axi_gmem_0_AWUSER(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_AWUSER),
+    .m_axi_gmem_0_WVALID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WVALID),
     .m_axi_gmem_0_WREADY(1'b0),
-    .m_axi_gmem_0_WDATA(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WDATA),
-    .m_axi_gmem_0_WSTRB(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WSTRB),
-    .m_axi_gmem_0_WLAST(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WLAST),
-    .m_axi_gmem_0_WID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WID),
-    .m_axi_gmem_0_WUSER(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_WUSER),
-    .m_axi_gmem_0_ARVALID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARVALID),
+    .m_axi_gmem_0_WDATA(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WDATA),
+    .m_axi_gmem_0_WSTRB(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WSTRB),
+    .m_axi_gmem_0_WLAST(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WLAST),
+    .m_axi_gmem_0_WID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WID),
+    .m_axi_gmem_0_WUSER(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_WUSER),
+    .m_axi_gmem_0_ARVALID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARVALID),
     .m_axi_gmem_0_ARREADY(m_axi_gmem_0_ARREADY),
-    .m_axi_gmem_0_ARADDR(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARADDR),
-    .m_axi_gmem_0_ARID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARID),
-    .m_axi_gmem_0_ARLEN(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARLEN),
-    .m_axi_gmem_0_ARSIZE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARSIZE),
-    .m_axi_gmem_0_ARBURST(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARBURST),
-    .m_axi_gmem_0_ARLOCK(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARLOCK),
-    .m_axi_gmem_0_ARCACHE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARCACHE),
-    .m_axi_gmem_0_ARPROT(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARPROT),
-    .m_axi_gmem_0_ARQOS(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARQOS),
-    .m_axi_gmem_0_ARREGION(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARREGION),
-    .m_axi_gmem_0_ARUSER(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARUSER),
+    .m_axi_gmem_0_ARADDR(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARADDR),
+    .m_axi_gmem_0_ARID(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARID),
+    .m_axi_gmem_0_ARLEN(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARLEN),
+    .m_axi_gmem_0_ARSIZE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARSIZE),
+    .m_axi_gmem_0_ARBURST(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARBURST),
+    .m_axi_gmem_0_ARLOCK(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARLOCK),
+    .m_axi_gmem_0_ARCACHE(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARCACHE),
+    .m_axi_gmem_0_ARPROT(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARPROT),
+    .m_axi_gmem_0_ARQOS(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARQOS),
+    .m_axi_gmem_0_ARREGION(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARREGION),
+    .m_axi_gmem_0_ARUSER(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARUSER),
     .m_axi_gmem_0_RVALID(m_axi_gmem_0_RVALID),
-    .m_axi_gmem_0_RREADY(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_RREADY),
+    .m_axi_gmem_0_RREADY(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_RREADY),
     .m_axi_gmem_0_RDATA(m_axi_gmem_0_RDATA),
     .m_axi_gmem_0_RLAST(m_axi_gmem_0_RLAST),
     .m_axi_gmem_0_RID(m_axi_gmem_0_RID),
@@ -443,99 +436,105 @@ kernel_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3 grp_doppler_Pipeline_VI
     .m_axi_gmem_0_RUSER(m_axi_gmem_0_RUSER),
     .m_axi_gmem_0_RRESP(m_axi_gmem_0_RRESP),
     .m_axi_gmem_0_BVALID(1'b0),
-    .m_axi_gmem_0_BREADY(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_BREADY),
+    .m_axi_gmem_0_BREADY(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_BREADY),
     .m_axi_gmem_0_BRESP(2'd0),
     .m_axi_gmem_0_BID(1'd0),
-    .m_axi_gmem_0_BUSER(1'd0)
+    .m_axi_gmem_0_BUSER(1'd0),
+    .window_address0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_address0),
+    .window_ce0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_ce0),
+    .window_we0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_we0),
+    .window_d0(grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_d0),
+    .zext_ln100(tmp_1_reg_354),
+    .mm(mm)
 );
 
-kernel_doppler_forward_one grp_doppler_forward_one_fu_160(
+kernel_doppler_forward_one grp_doppler_forward_one_fu_172(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_doppler_forward_one_fu_160_ap_start),
-    .ap_done(grp_doppler_forward_one_fu_160_ap_done),
-    .ap_idle(grp_doppler_forward_one_fu_160_ap_idle),
-    .ap_ready(grp_doppler_forward_one_fu_160_ap_ready),
-    .out_d_02_TREADY(grp_doppler_forward_one_fu_160_out_d_02_TREADY),
-    .out_d_03_TREADY(grp_doppler_forward_one_fu_160_out_d_03_TREADY),
-    .in_adc0_address0(grp_doppler_forward_one_fu_160_in_adc0_address0),
-    .in_adc0_ce0(grp_doppler_forward_one_fu_160_in_adc0_ce0),
+    .ap_start(grp_doppler_forward_one_fu_172_ap_start),
+    .ap_done(grp_doppler_forward_one_fu_172_ap_done),
+    .ap_idle(grp_doppler_forward_one_fu_172_ap_idle),
+    .ap_ready(grp_doppler_forward_one_fu_172_ap_ready),
+    .out_d_02_TREADY(grp_doppler_forward_one_fu_172_out_d_02_TREADY),
+    .out_d_03_TREADY(grp_doppler_forward_one_fu_172_out_d_03_TREADY),
+    .in_adc0_address0(grp_doppler_forward_one_fu_172_in_adc0_address0),
+    .in_adc0_ce0(grp_doppler_forward_one_fu_172_in_adc0_ce0),
     .in_adc0_q0(window_q0),
-    .in_adc0_address1(grp_doppler_forward_one_fu_160_in_adc0_address1),
-    .in_adc0_ce1(grp_doppler_forward_one_fu_160_in_adc0_ce1),
+    .in_adc0_address1(grp_doppler_forward_one_fu_172_in_adc0_address1),
+    .in_adc0_ce1(grp_doppler_forward_one_fu_172_in_adc0_ce1),
     .in_adc0_q1(window_q1),
-    .in_adc0_offset(trunc_ln112_reg_357),
-    .out_d_02_TDATA(grp_doppler_forward_one_fu_160_out_d_02_TDATA),
-    .out_d_02_TVALID(grp_doppler_forward_one_fu_160_out_d_02_TVALID),
-    .out_d_02_TKEEP(grp_doppler_forward_one_fu_160_out_d_02_TKEEP),
-    .out_d_02_TSTRB(grp_doppler_forward_one_fu_160_out_d_02_TSTRB),
-    .out_d_02_TLAST(grp_doppler_forward_one_fu_160_out_d_02_TLAST),
-    .out_d_03_TDATA(grp_doppler_forward_one_fu_160_out_d_03_TDATA),
-    .out_d_03_TVALID(grp_doppler_forward_one_fu_160_out_d_03_TVALID),
-    .out_d_03_TKEEP(grp_doppler_forward_one_fu_160_out_d_03_TKEEP),
-    .out_d_03_TSTRB(grp_doppler_forward_one_fu_160_out_d_03_TSTRB),
-    .out_d_03_TLAST(grp_doppler_forward_one_fu_160_out_d_03_TLAST)
+    .in_adc0_offset(trunc_ln113_reg_367),
+    .out_d_02_TDATA(grp_doppler_forward_one_fu_172_out_d_02_TDATA),
+    .out_d_02_TVALID(grp_doppler_forward_one_fu_172_out_d_02_TVALID),
+    .out_d_02_TKEEP(grp_doppler_forward_one_fu_172_out_d_02_TKEEP),
+    .out_d_02_TSTRB(grp_doppler_forward_one_fu_172_out_d_02_TSTRB),
+    .out_d_02_TLAST(grp_doppler_forward_one_fu_172_out_d_02_TLAST),
+    .out_d_03_TDATA(grp_doppler_forward_one_fu_172_out_d_03_TDATA),
+    .out_d_03_TVALID(grp_doppler_forward_one_fu_172_out_d_03_TVALID),
+    .out_d_03_TKEEP(grp_doppler_forward_one_fu_172_out_d_03_TKEEP),
+    .out_d_03_TSTRB(grp_doppler_forward_one_fu_172_out_d_03_TSTRB),
+    .out_d_03_TLAST(grp_doppler_forward_one_fu_172_out_d_03_TLAST)
 );
 
-kernel_aie_consume_doppler grp_aie_consume_doppler_fu_184(
+kernel_aie_consume_doppler grp_aie_consume_doppler_fu_196(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_aie_consume_doppler_fu_184_ap_start),
-    .ap_done(grp_aie_consume_doppler_fu_184_ap_done),
-    .ap_idle(grp_aie_consume_doppler_fu_184_ap_idle),
-    .ap_ready(grp_aie_consume_doppler_fu_184_ap_ready),
+    .ap_start(grp_aie_consume_doppler_fu_196_ap_start),
+    .ap_done(grp_aie_consume_doppler_fu_196_ap_done),
+    .ap_idle(grp_aie_consume_doppler_fu_196_ap_idle),
+    .ap_ready(grp_aie_consume_doppler_fu_196_ap_ready),
     .in_d_02_TDATA(in_d_02_TDATA),
     .in_d_02_TVALID(in_d_02_TVALID),
-    .in_d_02_TREADY(grp_aie_consume_doppler_fu_184_in_d_02_TREADY),
+    .in_d_02_TREADY(grp_aie_consume_doppler_fu_196_in_d_02_TREADY),
     .in_d_02_TKEEP(in_d_02_TKEEP),
     .in_d_02_TSTRB(in_d_02_TSTRB),
     .in_d_02_TLAST(in_d_02_TLAST),
     .in_d_03_TDATA(in_d_03_TDATA),
     .in_d_03_TVALID(in_d_03_TVALID),
-    .in_d_03_TREADY(grp_aie_consume_doppler_fu_184_in_d_03_TREADY),
+    .in_d_03_TREADY(grp_aie_consume_doppler_fu_196_in_d_03_TREADY),
     .in_d_03_TKEEP(in_d_03_TKEEP),
     .in_d_03_TSTRB(in_d_03_TSTRB),
     .in_d_03_TLAST(in_d_03_TLAST),
-    .doppler_mask_stream_din(grp_aie_consume_doppler_fu_184_doppler_mask_stream_din),
+    .doppler_mask_stream_din(grp_aie_consume_doppler_fu_196_doppler_mask_stream_din),
     .doppler_mask_stream_full_n(doppler_mask_stream_full_n),
-    .doppler_mask_stream_write(grp_aie_consume_doppler_fu_184_doppler_mask_stream_write),
+    .doppler_mask_stream_write(grp_aie_consume_doppler_fu_196_doppler_mask_stream_write),
     .doppler_mask_stream_num_data_valid(8'd0),
     .doppler_mask_stream_fifo_cap(8'd0),
-    .m_axi_gmem_0_AWVALID(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWVALID),
+    .m_axi_gmem_0_AWVALID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWVALID),
     .m_axi_gmem_0_AWREADY(m_axi_gmem_0_AWREADY),
-    .m_axi_gmem_0_AWADDR(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWADDR),
-    .m_axi_gmem_0_AWID(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWID),
-    .m_axi_gmem_0_AWLEN(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWLEN),
-    .m_axi_gmem_0_AWSIZE(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWSIZE),
-    .m_axi_gmem_0_AWBURST(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWBURST),
-    .m_axi_gmem_0_AWLOCK(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWLOCK),
-    .m_axi_gmem_0_AWCACHE(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWCACHE),
-    .m_axi_gmem_0_AWPROT(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWPROT),
-    .m_axi_gmem_0_AWQOS(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWQOS),
-    .m_axi_gmem_0_AWREGION(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWREGION),
-    .m_axi_gmem_0_AWUSER(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWUSER),
-    .m_axi_gmem_0_WVALID(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WVALID),
+    .m_axi_gmem_0_AWADDR(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWADDR),
+    .m_axi_gmem_0_AWID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWID),
+    .m_axi_gmem_0_AWLEN(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWLEN),
+    .m_axi_gmem_0_AWSIZE(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWSIZE),
+    .m_axi_gmem_0_AWBURST(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWBURST),
+    .m_axi_gmem_0_AWLOCK(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWLOCK),
+    .m_axi_gmem_0_AWCACHE(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWCACHE),
+    .m_axi_gmem_0_AWPROT(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWPROT),
+    .m_axi_gmem_0_AWQOS(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWQOS),
+    .m_axi_gmem_0_AWREGION(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWREGION),
+    .m_axi_gmem_0_AWUSER(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWUSER),
+    .m_axi_gmem_0_WVALID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WVALID),
     .m_axi_gmem_0_WREADY(m_axi_gmem_0_WREADY),
-    .m_axi_gmem_0_WDATA(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WDATA),
-    .m_axi_gmem_0_WSTRB(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WSTRB),
-    .m_axi_gmem_0_WLAST(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WLAST),
-    .m_axi_gmem_0_WID(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WID),
-    .m_axi_gmem_0_WUSER(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WUSER),
-    .m_axi_gmem_0_ARVALID(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARVALID),
+    .m_axi_gmem_0_WDATA(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WDATA),
+    .m_axi_gmem_0_WSTRB(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WSTRB),
+    .m_axi_gmem_0_WLAST(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WLAST),
+    .m_axi_gmem_0_WID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WID),
+    .m_axi_gmem_0_WUSER(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WUSER),
+    .m_axi_gmem_0_ARVALID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARVALID),
     .m_axi_gmem_0_ARREADY(1'b0),
-    .m_axi_gmem_0_ARADDR(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARADDR),
-    .m_axi_gmem_0_ARID(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARID),
-    .m_axi_gmem_0_ARLEN(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARLEN),
-    .m_axi_gmem_0_ARSIZE(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARSIZE),
-    .m_axi_gmem_0_ARBURST(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARBURST),
-    .m_axi_gmem_0_ARLOCK(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARLOCK),
-    .m_axi_gmem_0_ARCACHE(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARCACHE),
-    .m_axi_gmem_0_ARPROT(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARPROT),
-    .m_axi_gmem_0_ARQOS(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARQOS),
-    .m_axi_gmem_0_ARREGION(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARREGION),
-    .m_axi_gmem_0_ARUSER(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_ARUSER),
+    .m_axi_gmem_0_ARADDR(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARADDR),
+    .m_axi_gmem_0_ARID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARID),
+    .m_axi_gmem_0_ARLEN(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARLEN),
+    .m_axi_gmem_0_ARSIZE(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARSIZE),
+    .m_axi_gmem_0_ARBURST(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARBURST),
+    .m_axi_gmem_0_ARLOCK(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARLOCK),
+    .m_axi_gmem_0_ARCACHE(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARCACHE),
+    .m_axi_gmem_0_ARPROT(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARPROT),
+    .m_axi_gmem_0_ARQOS(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARQOS),
+    .m_axi_gmem_0_ARREGION(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARREGION),
+    .m_axi_gmem_0_ARUSER(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_ARUSER),
     .m_axi_gmem_0_RVALID(1'b0),
-    .m_axi_gmem_0_RREADY(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_RREADY),
+    .m_axi_gmem_0_RREADY(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_RREADY),
     .m_axi_gmem_0_RDATA(32'd0),
     .m_axi_gmem_0_RLAST(1'b0),
     .m_axi_gmem_0_RID(1'd0),
@@ -543,13 +542,13 @@ kernel_aie_consume_doppler grp_aie_consume_doppler_fu_184(
     .m_axi_gmem_0_RUSER(1'd0),
     .m_axi_gmem_0_RRESP(2'd0),
     .m_axi_gmem_0_BVALID(m_axi_gmem_0_BVALID),
-    .m_axi_gmem_0_BREADY(grp_aie_consume_doppler_fu_184_m_axi_gmem_0_BREADY),
+    .m_axi_gmem_0_BREADY(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_BREADY),
     .m_axi_gmem_0_BRESP(m_axi_gmem_0_BRESP),
     .m_axi_gmem_0_BID(m_axi_gmem_0_BID),
     .m_axi_gmem_0_BUSER(m_axi_gmem_0_BUSER),
     .mm(mm),
-    .seq(a_seq_reg_339),
-    .ind(add_ln115_reg_362)
+    .seq(a_seq_reg_349),
+    .ind(add_ln116_reg_372)
 );
 
 always @ (posedge ap_clk) begin
@@ -562,86 +561,80 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_aie_consume_doppler_fu_184_ap_start_reg <= 1'b0;
+        grp_aie_consume_doppler_fu_196_ap_start_reg <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state6)) begin
-            grp_aie_consume_doppler_fu_184_ap_start_reg <= 1'b1;
-        end else if ((grp_aie_consume_doppler_fu_184_ap_ready == 1'b1)) begin
-            grp_aie_consume_doppler_fu_184_ap_start_reg <= 1'b0;
+        if (((icmp_ln113_fu_308_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
+            grp_aie_consume_doppler_fu_196_ap_start_reg <= 1'b1;
+        end else if ((grp_aie_consume_doppler_fu_196_ap_ready == 1'b1)) begin
+            grp_aie_consume_doppler_fu_196_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start_reg <= 1'b0;
+        grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start_reg <= 1'b0;
     end else begin
-        if (((icmp_ln93_fu_215_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-            grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start_reg <= 1'b1;
-        end else if ((grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_ready == 1'b1)) begin
-            grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start_reg <= 1'b0;
+        if (((idx_stream_empty_n == 1'b1) & (icmp_ln93_fu_227_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+            grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start_reg <= 1'b1;
+        end else if ((grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_ready == 1'b1)) begin
+            grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_doppler_forward_one_fu_160_ap_start_reg <= 1'b0;
+        grp_doppler_forward_one_fu_172_ap_start_reg <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state6)) begin
-            grp_doppler_forward_one_fu_160_ap_start_reg <= 1'b1;
-        end else if ((grp_doppler_forward_one_fu_160_ap_ready == 1'b1)) begin
-            grp_doppler_forward_one_fu_160_ap_start_reg <= 1'b0;
+        if (((icmp_ln113_fu_308_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
+            grp_doppler_forward_one_fu_172_ap_start_reg <= 1'b1;
+        end else if ((grp_doppler_forward_one_fu_172_ap_ready == 1'b1)) begin
+            grp_doppler_forward_one_fu_172_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_done == 1'b1))) begin
-        b_reg_140 <= 5'd0;
-    end else if (((1'b0 == ap_block_state7_on_subcall_done) & (1'b1 == ap_CS_fsm_state7))) begin
-        b_reg_140 <= b_1_reg_352;
+    if (((1'b1 == ap_CS_fsm_state3) & (grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_done == 1'b1))) begin
+        b_reg_152 <= 5'd0;
+    end else if (((1'b0 == ap_block_state5_on_subcall_done) & (1'b1 == ap_CS_fsm_state5))) begin
+        b_reg_152 <= b_1_reg_362;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        a_index_reg_329 <= a_index_fu_211_p1;
-        idx_stream_read_reg_323 <= idx_stream_dout;
+        a_index_reg_341 <= a_index_fu_223_p1;
+        a_seq_reg_349 <= {{idx_stream_dout[31:16]}};
+        tmp_1_reg_354[15 : 0] <= tmp_1_fu_253_p4[15 : 0];
+tmp_1_reg_354[31 : 19] <= tmp_1_fu_253_p4[31 : 19];
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        a_seq_reg_339 <= {{idx_stream_read_reg_323[31:16]}};
-        tmp_1_reg_344[15 : 0] <= tmp_1_fu_238_p4[15 : 0];
-tmp_1_reg_344[31 : 19] <= tmp_1_fu_238_p4[31 : 19];
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        add_ln116_reg_372 <= add_ln116_fu_329_p2;
+        b_1_reg_362 <= b_1_fu_314_p2;
+        trunc_ln113_reg_367 <= trunc_ln113_fu_320_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        add_ln115_reg_362 <= add_ln115_fu_312_p2;
-        b_1_reg_352 <= b_1_fu_298_p2;
-        trunc_ln112_reg_357 <= trunc_ln112_fu_304_p1;
+    if (((grp_doppler_forward_one_fu_172_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_02_TDATA_reg <= grp_doppler_forward_one_fu_172_out_d_02_TDATA;
+        out_d_02_TKEEP_reg <= grp_doppler_forward_one_fu_172_out_d_02_TKEEP;
+        out_d_02_TLAST_reg <= grp_doppler_forward_one_fu_172_out_d_02_TLAST;
+        out_d_02_TSTRB_reg <= grp_doppler_forward_one_fu_172_out_d_02_TSTRB;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TDATA_reg <= grp_doppler_forward_one_fu_160_out_d_02_TDATA;
-        out_d_02_TKEEP_reg <= grp_doppler_forward_one_fu_160_out_d_02_TKEEP;
-        out_d_02_TLAST_reg <= grp_doppler_forward_one_fu_160_out_d_02_TLAST;
-        out_d_02_TSTRB_reg <= grp_doppler_forward_one_fu_160_out_d_02_TSTRB;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TDATA_reg <= grp_doppler_forward_one_fu_160_out_d_03_TDATA;
-        out_d_03_TKEEP_reg <= grp_doppler_forward_one_fu_160_out_d_03_TKEEP;
-        out_d_03_TLAST_reg <= grp_doppler_forward_one_fu_160_out_d_03_TLAST;
-        out_d_03_TSTRB_reg <= grp_doppler_forward_one_fu_160_out_d_03_TSTRB;
+    if (((grp_doppler_forward_one_fu_172_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_03_TDATA_reg <= grp_doppler_forward_one_fu_172_out_d_03_TDATA;
+        out_d_03_TKEEP_reg <= grp_doppler_forward_one_fu_172_out_d_03_TKEEP;
+        out_d_03_TLAST_reg <= grp_doppler_forward_one_fu_172_out_d_03_TLAST;
+        out_d_03_TSTRB_reg <= grp_doppler_forward_one_fu_172_out_d_03_TSTRB;
     end
 end
 
@@ -661,30 +654,34 @@ always @ (*) begin
     end
 end
 
-assign ap_ST_fsm_state3_blk = 1'b0;
-
 always @ (*) begin
-    if ((grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_done == 1'b0)) begin
-        ap_ST_fsm_state4_blk = 1'b1;
+    if ((grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_done == 1'b0)) begin
+        ap_ST_fsm_state3_blk = 1'b1;
     end else begin
-        ap_ST_fsm_state4_blk = 1'b0;
+        ap_ST_fsm_state3_blk = 1'b0;
     end
 end
 
-assign ap_ST_fsm_state5_blk = 1'b0;
-
-assign ap_ST_fsm_state6_blk = 1'b0;
+assign ap_ST_fsm_state4_blk = 1'b0;
 
 always @ (*) begin
-    if ((1'b1 == ap_block_state7_on_subcall_done)) begin
-        ap_ST_fsm_state7_blk = 1'b1;
+    if ((1'b1 == ap_block_state5_on_subcall_done)) begin
+        ap_ST_fsm_state5_blk = 1'b1;
     end else begin
-        ap_ST_fsm_state7_blk = 1'b0;
+        ap_ST_fsm_state5_blk = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((((icmp_ln93_fu_215_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)))) begin
+    if ((doppler_mask_stream_full_n == 1'b0)) begin
+        ap_ST_fsm_state6_blk = 1'b1;
+    end else begin
+        ap_ST_fsm_state6_blk = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)) | ((1'b1 == ap_CS_fsm_state6) & (doppler_mask_stream_full_n == 1'b1)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -700,10 +697,38 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln93_fu_215_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((1'b1 == ap_CS_fsm_state6) & (doppler_mask_stream_full_n == 1'b1))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        doppler_mask_stream_blk_n = doppler_mask_stream_full_n;
+    end else begin
+        doppler_mask_stream_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state6) & (doppler_mask_stream_full_n == 1'b1))) begin
+        doppler_mask_stream_din = 2816'd65535;
+    end else if ((1'b1 == ap_CS_fsm_state5)) begin
+        doppler_mask_stream_din = grp_aie_consume_doppler_fu_196_doppler_mask_stream_din;
+    end else begin
+        doppler_mask_stream_din = grp_aie_consume_doppler_fu_196_doppler_mask_stream_din;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state6) & (doppler_mask_stream_full_n == 1'b1))) begin
+        doppler_mask_stream_write = 1'b1;
+    end else if ((1'b1 == ap_CS_fsm_state5)) begin
+        doppler_mask_stream_write = grp_aie_consume_doppler_fu_196_doppler_mask_stream_write;
+    end else begin
+        doppler_mask_stream_write = 1'b0;
     end
 end
 
@@ -724,156 +749,156 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        in_d_02_TREADY = grp_aie_consume_doppler_fu_184_in_d_02_TREADY;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        in_d_02_TREADY = grp_aie_consume_doppler_fu_196_in_d_02_TREADY;
     end else begin
         in_d_02_TREADY = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        in_d_03_TREADY = grp_aie_consume_doppler_fu_184_in_d_03_TREADY;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        in_d_03_TREADY = grp_aie_consume_doppler_fu_196_in_d_03_TREADY;
     end else begin
         in_d_03_TREADY = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_gmem_0_ARVALID = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARVALID;
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+        m_axi_gmem_0_ARVALID = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARVALID;
     end else begin
         m_axi_gmem_0_ARVALID = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state7))) begin
-        m_axi_gmem_0_AWVALID = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWVALID;
+    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+        m_axi_gmem_0_AWVALID = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWVALID;
     end else begin
         m_axi_gmem_0_AWVALID = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state7))) begin
-        m_axi_gmem_0_BREADY = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_BREADY;
+    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+        m_axi_gmem_0_BREADY = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_BREADY;
     end else begin
         m_axi_gmem_0_BREADY = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_gmem_0_RREADY = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_RREADY;
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+        m_axi_gmem_0_RREADY = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_RREADY;
     end else begin
         m_axi_gmem_0_RREADY = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state7))) begin
-        m_axi_gmem_0_WVALID = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WVALID;
+    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+        m_axi_gmem_0_WVALID = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WVALID;
     end else begin
         m_axi_gmem_0_WVALID = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TDATA = grp_doppler_forward_one_fu_160_out_d_02_TDATA;
+    if (((grp_doppler_forward_one_fu_172_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_02_TDATA = grp_doppler_forward_one_fu_172_out_d_02_TDATA;
     end else begin
         out_d_02_TDATA = out_d_02_TDATA_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TKEEP = grp_doppler_forward_one_fu_160_out_d_02_TKEEP;
+    if (((grp_doppler_forward_one_fu_172_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_02_TKEEP = grp_doppler_forward_one_fu_172_out_d_02_TKEEP;
     end else begin
         out_d_02_TKEEP = out_d_02_TKEEP_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TLAST = grp_doppler_forward_one_fu_160_out_d_02_TLAST;
+    if (((grp_doppler_forward_one_fu_172_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_02_TLAST = grp_doppler_forward_one_fu_172_out_d_02_TLAST;
     end else begin
         out_d_02_TLAST = out_d_02_TLAST_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TSTRB = grp_doppler_forward_one_fu_160_out_d_02_TSTRB;
+    if (((grp_doppler_forward_one_fu_172_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_02_TSTRB = grp_doppler_forward_one_fu_172_out_d_02_TSTRB;
     end else begin
         out_d_02_TSTRB = out_d_02_TSTRB_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TDATA = grp_doppler_forward_one_fu_160_out_d_03_TDATA;
+    if (((grp_doppler_forward_one_fu_172_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_03_TDATA = grp_doppler_forward_one_fu_172_out_d_03_TDATA;
     end else begin
         out_d_03_TDATA = out_d_03_TDATA_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TKEEP = grp_doppler_forward_one_fu_160_out_d_03_TKEEP;
+    if (((grp_doppler_forward_one_fu_172_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_03_TKEEP = grp_doppler_forward_one_fu_172_out_d_03_TKEEP;
     end else begin
         out_d_03_TKEEP = out_d_03_TKEEP_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TLAST = grp_doppler_forward_one_fu_160_out_d_03_TLAST;
+    if (((grp_doppler_forward_one_fu_172_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_03_TLAST = grp_doppler_forward_one_fu_172_out_d_03_TLAST;
     end else begin
         out_d_03_TLAST = out_d_03_TLAST_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_forward_one_fu_160_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TSTRB = grp_doppler_forward_one_fu_160_out_d_03_TSTRB;
+    if (((grp_doppler_forward_one_fu_172_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        out_d_03_TSTRB = grp_doppler_forward_one_fu_172_out_d_03_TSTRB;
     end else begin
         out_d_03_TSTRB = out_d_03_TSTRB_reg;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        window_address0 = grp_doppler_forward_one_fu_160_in_adc0_address0;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        window_address0 = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_address0;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        window_address0 = grp_doppler_forward_one_fu_172_in_adc0_address0;
+    end else if ((1'b1 == ap_CS_fsm_state3)) begin
+        window_address0 = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_address0;
     end else begin
         window_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        window_ce0 = grp_doppler_forward_one_fu_160_in_adc0_ce0;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        window_ce0 = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_ce0;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        window_ce0 = grp_doppler_forward_one_fu_172_in_adc0_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state3)) begin
+        window_ce0 = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_ce0;
     end else begin
         window_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        window_ce1 = grp_doppler_forward_one_fu_160_in_adc0_ce1;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        window_ce1 = grp_doppler_forward_one_fu_172_in_adc0_ce1;
     end else begin
         window_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        window_we0 = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_window_we0;
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        window_we0 = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_window_we0;
     end else begin
         window_we0 = 1'b0;
     end
@@ -889,41 +914,40 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((idx_stream_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((idx_stream_empty_n == 1'b1) & (icmp_ln93_fu_227_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+                ap_NS_fsm = ap_ST_fsm_state6;
+            end else if (((idx_stream_empty_n == 1'b1) & (icmp_ln93_fu_227_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end
         end
         ap_ST_fsm_state3 : begin
-            if (((icmp_ln93_fu_215_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
+            if (((1'b1 == ap_CS_fsm_state3) & (grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state4;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state3;
             end
         end
         ap_ST_fsm_state4 : begin
-            if (((1'b1 == ap_CS_fsm_state4) & (grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_done == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state5;
+            if (((icmp_ln113_fu_308_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
+                ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         ap_ST_fsm_state5 : begin
-            if (((icmp_ln112_fu_292_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
+            if (((1'b0 == ap_block_state5_on_subcall_done) & (1'b1 == ap_CS_fsm_state5))) begin
+                ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state6;
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        ap_ST_fsm_state7 : begin
-            if (((1'b0 == ap_block_state7_on_subcall_done) & (1'b1 == ap_CS_fsm_state7))) begin
-                ap_NS_fsm = ap_ST_fsm_state5;
+            if (((1'b1 == ap_CS_fsm_state6) & (doppler_mask_stream_full_n == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state7;
+                ap_NS_fsm = ap_ST_fsm_state6;
             end
         end
         default : begin
@@ -932,9 +956,9 @@ always @ (*) begin
     endcase
 end
 
-assign a_index_fu_211_p1 = idx_stream_dout[15:0];
+assign a_index_fu_223_p1 = idx_stream_dout[15:0];
 
-assign add_ln115_fu_312_p2 = (a_index_reg_329 + zext_ln115_fu_308_p1);
+assign add_ln116_fu_329_p2 = (a_index_reg_341 + zext_ln116_fu_325_p1);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -948,100 +972,94 @@ assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
 assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
-assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
-
 always @ (*) begin
-    ap_block_state7_on_subcall_done = ((grp_aie_consume_doppler_fu_184_ap_done == 1'b0) | (grp_doppler_forward_one_fu_160_ap_done == 1'b0));
+    ap_block_state5_on_subcall_done = ((grp_aie_consume_doppler_fu_196_ap_done == 1'b0) | (grp_doppler_forward_one_fu_172_ap_done == 1'b0));
 end
 
-assign b_1_fu_298_p2 = (b_reg_140 + 5'd1);
+assign b_1_fu_314_p2 = (b_reg_152 + 5'd1);
 
-assign doppler_mask_stream_din = grp_aie_consume_doppler_fu_184_doppler_mask_stream_din;
+assign grp_aie_consume_doppler_fu_196_ap_start = grp_aie_consume_doppler_fu_196_ap_start_reg;
 
-assign doppler_mask_stream_write = grp_aie_consume_doppler_fu_184_doppler_mask_stream_write;
+assign grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_ap_start_reg;
 
-assign grp_aie_consume_doppler_fu_184_ap_start = grp_aie_consume_doppler_fu_184_ap_start_reg;
+assign grp_doppler_forward_one_fu_172_ap_start = grp_doppler_forward_one_fu_172_ap_start_reg;
 
-assign grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_ap_start_reg;
+assign grp_doppler_forward_one_fu_172_out_d_02_TREADY = (out_d_02_TREADY & ap_CS_fsm_state5);
 
-assign grp_doppler_forward_one_fu_160_ap_start = grp_doppler_forward_one_fu_160_ap_start_reg;
+assign grp_doppler_forward_one_fu_172_out_d_03_TREADY = (out_d_03_TREADY & ap_CS_fsm_state5);
 
-assign grp_doppler_forward_one_fu_160_out_d_02_TREADY = (out_d_02_TREADY & ap_CS_fsm_state7);
+assign icmp_ln113_fu_308_p2 = ((b_reg_152 == 5'd16) ? 1'b1 : 1'b0);
 
-assign grp_doppler_forward_one_fu_160_out_d_03_TREADY = (out_d_03_TREADY & ap_CS_fsm_state7);
+assign icmp_ln93_fu_227_p2 = ((a_index_fu_223_p1 == 16'd65535) ? 1'b1 : 1'b0);
 
-assign icmp_ln112_fu_292_p2 = ((b_reg_140 == 5'd16) ? 1'b1 : 1'b0);
+assign m_axi_gmem_0_ARADDR = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARADDR;
 
-assign icmp_ln93_fu_215_p2 = ((a_index_reg_329 == 16'd65535) ? 1'b1 : 1'b0);
+assign m_axi_gmem_0_ARBURST = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARBURST;
 
-assign m_axi_gmem_0_ARADDR = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARADDR;
+assign m_axi_gmem_0_ARCACHE = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARCACHE;
 
-assign m_axi_gmem_0_ARBURST = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARBURST;
+assign m_axi_gmem_0_ARID = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARID;
 
-assign m_axi_gmem_0_ARCACHE = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARCACHE;
+assign m_axi_gmem_0_ARLEN = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARLEN;
 
-assign m_axi_gmem_0_ARID = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARID;
+assign m_axi_gmem_0_ARLOCK = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARLOCK;
 
-assign m_axi_gmem_0_ARLEN = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARLEN;
+assign m_axi_gmem_0_ARPROT = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARPROT;
 
-assign m_axi_gmem_0_ARLOCK = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARLOCK;
+assign m_axi_gmem_0_ARQOS = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARQOS;
 
-assign m_axi_gmem_0_ARPROT = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARPROT;
+assign m_axi_gmem_0_ARREGION = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARREGION;
 
-assign m_axi_gmem_0_ARQOS = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARQOS;
+assign m_axi_gmem_0_ARSIZE = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARSIZE;
 
-assign m_axi_gmem_0_ARREGION = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARREGION;
+assign m_axi_gmem_0_ARUSER = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163_m_axi_gmem_0_ARUSER;
 
-assign m_axi_gmem_0_ARSIZE = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARSIZE;
+assign m_axi_gmem_0_AWADDR = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWADDR;
 
-assign m_axi_gmem_0_ARUSER = grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3_fu_151_m_axi_gmem_0_ARUSER;
+assign m_axi_gmem_0_AWBURST = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWBURST;
 
-assign m_axi_gmem_0_AWADDR = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWADDR;
+assign m_axi_gmem_0_AWCACHE = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWCACHE;
 
-assign m_axi_gmem_0_AWBURST = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWBURST;
+assign m_axi_gmem_0_AWID = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWID;
 
-assign m_axi_gmem_0_AWCACHE = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWCACHE;
+assign m_axi_gmem_0_AWLEN = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWLEN;
 
-assign m_axi_gmem_0_AWID = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWID;
+assign m_axi_gmem_0_AWLOCK = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWLOCK;
 
-assign m_axi_gmem_0_AWLEN = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWLEN;
+assign m_axi_gmem_0_AWPROT = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWPROT;
 
-assign m_axi_gmem_0_AWLOCK = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWLOCK;
+assign m_axi_gmem_0_AWQOS = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWQOS;
 
-assign m_axi_gmem_0_AWPROT = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWPROT;
+assign m_axi_gmem_0_AWREGION = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWREGION;
 
-assign m_axi_gmem_0_AWQOS = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWQOS;
+assign m_axi_gmem_0_AWSIZE = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWSIZE;
 
-assign m_axi_gmem_0_AWREGION = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWREGION;
+assign m_axi_gmem_0_AWUSER = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWUSER;
 
-assign m_axi_gmem_0_AWSIZE = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWSIZE;
+assign m_axi_gmem_0_WDATA = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WDATA;
 
-assign m_axi_gmem_0_AWUSER = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_AWUSER;
+assign m_axi_gmem_0_WID = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WID;
 
-assign m_axi_gmem_0_WDATA = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WDATA;
+assign m_axi_gmem_0_WLAST = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WLAST;
 
-assign m_axi_gmem_0_WID = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WID;
+assign m_axi_gmem_0_WSTRB = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WSTRB;
 
-assign m_axi_gmem_0_WLAST = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WLAST;
+assign m_axi_gmem_0_WUSER = grp_aie_consume_doppler_fu_196_m_axi_gmem_0_WUSER;
 
-assign m_axi_gmem_0_WSTRB = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WSTRB;
+assign out_d_02_TVALID = grp_doppler_forward_one_fu_172_out_d_02_TVALID;
 
-assign m_axi_gmem_0_WUSER = grp_aie_consume_doppler_fu_184_m_axi_gmem_0_WUSER;
+assign out_d_03_TVALID = grp_doppler_forward_one_fu_172_out_d_03_TVALID;
 
-assign out_d_02_TVALID = grp_doppler_forward_one_fu_160_out_d_02_TVALID;
+assign tmp_1_fu_253_p4 = {{{tmp_fu_243_p4}, {3'd0}}, {a_index_fu_223_p1}};
 
-assign out_d_03_TVALID = grp_doppler_forward_one_fu_160_out_d_03_TVALID;
+assign tmp_fu_243_p4 = {{idx_stream_dout[28:16]}};
 
-assign tmp_1_fu_238_p4 = {{{tmp_fu_229_p4}, {3'd0}}, {a_index_reg_329}};
+assign trunc_ln113_fu_320_p1 = b_reg_152[3:0];
 
-assign tmp_fu_229_p4 = {{idx_stream_read_reg_323[28:16]}};
-
-assign trunc_ln112_fu_304_p1 = b_reg_140[3:0];
-
-assign zext_ln115_fu_308_p1 = trunc_ln112_fu_304_p1;
+assign zext_ln116_fu_325_p1 = trunc_ln113_fu_320_p1;
 
 always @ (posedge ap_clk) begin
-    tmp_1_reg_344[18:16] <= 3'b000;
+    tmp_1_reg_354[18:16] <= 3'b000;
 end
 
 endmodule //kernel_doppler

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'doppler_forward_one'" level="0">
-<item name = "Date">Mon Nov  9 15:21:26 2026
+<item name = "Date">Tue Nov 10 11:50:41 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 4.999 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 5.580 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">133, 133, 0.934 us, 0.934 us, 0, 0, loop pipeline stp</column>
+<column name="">133, 133, 1.064 us, 1.064 us, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_125_1">131, 131, 5, 1, 1, 128, yes</column>
+<column name="- VITIS_LOOP_137_1">131, 131, 5, 1, 1, 128, yes</column>
 </table>
 </item>
 </section>
@@ -48,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 34, -</column>
+<column name="Expression">-, -, 0, 32, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, 4, 268, 8, -</column>
+<column name="Instance">-, 4, 0, 24, -</column>
 <column name="Memory">1, -, 0, 0, -</column>
 <column name="Multiplexer">-, -, 0, 54, -</column>
-<column name="Register">-, -, 135, -, -</column>
+<column name="Register">-, -, 189, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
 <specialColumn name="Utilization (%)">~0, 1, ~0, ~0, 0</specialColumn>
 </table>
@@ -62,10 +62,10 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_16s_15ns_31_2_1_U85">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
-<column name="mul_16s_15ns_31_2_1_U86">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
-<column name="mul_16s_15ns_31_2_1_U87">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
-<column name="mul_16s_15ns_31_2_1_U88">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
+<column name="mul_16s_15ns_31_1_1_U97">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
+<column name="mul_16s_15ns_31_1_1_U98">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
+<column name="mul_16s_15ns_31_1_1_U99">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
+<column name="mul_16s_15ns_31_1_1_U100">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -83,11 +83,10 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln125_fu_230_p2">+, 0, 0, 14, 9, 2</column>
-<column name="add_ln129_fu_224_p2">+, 0, 0, 12, 12, 12</column>
+<column name="add_ln137_fu_220_p2">+, 0, 0, 14, 9, 2</column>
+<column name="add_ln141_fu_238_p2">+, 0, 0, 12, 12, 12</column>
 <column name="ap_block_pp0_stage0_01001_grp1">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_pp0_stage0_01001_grp2">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_pp0_stage0_11001">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state5_pp0_stage0_iter4_grp1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -103,10 +102,7 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln129_reg_431">12, 0, 12, 0</column>
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
-<column name="ap_block_pp0_stage0_subdone_grp1_done_reg">1, 0, 1, 0</column>
-<column name="ap_block_pp0_stage0_subdone_grp2_done_reg">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
@@ -115,14 +111,19 @@
 <column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter2_reg">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter3_reg">1, 0, 1, 0</column>
-<column name="b_real_1_reg_481">15, 0, 15, 0</column>
-<column name="b_real_reg_476">15, 0, 15, 0</column>
-<column name="c_imag_2_reg_461">16, 0, 16, 0</column>
-<column name="c_imag_3_reg_471">16, 0, 16, 0</column>
-<column name="c_real_2_reg_456">16, 0, 16, 0</column>
-<column name="c_real_3_reg_466">16, 0, 16, 0</column>
+<column name="b_real_1_reg_477">15, 0, 15, 0</column>
+<column name="b_real_reg_472">15, 0, 15, 0</column>
+<column name="c_imag_2_reg_457">16, 0, 16, 0</column>
+<column name="c_imag_3_reg_467">16, 0, 16, 0</column>
+<column name="c_real_2_reg_452">16, 0, 16, 0</column>
+<column name="c_real_3_reg_462">16, 0, 16, 0</column>
 <column name="i_3_reg_421">9, 0, 9, 0</column>
 <column name="i_fu_98">9, 0, 9, 0</column>
+<column name="r_imag_1_reg_497">16, 0, 16, 0</column>
+<column name="r_imag_reg_487">16, 0, 16, 0</column>
+<column name="r_real_1_reg_492">16, 0, 16, 0</column>
+<column name="r_real_reg_482">16, 0, 16, 0</column>
+<column name="tmp_reg_416">4, 0, 12, 8</column>
 </table>
 </item>
 </section>

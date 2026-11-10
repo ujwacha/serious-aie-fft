@@ -22,14 +22,13 @@ module kernel_seq_generator (
         idx_stream_write
 );
 
-parameter    ap_ST_fsm_state1 = 8'd1;
-parameter    ap_ST_fsm_state2 = 8'd2;
-parameter    ap_ST_fsm_state3 = 8'd4;
-parameter    ap_ST_fsm_state4 = 8'd8;
-parameter    ap_ST_fsm_state5 = 8'd16;
-parameter    ap_ST_fsm_state6 = 8'd32;
-parameter    ap_ST_fsm_state7 = 8'd64;
-parameter    ap_ST_fsm_state8 = 8'd128;
+parameter    ap_ST_fsm_state1 = 7'd1;
+parameter    ap_ST_fsm_state2 = 7'd2;
+parameter    ap_ST_fsm_state3 = 7'd4;
+parameter    ap_ST_fsm_state4 = 7'd8;
+parameter    ap_ST_fsm_state5 = 7'd16;
+parameter    ap_ST_fsm_state6 = 7'd32;
+parameter    ap_ST_fsm_state7 = 7'd64;
 
 input   ap_clk;
 input   ap_rst;
@@ -51,31 +50,31 @@ reg mask_stream_read;
 reg[31:0] idx_stream_din;
 reg idx_stream_write;
 
-(* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [6:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 wire   [127:0] mask_seqs_q0;
 reg   [127:0] seqs_done;
 reg    mask_stream_blk_n;
 wire    ap_CS_fsm_state2;
 reg    idx_stream_blk_n;
-wire    ap_CS_fsm_state8;
-reg   [159:0] mask_stream_read_reg_209;
+wire    ap_CS_fsm_state7;
+reg   [159:0] mask_stream_read_reg_213;
 wire   [127:0] mask_mask_fu_103_p1;
-reg   [127:0] mask_mask_reg_214;
-reg   [15:0] mask_seq_reg_219;
-reg   [15:0] mask_chirp_reg_225;
+reg   [127:0] mask_mask_reg_218;
+reg   [15:0] mask_seq_reg_223;
 wire   [0:0] icmp_ln31_fu_137_p2;
-reg   [0:0] icmp_ln31_reg_231;
+reg   [0:0] icmp_ln31_reg_229;
 wire   [0:0] icmp_ln32_fu_143_p2;
-reg   [0:0] icmp_ln32_reg_235;
+reg   [0:0] icmp_ln32_reg_233;
+wire   [0:0] icmp_ln41_fu_149_p2;
+reg   [0:0] icmp_ln41_reg_238;
+reg   [6:0] mask_seqs_addr_reg_242;
 wire    ap_CS_fsm_state3;
-reg   [6:0] mask_seqs_addr_reg_240;
-wire   [0:0] icmp_ln41_fu_152_p2;
-reg   [0:0] icmp_ln41_reg_245;
-reg   [127:0] mask_seqs_load_reg_249;
+wire   [127:0] and_ln37_fu_159_p3;
+reg   [127:0] and_ln37_reg_247;
 wire    ap_CS_fsm_state4;
-wire   [127:0] current_mask_fu_163_p2;
-reg   [127:0] current_mask_reg_254;
+wire   [127:0] current_mask_fu_166_p2;
+reg   [127:0] current_mask_reg_252;
 wire    ap_CS_fsm_state5;
 wire    grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start;
 wire    grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_done;
@@ -85,33 +84,31 @@ wire   [31:0] grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_din;
 wire    grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_write;
 reg    grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start_reg;
 wire    ap_CS_fsm_state6;
-wire    ap_CS_fsm_state7;
-wire   [63:0] zext_ln35_fu_148_p1;
-wire   [127:0] tmp_1_fu_177_p4;
+wire   [63:0] zext_ln35_fu_155_p1;
+wire   [127:0] tmp_1_fu_181_p4;
 reg    mask_seqs_ce0_local;
 reg   [6:0] mask_seqs_address0_local;
 reg    mask_seqs_we0_local;
 wire   [8:0] tmp_fu_127_p4;
-wire   [127:0] and_ln37_fu_157_p3;
-wire   [6:0] tmp_1_fu_177_p2;
-wire   [0:0] trunc_ln71_fu_205_p1;
-reg   [7:0] ap_NS_fsm;
+wire   [15:0] mask_chirp_fu_117_p4;
+wire   [6:0] tmp_1_fu_181_p2;
+wire   [0:0] trunc_ln71_fu_209_p1;
+reg   [6:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
 wire    ap_ST_fsm_state3_blk;
 wire    ap_ST_fsm_state4_blk;
 wire    ap_ST_fsm_state5_blk;
-wire    ap_ST_fsm_state6_blk;
-reg    ap_predicate_op36_call_state7;
-reg    ap_block_state7_on_subcall_done;
+reg    ap_predicate_op35_call_state6;
+reg    ap_block_state6_on_subcall_done;
+reg    ap_ST_fsm_state6_blk;
 reg    ap_ST_fsm_state7_blk;
-reg    ap_ST_fsm_state8_blk;
-wire   [127:0] tmp_1_fu_177_p0;
+wire   [127:0] tmp_1_fu_181_p0;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 8'd1;
+#0 ap_CS_fsm = 7'd1;
 #0 seqs_done = 128'd0;
 #0 grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start_reg = 1'b0;
 end
@@ -126,7 +123,7 @@ mask_seqs_U(
     .address0(mask_seqs_address0_local),
     .ce0(mask_seqs_ce0_local),
     .we0(mask_seqs_we0_local),
-    .d0(current_mask_reg_254),
+    .d0(current_mask_fu_166_p2),
     .q0(mask_seqs_q0)
 );
 
@@ -140,18 +137,18 @@ kernel_seq_generator_Pipeline_VITIS_LOOP_49_2 grp_seq_generator_Pipeline_VITIS_L
     .idx_stream_din(grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_din),
     .idx_stream_full_n(idx_stream_full_n),
     .idx_stream_write(grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_write),
-    .current_mask(current_mask_reg_254),
-    .mask_seq(mask_seq_reg_219)
+    .current_mask(current_mask_reg_252),
+    .mask_seq(mask_seq_reg_223)
 );
 
 kernel_bitset_128ns_128ns_7ns_1s_128_1_1 #(
     .DATAWIDTH( 128 ),
     .ADDRWIDTH( 7 ))
-bitset_128ns_128ns_7ns_1s_128_1_1_U76(
+bitset_128ns_128ns_7ns_1s_128_1_1_U88(
     .din(seqs_done),
-    .sel(tmp_1_fu_177_p2),
+    .sel(tmp_1_fu_181_p2),
     .value(1'd1),
-    .dout(tmp_1_fu_177_p4)
+    .dout(tmp_1_fu_181_p4)
 );
 
 always @ (posedge ap_clk) begin
@@ -166,7 +163,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start_reg <= 1'b0;
     end else begin
-        if (((icmp_ln41_reg_245 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
+        if (((icmp_ln41_reg_238 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
             grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start_reg <= 1'b1;
         end else if ((grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_ready == 1'b1)) begin
             grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start_reg <= 1'b0;
@@ -175,38 +172,37 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        and_ln37_reg_247 <= and_ln37_fu_159_p3;
+    end
+end
+
+always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        current_mask_reg_254 <= current_mask_fu_163_p2;
+        current_mask_reg_252 <= current_mask_fu_166_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        icmp_ln31_reg_231 <= icmp_ln31_fu_137_p2;
-        mask_chirp_reg_225 <= {{mask_stream_dout[159:144]}};
-        mask_mask_reg_214 <= mask_mask_fu_103_p1;
-        mask_seq_reg_219 <= {{mask_stream_dout[143:128]}};
-        mask_stream_read_reg_209 <= mask_stream_dout;
+        icmp_ln31_reg_229 <= icmp_ln31_fu_137_p2;
+        icmp_ln32_reg_233 <= icmp_ln32_fu_143_p2;
+        icmp_ln41_reg_238 <= icmp_ln41_fu_149_p2;
+        mask_mask_reg_218 <= mask_mask_fu_103_p1;
+        mask_seq_reg_223 <= {{mask_stream_dout[143:128]}};
+        mask_stream_read_reg_213 <= mask_stream_dout;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        icmp_ln32_reg_235 <= icmp_ln32_fu_143_p2;
-        icmp_ln41_reg_245 <= icmp_ln41_fu_152_p2;
-        mask_seqs_addr_reg_240 <= zext_ln35_fu_148_p1;
+        mask_seqs_addr_reg_242 <= zext_ln35_fu_155_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        mask_seqs_load_reg_249 <= mask_seqs_q0;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((icmp_ln41_reg_245 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
-        seqs_done <= tmp_1_fu_177_p4;
+    if (((icmp_ln41_reg_238 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
+        seqs_done <= tmp_1_fu_181_p4;
     end
 end
 
@@ -232,10 +228,16 @@ assign ap_ST_fsm_state4_blk = 1'b0;
 
 assign ap_ST_fsm_state5_blk = 1'b0;
 
-assign ap_ST_fsm_state6_blk = 1'b0;
+always @ (*) begin
+    if ((1'b1 == ap_block_state6_on_subcall_done)) begin
+        ap_ST_fsm_state6_blk = 1'b1;
+    end else begin
+        ap_ST_fsm_state6_blk = 1'b0;
+    end
+end
 
 always @ (*) begin
-    if ((1'b1 == ap_block_state7_on_subcall_done)) begin
+    if ((idx_stream_full_n == 1'b0)) begin
         ap_ST_fsm_state7_blk = 1'b1;
     end else begin
         ap_ST_fsm_state7_blk = 1'b0;
@@ -243,15 +245,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((idx_stream_full_n == 1'b0)) begin
-        ap_ST_fsm_state8_blk = 1'b1;
-    end else begin
-        ap_ST_fsm_state8_blk = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)) | ((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state8)))) begin
+    if ((((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)) | ((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state7)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -267,7 +261,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -275,7 +269,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state7)) begin
         idx_stream_blk_n = idx_stream_full_n;
     end else begin
         idx_stream_blk_n = 1'b1;
@@ -283,9 +277,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
         idx_stream_din = 32'd65535;
-    end else if (((icmp_ln41_reg_245 == 1'd1) & (icmp_ln31_reg_231 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+    end else if (((icmp_ln41_reg_238 == 1'd1) & (icmp_ln31_reg_229 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
         idx_stream_din = grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_din;
     end else begin
         idx_stream_din = grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_din;
@@ -293,9 +287,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
         idx_stream_write = 1'b1;
-    end else if (((icmp_ln41_reg_245 == 1'd1) & (icmp_ln31_reg_231 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+    end else if (((icmp_ln41_reg_238 == 1'd1) & (icmp_ln31_reg_229 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
         idx_stream_write = grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_idx_stream_write;
     end else begin
         idx_stream_write = 1'b0;
@@ -303,17 +297,17 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        mask_seqs_address0_local = mask_seqs_addr_reg_240;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        mask_seqs_address0_local = mask_seqs_addr_reg_242;
     end else if ((1'b1 == ap_CS_fsm_state3)) begin
-        mask_seqs_address0_local = zext_ln35_fu_148_p1;
+        mask_seqs_address0_local = zext_ln35_fu_155_p1;
     end else begin
         mask_seqs_address0_local = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state6))) begin
+    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3))) begin
         mask_seqs_ce0_local = 1'b1;
     end else begin
         mask_seqs_ce0_local = 1'b0;
@@ -321,7 +315,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         mask_seqs_we0_local = 1'b1;
     end else begin
         mask_seqs_we0_local = 1'b0;
@@ -355,7 +349,7 @@ always @ (*) begin
         end
         ap_ST_fsm_state2 : begin
             if (((icmp_ln31_fu_137_p2 == 1'd0) & (mask_stream_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state7;
+                ap_NS_fsm = ap_ST_fsm_state6;
             end else if (((icmp_ln31_fu_137_p2 == 1'd1) & (mask_stream_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
@@ -372,22 +366,19 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state6;
         end
         ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        ap_ST_fsm_state7 : begin
-            if (((1'b0 == ap_block_state7_on_subcall_done) & (trunc_ln71_fu_205_p1 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+            if (((1'b0 == ap_block_state6_on_subcall_done) & (1'b1 == ap_CS_fsm_state6) & (trunc_ln71_fu_209_p1 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
-            end else if (((1'b0 == ap_block_state7_on_subcall_done) & (trunc_ln71_fu_205_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
-                ap_NS_fsm = ap_ST_fsm_state8;
-            end else begin
+            end else if (((1'b0 == ap_block_state6_on_subcall_done) & (1'b1 == ap_CS_fsm_state6) & (trunc_ln71_fu_209_p1 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state7;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state6;
             end
         end
-        ap_ST_fsm_state8 : begin
-            if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+        ap_ST_fsm_state7 : begin
+            if (((idx_stream_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state8;
+                ap_NS_fsm = ap_ST_fsm_state7;
             end
         end
         default : begin
@@ -396,7 +387,7 @@ always @ (*) begin
     endcase
 end
 
-assign and_ln37_fu_157_p3 = ((icmp_ln32_reg_235[0:0] == 1'b1) ? 128'd340282366920938463463374607431768211455 : mask_seqs_load_reg_249);
+assign and_ln37_fu_159_p3 = ((icmp_ln32_reg_233[0:0] == 1'b1) ? 128'd340282366920938463463374607431768211455 : mask_seqs_q0);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -412,34 +403,34 @@ assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
 assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 
-assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
-
 always @ (*) begin
-    ap_block_state7_on_subcall_done = ((grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_done == 1'b0) & (ap_predicate_op36_call_state7 == 1'b1));
+    ap_block_state6_on_subcall_done = ((grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_done == 1'b0) & (ap_predicate_op35_call_state6 == 1'b1));
 end
 
 always @ (*) begin
-    ap_predicate_op36_call_state7 = ((icmp_ln41_reg_245 == 1'd1) & (icmp_ln31_reg_231 == 1'd1));
+    ap_predicate_op35_call_state6 = ((icmp_ln41_reg_238 == 1'd1) & (icmp_ln31_reg_229 == 1'd1));
 end
 
-assign current_mask_fu_163_p2 = (mask_mask_reg_214 & and_ln37_fu_157_p3);
+assign current_mask_fu_166_p2 = (mask_mask_reg_218 & and_ln37_reg_247);
 
 assign grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start = grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91_ap_start_reg;
 
 assign icmp_ln31_fu_137_p2 = ((tmp_fu_127_p4 == 9'd0) ? 1'b1 : 1'b0);
 
-assign icmp_ln32_fu_143_p2 = ((mask_chirp_reg_225 == 16'd0) ? 1'b1 : 1'b0);
+assign icmp_ln32_fu_143_p2 = ((mask_chirp_fu_117_p4 == 16'd0) ? 1'b1 : 1'b0);
 
-assign icmp_ln41_fu_152_p2 = ((mask_chirp_reg_225 == 16'd255) ? 1'b1 : 1'b0);
+assign icmp_ln41_fu_149_p2 = ((mask_chirp_fu_117_p4 == 16'd255) ? 1'b1 : 1'b0);
+
+assign mask_chirp_fu_117_p4 = {{mask_stream_dout[159:144]}};
 
 assign mask_mask_fu_103_p1 = mask_stream_dout[127:0];
 
-assign tmp_1_fu_177_p2 = {{mask_stream_read_reg_209[134:128]}};
+assign tmp_1_fu_181_p2 = {{mask_stream_read_reg_213[134:128]}};
 
 assign tmp_fu_127_p4 = {{mask_stream_dout[143:135]}};
 
-assign trunc_ln71_fu_205_p1 = seqs_done[0:0];
+assign trunc_ln71_fu_209_p1 = seqs_done[0:0];
 
-assign zext_ln35_fu_148_p1 = mask_seq_reg_219;
+assign zext_ln35_fu_155_p1 = mask_seq_reg_223;
 
 endmodule //kernel_seq_generator

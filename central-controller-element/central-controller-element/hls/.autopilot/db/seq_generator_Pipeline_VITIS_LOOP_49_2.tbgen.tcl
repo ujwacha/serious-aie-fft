@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 23
+set cdfgNum 24
 set C_modelName {seq_generator_Pipeline_VITIS_LOOP_49_2}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -63,12 +63,12 @@ set ArgLastReadFirstWriteLatency {
 	seq_generator_Pipeline_VITIS_LOOP_49_2 {
 		current_mask {Type I LastRead 0 FirstWrite -1}
 		mask_seq {Type I LastRead 0 FirstWrite -1}
-		idx_stream {Type O LastRead -1 FirstWrite 2}}}
+		idx_stream {Type O LastRead -1 FirstWrite 1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "131", "Max" : "131"}
+	{"Name" : "Latency", "Min" : "130", "Max" : "130"}
 	, {"Name" : "Interval", "Min" : "129", "Max" : "129"}
 ]}
 

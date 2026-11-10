@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 23
+set cdfgNum 24
 set C_modelName {seq_generator}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -62,13 +62,13 @@ set NewPortList {[
 set ArgLastReadFirstWriteLatency {
 	seq_generator {
 		mask_stream {Type I LastRead 1 FirstWrite -1}
-		idx_stream {Type O LastRead -1 FirstWrite 2}
+		idx_stream {Type O LastRead -1 FirstWrite 1}
 		mask_seqs {Type IO LastRead -1 FirstWrite -1}
 		seqs_done {Type IO LastRead -1 FirstWrite -1}}
 	seq_generator_Pipeline_VITIS_LOOP_49_2 {
 		current_mask {Type I LastRead 0 FirstWrite -1}
 		mask_seq {Type I LastRead 0 FirstWrite -1}
-		idx_stream {Type O LastRead -1 FirstWrite 2}}}
+		idx_stream {Type O LastRead -1 FirstWrite 1}}}
 
 set hasDtUnsupportedChannel 0
 

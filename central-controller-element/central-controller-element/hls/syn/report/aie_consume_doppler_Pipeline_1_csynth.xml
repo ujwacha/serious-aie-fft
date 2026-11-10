@@ -9,35 +9,35 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>aie_consume_doppler_Pipeline_1</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>loop pipeline stp</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.458</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.046</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
 <Best-caseLatency>66</Best-caseLatency>
 <Average-caseLatency>66</Average-caseLatency>
 <Worst-caseLatency>66</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.464 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.464 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.464 us</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>0.528 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.528 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.528 us</Worst-caseRealTimeLatency>
 <Interval-min>65</Interval-min>
 <Interval-max>65</Interval-max>
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
-<Slack>3.65</Slack>
+<Slack>5.84</Slack>
 <TripCount>64</TripCount>
 <isPerfectNested>0</isPerfectNested>
 <Latency>64</Latency>
-<AbsoluteTimeLatency>449</AbsoluteTimeLatency>
+<AbsoluteTimeLatency>512</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 <PerformancePragma>-</PerformancePragma>
@@ -62,8 +62,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>24</FF>
-<LUT>72</LUT>
+<FF>17</FF>
+<LUT>67</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>

@@ -19,4 +19,5 @@ obj/test.o: ../../../../tb/test.cpp ../../../../tb/../src/main.h \
   /home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_ref.h \
   /home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_special.h \
   /home/light/FPGA/2026.1/Vitis/include/hls_stream.h \
-  /home/light/FPGA/2026.1/Vitis/include/etc/hls_stream_common.h
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_stream_common.h \
+  ../../../../tb/../src/hamming.h ../../../../tb/../src/range_part.h

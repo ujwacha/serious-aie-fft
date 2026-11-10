@@ -23,7 +23,7 @@ __USE_CLANG__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../tb/test.cpp ../../../../src/complex-math.cpp ../../../../src/doppler_part.cpp ../../../../src/range_part.cpp ../../../../src/main.cpp
+HLS_SOURCES = ../../../../tb/test.cpp ../../../../src/complex-math.cpp ../../../../src/angle_part.cpp ../../../../src/doppler_part.cpp ../../../../src/range_part.cpp ../../../../src/main.cpp
 
 override TARGET := csim.exe
 
@@ -97,6 +97,12 @@ $(ObjDir)/complex-math.o: ../../../../src/complex-math.cpp $(ObjDir)/.dir csim.m
 	$(Verb)  $(CXX) -std=gnu++17 ${CCFLAG} -c -MMD  -fhls-csim -fhlstoplevel=kernel $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/complex-math.d
+
+$(ObjDir)/angle_part.o: ../../../../src/angle_part.cpp $(ObjDir)/.dir csim.mk
+	$(Echo) "   Compiling ../../../../src/angle_part.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CXX) -std=gnu++17 ${CCFLAG} -c -MMD  -fhls-csim -fhlstoplevel=kernel $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/angle_part.d
 
 $(ObjDir)/doppler_part.o: ../../../../src/doppler_part.cpp $(ObjDir)/.dir csim.mk
 	$(Echo) "   Compiling ../../../../src/doppler_part.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

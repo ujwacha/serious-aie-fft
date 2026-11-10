@@ -34,22 +34,69 @@ architecture behav of kernel_dummy is
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
     constant ap_const_boolean_0 : BOOLEAN := false;
+    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
+    constant ap_const_lv16_FFFF : STD_LOGIC_VECTOR (15 downto 0) := "1111111111111111";
 
 attribute shreg_extract : string;
-    signal ap_done_reg : STD_LOGIC := '0';
     signal ap_CS_fsm : STD_LOGIC_VECTOR (0 downto 0) := "1";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
+    signal ap_done_reg : STD_LOGIC := '0';
+    signal ap_block_state1_pp0_stage0_iter0 : BOOLEAN;
+    signal icmp_ln9_fu_32_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal ap_condition_exit_pp0_iter0_stage0 : STD_LOGIC;
+    signal ap_loop_exit_ready : STD_LOGIC;
+    signal ap_ready_int : STD_LOGIC;
     signal doppler_mask_stream_blk_n : STD_LOGIC;
-    signal ap_block_state1 : BOOLEAN;
+    signal p_rank_fu_28_p1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal ap_continue_int : STD_LOGIC;
+    signal ap_done_int : STD_LOGIC;
     signal ap_NS_fsm : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
+    signal ap_start_int : STD_LOGIC;
+    signal ap_ready_sig : STD_LOGIC;
+    signal ap_done_sig : STD_LOGIC;
+    signal ap_loop_init : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
+
+    component kernel_flow_control_loop_pipe IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_start_int : OUT STD_LOGIC;
+        ap_loop_init : OUT STD_LOGIC;
+        ap_ready_int : IN STD_LOGIC;
+        ap_loop_exit_ready : IN STD_LOGIC;
+        ap_loop_exit_done : IN STD_LOGIC;
+        ap_continue_int : OUT STD_LOGIC;
+        ap_done_int : IN STD_LOGIC;
+        ap_continue : IN STD_LOGIC );
+    end component;
+
 
 
 begin
+    flow_control_loop_pipe_U : component kernel_flow_control_loop_pipe
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst,
+        ap_start => ap_start,
+        ap_ready => ap_ready_sig,
+        ap_done => ap_done_sig,
+        ap_start_int => ap_start_int,
+        ap_loop_init => ap_loop_init,
+        ap_ready_int => ap_ready_int,
+        ap_loop_exit_ready => ap_condition_exit_pp0_iter0_stage0,
+        ap_loop_exit_done => ap_done_int,
+        ap_continue_int => ap_continue_int,
+        ap_done_int => ap_done_int,
+        ap_continue => ap_continue);
+
 
 
 
@@ -72,9 +119,9 @@ begin
             if (ap_rst = '1') then
                 ap_done_reg <= ap_const_logic_0;
             else
-                if ((ap_continue = ap_const_logic_1)) then 
+                if ((ap_continue_int = ap_const_logic_1)) then 
                     ap_done_reg <= ap_const_logic_0;
-                elsif (((ap_const_boolean_0 = ap_block_state1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+                elsif (((ap_loop_exit_ready = ap_const_logic_1) and (ap_const_boolean_0 = ap_block_state1_pp0_stage0_iter0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
                     ap_done_reg <= ap_const_logic_1;
                 end if; 
             end if;
@@ -82,7 +129,7 @@ begin
     end process;
 
 
-    ap_NS_fsm_assign_proc : process (ap_CS_fsm, ap_CS_fsm_state1, ap_block_state1)
+    ap_NS_fsm_assign_proc : process (ap_CS_fsm, ap_CS_fsm_state1, ap_block_state1_pp0_stage0_iter0)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -93,9 +140,9 @@ begin
     end process;
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
 
-    ap_ST_fsm_state1_blk_assign_proc : process(ap_block_state1)
+    ap_ST_fsm_state1_blk_assign_proc : process(ap_block_state1_pp0_stage0_iter0)
     begin
-        if ((ap_const_boolean_1 = ap_block_state1)) then 
+        if ((ap_const_boolean_1 = ap_block_state1_pp0_stage0_iter0)) then 
             ap_ST_fsm_state1_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state1_blk <= ap_const_logic_0;
@@ -103,45 +150,58 @@ begin
     end process;
 
 
-    ap_block_state1_assign_proc : process(ap_start, ap_done_reg, doppler_mask_stream_empty_n)
+    ap_block_state1_pp0_stage0_iter0_assign_proc : process(doppler_mask_stream_empty_n, ap_done_reg, ap_start_int)
     begin
-                ap_block_state1 <= ((ap_start = ap_const_logic_0) or (doppler_mask_stream_empty_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1));
+                ap_block_state1_pp0_stage0_iter0 <= ((ap_start_int = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1) or (doppler_mask_stream_empty_n = ap_const_logic_0));
     end process;
 
 
-    ap_done_assign_proc : process(ap_done_reg, ap_CS_fsm_state1, ap_block_state1)
+    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_state1, ap_block_state1_pp0_stage0_iter0, icmp_ln9_fu_32_p2)
     begin
-        if (((ap_const_boolean_0 = ap_block_state1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            ap_done <= ap_const_logic_1;
+        if (((icmp_ln9_fu_32_p2 = ap_const_lv1_1) and (ap_const_boolean_0 = ap_block_state1_pp0_stage0_iter0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_1;
         else 
-            ap_done <= ap_done_reg;
+            ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+    ap_done <= ap_done_sig;
+
+    ap_done_int_assign_proc : process(ap_CS_fsm_state1, ap_done_reg, ap_block_state1_pp0_stage0_iter0, ap_loop_exit_ready)
+    begin
+        if (((ap_loop_exit_ready = ap_const_logic_1) and (ap_const_boolean_0 = ap_block_state1_pp0_stage0_iter0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            ap_done_int <= ap_const_logic_1;
+        else 
+            ap_done_int <= ap_done_reg;
         end if; 
     end process;
 
 
-    ap_idle_assign_proc : process(ap_start, ap_CS_fsm_state1)
+    ap_idle_assign_proc : process(ap_CS_fsm_state1, ap_start_int)
     begin
-        if (((ap_start = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if (((ap_start_int = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             ap_idle <= ap_const_logic_1;
         else 
             ap_idle <= ap_const_logic_0;
         end if; 
     end process;
 
+    ap_loop_exit_ready <= ap_condition_exit_pp0_iter0_stage0;
+    ap_ready <= ap_ready_sig;
 
-    ap_ready_assign_proc : process(ap_CS_fsm_state1, ap_block_state1)
+    ap_ready_int_assign_proc : process(ap_CS_fsm_state1, ap_block_state1_pp0_stage0_iter0)
     begin
-        if (((ap_const_boolean_0 = ap_block_state1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            ap_ready <= ap_const_logic_1;
+        if (((ap_const_boolean_0 = ap_block_state1_pp0_stage0_iter0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            ap_ready_int <= ap_const_logic_1;
         else 
-            ap_ready <= ap_const_logic_0;
+            ap_ready_int <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    doppler_mask_stream_blk_n_assign_proc : process(ap_start, ap_done_reg, ap_CS_fsm_state1, doppler_mask_stream_empty_n)
+    doppler_mask_stream_blk_n_assign_proc : process(ap_CS_fsm_state1, doppler_mask_stream_empty_n, ap_done_reg, ap_start_int)
     begin
-        if ((not(((ap_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if ((not(((ap_start_int = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             doppler_mask_stream_blk_n <= doppler_mask_stream_empty_n;
         else 
             doppler_mask_stream_blk_n <= ap_const_logic_1;
@@ -149,13 +209,15 @@ begin
     end process;
 
 
-    doppler_mask_stream_read_assign_proc : process(ap_CS_fsm_state1, ap_block_state1)
+    doppler_mask_stream_read_assign_proc : process(ap_CS_fsm_state1, ap_block_state1_pp0_stage0_iter0)
     begin
-        if (((ap_const_boolean_0 = ap_block_state1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if (((ap_const_boolean_0 = ap_block_state1_pp0_stage0_iter0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             doppler_mask_stream_read <= ap_const_logic_1;
         else 
             doppler_mask_stream_read <= ap_const_logic_0;
         end if; 
     end process;
 
+    icmp_ln9_fu_32_p2 <= "1" when (p_rank_fu_28_p1 = ap_const_lv16_FFFF) else "0";
+    p_rank_fu_28_p1 <= doppler_mask_stream_dout(16 - 1 downto 0);
 end behav;

@@ -9,15 +9,15 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>aie_range_consume</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.650</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.840</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -32,8 +32,8 @@
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_61_1>
-<Slack>3.65</Slack>
+<VITIS_LOOP_88_1>
+<Slack>5.84</Slack>
 <TripCount>undef</TripCount>
 <isPerfectNested>0</isPerfectNested>
 <Latency>undef</Latency>
@@ -42,19 +42,19 @@
 <PerformancePragma>-</PerformancePragma>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_61_1>
+</VITIS_LOOP_88_1>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/range_part.cpp:61</SourceLocation>
+<SourceLocation>src/range_part.cpp:88</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_61_1>
-<Name>VITIS_LOOP_61_1</Name>
+<VITIS_LOOP_88_1>
+<Name>VITIS_LOOP_88_1</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/range_part.cpp:61</SourceLocation>
-</VITIS_LOOP_61_1>
+<SourceLocation>src/range_part.cpp:88</SourceLocation>
+</VITIS_LOOP_88_1>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
@@ -62,8 +62,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>3</BRAM_18K>
-<FF>2405</FF>
-<LUT>3426</LUT>
+<FF>1087</FF>
+<LUT>3433</LUT>
 <URAM>0</URAM>
 <DSP>0</DSP>
 </Resources>

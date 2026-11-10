@@ -9,39 +9,61 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>dummy</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>no</PipelineType>
+<PipelineType>loop auto-rewind stp (delay=0 cycle(s))</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>1.825</EstimatedClockPeriod>
+<EstimatedClockPeriod>4.997</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>0</Best-caseLatency>
-<Average-caseLatency>0</Average-caseLatency>
-<Worst-caseLatency>0</Worst-caseLatency>
-<Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+<Best-caseLatency>undef</Best-caseLatency>
+<Average-caseLatency>undef</Average-caseLatency>
+<Worst-caseLatency>undef</Worst-caseLatency>
+<Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
 <Interval-min>0</Interval-min>
 <Interval-max>0</Interval-max>
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
+<SummaryOfLoopLatency>
+<VITIS_LOOP_7_1>
+<Slack>5.84</Slack>
+<TripCount>undef</TripCount>
+<isPerfectNested>0</isPerfectNested>
+<Latency>undef</Latency>
+<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>1</PipelineDepth>
+<PerformancePragma>-</PerformancePragma>
+<InstanceList>
+</InstanceList>
+</VITIS_LOOP_7_1>
+</SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/angle_part.cpp:4</SourceLocation>
+<SourceLocation>src/angle_part.cpp:7</SourceLocation>
+<SummaryOfLoopViolations>
+<VITIS_LOOP_7_1>
+<Name>VITIS_LOOP_7_1</Name>
+<IssueType>-</IssueType>
+<ViolationType>-</ViolationType>
+<SourceLocation>src/angle_part.cpp:8</SourceLocation>
+</VITIS_LOOP_7_1>
+</SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <FF>2</FF>
-<LUT>20</LUT>
+<LUT>43</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>

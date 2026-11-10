@@ -1,7 +1,7 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "7 2 4 3 5",
+    "calls": "3 1 2 4 5",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "main.cpp",
@@ -9,33 +9,15 @@
     "instructions": 65,
     "memory_accesses": 0,
     "name": "kernel",
-    "total_instructions": 3227
+    "total_instructions": 3583
   },
   "1": {
-    "basicblocks": 26,
-    "calls": "",
-    "control_depth": 2,
-    "def_use_depth": 92,
-    "file": "doppler_part.cpp",
-    "fileloc": 174,
-    "instructions": 668,
-    "loads": {
-      "L": 144
-    },
-    "memory_accesses": 88,
-    "name": "aie_consume_doppler",
-    "stores": {
-      "L": 10
-    },
-    "total_instructions": 1133
-  },
-  "2": {
     "basicblocks": 20,
     "calls": "",
     "control_depth": 4,
     "def_use_depth": 8,
     "file": "range_part.cpp",
-    "fileloc": 57,
+    "fileloc": 84,
     "instructions": 1374,
     "loads": {
       "L": 148
@@ -47,22 +29,7 @@
     },
     "total_instructions": 1493
   },
-  "3": {
-    "basicblocks": 10,
-    "calls": "6 1",
-    "control_depth": 0,
-    "def_use_depth": 5,
-    "file": "doppler_part.cpp",
-    "fileloc": 81,
-    "instructions": 48,
-    "memory_accesses": 2,
-    "name": "doppler",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 1337
-  },
-  "4": {
+  "2": {
     "basicblocks": 14,
     "calls": "",
     "control_depth": 2,
@@ -80,17 +47,51 @@
     },
     "total_instructions": 93
   },
-  "5": {
-    "basicblocks": 1,
+  "3": {
+    "basicblocks": 7,
     "calls": "",
     "control_depth": 0,
-    "def_use_depth": 0,
+    "def_use_depth": 8,
+    "file": "range_part.cpp",
+    "fileloc": 50,
+    "instructions": 199,
+    "loads": {
+      "G": 4,
+      "L": 12
+    },
+    "memory_accesses": 37,
+    "name": "adc_forward",
+    "stores": {
+      "L": 18
+    },
+    "total_instructions": 237
+  },
+  "4": {
+    "basicblocks": 10,
+    "calls": "6 7",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "doppler_part.cpp",
+    "fileloc": 81,
+    "instructions": 50,
+    "memory_accesses": 2,
+    "name": "doppler",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 1683
+  },
+  "5": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 4,
     "file": "angle_part.cpp",
     "fileloc": 3,
-    "instructions": 2,
-    "memory_accesses": 0,
+    "instructions": 8,
+    "memory_accesses": 1,
     "name": "dummy",
-    "total_instructions": 2
+    "total_instructions": 12
   },
   "6": {
     "basicblocks": 3,
@@ -98,7 +99,7 @@
     "control_depth": 0,
     "def_use_depth": 8,
     "file": "doppler_part.cpp",
-    "fileloc": 123,
+    "fileloc": 135,
     "instructions": 116,
     "loads": {
       "G": 4,
@@ -112,22 +113,21 @@
     "total_instructions": 144
   },
   "7": {
-    "basicblocks": 7,
+    "basicblocks": 26,
     "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 8,
-    "file": "range_part.cpp",
-    "fileloc": 25,
-    "instructions": 199,
+    "control_depth": 2,
+    "def_use_depth": 92,
+    "file": "doppler_part.cpp",
+    "fileloc": 186,
+    "instructions": 725,
     "loads": {
-      "G": 4,
-      "L": 12
+      "L": 144
     },
-    "memory_accesses": 37,
-    "name": "adc_forward",
+    "memory_accesses": 88,
+    "name": "aie_consume_doppler",
     "stores": {
-      "L": 18
+      "L": 10
     },
-    "total_instructions": 237
+    "total_instructions": 1104
   }
 }

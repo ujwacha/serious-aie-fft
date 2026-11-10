@@ -9,10 +9,10 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Sat Nov  7 19:09:37 2026",
- "timestampMillis": "1794057877522",
+ "dateTimestamp": "Tue Nov 10 12:30:18 2026",
+ "timestampMillis": "1794293118093",
  "buildStep": {
-  "cmdId": "b8dd067f-75f6-44b9-ab60-9e2418784682",
+  "cmdId": "b127ce05-485a-4e73-9838-387c956e6ac0",
   "name": "vitis-run",
   "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/logs/central-controller-element.steps.log",
   "commandLine": "/home/light/FPGA/2026.1/Vitis/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg --work_dir central-controller-element ",
@@ -33,10 +33,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  7 19:09:37 2026",
- "timestampMillis": "1794057877522",
+ "dateTimestamp": "Tue Nov 10 12:30:18 2026",
+ "timestampMillis": "1794293118093",
  "status": {
-  "cmdId": "b8dd067f-75f6-44b9-ab60-9e2418784682",
+  "cmdId": "b127ce05-485a-4e73-9838-387c956e6ac0",
   "state": "CS_RUNNING"
  }
 }
@@ -44,8 +44,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Sat Nov  7 19:09:42 2026",
- "timestampMillis": "1794057882934",
+ "dateTimestamp": "Tue Nov 10 12:30:22 2026",
+ "timestampMillis": "1794293122049",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -70,6 +70,8 @@
      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp",
      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h",
      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h",
+     "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp",
      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h",
      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp",
      "/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h"
@@ -88,10 +90,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Sat Nov  7 19:09:42 2026",
- "timestampMillis": "1794057882936",
+ "dateTimestamp": "Tue Nov 10 12:30:22 2026",
+ "timestampMillis": "1794293122050",
  "buildStep": {
-  "cmdId": "d92f164a-6f84-4e56-a439-98b4a7b58fb2",
+  "cmdId": "09417e94-af0f-4744-84ba-ad26c2048905",
   "name": "",
   "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/hls.log",
   "commandLine": "",
@@ -104,10 +106,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  7 19:09:42 2026",
- "timestampMillis": "1794057882936",
+ "dateTimestamp": "Tue Nov 10 12:30:22 2026",
+ "timestampMillis": "1794293122050",
  "status": {
-  "cmdId": "d92f164a-6f84-4e56-a439-98b4a7b58fb2",
+  "cmdId": "09417e94-af0f-4744-84ba-ad26c2048905",
   "state": "CS_RUNNING"
  }
 }
@@ -115,10 +117,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  7 19:11:36 2026",
- "timestampMillis": "1794057996608",
+ "dateTimestamp": "Tue Nov 10 12:31:51 2026",
+ "timestampMillis": "1794293211088",
  "status": {
-  "cmdId": "d92f164a-6f84-4e56-a439-98b4a7b58fb2",
+  "cmdId": "09417e94-af0f-4744-84ba-ad26c2048905",
   "state": "CS_PASSED"
  }
 }
@@ -126,10 +128,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  7 19:11:36 2026",
- "timestampMillis": "1794057996773",
+ "dateTimestamp": "Tue Nov 10 12:31:51 2026",
+ "timestampMillis": "1794293211247",
  "status": {
-  "cmdId": "b8dd067f-75f6-44b9-ab60-9e2418784682",
+  "cmdId": "b127ce05-485a-4e73-9838-387c956e6ac0",
   "state": "CS_PASSED"
  }
 }
@@ -137,8 +139,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Sat Nov  7 19:11:36 2026",
- "timestampMillis": "1794057996773",
+ "dateTimestamp": "Tue Nov 10 12:31:51 2026",
+ "timestampMillis": "1794293211247",
  "report": {
   "path": "",
   "name": "",
@@ -151,8 +153,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Sat Nov  7 19:11:36 2026",
- "timestampMillis": "1794057996773",
+ "dateTimestamp": "Tue Nov 10 12:31:51 2026",
+ "timestampMillis": "1794293211247",
  "report": {
   "path": "",
   "name": "",

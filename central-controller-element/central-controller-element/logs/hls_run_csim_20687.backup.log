@@ -1,0 +1,65 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.h' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.cpp' from hls_config.cfg(11)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.h' from hls_config.cfg(12)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.cpp' from hls_config.cfg(13)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.h' from hls_config.cfg(14)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.cpp' from hls_config.cfg(15)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.h' from hls_config.cfg(16)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.cpp' from hls_config.cfg(17)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(18)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(19)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'clock=8' from hls_config.cfg(21)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 8ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../src/doppler_part.cpp in debug mode
+   Generating csim.exe
+TB: windowed 256 chirps (524288 samples) -> tb/work/windowed{0,1}.txt
+TB: running range AIE (bash /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/run_aie.sh 256)
+run_aie: 32/256 chirps
+run_aie: 64/256 chirps
+run_aie: 96/256 chirps
+run_aie: 128/256 chirps
+run_aie: 160/256 chirps
+run_aie: 192/256 chirps
+run_aie: 224/256 chirps
+run_aie: 256/256 chirps
+run_aie: 256 chirps done -> tb/work/aie{0,1}.txt
+TB: range AIE returned 35392 / 33664 words
+TB: python3 /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/rd_test.py --prepare --chirps 256
+  AIE range: 256 chirps, 6 active range block(s)
+  prepared 6 block(s) -> 12288 / 12288 Doppler samples per stream
+ERROR [HLS SIM]: an hls::stream or hls::ap_{none,vld,ack,hs} is read while empty, which may result in RTL simulation hanging.
+If this is not expected, execute C simulation in debug mode in the GUI and examine the source code location of the blocked hls::stream::read() call to debug.
+If this is as stream access and the empty read is expected, add -DALLOW_EMPTY_HLS_STREAM_READS to -cflags to turn this error into a warning and allow empty hls::stream reads to return the default value for the data type.
+@E Simulation failed with unknown error: child killed: SIGABRT
+ERROR: [SIM 211-100] CSim failed with errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: CSIM Failed
+INFO: [HLS 200-112] Total CPU user time: 79.05 seconds. Total CPU system time: 25.48 seconds. Total elapsed time: 94.13 seconds; peak allocated memory: 376.531 MB.

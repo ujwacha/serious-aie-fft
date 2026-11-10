@@ -41,19 +41,18 @@ wire    ap_enable_reg_pp0_iter0;
 reg    ap_enable_reg_pp0_iter1;
 reg    ap_idle_pp0;
 wire    ap_block_pp0_stage0_subdone;
-wire   [0:0] exitcond534_fu_50_p2;
+wire   [0:0] exitcond624_fu_50_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
-reg   [6:0] p_load_reg_77;
+reg   [6:0] p_load_reg_78;
 wire    ap_block_pp0_stage0_11001;
-wire   [6:0] empty_99_fu_56_p2;
-reg   [6:0] empty_99_reg_85;
-wire   [63:0] p_cast_fu_62_p1;
+wire   [63:0] p_cast_fu_67_p1;
 wire    ap_block_pp0_stage0;
 reg   [6:0] empty_fu_24;
-reg   [6:0] ap_sig_allocacmp_p_load;
+wire   [6:0] empty_107_fu_56_p2;
 wire    ap_loop_init;
+reg   [6:0] ap_sig_allocacmp_p_load;
 reg    histogram_we0_local;
 reg    histogram_ce0_local;
 reg    ap_done_reg;
@@ -123,23 +122,22 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        if ((ap_loop_init == 1'b1)) begin
+        if (((exitcond624_fu_50_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            empty_fu_24 <= empty_107_fu_56_p2;
+        end else if ((ap_loop_init == 1'b1)) begin
             empty_fu_24 <= 7'd0;
-        end else if ((ap_enable_reg_pp0_iter1 == 1'b1)) begin
-            empty_fu_24 <= empty_99_reg_85;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        empty_99_reg_85 <= empty_99_fu_56_p2;
-        p_load_reg_77 <= ap_sig_allocacmp_p_load;
+        p_load_reg_78 <= ap_sig_allocacmp_p_load;
     end
 end
 
 always @ (*) begin
-    if (((exitcond534_fu_50_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((exitcond624_fu_50_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -179,14 +177,8 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        if ((ap_loop_init == 1'b1)) begin
-            ap_sig_allocacmp_p_load = 7'd0;
-        end else if ((ap_enable_reg_pp0_iter1 == 1'b1)) begin
-            ap_sig_allocacmp_p_load = empty_99_reg_85;
-        end else begin
-            ap_sig_allocacmp_p_load = empty_fu_24;
-        end
+    if (((ap_loop_init == 1'b1) & (1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_sig_allocacmp_p_load = 7'd0;
     end else begin
         ap_sig_allocacmp_p_load = empty_fu_24;
     end
@@ -237,11 +229,11 @@ assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = ap_ready_sig;
 
-assign empty_99_fu_56_p2 = (ap_sig_allocacmp_p_load + 7'd1);
+assign empty_107_fu_56_p2 = (ap_sig_allocacmp_p_load + 7'd1);
 
-assign exitcond534_fu_50_p2 = ((ap_sig_allocacmp_p_load == 7'd64) ? 1'b1 : 1'b0);
+assign exitcond624_fu_50_p2 = ((ap_sig_allocacmp_p_load == 7'd64) ? 1'b1 : 1'b0);
 
-assign histogram_address0 = p_cast_fu_62_p1;
+assign histogram_address0 = p_cast_fu_67_p1;
 
 assign histogram_ce0 = histogram_ce0_local;
 
@@ -249,6 +241,6 @@ assign histogram_d0 = 32'd0;
 
 assign histogram_we0 = histogram_we0_local;
 
-assign p_cast_fu_62_p1 = p_load_reg_77;
+assign p_cast_fu_67_p1 = p_load_reg_78;
 
 endmodule //kernel_aie_consume_doppler_Pipeline_1

@@ -622,7 +622,7 @@
 					<bitwidth>0</bitwidth>
 				</Value>
 				<Asap>1</Asap>
-				<Alap>2</Alap>
+				<Alap>1</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -682,7 +682,7 @@
 					<bitwidth>7</bitwidth>
 				</Value>
 				<Asap>1</Asap>
-				<Alap>2</Alap>
+				<Alap>1</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -739,8 +739,8 @@
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>2</Alap>
+				<Asap>1</Asap>
+				<Alap>1</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -799,8 +799,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>3</Alap>
+				<Asap>1</Asap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -859,8 +859,8 @@
 					</Obj>
 					<bitwidth>11</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>3</Alap>
+				<Asap>1</Asap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -919,8 +919,8 @@
 					</Obj>
 					<bitwidth>16</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>3</Alap>
+				<Asap>1</Asap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -977,8 +977,8 @@
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>3</Alap>
+				<Asap>1</Asap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -1037,8 +1037,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>3</Asap>
-				<Alap>3</Alap>
+				<Asap>2</Asap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -1051,7 +1051,7 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.82</m_delay>
+				<m_delay>2.92</m_delay>
 				<m_topoIndex>19</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -1097,8 +1097,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>3</Alap>
+				<Asap>1</Asap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1155,8 +1155,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>2</Alap>
+				<Asap>1</Asap>
+				<Alap>1</Alap>
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
@@ -1217,7 +1217,7 @@
 					<bitwidth>0</bitwidth>
 				</Value>
 				<Asap>1</Asap>
-				<Alap>3</Alap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1261,7 +1261,7 @@
 					<bitwidth>0</bitwidth>
 				</Value>
 				<Asap>2</Asap>
-				<Alap>3</Alap>
+				<Alap>2</Alap>
 				<oprand_edges>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -1954,8 +1954,8 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>131</mMinLatency>
-			<mMaxLatency>131</mMaxLatency>
+			<mMinLatency>130</mMinLatency>
+			<mMaxLatency>130</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -2000,11 +2000,11 @@
 				<item>31</item>
 			</basic_blocks>
 			<mII>1</mII>
-			<mDepth>3</mDepth>
+			<mDepth>2</mDepth>
 			<mMinTripCount>128</mMinTripCount>
 			<mMaxTripCount>128</mMaxTripCount>
-			<mMinLatency>129</mMinLatency>
-			<mMaxLatency>129</mMaxLatency>
+			<mMinLatency>128</mMinLatency>
+			<mMaxLatency>128</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -2110,70 +2110,70 @@
 		<item>
 			<first>20</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>21</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>23</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>24</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>25</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>26</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>27</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>29</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>30</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>32</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -2199,21 +2199,21 @@
 			<first>22</first>
 			<second>
 				<first>1</first>
-				<second>2</second>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>28</first>
 			<second>
-				<first>3</first>
-				<second>3</second>
+				<first>2</first>
+				<second>2</second>
 			</second>
 		</item>
 		<item>
 			<first>31</first>
 			<second>
-				<first>2</first>
-				<second>2</second>
+				<first>1</first>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
@@ -2244,7 +2244,7 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>1</interval>
-			<pipe_depth>3</pipe_depth>
+			<pipe_depth>2</pipe_depth>
 			<mDBIIViolationVec class_id="34" tracking_level="0" version="0">
 				<count>0</count>
 				<item_version>0</item_version>

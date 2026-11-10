@@ -16,8 +16,8 @@
             "type": "function",
             "pipelined": "yes",
             "dataflowed": "no",
-            "original_ti": -1023,
-            "original_tl": -1018,
+            "original_ti": -1,
+            "original_tl": -1,
             "calculated_ti": -1,
             "calculated_tl": -1,
             "assume_ti": -1,
@@ -25,18 +25,50 @@
             "CIs": [],
             "loops": [
                 {
-                    "name": "VITIS_LOOP_27_1_VITIS_LOOP_28_2",
+                    "name": "VITIS_LOOP_52_1",
                     "type": "loop",
-                    "trip_count": -1024,
-                    "pipelined": "yes",
+                    "trip_count": -1,
+                    "pipelined": "no",
                     "dataflowed": "no",
-                    "original_ti": -1024,
-                    "original_tl": -1019,
+                    "original_ti": -1,
+                    "original_tl": -1,
                     "calculated_ti": -1,
                     "calculated_tl": -1,
                     "assume_ti": -1,
                     "assume_tl": -1,
-                    "CIs": [],
+                    "CIs": [
+                        {
+                            "ID": 0,
+                            "name": "adc_forward_Pipeline_VITIS_LOOP_54_2",
+                            "type": "function",
+                            "pipelined": "yes",
+                            "dataflowed": "no",
+                            "original_ti": 1028,
+                            "original_tl": 1028,
+                            "calculated_ti": -1,
+                            "calculated_tl": -1,
+                            "assume_ti": -1,
+                            "assume_tl": -1,
+                            "CIs": [],
+                            "loops": [
+                                {
+                                    "name": "VITIS_LOOP_54_2",
+                                    "type": "loop",
+                                    "trip_count": 1024,
+                                    "pipelined": "yes",
+                                    "dataflowed": "no",
+                                    "original_ti": 1024,
+                                    "original_tl": 1027,
+                                    "calculated_ti": -1,
+                                    "calculated_tl": -1,
+                                    "assume_ti": -1,
+                                    "assume_tl": -1,
+                                    "CIs": [],
+                                    "loops": []
+                                }
+                            ]
+                        }
+                    ],
                     "loops": []
                 }
             ]
@@ -69,7 +101,7 @@
                     "CIs": [],
                     "loops": [
                         {
-                            "name": "VITIS_LOOP_61_1",
+                            "name": "VITIS_LOOP_88_1",
                             "type": "loop",
                             "trip_count": -1,
                             "pipelined": "no",
@@ -83,12 +115,12 @@
                             "CIs": [
                                 {
                                     "ID": 0,
-                                    "name": "aie_range_consume_Pipeline_VITIS_LOOP_69_2",
+                                    "name": "aie_range_consume_Pipeline_VITIS_LOOP_96_2",
                                     "type": "function",
                                     "pipelined": "yes",
                                     "dataflowed": "no",
-                                    "original_ti": 67,
-                                    "original_tl": 67,
+                                    "original_ti": 66,
+                                    "original_tl": 66,
                                     "calculated_ti": -1,
                                     "calculated_tl": -1,
                                     "assume_ti": -1,
@@ -96,13 +128,13 @@
                                     "CIs": [],
                                     "loops": [
                                         {
-                                            "name": "VITIS_LOOP_69_2",
+                                            "name": "VITIS_LOOP_96_2",
                                             "type": "loop",
                                             "trip_count": 64,
                                             "pipelined": "yes",
                                             "dataflowed": "no",
                                             "original_ti": 64,
-                                            "original_tl": 66,
+                                            "original_tl": 65,
                                             "calculated_ti": -1,
                                             "calculated_tl": -1,
                                             "assume_ti": -1,
@@ -118,8 +150,8 @@
                                     "type": "function",
                                     "pipelined": "yes",
                                     "dataflowed": "no",
-                                    "original_ti": 261,
-                                    "original_tl": 261,
+                                    "original_ti": 132,
+                                    "original_tl": 132,
                                     "calculated_ti": -1,
                                     "calculated_tl": -1,
                                     "assume_ti": -1,
@@ -132,8 +164,8 @@
                                             "trip_count": 64,
                                             "pipelined": "yes",
                                             "dataflowed": "no",
-                                            "original_ti": 256,
-                                            "original_tl": 259,
+                                            "original_ti": 128,
+                                            "original_tl": 130,
                                             "calculated_ti": -1,
                                             "calculated_tl": -1,
                                             "assume_ti": -1,
@@ -145,7 +177,7 @@
                                 },
                                 {
                                     "ID": 2,
-                                    "name": "aie_range_consume_Pipeline_VITIS_LOOP_78_3",
+                                    "name": "aie_range_consume_Pipeline_VITIS_LOOP_105_3",
                                     "type": "function",
                                     "pipelined": "yes",
                                     "dataflowed": "no",
@@ -158,7 +190,7 @@
                                     "CIs": [],
                                     "loops": [
                                         {
-                                            "name": "VITIS_LOOP_78_3",
+                                            "name": "VITIS_LOOP_105_3",
                                             "type": "loop",
                                             "trip_count": -1,
                                             "pipelined": "yes",
@@ -212,8 +244,8 @@
                                     "type": "function",
                                     "pipelined": "yes",
                                     "dataflowed": "no",
-                                    "original_ti": 131,
-                                    "original_tl": 131,
+                                    "original_ti": 130,
+                                    "original_tl": 130,
                                     "calculated_ti": -1,
                                     "calculated_tl": -1,
                                     "assume_ti": -1,
@@ -227,7 +259,7 @@
                                             "pipelined": "yes",
                                             "dataflowed": "no",
                                             "original_ti": 128,
-                                            "original_tl": 130,
+                                            "original_tl": 129,
                                             "calculated_ti": -1,
                                             "calculated_tl": -1,
                                             "assume_ti": -1,
@@ -271,12 +303,12 @@
                             "CIs": [
                                 {
                                     "ID": 0,
-                                    "name": "doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3",
+                                    "name": "doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3",
                                     "type": "function",
                                     "pipelined": "yes",
                                     "dataflowed": "no",
-                                    "original_ti": 8205,
-                                    "original_tl": 8205,
+                                    "original_ti": 4109,
+                                    "original_tl": 4109,
                                     "calculated_ti": -1,
                                     "calculated_tl": -1,
                                     "assume_ti": -1,
@@ -284,13 +316,13 @@
                                     "CIs": [],
                                     "loops": [
                                         {
-                                            "name": "VITIS_LOOP_97_2_VITIS_LOOP_101_3",
+                                            "name": "VITIS_LOOP_97_2_VITIS_LOOP_103_3",
                                             "type": "loop",
                                             "trip_count": 4096,
                                             "pipelined": "yes",
                                             "dataflowed": "no",
-                                            "original_ti": 8192,
-                                            "original_tl": 8204,
+                                            "original_ti": 4096,
+                                            "original_tl": 4108,
                                             "calculated_ti": -1,
                                             "calculated_tl": -1,
                                             "assume_ti": -1,
@@ -303,13 +335,13 @@
                             ],
                             "loops": [
                                 {
-                                    "name": "VITIS_LOOP_112_4",
+                                    "name": "VITIS_LOOP_113_4",
                                     "type": "loop",
                                     "trip_count": 16,
                                     "pipelined": "no",
                                     "dataflowed": "no",
-                                    "original_ti": 74048,
-                                    "original_tl": 74048,
+                                    "original_ti": 30240,
+                                    "original_tl": 30240,
                                     "calculated_ti": -1,
                                     "calculated_tl": -1,
                                     "assume_ti": -1,
@@ -330,7 +362,7 @@
                                             "CIs": [],
                                             "loops": [
                                                 {
-                                                    "name": "VITIS_LOOP_125_1",
+                                                    "name": "VITIS_LOOP_137_1",
                                                     "type": "loop",
                                                     "trip_count": 128,
                                                     "pipelined": "yes",
@@ -352,8 +384,8 @@
                                             "type": "function",
                                             "pipelined": "yes",
                                             "dataflowed": "no",
-                                            "original_ti": 4625,
-                                            "original_tl": 4625,
+                                            "original_ti": 1888,
+                                            "original_tl": 1888,
                                             "calculated_ti": -1,
                                             "calculated_tl": -1,
                                             "assume_ti": -1,
@@ -392,7 +424,7 @@
                                                 },
                                                 {
                                                     "ID": 1,
-                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_185_1",
+                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_196_1",
                                                     "type": "function",
                                                     "pipelined": "yes",
                                                     "dataflowed": "no",
@@ -405,7 +437,7 @@
                                                     "CIs": [],
                                                     "loops": [
                                                         {
-                                                            "name": "VITIS_LOOP_185_1",
+                                                            "name": "VITIS_LOOP_196_1",
                                                             "type": "loop",
                                                             "trip_count": 128,
                                                             "pipelined": "yes",
@@ -423,12 +455,12 @@
                                                 },
                                                 {
                                                     "ID": 2,
-                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_195_2",
+                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_207_2",
                                                     "type": "function",
                                                     "pipelined": "yes",
                                                     "dataflowed": "no",
-                                                    "original_ti": 2846,
-                                                    "original_tl": 2846,
+                                                    "original_ti": 261,
+                                                    "original_tl": 261,
                                                     "calculated_ti": -1,
                                                     "calculated_tl": -1,
                                                     "assume_ti": -1,
@@ -436,13 +468,13 @@
                                                     "CIs": [],
                                                     "loops": [
                                                         {
-                                                            "name": "VITIS_LOOP_195_2",
+                                                            "name": "VITIS_LOOP_207_2",
                                                             "type": "loop",
                                                             "trip_count": 256,
                                                             "pipelined": "yes",
                                                             "dataflowed": "no",
-                                                            "original_ti": 2816,
-                                                            "original_tl": 2845,
+                                                            "original_ti": 256,
+                                                            "original_tl": 260,
                                                             "calculated_ti": -1,
                                                             "calculated_tl": -1,
                                                             "assume_ti": -1,
@@ -454,12 +486,12 @@
                                                 },
                                                 {
                                                     "ID": 3,
-                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_210_3",
+                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_237_3",
                                                     "type": "function",
                                                     "pipelined": "yes",
                                                     "dataflowed": "no",
-                                                    "original_ti": 564,
-                                                    "original_tl": 564,
+                                                    "original_ti": 520,
+                                                    "original_tl": 520,
                                                     "calculated_ti": -1,
                                                     "calculated_tl": -1,
                                                     "assume_ti": -1,
@@ -467,13 +499,13 @@
                                                     "CIs": [],
                                                     "loops": [
                                                         {
-                                                            "name": "VITIS_LOOP_210_3",
+                                                            "name": "VITIS_LOOP_237_3",
                                                             "type": "loop",
                                                             "trip_count": 256,
                                                             "pipelined": "yes",
                                                             "dataflowed": "no",
                                                             "original_ti": 512,
-                                                            "original_tl": 563,
+                                                            "original_tl": 519,
                                                             "calculated_ti": -1,
                                                             "calculated_tl": -1,
                                                             "assume_ti": -1,
@@ -485,12 +517,12 @@
                                                 },
                                                 {
                                                     "ID": 4,
-                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_221_4",
+                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_248_4",
                                                     "type": "function",
                                                     "pipelined": "yes",
                                                     "dataflowed": "no",
-                                                    "original_ti": 327,
-                                                    "original_tl": 327,
+                                                    "original_ti": 197,
+                                                    "original_tl": 197,
                                                     "calculated_ti": -1,
                                                     "calculated_tl": -1,
                                                     "assume_ti": -1,
@@ -498,13 +530,13 @@
                                                     "CIs": [],
                                                     "loops": [
                                                         {
-                                                            "name": "VITIS_LOOP_221_4",
+                                                            "name": "VITIS_LOOP_248_4",
                                                             "type": "loop",
                                                             "trip_count": 64,
                                                             "pipelined": "yes",
                                                             "dataflowed": "no",
-                                                            "original_ti": 320,
-                                                            "original_tl": 321,
+                                                            "original_ti": 192,
+                                                            "original_tl": 192,
                                                             "calculated_ti": -1,
                                                             "calculated_tl": -1,
                                                             "assume_ti": -1,
@@ -516,12 +548,12 @@
                                                 },
                                                 {
                                                     "ID": 5,
-                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_244_5",
+                                                    "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_287_5",
                                                     "type": "function",
                                                     "pipelined": "yes",
                                                     "dataflowed": "no",
-                                                    "original_ti": 286,
-                                                    "original_tl": 286,
+                                                    "original_ti": 273,
+                                                    "original_tl": 273,
                                                     "calculated_ti": -1,
                                                     "calculated_tl": -1,
                                                     "assume_ti": -1,
@@ -529,13 +561,13 @@
                                                     "CIs": [],
                                                     "loops": [
                                                         {
-                                                            "name": "VITIS_LOOP_244_5",
+                                                            "name": "VITIS_LOOP_287_5",
                                                             "type": "loop",
                                                             "trip_count": 16,
                                                             "pipelined": "yes",
                                                             "dataflowed": "no",
                                                             "original_ti": 256,
-                                                            "original_tl": 285,
+                                                            "original_tl": 272,
                                                             "calculated_ti": -1,
                                                             "calculated_tl": -1,
                                                             "assume_ti": -1,
@@ -548,7 +580,7 @@
                                             ],
                                             "loops": [
                                                 {
-                                                    "name": "VITIS_LOOP_269_8",
+                                                    "name": "VITIS_LOOP_312_8",
                                                     "type": "loop",
                                                     "trip_count": 3,
                                                     "pipelined": "no",
@@ -562,7 +594,7 @@
                                                     "CIs": [
                                                         {
                                                             "ID": 6,
-                                                            "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_282_9",
+                                                            "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_326_9",
                                                             "type": "function",
                                                             "pipelined": "yes",
                                                             "dataflowed": "no",
@@ -575,7 +607,7 @@
                                                             "CIs": [],
                                                             "loops": [
                                                                 {
-                                                                    "name": "VITIS_LOOP_282_9",
+                                                                    "name": "VITIS_LOOP_326_9",
                                                                     "type": "loop",
                                                                     "trip_count": 86,
                                                                     "pipelined": "yes",
@@ -613,13 +645,29 @@
             "pipelined": "yes",
             "dataflowed": "no",
             "original_ti": 0,
-            "original_tl": 0,
+            "original_tl": -1,
             "calculated_ti": -1,
             "calculated_tl": -1,
             "assume_ti": -1,
             "assume_tl": -1,
             "CIs": [],
-            "loops": []
+            "loops": [
+                {
+                    "name": "VITIS_LOOP_7_1",
+                    "type": "loop",
+                    "trip_count": -1,
+                    "pipelined": "yes",
+                    "dataflowed": "no",
+                    "original_ti": -1,
+                    "original_tl": -1,
+                    "calculated_ti": -1,
+                    "calculated_tl": -1,
+                    "assume_ti": -1,
+                    "assume_tl": -1,
+                    "CIs": [],
+                    "loops": []
+                }
+            ]
         }
     ],
     "loops": []

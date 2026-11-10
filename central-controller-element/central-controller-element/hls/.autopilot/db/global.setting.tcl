@@ -1,7 +1,7 @@
 
 set TopModule "kernel"
 set HLSTopModule "kernel"
-set ClockPeriod 5
+set ClockPeriod 8
 set ClockList ap_clk
 set AxiliteClockList {}
 set HasVivadoClockPeriod 0
@@ -9,7 +9,7 @@ set CombLogicFlag 0
 set PipelineFlag 1
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
-set noPortSwitchingFlag 1
+set noPortSwitchingFlag 0
 set FloatingPointFlag 1
 set FftOrFirFlag 0
 set NbRWValue 0

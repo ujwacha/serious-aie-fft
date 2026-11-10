@@ -9,15 +9,15 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>seq_generator</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.648</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.177</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -33,7 +33,7 @@
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <VITIS_LOOP_28_1>
-<Slack>3.65</Slack>
+<Slack>5.84</Slack>
 <TripCount>undef</TripCount>
 <isPerfectNested>0</isPerfectNested>
 <Latency>undef</Latency>
@@ -41,7 +41,7 @@
 <IterationLatency>
 <range>
 <min>2</min>
-<max>137</max>
+<max>135</max>
 </range>
 </IterationLatency>
 <PerformancePragma>-</PerformancePragma>
@@ -67,8 +67,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>4</BRAM_18K>
-<FF>759</FF>
-<LUT>685</LUT>
+<FF>725</FF>
+<LUT>674</LUT>
 <URAM>0</URAM>
 <DSP>0</DSP>
 </Resources>

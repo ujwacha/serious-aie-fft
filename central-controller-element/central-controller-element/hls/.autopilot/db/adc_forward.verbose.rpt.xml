@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'adc_forward'" level="0">
-<item name = "Date">Mon Nov  9 15:21:25 2026
+<item name = "Date">Tue Nov 10 11:50:40 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 6.109 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 5.580 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -24,18 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2, 4398046510086, 14.052 ns, 3.1e+04 sec, 1, 4398046510081, loop auto-rewind stp (delay=0 cycle(s))</column>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70">adc_forward_Pipeline_VITIS_LOOP_54_2, 1028, 1028, 8.224 us, 8.224 us, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_27_1_VITIS_LOOP_28_2">0, 4398046510084, 6, 1, 1, 0 ~ 4398046510080, yes</column>
+<column name="- VITIS_LOOP_52_1">?, ?, 1030, -, -, ?, no</column>
 </table>
 </item>
 </section>
@@ -48,12 +49,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 145, -</column>
+<column name="Expression">-, -, 0, 86, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, 4, 268, 8, -</column>
-<column name="Memory">2, -, 0, 0, -</column>
-<column name="Multiplexer">-, -, 0, 72, -</column>
-<column name="Register">-, -, 225, 32, -</column>
+<column name="Instance">2, 4, 178, 117, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, 0, 124, -</column>
+<column name="Register">-, -, 152, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
 <specialColumn name="Utilization (%)">~0, 1, ~0, ~0, 0</specialColumn>
 </table>
@@ -62,10 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_16s_15ns_31_2_1_U1">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
-<column name="mul_16s_15ns_31_2_1_U2">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
-<column name="mul_16s_15ns_31_2_1_U3">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
-<column name="mul_16s_15ns_31_2_1_U4">mul_16s_15ns_31_2_1, 0, 1, 67, 2, 0</column>
+<column name="grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70">adc_forward_Pipeline_VITIS_LOOP_54_2, 2, 4, 178, 117, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -74,7 +72,6 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="hamming_window_2048_real_U">adc_forward_hamming_window_2048_real_ROM_AUTO_1R, 2, 0, 0, 0, 2048, 15, 1, 30720</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -83,56 +80,45 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln27_fu_226_p2">+, 0, 0, 49, 42, 1</column>
-<column name="add_ln28_fu_282_p2">+, 0, 0, 12, 11, 1</column>
-<column name="ap_condition_226">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_513">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln27_fu_220_p2">icmp, 0, 0, 49, 42, 42</column>
-<column name="icmp_ln28_fu_240_p2">icmp, 0, 0, 12, 11, 12</column>
-<column name="ap_block_pp0_stage0_01001_grp1">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_pp0_stage0_11001">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state5_pp0_stage0_iter4_grp1">or, 0, 0, 2, 1, 1</column>
-<column name="select_ln27_fu_246_p3">select, 0, 0, 11, 1, 1</column>
-<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="c_4_fu_113_p2">+, 0, 0, 39, 32, 1</column>
+<column name="grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln52_fu_108_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state4">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_done_int">9, 2, 1, 2</column>
-<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_indvar_flatten_load">9, 2, 42, 84</column>
-<column name="i_fu_112">9, 2, 11, 22</column>
-<column name="in_adc0_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="indvar_flatten_fu_116">9, 2, 42, 84</column>
-<column name="out_r_00_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="out_r_01_TDATA_blk_n">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">25, 5, 1, 5</column>
+<column name="ap_done">9, 2, 1, 2</column>
+<column name="c_fu_60">9, 2, 32, 64</column>
+<column name="in_adc0_TREADY_int_regslice">9, 2, 1, 2</column>
+<column name="out_r_00_TDATA_int_regslice">9, 2, 32, 64</column>
+<column name="out_r_00_TKEEP_int_regslice">9, 2, 4, 8</column>
+<column name="out_r_00_TLAST_int_regslice">9, 2, 1, 2</column>
+<column name="out_r_00_TSTRB_int_regslice">9, 2, 4, 8</column>
+<column name="out_r_01_TDATA_int_regslice">9, 2, 32, 64</column>
+<column name="out_r_01_TKEEP_int_regslice">9, 2, 4, 8</column>
+<column name="out_r_01_TLAST_int_regslice">9, 2, 1, 2</column>
+<column name="out_r_01_TSTRB_int_regslice">9, 2, 4, 8</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">1, 0, 1, 0</column>
-<column name="ap_block_pp0_stage0_subdone_grp1_done_reg">1, 0, 1, 0</column>
-<column name="ap_block_pp0_stage0_subdone_grp1_done_reg_iter0">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">4, 0, 4, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter3">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter4">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter5">1, 0, 1, 0</column>
-<column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="ap_loop_exit_ready_pp0_iter2_reg">1, 0, 1, 0</column>
-<column name="ap_loop_exit_ready_pp0_iter3_reg">1, 0, 1, 0</column>
-<column name="ap_loop_exit_ready_pp0_iter4_reg">1, 0, 1, 0</column>
-<column name="b_real_2_reg_494">15, 0, 15, 0</column>
-<column name="b_real_reg_489">15, 0, 15, 0</column>
-<column name="c_imag_21_reg_474">16, 0, 16, 0</column>
-<column name="c_imag_22_reg_484">16, 0, 16, 0</column>
-<column name="c_real_21_reg_469">16, 0, 16, 0</column>
-<column name="c_real_22_reg_479">16, 0, 16, 0</column>
-<column name="i_fu_112">11, 0, 11, 0</column>
-<column name="indvar_flatten_fu_116">42, 0, 42, 0</column>
-<column name="p_021_reg_463">1, 0, 1, 0</column>
-<column name="p_021_reg_463">64, 32, 1, 0</column>
+<column name="c_fu_60">32, 0, 32, 0</column>
+<column name="grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg">1, 0, 1, 0</column>
+<column name="num_chirps_read_reg_131">32, 0, 32, 0</column>
+<column name="out_r_00_TDATA_reg">32, 0, 32, 0</column>
+<column name="out_r_00_TKEEP_reg">4, 0, 4, 0</column>
+<column name="out_r_00_TLAST_reg">1, 0, 1, 0</column>
+<column name="out_r_00_TSTRB_reg">4, 0, 4, 0</column>
+<column name="out_r_01_TDATA_reg">32, 0, 32, 0</column>
+<column name="out_r_01_TKEEP_reg">4, 0, 4, 0</column>
+<column name="out_r_01_TLAST_reg">1, 0, 1, 0</column>
+<column name="out_r_01_TSTRB_reg">4, 0, 4, 0</column>
 </table>
 </item>
 </section>
@@ -149,22 +135,22 @@
 <column name="ap_continue">in, 1, ap_ctrl_hs, adc_forward, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, adc_forward, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, adc_forward, return value</column>
+<column name="in_adc0_TDATA">in, 64, axis, in_adc0_V_data_V, pointer</column>
 <column name="in_adc0_TVALID">in, 1, axis, in_adc0_V_last_V, pointer</column>
 <column name="in_adc0_TREADY">out, 1, axis, in_adc0_V_last_V, pointer</column>
 <column name="in_adc0_TLAST">in, 1, axis, in_adc0_V_last_V, pointer</column>
-<column name="out_r_00_TREADY">in, 1, axis, out_r_00_V_last_V, pointer</column>
-<column name="out_r_00_TVALID">out, 1, axis, out_r_00_V_last_V, pointer</column>
-<column name="out_r_00_TLAST">out, 1, axis, out_r_00_V_last_V, pointer</column>
-<column name="out_r_01_TREADY">in, 1, axis, out_r_01_V_last_V, pointer</column>
-<column name="out_r_01_TVALID">out, 1, axis, out_r_01_V_last_V, pointer</column>
-<column name="out_r_01_TLAST">out, 1, axis, out_r_01_V_last_V, pointer</column>
-<column name="in_adc0_TDATA">in, 64, axis, in_adc0_V_data_V, pointer</column>
 <column name="in_adc0_TKEEP">in, 8, axis, in_adc0_V_keep_V, pointer</column>
 <column name="in_adc0_TSTRB">in, 8, axis, in_adc0_V_strb_V, pointer</column>
 <column name="out_r_00_TDATA">out, 32, axis, out_r_00_V_data_V, pointer</column>
+<column name="out_r_00_TVALID">out, 1, axis, out_r_00_V_last_V, pointer</column>
+<column name="out_r_00_TREADY">in, 1, axis, out_r_00_V_last_V, pointer</column>
+<column name="out_r_00_TLAST">out, 1, axis, out_r_00_V_last_V, pointer</column>
 <column name="out_r_00_TKEEP">out, 4, axis, out_r_00_V_keep_V, pointer</column>
 <column name="out_r_00_TSTRB">out, 4, axis, out_r_00_V_strb_V, pointer</column>
 <column name="out_r_01_TDATA">out, 32, axis, out_r_01_V_data_V, pointer</column>
+<column name="out_r_01_TVALID">out, 1, axis, out_r_01_V_last_V, pointer</column>
+<column name="out_r_01_TREADY">in, 1, axis, out_r_01_V_last_V, pointer</column>
+<column name="out_r_01_TLAST">out, 1, axis, out_r_01_V_last_V, pointer</column>
 <column name="out_r_01_TKEEP">out, 4, axis, out_r_01_V_keep_V, pointer</column>
 <column name="out_r_01_TSTRB">out, 4, axis, out_r_01_V_strb_V, pointer</column>
 <column name="num_chirps">in, 32, ap_none, num_chirps, scalar</column>

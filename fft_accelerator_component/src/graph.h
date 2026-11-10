@@ -70,7 +70,7 @@ public:
                                 cint16, // TT_TWIDDLE
                                 256,    // TP_POINT_SIZE
                                 1,      // TP_FFT_NIFFT
-                                8,      // TP_SHIFT
+                                4,      // TP_SHIFT
                                 1,      // TP_CASC_LEN
                                 0,      // TP_DYN_PT_SIZE
                                 256,    // TP_WINDOW_VSIZE

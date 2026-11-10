@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 23
+set cdfgNum 24
 set C_modelName {aie_consume_doppler_Pipeline_1}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]

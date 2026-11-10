@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'Block_entry_gmem_wr_proc'
 ================================================================
-* Date:           Mon Nov  9 15:21:28 2026
+* Date:           Tue Nov 10 11:50:42 2026
 
 * Version:        2026.1 (Build 6493734 on Jun 16 2026)
 * Project:        central-controller-element
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  7.026 ns|     1.35 ns|
+    |ap_clk  |  8.00 ns|  7.026 ns|     2.16 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -58,16 +58,16 @@
 |DSP              |        -|    -|       -|      -|    -|
 |Expression       |        -|    -|       0|      8|    -|
 |FIFO             |       11|    -|     314|    148|    -|
-|Instance         |       23|    9|   10822|  11099|    0|
+|Instance         |       24|   26|    9083|  12832|    0|
 |Memory           |        -|    -|       -|      -|    -|
 |Multiplexer      |        -|    -|       0|    494|    -|
 |Register         |        -|    -|     191|      -|    -|
 +-----------------+---------+-----+--------+-------+-----+
-|Total            |       34|    9|   11327|  11749|    0|
+|Total            |       35|   26|    9588|  13482|    0|
 +-----------------+---------+-----+--------+-------+-----+
 |Available        |      530|  400|  157200|  78600|    0|
 +-----------------+---------+-----+--------+-------+-----+
-|Utilization (%)  |        6|    2|       7|     14|    0|
+|Utilization (%)  |        6|    6|       6|     17|    0|
 +-----------------+---------+-----+--------+-------+-----+
 
 + Detail: 
@@ -75,11 +75,11 @@
     +------------------------------+-------------------+---------+----+------+------+-----+
     |           Instance           |       Module      | BRAM_18K| DSP|  FF  |  LUT | URAM|
     +------------------------------+-------------------+---------+----+------+------+-----+
-    |grp_aie_range_consume_fu_148  |aie_range_consume  |        3|   0|  2405|  3426|    0|
-    |grp_doppler_fu_185            |doppler            |       16|   9|  7658|  6988|    0|
-    |grp_seq_generator_fu_175      |seq_generator      |        4|   0|   759|   685|    0|
+    |grp_aie_range_consume_fu_148  |aie_range_consume  |        3|   0|  1087|  3433|    0|
+    |grp_doppler_fu_185            |doppler            |       17|  26|  7271|  8725|    0|
+    |grp_seq_generator_fu_175      |seq_generator      |        4|   0|   725|   674|    0|
     +------------------------------+-------------------+---------+----+------+------+-----+
-    |Total                         |                   |       23|   9| 10822| 11099|    0|
+    |Total                         |                   |       24|  26|  9083| 12832|    0|
     +------------------------------+-------------------+---------+----+------+------+-----+
 
     * DSP: 
@@ -343,8 +343,8 @@ ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%num_chirps_read = read i32 @_ssdm_
 ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%mm_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %mm"   --->   Operation 12 'read' 'mm_read' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 13 [2/2] (0.00ns)   --->   "%call_ln55 = call void @aie_range_consume, i32 %in_r_00_V_data_V, i4 %in_r_00_V_keep_V, i4 %in_r_00_V_strb_V, i1 %in_r_00_V_last_V, i32 %in_r_01_V_data_V, i4 %in_r_01_V_keep_V, i4 %in_r_01_V_strb_V, i1 %in_r_01_V_last_V, i160 %mask_stream, i32 %gmem, i64 %mm_read, i32 %num_chirps_read" [src/main.cpp:55->src/main.cpp:55]   --->   Operation 13 'call' 'call_ln55' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
 
-State 3 <SV = 2> <Delay = 2.55>
-ST_3 : Operation 14 [1/2] (2.55ns)   --->   "%call_ln55 = call void @aie_range_consume, i32 %in_r_00_V_data_V, i4 %in_r_00_V_keep_V, i4 %in_r_00_V_strb_V, i1 %in_r_00_V_last_V, i32 %in_r_01_V_data_V, i4 %in_r_01_V_keep_V, i4 %in_r_01_V_strb_V, i1 %in_r_01_V_last_V, i160 %mask_stream, i32 %gmem, i64 %mm_read, i32 %num_chirps_read" [src/main.cpp:55->src/main.cpp:55]   --->   Operation 14 'call' 'call_ln55' <Predicate = true> <Delay = 2.55> <CoreType = "Generic">   --->   Generic Core
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 14 [1/2] (0.00ns)   --->   "%call_ln55 = call void @aie_range_consume, i32 %in_r_00_V_data_V, i4 %in_r_00_V_keep_V, i4 %in_r_00_V_strb_V, i1 %in_r_00_V_last_V, i32 %in_r_01_V_data_V, i4 %in_r_01_V_keep_V, i4 %in_r_01_V_strb_V, i1 %in_r_01_V_last_V, i160 %mask_stream, i32 %gmem, i64 %mm_read, i32 %num_chirps_read" [src/main.cpp:55->src/main.cpp:55]   --->   Operation 14 'call' 'call_ln55' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
 
 State 4 <SV = 3> <Delay = 0.00>
 ST_4 : Operation 15 [2/2] (0.00ns)   --->   "%call_ln56 = call void @seq_generator, i160 %mask_stream, i32 %idx_stream, i128 %mask_seqs, i128 %seqs_done" [src/main.cpp:56->src/main.cpp:55]   --->   Operation 15 'call' 'call_ln56' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
@@ -355,28 +355,28 @@ ST_5 : Operation 16 [1/2] (0.00ns)   --->   "%call_ln56 = call void @seq_generat
 State 6 <SV = 5> <Delay = 0.00>
 ST_6 : Operation 17 [2/2] (0.00ns)   --->   "%call_ln57 = call void @doppler, i32 %gmem, i64 %mm_read, i32 %idx_stream, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, i2816 %doppler_mask_stream, i15 %hamming_window_256_real" [src/main.cpp:57->src/main.cpp:55]   --->   Operation 17 'call' 'call_ln57' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
 
-State 7 <SV = 6> <Delay = 2.07>
-ST_7 : Operation 18 [1/2] (2.07ns)   --->   "%call_ln57 = call void @doppler, i32 %gmem, i64 %mm_read, i32 %idx_stream, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, i2816 %doppler_mask_stream, i15 %hamming_window_256_real" [src/main.cpp:57->src/main.cpp:55]   --->   Operation 18 'call' 'call_ln57' <Predicate = true> <Delay = 2.07> <CoreType = "Generic">   --->   Generic Core
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 18 [1/2] (0.00ns)   --->   "%call_ln57 = call void @doppler, i32 %gmem, i64 %mm_read, i32 %idx_stream, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 %in_d_02_V_last_V, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 %in_d_03_V_last_V, i2816 %doppler_mask_stream, i15 %hamming_window_256_real" [src/main.cpp:57->src/main.cpp:55]   --->   Operation 18 'call' 'call_ln57' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
 
 State 8 <SV = 7> <Delay = 0.00>
-ST_8 : Operation 19 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 0, i1 %in_d_03_V_last_V, i1 0, i1 0, void @empty_10"   --->   Operation 19 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 20 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 0, i1 %in_d_02_V_last_V, i1 0, i1 0, void @empty_11"   --->   Operation 20 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 21 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_r_01_V_data_V, i4 %in_r_01_V_keep_V, i4 %in_r_01_V_strb_V, i1 0, i1 %in_r_01_V_last_V, i1 0, i1 0, void @empty_24"   --->   Operation 21 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 22 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_r_00_V_data_V, i4 %in_r_00_V_keep_V, i4 %in_r_00_V_strb_V, i1 0, i1 %in_r_00_V_last_V, i1 0, i1 0, void @empty_14"   --->   Operation 22 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 23 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 0, i1 %out_d_03_V_last_V, i1 0, i1 0, void @empty_15"   --->   Operation 23 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 24 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 0, i1 %out_d_02_V_last_V, i1 0, i1 0, void @empty_37"   --->   Operation 24 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i2816 %doppler_mask_stream, void @empty_9, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_d_03_V_last_V, i4 %in_d_03_V_strb_V, i4 %in_d_03_V_keep_V, i32 %in_d_03_V_data_V, void @empty_1, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 27 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_d_02_V_last_V, i4 %in_d_02_V_strb_V, i4 %in_d_02_V_keep_V, i32 %in_d_02_V_data_V, void @empty_1, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 27 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_03_V_last_V, i4 %out_d_03_V_strb_V, i4 %out_d_03_V_keep_V, i32 %out_d_03_V_data_V, void @empty_1, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 28 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_02_V_last_V, i4 %out_d_02_V_strb_V, i4 %out_d_02_V_keep_V, i32 %out_d_02_V_data_V, void @empty_1, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_r_01_V_last_V, i4 %in_r_01_V_strb_V, i4 %in_r_01_V_keep_V, i32 %in_r_01_V_data_V, void @empty_1, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_r_00_V_last_V, i4 %in_r_00_V_strb_V, i4 %in_r_00_V_keep_V, i32 %in_r_00_V_data_V, void @empty_1, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 32 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty_35, i32 0, i32 0, void @empty_13, i32 0, i32 201326592, void @empty_16, void @empty_2, void @empty_13, i32 16, i32 16, i32 16, i32 16, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 32 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 19 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_d_03_V_data_V, i4 %in_d_03_V_keep_V, i4 %in_d_03_V_strb_V, i1 0, i1 %in_d_03_V_last_V, i1 0, i1 0, void @empty_11"   --->   Operation 19 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 20 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_d_02_V_data_V, i4 %in_d_02_V_keep_V, i4 %in_d_02_V_strb_V, i1 0, i1 %in_d_02_V_last_V, i1 0, i1 0, void @empty_12"   --->   Operation 20 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 21 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_r_01_V_data_V, i4 %in_r_01_V_keep_V, i4 %in_r_01_V_strb_V, i1 0, i1 %in_r_01_V_last_V, i1 0, i1 0, void @empty_13"   --->   Operation 21 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 22 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_r_00_V_data_V, i4 %in_r_00_V_keep_V, i4 %in_r_00_V_strb_V, i1 0, i1 %in_r_00_V_last_V, i1 0, i1 0, void @empty_26"   --->   Operation 22 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 23 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 0, i1 %out_d_03_V_last_V, i1 0, i1 0, void @empty_16"   --->   Operation 23 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 24 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 0, i1 %out_d_02_V_last_V, i1 0, i1 0, void @empty_40"   --->   Operation 24 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i2816 %doppler_mask_stream, void @empty_10, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_d_03_V_last_V, i4 %in_d_03_V_strb_V, i4 %in_d_03_V_keep_V, i32 %in_d_03_V_data_V, void @empty_1, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 27 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_d_02_V_last_V, i4 %in_d_02_V_strb_V, i4 %in_d_02_V_keep_V, i32 %in_d_02_V_data_V, void @empty_1, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 27 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_03_V_last_V, i4 %out_d_03_V_strb_V, i4 %out_d_03_V_keep_V, i32 %out_d_03_V_data_V, void @empty_1, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 28 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_02_V_last_V, i4 %out_d_02_V_strb_V, i4 %out_d_02_V_keep_V, i32 %out_d_02_V_data_V, void @empty_1, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_r_01_V_last_V, i4 %in_r_01_V_strb_V, i4 %in_r_01_V_keep_V, i32 %in_r_01_V_data_V, void @empty_1, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_r_00_V_last_V, i4 %in_r_00_V_strb_V, i4 %in_r_00_V_keep_V, i32 %in_r_00_V_data_V, void @empty_1, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 32 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty_29, i32 0, i32 0, void @empty_17, i32 0, i32 201326592, void @empty_2, void @empty_3, void @empty_17, i32 16, i32 16, i32 16, i32 16, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 32 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_8 : Operation 33 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @idx_stream_str, i32 1, void @p_str, void @p_str, i32 128, i32 128, i32 %idx_stream, i32 %idx_stream"   --->   Operation 33 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 34 [1/1] (0.00ns)   --->   "%empty_1088 = specchannel i32 @_ssdm_op_SpecChannel, void @mask_stream_str, i32 1, void @p_str, void @p_str, i32 128, i32 128, i160 %mask_stream, i160 %mask_stream"   --->   Operation 34 'specchannel' 'empty_1088' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i160 %mask_stream, void @empty_9, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %idx_stream, void @empty_9, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty_13, void @empty_13, void @empty_13, i32 0, i32 0, i32 0, i32 0, void @empty_13, void @empty_13, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 34 [1/1] (0.00ns)   --->   "%empty_1110 = specchannel i32 @_ssdm_op_SpecChannel, void @mask_stream_str, i32 1, void @p_str, void @p_str, i32 128, i32 128, i160 %mask_stream, i160 %mask_stream"   --->   Operation 34 'specchannel' 'empty_1110' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i160 %mask_stream, void @empty_10, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %idx_stream, void @empty_10, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_8 : Operation 37 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 37 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
 
 
@@ -450,7 +450,7 @@ specinterface_ln0       (specinterface      ) [ 000000000]
 specinterface_ln0       (specinterface      ) [ 000000000]
 specinterface_ln0       (specinterface      ) [ 000000000]
 empty                   (specchannel        ) [ 000000000]
-empty_1088              (specchannel        ) [ 000000000]
+empty_1110              (specchannel        ) [ 000000000]
 specinterface_ln0       (specinterface      ) [ 000000000]
 specinterface_ln0       (specinterface      ) [ 000000000]
 ret_ln0                 (ret                ) [ 000000000]
@@ -818,7 +818,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="79" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_10"/></StgValue>
+<StgValue><ssdm name="empty_11"/></StgValue>
 </bind>
 </comp>
 
@@ -827,7 +827,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="81" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_11"/></StgValue>
+<StgValue><ssdm name="empty_12"/></StgValue>
 </bind>
 </comp>
 
@@ -836,7 +836,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="83" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_24"/></StgValue>
+<StgValue><ssdm name="empty_13"/></StgValue>
 </bind>
 </comp>
 
@@ -845,7 +845,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="85" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_14"/></StgValue>
+<StgValue><ssdm name="empty_26"/></StgValue>
 </bind>
 </comp>
 
@@ -854,7 +854,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="87" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_15"/></StgValue>
+<StgValue><ssdm name="empty_16"/></StgValue>
 </bind>
 </comp>
 
@@ -863,7 +863,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="89" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_37"/></StgValue>
+<StgValue><ssdm name="empty_40"/></StgValue>
 </bind>
 </comp>
 
@@ -881,7 +881,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="93" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_9"/></StgValue>
+<StgValue><ssdm name="empty_10"/></StgValue>
 </bind>
 </comp>
 
@@ -899,7 +899,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="97" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_13"/></StgValue>
+<StgValue><ssdm name="empty_17"/></StgValue>
 </bind>
 </comp>
 
@@ -935,7 +935,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="105" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_7"/></StgValue>
+<StgValue><ssdm name="empty_8"/></StgValue>
 </bind>
 </comp>
 
@@ -944,7 +944,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="107" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_35"/></StgValue>
+<StgValue><ssdm name="empty_29"/></StgValue>
 </bind>
 </comp>
 
@@ -962,7 +962,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="111" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_16"/></StgValue>
+<StgValue><ssdm name="empty_2"/></StgValue>
 </bind>
 </comp>
 
@@ -971,7 +971,7 @@ ret_ln0                 (ret                ) [ 000000000]
 <pin id="113" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_2"/></StgValue>
+<StgValue><ssdm name="empty_3"/></StgValue>
 </bind>
 </comp>
 
@@ -1387,14 +1387,14 @@ ret_ln0                 (ret                ) [ 000000000]
 |----------|------------------------------|---------|---------|---------|---------|---------|---------|
 | Operation|        Functional Unit       |   BRAM  |   DSP   |  Delay  |    FF   |   LUT   |   URAM  |
 |----------|------------------------------|---------|---------|---------|---------|---------|---------|
-|          | grp_aie_range_consume_fu_148 |    3    |    0    |  16.414 |   2910  |   2365  |    0    |
-|   call   |   grp_seq_generator_fu_175   |    0    |    0    |  1.588  |   755   |   532   |    0    |
-|          |      grp_doppler_fu_185      |    15   |    17   | 94.1496 |  10219  |   5640  |    0    |
+|          | grp_aie_range_consume_fu_148 |    3    |    0    |  16.414 |   1668  |   2365  |    0    |
+|   call   |   grp_seq_generator_fu_175   |    0    |    0    |  3.176  |   602   |   541   |    0    |
+|          |      grp_doppler_fu_185      |    16   |    26   | 67.1314 |   9221  |   5405  |    0    |
 |----------|------------------------------|---------|---------|---------|---------|---------|---------|
 |   read   |  num_chirps_read_read_fu_136 |    0    |    0    |    0    |    0    |    0    |    0    |
 |          |      mm_read_read_fu_142     |    0    |    0    |    0    |    0    |    0    |    0    |
 |----------|------------------------------|---------|---------|---------|---------|---------|---------|
-|   Total  |                              |    18   |    17   | 112.152 |  13884  |   8537  |    0    |
+|   Total  |                              |    19   |    26   | 86.7214 |  11491  |   8311  |    0    |
 |----------|------------------------------|---------|---------|---------|---------|---------|---------|
 
 Memories:
@@ -1428,10 +1428,10 @@ N/A
 +-----------+--------+--------+--------+--------+--------+--------+
 |           |  BRAM  |   DSP  |  Delay |   FF   |   LUT  |  URAM  |
 +-----------+--------+--------+--------+--------+--------+--------+
-|  Function |   18   |   17   |   112  |  13884 |  8537  |    0   |
+|  Function |   19   |   26   |   86   |  11491 |  8311  |    0   |
 |   Memory  |    -   |    -   |    -   |    -   |    -   |    -   |
 |Multiplexer|    -   |    -   |    3   |    0   |   18   |    -   |
 |  Register |    -   |    -   |    -   |   288  |    -   |    -   |
 +-----------+--------+--------+--------+--------+--------+--------+
-|   Total   |   18   |   17   |   115  |  14172 |  8555  |    0   |
+|   Total   |   19   |   26   |   89   |  11779 |  8329  |    0   |
 +-----------+--------+--------+--------+--------+--------+--------+

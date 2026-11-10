@@ -21,4 +21,4 @@ obj/range_part.o: ../../../../src/range_part.cpp \
   /home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_special.h \
   /home/light/FPGA/2026.1/Vitis/include/hls_stream.h \
   /home/light/FPGA/2026.1/Vitis/include/etc/hls_stream_common.h \
-  ../../../../src/complex-math.h ../../../../src/hamming.h
+  ../../../../src/hamming.h ../../../../src/complex-math.h

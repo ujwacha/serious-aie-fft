@@ -26,7 +26,7 @@ struct DopplerMaskPacket {
     ap_uint<16> mask;     /* 256 / 16 bits: one keep bit per 16-sample bin */
     ap_uint<16> seq;      /* sequence number (rank 0 only)                */
     ap_uint<16> index;    /* range index     (rank 0 only)                */
-    float       data[86]; /* 1/3 of the 256 powers (|x|^2), per rank      */
+    int32_t       data[86]; /* 1/3 of the 256 powers (|x|^2), per rank      */
 };
 
 // helper — exposed for testbench unit test

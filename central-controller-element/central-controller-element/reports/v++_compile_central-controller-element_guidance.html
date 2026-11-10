@@ -3407,7 +3407,7 @@ window.onload = function () { addSorting(); }
 <center><h1>Design Guidance Report</h1></center><center><table class="header" border="0">
 <tr><td><b>Copyright</b></td><td>Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.</td></tr>
 <tr><td><b>Tool Version</b></td><td>xcd v.2026.1 (lin64) Build 0 </td></tr>
-<tr><td><b>Date</b></td><td>Mon Nov  9 15:21:31 2026</td></tr>
+<tr><td><b>Date</b></td><td>Tue Nov 10 11:50:45 2026</td></tr>
 <tr><td><b>Host</b></td><td>voidpc running 64-bit Ubuntu 24.04.5 LTS</td></tr>
 <tr><td><b>Command</b></td><td>/home/light/FPGA/2026.1/Vitis/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg --work_dir central-controller-element </td></tr>
 </table></center><br>
@@ -3416,7 +3416,7 @@ window.onload = function () { addSorting(); }
 <tr><td><a href="#VIOLATION DETAILS">2 VIOLATION DETAILS</a></tr></td>
 </table>
 <a name="REPORT SUMMARY"></a><h1>1 REPORT SUMMARY</h1>
-<pre>Violations found: 54
+<pre>Violations found: 28
 </pre>
 <pre>Rule Specs Violated: 3
 </pre>
@@ -3434,7 +3434,7 @@ window.onload = function () { addSorting(); }
 <th align="left" width="380">Resolution</th>
 </tr>
 <tr>
-<td align="left">48</td>
+<td align="left">21</td>
 <td align="left">Kernel</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
@@ -3444,50 +3444,7 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">3</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.kernel.Interface</td>
-<td align="left">Multiple burst reads of length 16 and bit width 32 in loop 'VITIS_LOOP_101_3'(<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=101">doppler_part.cpp</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=101">doppler_part.cpp</a>)
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">31</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 7, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">43</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">22</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Cannot meet target clock period from basic block for.inc to 'store' operation ('i_write_ln185', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a>) of variable 'add_ln185', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a> 9 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a> (combination delay: 4.999 ns) to honor II or Latency constraint in region 'VITIS_LOOP_185_1'.
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">34</td>
+<td align="left">15</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3503,215 +3460,41 @@ window.onload = function () { addSorting(); }
 <td align="left"><undefined></td>
 <td align="left">HLS Interface Related</td>
 <td align="left">Accelerator.kernel.Interface</td>
-<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=105">range_part.cpp</a>)
+<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=132">range_part.cpp</a>)
 </td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">29</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
+<td align="left">28</td>
+<td align="left">Kernel</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.kernel.Kernel</td>
+<td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">41</td>
+<td align="left">22</td>
 <td align="left">Kernel</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Kernel Related</td>
 <td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Cannot meet target clock period from basic block for.body133 to 'store' operation ('i_write_ln282', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a>) of variable 'add_ln282', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a> 7 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a> (combination delay: 5.046 ns) to honor II or Latency constraint in region 'VITIS_LOOP_282_9'.
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">20</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'doppler_forward_one' consists of the following:
-	'store' operation ('i_write_ln125', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a>) of constant 0 9 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a> [19]  (1.588 ns)
-	'load' operation 9 bit ('i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a>) on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a> [22]  (0.000 ns)
-	'add' operation 9 bit ('add_ln125', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a>) [68]  (1.823 ns)
-	'store' operation ('i_write_ln125', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a>) of variable 'add_ln125', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a> 9 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a> [69]  (1.588 ns)
+<td align="left">The critical path in module 'aie_consume_doppler' consists of the following:
+	'sitodp' operation 64 bit ('conv', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=262">doppler_part.cpp</a>) [57]  (6.442 ns)
 
 </td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">32</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 9, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">15</td>
+<td align="left">8</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.kernel.Throughput</td>
 <td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">27</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">6</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">18</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">46</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">25</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_185_1' consists of the following:
-	'store' operation ('i_write_ln185', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a>) of constant 0 9 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a> [16]  (1.588 ns)
-	'load' operation 9 bit ('i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a>) on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a> [19]  (0.000 ns)
-	'add' operation 9 bit ('add_ln185', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a>) [46]  (1.823 ns)
-	'store' operation ('i_write_ln185', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a>) of variable 'add_ln185', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a> 9 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=185">doppler_part.cpp</a> [47]  (1.588 ns)
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">53</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Cannot meet target clock period from basic block for.inc to 'add' operation 42 bit ('add_ln27', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a>) (combination delay: 4.5214 ns) to honor II or Latency constraint in region 'VITIS_LOOP_27_1_VITIS_LOOP_28_2'.
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">16</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">44</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_282_9' consists of the following:
-	'store' operation ('i_write_ln282', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a>) of constant 0 7 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a> [6]  (1.588 ns)
-	'load' operation 7 bit ('i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a>) on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a> [9]  (0.000 ns)
-	'add' operation 7 bit ('add_ln282', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a>) [11]  (1.870 ns)
-	'store' operation ('i_write_ln282', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a>) of variable 'add_ln282', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a> 7 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=282">doppler_part.cpp</a> [27]  (1.588 ns)
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'br' operation ('br_ln18', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=18">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=76">range_part.cpp</a>) and 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=15">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=76">range_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">39</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">51</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'kernel' consists of the following:
-	'call' operation ('_ln54', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp#line=54">main.cpp</a>) to 'adc_forward' [104]  (4.521 ns)
-
-</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
@@ -3721,23 +3504,12 @@ window.onload = function () { addSorting(); }
 <td align="left"><undefined></td>
 <td align="left">HLS Interface Related</td>
 <td align="left">Accelerator.kernel.Interface</td>
-<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=261">doppler_part.cpp</a>)
+<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=304">doppler_part.cpp</a>)
 </td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">30</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">42</td>
+<td align="left">23</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3757,42 +3529,18 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">37</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
+<td align="left">3</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_210_3' (loop 'VITIS_LOOP_210_3'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('reuse_reg_write_ln213', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=213">doppler_part.cpp</a>) of variable 'add_ln213', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=213">doppler_part.cpp</a> 32 bit on local variable 'reuse_reg' and 'add' operation 32 bit ('add_ln213', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=213">doppler_part.cpp</a>).
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.kernel.Interface</td>
+<td align="left">Multiple burst reads of length 16 and bit width 32 in loop 'VITIS_LOOP_103_3'(<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>)
 </td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">49</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'doppler' consists of the following:
-	'call' operation ('_ln113', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=113">doppler_part.cpp</a>) to 'doppler_forward_one' [58]  (4.639 ns)
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">28</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">40</td>
+<td align="left">16</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3802,7 +3550,7 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">23</td>
+<td align="left">10</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3812,77 +3560,23 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">35</td>
+<td align="left">17</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">11</td>
 <td align="left">Kernel</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Kernel Related</td>
 <td align="left">Accelerator.kernel.Kernel</td>
 <td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">26</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Estimated delay Estimated delay (6.312ns)  of 'sitofp' operation 32 bit ('conv', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=200">doppler_part.cpp</a>) exceeds the target cycle time (target cycle time: 5.000ns, clock uncertainty: 1.350ns, effective cycle time: 3.650ns).
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">54</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">21</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">33</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' (loop 'VITIS_LOOP_195_2'): Unable to enforce a carried dependence constraint (II = 10, distance = 1, offset = 1) between 'store' operation ('mean_write_ln182', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a>) of variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a> 32 bit on local variable 'mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=182">doppler_part.cpp</a> and 'fadd' operation 32 bit ('mean', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=203">doppler_part.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'br' operation ('br_ln18', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=18">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=76">range_part.cpp</a>) and 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=15">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=76">range_part.cpp</a>).
-</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
@@ -3896,7 +3590,60 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">52</td>
+<td align="left">18</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">Kernel</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.kernel.Kernel</td>
+<td align="left">The critical path in module 'kernel' consists of the following:
+	'call' operation ('_ln59', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp#line=59">main.cpp</a>) to 'dummy' [106]  (6.585 ns)
+
+</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">26</td>
 <td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3906,51 +3653,45 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">7</td>
+<td align="left">12</td>
 <td align="left">Kernel</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Kernel Related</td>
 <td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">19</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">47</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'aie_consume_doppler' consists of the following:
-	'sitofp' operation 32 bit ('conv2', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=235">doppler_part.cpp</a>) [57]  (6.312 ns)
+<td align="left">The critical path in module 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3' consists of the following:
+	'add' operation 5 bit ('add_ln103', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) [55]  (1.780 ns)
+	'store' operation ('j_write_ln103', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) of variable 'add_ln103', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a> 5 bit on local variable 'j', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a> [58]  (1.588 ns)
+	'load' operation 5 bit ('j_load', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) on local variable 'j', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a> [22]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln103', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) [26]  (1.780 ns)
+	'select' operation 5 bit ('select_ln97', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=97">doppler_part.cpp</a>) [27]  (1.215 ns)
 
 </td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">10</td>
+<td align="left">6</td>
 <td align="left">Throughput</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'br' operation ('br_ln18', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=18">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=76">range_part.cpp</a>) and 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=15">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=76">range_part.cpp</a>).
+<td align="left">The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=19">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=103">range_part.cpp</a>) and 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=16">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=103">range_part.cpp</a>).
 </td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">38</td>
+<td align="left">27</td>
+<td align="left">Kernel</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.kernel.Kernel</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">13</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3960,76 +3701,33 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">50</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
+<td align="left">7</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
 <td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
+<td align="left">20</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Cannot meet target clock period from basic block for.inc to 'store' operation ('indvar_flatten_write_ln27', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a>) of variable 'add_ln27', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a> 42 bit on local variable 'indvar_flatten' (combination delay: 6.1094 ns) to honor II or Latency constraint in region 'VITIS_LOOP_27_1_VITIS_LOOP_28_2'.
-</td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">17</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
+<td align="left">14</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Cannot meet target clock period from basic block for.inc to 'store' operation ('i_write_ln125', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a>) of variable 'add_ln125', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a> 9 bit on local variable 'i', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=125">doppler_part.cpp</a> (combination delay: 4.999 ns) to honor II or Latency constraint in region 'VITIS_LOOP_125_1'.
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">45</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">Estimated delay Estimated delay (6.312ns)  of 'sitofp' operation 32 bit ('conv2', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=235">doppler_part.cpp</a>) exceeds the target cycle time (target cycle time: 5.000ns, clock uncertainty: 1.350ns, effective cycle time: 3.650ns).
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">8</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'adc_forward' consists of the following:
-	'store' operation ('indvar_flatten_write_ln0') of constant 0 42 bit on local variable 'indvar_flatten' [25]  (1.588 ns)
-	'load' operation 42 bit ('indvar_flatten_load', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a>) on local variable 'indvar_flatten' [29]  (0.000 ns)
-	'icmp' operation 1 bit ('icmp_ln27', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a>) [30]  (2.933 ns)
-	'store' operation ('indvar_flatten_write_ln27', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a>) of variable 'add_ln27', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=27">range_part.cpp</a> 42 bit on local variable 'indvar_flatten' [75]  (1.588 ns)
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">36</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'aie_consume_doppler_Pipeline_VITIS_LOOP_195_2' consists of the following:
-	'sitofp' operation 32 bit ('conv', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=200">doppler_part.cpp</a>) [26]  (6.312 ns)
-
-</td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 </table>

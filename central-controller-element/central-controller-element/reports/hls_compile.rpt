@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'kernel'
 ================================================================
 + General Information: 
-    * Date:           Mon Nov  9 15:21:28 2026
+    * Date:           Tue Nov 10 11:50:42 2026
     * Version:        2026.1 (Build 6493734 on Jun 16 2026)
     * Project:        central-controller-element
     * Solution:       hls
@@ -13,51 +13,54 @@
     
 
 * Performance & Resource Estimates: 
-+---------------------------------------------------------+--------+---------------------+----------+---------------+---------------+----------+---------------+-----------+-------+-----------+---------+------------+-------------+-----+
-|                         Modules                         |  Issue |                     | Iteration|               |      Trip     |          |          Latency          |       |           |         |            |             |     |
-|                         & Loops                         |  Type  |    Violation Type   |  Latency |    Interval   |     Count     | Pipelined|    (cycles)   |    (ns)   | Slack |   BRAM    |   DSP   |     FF     |     LUT     | URAM|
-+---------------------------------------------------------+--------+---------------------+----------+---------------+---------------+----------+---------------+-----------+-------+-----------+---------+------------+-------------+-----+
-|+ kernel*                                                |  Timing|                    -|         -|              -|              -|  dataflow|              -|          -|  -3.38|  195 (36%)|  13 (3%)|  12895 (8%)|  13116 (16%)|    -|
-| + adc_forward                                           |  Timing|                    -|         -|  4398046510081|              -|    rewind|  4398046510086|  3.090e+13|  -2.46|    2 (~0%)|   4 (1%)|   493 (~0%)|    261 (~0%)|    -|
-|  o VITIS_LOOP_27_1_VITIS_LOOP_28_2                      |       -|                    -|         6|              1|  4398046510080|       yes|  4398046510084|  3.090e+13|   3.65|          -|        -|           -|            -|    -|
-| + Block_entry_gmem_wr_proc                              |  Timing|                    -|         -|              -|              -|        no|              -|          -|  -3.38|    34 (6%)|   9 (2%)|  11327 (7%)|  11755 (14%)|    -|
-|  + aie_range_consume                                    |       -|                    -|         -|              -|              -|        no|              -|          -|   0.00|    3 (~0%)|        -|   2405 (1%)|    3426 (4%)|    -|
-|   o VITIS_LOOP_61_1                                     |       -|                    -|         -|              -|              -|        no|              -|          -|   3.65|          -|        -|           -|            -|    -|
-|    + aie_range_consume_Pipeline_VITIS_LOOP_69_2         |       -|                    -|         -|             67|              -|       yes|             67|    470.742|   0.19|          -|        -|    68 (~0%)|     96 (~0%)|    -|
-|     o VITIS_LOOP_69_2                                   |       -|                    -|         3|              1|             64|       yes|             65|    456.690|   3.65|          -|        -|           -|            -|    -|
-|    + aie_range_consume_Pipeline_VITIS_LOOP_10_1         |       -|                    -|         -|            261|              -|       yes|            261|  1.834e+03|   0.40|          -|        -|   268 (~0%)|    306 (~0%)|    -|
-|     o VITIS_LOOP_10_1                                   |       -|                    -|         7|              4|             64|       yes|            259|  1.820e+03|   3.65|          -|        -|           -|            -|    -|
-|    + aie_range_consume_Pipeline_VITIS_LOOP_78_3         |       -|                    -|         -|              -|              -|       yes|              -|          -|   0.00|          -|        -|   738 (~0%)|     833 (1%)|    -|
-|     o VITIS_LOOP_78_3                                   |       -|                    -|        27|             16|              -|       yes|              -|          -|   3.65|          -|        -|           -|            -|    -|
-|  + seq_generator                                        |       -|                    -|         -|              -|              -|        no|              -|          -|   0.00|    4 (~0%)|        -|   759 (~0%)|    685 (~0%)|    -|
-|   o VITIS_LOOP_28_1                                     |       -|                    -|       137|              -|              -|        no|              -|          -|   3.65|          -|        -|           -|            -|    -|
-|    + seq_generator_Pipeline_VITIS_LOOP_49_2             |       -|                    -|         -|            131|              -|       yes|            131|    920.406|   0.15|          -|        -|    36 (~0%)|    119 (~0%)|    -|
-|     o VITIS_LOOP_49_2                                   |       -|                    -|         3|              1|            128|       yes|            129|    906.354|   3.65|          -|        -|           -|            -|    -|
-|  + doppler                                              |  Timing|                    -|         -|              -|              -|        no|              -|          -|  -3.38|    16 (3%)|   9 (2%)|   7658 (4%)|    6994 (8%)|    -|
-|   o VITIS_LOOP_91_1                                     |       -|                    -|     82257|              -|              -|        no|              -|          -|   3.65|          -|        -|           -|            -|    -|
-|    + doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3  |       -|                    -|         -|           8205|              -|       yes|           8205|  5.765e+04|   0.00|          -|        -|   309 (~0%)|    345 (~0%)|    -|
-|     o VITIS_LOOP_97_2_VITIS_LOOP_101_3                  |       -|                    -|        14|              2|           4096|       yes|           8203|  5.763e+04|   3.65|          -|        -|           -|            -|    -|
-|    o VITIS_LOOP_112_4                                   |       -|                    -|      4628|              -|             16|        no|          74048|  5.203e+05|   3.65|          -|        -|           -|            -|    -|
-|     + doppler_forward_one                               |  Timing|                    -|         -|            133|              -|       yes|            133|    934.458|  -1.35|    1 (~0%)|   4 (1%)|   403 (~0%)|    100 (~0%)|    -|
-|      o VITIS_LOOP_125_1                                 |       -|                    -|         5|              1|            128|       yes|            131|    920.406|   3.65|          -|        -|           -|            -|    -|
-|     + aie_consume_doppler                               |  Timing|                    -|         -|           4625|              -|        no|           4625|  3.250e+04|  -3.38|     7 (1%)|   5 (1%)|   6731 (4%)|    6229 (7%)|    -|
-|      + aie_consume_doppler_Pipeline_1                   |       -|                    -|         -|             66|              -|       yes|             66|    463.716|   0.19|          -|        -|    24 (~0%)|     72 (~0%)|    -|
-|       o Loop 1                                          |       -|                    -|         2|              1|             64|       yes|             64|    449.664|   3.65|          -|        -|           -|            -|    -|
-|      + aie_consume_doppler_Pipeline_VITIS_LOOP_185_1    |  Timing|                    -|         -|            130|              -|       yes|            130|    913.380|  -1.35|          -|        -|    23 (~0%)|     76 (~0%)|    -|
-|       o VITIS_LOOP_185_1                                |       -|                    -|         2|              1|            128|       yes|            128|    899.328|   3.65|          -|        -|           -|            -|    -|
-|      + aie_consume_doppler_Pipeline_VITIS_LOOP_195_2    |  Timing|                    -|         -|           2846|              -|       yes|           2846|  2.000e+04|  -2.66|          -|        -|   389 (~0%)|    300 (~0%)|    -|
-|       o VITIS_LOOP_195_2                                |       -|                    -|        40|             11|            256|       yes|           2844|  1.998e+04|   3.65|          -|        -|           -|            -|    -|
-|      + aie_consume_doppler_Pipeline_VITIS_LOOP_210_3    |       -|                    -|         -|            564|              -|       yes|            564|  3.963e+03|   0.04|          -|        -|  1120 (~0%)|    1023 (1%)|    -|
-|       o VITIS_LOOP_210_3                                |       -|                    -|        53|              2|            256|       yes|            562|  3.949e+03|   3.65|          -|        -|           -|            -|    -|
-|      + aie_consume_doppler_Pipeline_VITIS_LOOP_221_4    |       -|                    -|         -|            327|              -|        no|            327|  2.298e+03|   0.40|          -|        -|   130 (~0%)|    225 (~0%)|    -|
-|       o VITIS_LOOP_221_4                                |       -|                    -|         6|              5|             64|       yes|            324|  2.276e+03|   3.65|          -|        -|           -|            -|    -|
-|      + aie_consume_doppler_Pipeline_VITIS_LOOP_244_5    |       -|                    -|         -|            286|              -|       yes|            286|  2.009e+03|   0.00|          -|        -|  1157 (~0%)|    1982 (2%)|    -|
-|       o VITIS_LOOP_244_5                                |      II|  Resource Limitation|        45|             16|             16|       yes|            284|  1.995e+03|   3.65|          -|        -|           -|            -|    -|
-|      o VITIS_LOOP_269_8                                 |       -|                    -|       137|              -|              3|        no|            411|  2.888e+03|   3.65|          -|        -|           -|            -|    -|
-|       + aie_consume_doppler_Pipeline_VITIS_LOOP_282_9   |  Timing|                    -|         -|             90|              -|       yes|             90|    632.340|  -1.40|          -|        -|   191 (~0%)|    176 (~0%)|    -|
-|        o VITIS_LOOP_282_9                               |       -|                    -|         4|              1|             86|       yes|             88|    618.288|   3.65|          -|        -|           -|            -|    -|
-| + dummy                                                 |       -|                    -|         -|              0|              -|        no|              0|      0.000|   1.82|          -|        -|     2 (~0%)|     20 (~0%)|    -|
-+---------------------------------------------------------+--------+---------------------+----------+---------------+---------------+----------+---------------+-----------+-------+-----------+---------+------------+-------------+-----+
++---------------------------------------------------------+--------+---------------------+----------+---------+------+----------+---------+-----------+-------+-----------+---------+------------+-------------+-----+
+|                         Modules                         |  Issue |                     | Iteration|         | Trip |          |       Latency       |       |           |         |            |             |     |
+|                         & Loops                         |  Type  |    Violation Type   |  Latency | Interval| Count| Pipelined| (cycles)|    (ns)   | Slack |   BRAM    |   DSP   |     FF     |     LUT     | URAM|
++---------------------------------------------------------+--------+---------------------+----------+---------+------+----------+---------+-----------+-------+-----------+---------+------------+-------------+-----+
+|+ kernel*                                                |  Timing|                    -|         -|        -|     -|  dataflow|        -|          -|  -1.19|  196 (36%)|  30 (7%)|  10993 (6%)|  14942 (19%)|    -|
+| + adc_forward                                           |       -|                    -|         -|        -|     -|        no|        -|          -|   0.26|    2 (~0%)|   4 (1%)|   330 (~0%)|    329 (~0%)|    -|
+|  o VITIS_LOOP_52_1                                      |       -|                    -|      1030|        -|     -|        no|        -|          -|   5.84|          -|        -|           -|            -|    -|
+|   + adc_forward_Pipeline_VITIS_LOOP_54_2                |       -|                    -|         -|     1028|     -|       yes|     1028|  8.224e+03|   0.26|    2 (~0%)|   4 (1%)|   178 (~0%)|    119 (~0%)|    -|
+|    o VITIS_LOOP_54_2                                    |       -|                    -|         4|        1|  1024|       yes|     1026|  8.208e+03|   5.84|          -|        -|           -|            -|    -|
+| + Block_entry_gmem_wr_proc                              |  Timing|                    -|         -|        -|     -|        no|        -|          -|  -1.19|    35 (6%)|  26 (6%)|   9588 (6%)|  13490 (17%)|    -|
+|  + aie_range_consume                                    |       -|                    -|         -|        -|     -|        no|        -|          -|   0.00|    3 (~0%)|        -|  1087 (~0%)|    3435 (4%)|    -|
+|   o VITIS_LOOP_88_1                                     |       -|                    -|         -|        -|     -|        no|        -|          -|   5.84|          -|        -|           -|            -|    -|
+|    + aie_range_consume_Pipeline_VITIS_LOOP_96_2         |       -|                    -|         -|       66|     -|       yes|       66|    528.000|   0.79|          -|        -|    19 (~0%)|     91 (~0%)|    -|
+|     o VITIS_LOOP_96_2                                   |       -|                    -|         2|        1|    64|       yes|       64|    512.000|   5.84|          -|        -|           -|            -|    -|
+|    + aie_range_consume_Pipeline_VITIS_LOOP_10_1         |       -|                    -|         -|      132|     -|       yes|      132|  1.056e+03|   0.11|          -|        -|   100 (~0%)|    309 (~0%)|    -|
+|     o VITIS_LOOP_10_1                                   |       -|                    -|         4|        2|    64|       yes|      130|  1.040e+03|   5.84|          -|        -|           -|            -|    -|
+|    + aie_range_consume_Pipeline_VITIS_LOOP_105_3        |       -|                    -|         -|        -|     -|       yes|        -|          -|   0.00|          -|        -|   692 (~0%)|     844 (1%)|    -|
+|     o VITIS_LOOP_105_3                                  |       -|                    -|        25|       16|     -|       yes|        -|          -|   5.84|          -|        -|           -|            -|    -|
+|  + seq_generator                                        |       -|                    -|         -|        -|     -|        no|        -|          -|   0.66|    4 (~0%)|        -|   725 (~0%)|    674 (~0%)|    -|
+|   o VITIS_LOOP_28_1                                     |       -|                    -|       135|        -|     -|        no|        -|          -|   5.84|          -|        -|           -|            -|    -|
+|    + seq_generator_Pipeline_VITIS_LOOP_49_2             |       -|                    -|         -|      130|     -|       yes|      130|  1.040e+03|   0.75|          -|        -|    19 (~0%)|    114 (~0%)|    -|
+|     o VITIS_LOOP_49_2                                   |       -|                    -|         2|        1|   128|       yes|      128|  1.024e+03|   5.84|          -|        -|           -|            -|    -|
+|  + doppler                                              |  Timing|                    -|         -|        -|     -|        no|        -|          -|  -1.19|    17 (3%)|  26 (6%)|   7271 (4%)|   8731 (11%)|    -|
+|   o VITIS_LOOP_91_1                                     |       -|                    -|     34352|        -|     -|        no|        -|          -|   5.84|          -|        -|           -|            -|    -|
+|    + doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3  |  Timing|                    -|         -|     4109|     -|       yes|     4109|  3.287e+04|  -0.52|          -|        -|   365 (~0%)|    373 (~0%)|    -|
+|     o VITIS_LOOP_97_2_VITIS_LOOP_103_3                  |       -|                    -|        13|        1|  4096|       yes|     4107|  3.286e+04|   5.84|          -|        -|           -|            -|    -|
+|    o VITIS_LOOP_113_4                                   |       -|                    -|      1890|        -|    16|        no|    30240|  2.419e+05|   5.84|          -|        -|           -|            -|    -|
+|     + doppler_forward_one                               |       -|                    -|         -|      133|     -|       yes|      133|  1.064e+03|   0.26|    1 (~0%)|   4 (1%)|   189 (~0%)|    112 (~0%)|    -|
+|      o VITIS_LOOP_137_1                                 |       -|                    -|         5|        1|   128|       yes|      131|  1.048e+03|   5.84|          -|        -|           -|            -|    -|
+|     + aie_consume_doppler                               |  Timing|                    -|         -|     1888|     -|        no|     1888|  1.510e+04|  -1.19|     8 (1%)|  22 (5%)|   6535 (4%)|   7899 (10%)|    -|
+|      + aie_consume_doppler_Pipeline_1                   |       -|                    -|         -|       66|     -|       yes|       66|    528.000|   0.79|          -|        -|    17 (~0%)|     67 (~0%)|    -|
+|       o Loop 1                                          |       -|                    -|         2|        1|    64|       yes|       64|    512.000|   5.84|          -|        -|           -|            -|    -|
+|      + aie_consume_doppler_Pipeline_VITIS_LOOP_196_1    |       -|                    -|         -|      130|     -|       yes|      130|  1.040e+03|   0.84|          -|        -|    23 (~0%)|     76 (~0%)|    -|
+|       o VITIS_LOOP_196_1                                |       -|                    -|         2|        1|   128|       yes|      128|  1.024e+03|   5.84|          -|        -|           -|            -|    -|
+|      + aie_consume_doppler_Pipeline_VITIS_LOOP_207_2    |       -|                    -|         -|      261|     -|       yes|      261|  2.088e+03|   0.26|          -|  2 (~0%)|   324 (~0%)|    318 (~0%)|    -|
+|       o VITIS_LOOP_207_2                                |       -|                    -|         5|        1|   256|       yes|      259|  2.072e+03|   5.84|          -|        -|           -|            -|    -|
+|      + aie_consume_doppler_Pipeline_VITIS_LOOP_237_3    |       -|                    -|         -|      520|     -|       yes|      520|  4.160e+03|   0.03|          -|   4 (1%)|   425 (~0%)|    376 (~0%)|    -|
+|       o VITIS_LOOP_237_3                                |       -|                    -|         9|        2|   256|       yes|      518|  4.144e+03|   5.84|          -|        -|           -|            -|    -|
+|      + aie_consume_doppler_Pipeline_VITIS_LOOP_248_4    |       -|                    -|         -|      197|     -|        no|      197|  1.576e+03|   0.03|          -|        -|    93 (~0%)|    194 (~0%)|    -|
+|       o VITIS_LOOP_248_4                                |       -|                    -|         3|        3|    64|       yes|      194|  1.552e+03|   5.84|          -|        -|           -|            -|    -|
+|      + aie_consume_doppler_Pipeline_VITIS_LOOP_287_5    |       -|                    -|         -|      273|     -|       yes|      273|  2.184e+03|   0.00|          -|        -|   689 (~0%)|    1028 (1%)|    -|
+|       o VITIS_LOOP_287_5                                |      II|  Resource Limitation|        32|       16|    16|       yes|      271|  2.168e+03|   5.84|          -|        -|           -|            -|    -|
+|      o VITIS_LOOP_312_8                                 |       -|                    -|       137|        -|     3|        no|      411|  3.288e+03|   5.84|          -|        -|           -|            -|    -|
+|       + aie_consume_doppler_Pipeline_VITIS_LOOP_326_9   |       -|                    -|         -|       90|     -|       yes|       90|    720.000|   0.76|          -|        -|   118 (~0%)|    144 (~0%)|    -|
+|        o VITIS_LOOP_326_9                               |       -|                    -|         4|        1|    86|       yes|       88|    704.000|   5.84|          -|        -|           -|            -|    -|
+| + dummy                                                 |       -|                    -|         -|        0|     -|    rewind|        -|          -|   0.84|          -|        -|     2 (~0%)|     43 (~0%)|    -|
+|  o VITIS_LOOP_7_1                                       |       -|                    -|         1|        1|     -|       yes|        -|          -|   5.84|          -|        -|           -|            -|    -|
++---------------------------------------------------------+--------+---------------------+----------+---------+------+----------+---------+-----------+-------+-----------+---------+------------+-------------+-----+
     II Violation Information: docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
     Name Prefix: '+' for module, 'o' for loop, '*' for dataflow
 
@@ -168,7 +171,7 @@
 +--------------+-----------+--------+-------+------------------+-----------------------------+
 | HW Interface | Direction | Length | Width | Loop             | Loop Location               |
 +--------------+-----------+--------+-------+------------------+-----------------------------+
-| m_axi_gmem   | read      | 16     | 32    | VITIS_LOOP_101_3 | src/doppler_part.cpp:101:25 |
+| m_axi_gmem   | read      | 16     | 32    | VITIS_LOOP_103_3 | src/doppler_part.cpp:103:25 |
 | m_axi_gmem   | write     | 16     | 32    |                  |                             |
 +--------------+-----------+--------+-------+------------------+-----------------------------+
 
@@ -176,14 +179,14 @@
 +--------------+----------+-----------------------------+-----------+--------------+--------+------------------+-----------------------------+------------+-------------------------------------------------------------------------------------------------------+
 | HW Interface | Variable | Access Location             | Direction | Burst Status | Length | Loop             | Loop Location               | Resolution | Problem                                                                                               |
 +--------------+----------+-----------------------------+-----------+--------------+--------+------------------+-----------------------------+------------+-------------------------------------------------------------------------------------------------------+
-| m_axi_gmem   | mm       | src/doppler_part.cpp:104:22 | read      | Inferred     | 16     | VITIS_LOOP_101_3 | src/doppler_part.cpp:101:25 |            |                                                                                                       |
-| m_axi_gmem   | mm       | src/doppler_part.cpp:259:16 | write     | Inferred     | 16     | VITIS_LOOP_244_5 | src/doppler_part.cpp:244:21 |            |                                                                                                       |
-| m_axi_gmem   | mm       | src/range_part.cpp:103:16   | write     | Widen Fail   |        |                  |                             | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | mm       | src/range_part.cpp:103:16   | read      | Widen Fail   |        | VITIS_LOOP_101_3 | src/doppler_part.cpp:101:25 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | mm       | src/range_part.cpp:103:16   | write     | Fail         |        | VITIS_LOOP_244_5 | src/doppler_part.cpp:244:21 | 214-232    | Access call is in the conditional branch                                                              |
-| m_axi_gmem   | mm       | src/range_part.cpp:103:16   | read      | Fail         |        | VITIS_LOOP_97_2  | src/doppler_part.cpp:97:22  | 214-230    | Stride is incompatible                                                                                |
-| m_axi_gmem   | mm       | src/range_part.cpp:103:16   | write     | Fail         |        | VITIS_LOOP_78_3  | src/range_part.cpp:78:22    | 214-229    | Could not analyze pattern                                                                             |
-| m_axi_gmem   | mm       | src/range_part.cpp:103:16   | write     | Inferred     | 16     | VITIS_LOOP_78_3  | src/range_part.cpp:78:22    |            |                                                                                                       |
+| m_axi_gmem   | mm       | src/doppler_part.cpp:107:22 | read      | Inferred     | 16     | VITIS_LOOP_103_3 | src/doppler_part.cpp:103:25 |            |                                                                                                       |
+| m_axi_gmem   | mm       | src/doppler_part.cpp:302:16 | write     | Inferred     | 16     | VITIS_LOOP_287_5 | src/doppler_part.cpp:287:21 |            |                                                                                                       |
+| m_axi_gmem   | mm       | src/range_part.cpp:130:16   | write     | Widen Fail   |        |                  |                             | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | mm       | src/range_part.cpp:130:16   | read      | Widen Fail   |        | VITIS_LOOP_103_3 | src/doppler_part.cpp:103:25 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | mm       | src/range_part.cpp:130:16   | write     | Fail         |        | VITIS_LOOP_287_5 | src/doppler_part.cpp:287:21 | 214-232    | Access call is in the conditional branch                                                              |
+| m_axi_gmem   | mm       | src/range_part.cpp:130:16   | read      | Fail         |        | VITIS_LOOP_97_2  | src/doppler_part.cpp:97:22  | 214-230    | Stride is incompatible                                                                                |
+| m_axi_gmem   | mm       | src/range_part.cpp:130:16   | write     | Fail         |        | VITIS_LOOP_105_3 | src/range_part.cpp:105:23   | 214-229    | Could not analyze pattern                                                                             |
+| m_axi_gmem   | mm       | src/range_part.cpp:130:16   | write     | Inferred     | 16     | VITIS_LOOP_105_3 | src/range_part.cpp:105:23   |            |                                                                                                       |
 +--------------+----------+-----------------------------+-----------+--------------+--------+------------------+-----------------------------+------------+-------------------------------------------------------------------------------------------------------+
 
     * Resolution URL: docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
@@ -191,502 +194,462 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+--------------------------------------------------------+-----+--------+--------------------+-----------+-----------+---------+
-| Name                                                   | DSP | Pragma | Variable           | Op        | Impl      | Latency |
-+--------------------------------------------------------+-----+--------+--------------------+-----------+-----------+---------+
-| + kernel                                               | 13  |        |                    |           |           |         |
-|  + adc_forward                                         | 4   |        |                    |           |           |         |
-|    icmp_ln27_fu_220_p2                                 |     |        | icmp_ln27          | seteq     | auto      | 0       |
-|    add_ln27_fu_226_p2                                  |     |        | add_ln27           | add       | fabric    | 0       |
-|    icmp_ln28_fu_240_p2                                 |     |        | icmp_ln28          | seteq     | auto      | 0       |
-|    select_ln27_fu_246_p3                               |     |        | select_ln27        | select    | auto_sel  | 0       |
-|    mul_16s_15ns_31_2_1_U1                              | 1   |        | mul_ln19           | mul       | auto      | 1       |
-|    mul_16s_15ns_31_2_1_U2                              | 1   |        | mul_ln20           | mul       | auto      | 1       |
-|    mul_16s_15ns_31_2_1_U3                              | 1   |        | mul_ln19_2         | mul       | auto      | 1       |
-|    mul_16s_15ns_31_2_1_U4                              | 1   |        | mul_ln20_2         | mul       | auto      | 1       |
-|    add_ln28_fu_282_p2                                  |     |        | add_ln28           | add       | fabric    | 0       |
-|  + Block_entry_gmem_wr_proc                            | 9   |        |                    |           |           |         |
-|   + aie_range_consume                                  | 0   |        |                    |           |           |         |
-|     icmp_ln61_fu_872_p2                                |     |        | icmp_ln61          | seteq     | auto      | 0       |
-|     c_2_fu_877_p2                                      |     |        | c_2                | add       | fabric    | 0       |
-|     icmp_ln111_fu_1025_p2                              |     |        | icmp_ln111         | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112         | seteq     | auto      | 0       |
-|     icmp_ln111_1_fu_1030_p2                            |     |        | icmp_ln111_1       | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_1       | seteq     | auto      | 0       |
-|     icmp_ln111_2_fu_1043_p2                            |     |        | icmp_ln111_2       | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_2       | seteq     | auto      | 0       |
-|     icmp_ln111_3_fu_1048_p2                            |     |        | icmp_ln111_3       | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_3       | seteq     | auto      | 0       |
-|     icmp_ln111_4_fu_1061_p2                            |     |        | icmp_ln111_4       | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_4       | seteq     | auto      | 0       |
-|     icmp_ln111_5_fu_1066_p2                            |     |        | icmp_ln111_5       | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_5       | seteq     | auto      | 0       |
-|     icmp_ln111_6_fu_1079_p2                            |     |        | icmp_ln111_6       | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_6       | seteq     | auto      | 0       |
-|     icmp_ln111_7_fu_1084_p2                            |     |        | icmp_ln111_7       | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_7       | seteq     | auto      | 0       |
-|     icmp_ln111_8_fu_1097_p2                            |     |        | icmp_ln111_8       | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_8       | seteq     | auto      | 0       |
-|     icmp_ln111_9_fu_1102_p2                            |     |        | icmp_ln111_9       | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_9       | seteq     | auto      | 0       |
-|     icmp_ln111_10_fu_1115_p2                           |     |        | icmp_ln111_10      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_10      | seteq     | auto      | 0       |
-|     icmp_ln111_11_fu_1120_p2                           |     |        | icmp_ln111_11      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_11      | seteq     | auto      | 0       |
-|     icmp_ln111_12_fu_1133_p2                           |     |        | icmp_ln111_12      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_12      | seteq     | auto      | 0       |
-|     icmp_ln111_13_fu_1138_p2                           |     |        | icmp_ln111_13      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_13      | seteq     | auto      | 0       |
-|     icmp_ln111_14_fu_1151_p2                           |     |        | icmp_ln111_14      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_14      | seteq     | auto      | 0       |
-|     icmp_ln111_15_fu_1156_p2                           |     |        | icmp_ln111_15      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_15      | seteq     | auto      | 0       |
-|     icmp_ln111_16_fu_1169_p2                           |     |        | icmp_ln111_16      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_16      | seteq     | auto      | 0       |
-|     icmp_ln111_17_fu_1174_p2                           |     |        | icmp_ln111_17      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_17      | seteq     | auto      | 0       |
-|     icmp_ln111_18_fu_1187_p2                           |     |        | icmp_ln111_18      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_18      | seteq     | auto      | 0       |
-|     icmp_ln111_19_fu_1192_p2                           |     |        | icmp_ln111_19      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_19      | seteq     | auto      | 0       |
-|     icmp_ln111_20_fu_1205_p2                           |     |        | icmp_ln111_20      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_20      | seteq     | auto      | 0       |
-|     icmp_ln111_21_fu_1210_p2                           |     |        | icmp_ln111_21      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_21      | seteq     | auto      | 0       |
-|     icmp_ln111_22_fu_1223_p2                           |     |        | icmp_ln111_22      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_22      | seteq     | auto      | 0       |
-|     icmp_ln111_23_fu_1228_p2                           |     |        | icmp_ln111_23      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_23      | seteq     | auto      | 0       |
-|     icmp_ln111_24_fu_1241_p2                           |     |        | icmp_ln111_24      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_24      | seteq     | auto      | 0       |
-|     icmp_ln111_25_fu_1246_p2                           |     |        | icmp_ln111_25      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_25      | seteq     | auto      | 0       |
-|     icmp_ln111_26_fu_1259_p2                           |     |        | icmp_ln111_26      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_26      | seteq     | auto      | 0       |
-|     icmp_ln111_27_fu_1264_p2                           |     |        | icmp_ln111_27      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_27      | seteq     | auto      | 0       |
-|     icmp_ln111_28_fu_1277_p2                           |     |        | icmp_ln111_28      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_28      | seteq     | auto      | 0       |
-|     icmp_ln111_29_fu_1282_p2                           |     |        | icmp_ln111_29      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_29      | seteq     | auto      | 0       |
-|     icmp_ln111_30_fu_1295_p2                           |     |        | icmp_ln111_30      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_30      | seteq     | auto      | 0       |
-|     icmp_ln111_31_fu_1300_p2                           |     |        | icmp_ln111_31      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_31      | seteq     | auto      | 0       |
-|     icmp_ln111_32_fu_1313_p2                           |     |        | icmp_ln111_32      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_32      | seteq     | auto      | 0       |
-|     icmp_ln111_33_fu_1318_p2                           |     |        | icmp_ln111_33      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_33      | seteq     | auto      | 0       |
-|     icmp_ln111_34_fu_1331_p2                           |     |        | icmp_ln111_34      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_34      | seteq     | auto      | 0       |
-|     icmp_ln111_35_fu_1336_p2                           |     |        | icmp_ln111_35      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_35      | seteq     | auto      | 0       |
-|     icmp_ln111_36_fu_1349_p2                           |     |        | icmp_ln111_36      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_36      | seteq     | auto      | 0       |
-|     icmp_ln111_37_fu_1354_p2                           |     |        | icmp_ln111_37      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_37      | seteq     | auto      | 0       |
-|     icmp_ln111_38_fu_1367_p2                           |     |        | icmp_ln111_38      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_38      | seteq     | auto      | 0       |
-|     icmp_ln111_39_fu_1372_p2                           |     |        | icmp_ln111_39      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_39      | seteq     | auto      | 0       |
-|     icmp_ln111_40_fu_1385_p2                           |     |        | icmp_ln111_40      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_40      | seteq     | auto      | 0       |
-|     icmp_ln111_41_fu_1390_p2                           |     |        | icmp_ln111_41      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_41      | seteq     | auto      | 0       |
-|     icmp_ln111_42_fu_1403_p2                           |     |        | icmp_ln111_42      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_42      | seteq     | auto      | 0       |
-|     icmp_ln111_43_fu_1408_p2                           |     |        | icmp_ln111_43      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_43      | seteq     | auto      | 0       |
-|     icmp_ln111_44_fu_1421_p2                           |     |        | icmp_ln111_44      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_44      | seteq     | auto      | 0       |
-|     icmp_ln111_45_fu_1426_p2                           |     |        | icmp_ln111_45      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_45      | seteq     | auto      | 0       |
-|     icmp_ln111_46_fu_1439_p2                           |     |        | icmp_ln111_46      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_46      | seteq     | auto      | 0       |
-|     icmp_ln111_47_fu_1444_p2                           |     |        | icmp_ln111_47      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_47      | seteq     | auto      | 0       |
-|     icmp_ln111_48_fu_1457_p2                           |     |        | icmp_ln111_48      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_48      | seteq     | auto      | 0       |
-|     icmp_ln111_49_fu_1462_p2                           |     |        | icmp_ln111_49      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_49      | seteq     | auto      | 0       |
-|     icmp_ln111_50_fu_1475_p2                           |     |        | icmp_ln111_50      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_50      | seteq     | auto      | 0       |
-|     icmp_ln111_51_fu_1480_p2                           |     |        | icmp_ln111_51      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_51      | seteq     | auto      | 0       |
-|     icmp_ln111_52_fu_1493_p2                           |     |        | icmp_ln111_52      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_52      | seteq     | auto      | 0       |
-|     icmp_ln111_53_fu_1498_p2                           |     |        | icmp_ln111_53      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_53      | seteq     | auto      | 0       |
-|     icmp_ln111_54_fu_1511_p2                           |     |        | icmp_ln111_54      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_54      | seteq     | auto      | 0       |
-|     icmp_ln111_55_fu_1516_p2                           |     |        | icmp_ln111_55      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_55      | seteq     | auto      | 0       |
-|     icmp_ln111_56_fu_1529_p2                           |     |        | icmp_ln111_56      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_56      | seteq     | auto      | 0       |
-|     icmp_ln111_57_fu_1534_p2                           |     |        | icmp_ln111_57      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_57      | seteq     | auto      | 0       |
-|     icmp_ln111_58_fu_1547_p2                           |     |        | icmp_ln111_58      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_58      | seteq     | auto      | 0       |
-|     icmp_ln111_59_fu_1552_p2                           |     |        | icmp_ln111_59      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_59      | seteq     | auto      | 0       |
-|     icmp_ln111_60_fu_1565_p2                           |     |        | icmp_ln111_60      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_60      | seteq     | auto      | 0       |
-|     icmp_ln111_61_fu_1570_p2                           |     |        | icmp_ln111_61      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_61      | seteq     | auto      | 0       |
-|     icmp_ln111_62_fu_1583_p2                           |     |        | icmp_ln111_62      | seteq     | auto      | 0       |
-|     grp_fu_852_p2                                      |     |        | icmp_ln112_62      | seteq     | auto      | 0       |
-|     icmp_ln111_63_fu_1588_p2                           |     |        | icmp_ln111_63      | seteq     | auto      | 0       |
-|     grp_fu_858_p2                                      |     |        | icmp_ln112_63      | seteq     | auto      | 0       |
-|    + aie_range_consume_Pipeline_VITIS_LOOP_69_2        | 0   |        |                    |           |           |         |
-|      icmp_ln69_fu_109_p2                               |     |        | icmp_ln69          | seteq     | auto      | 0       |
-|      add_ln69_fu_115_p2                                |     |        | add_ln69           | add       | fabric    | 0       |
-|    + aie_range_consume_Pipeline_VITIS_LOOP_10_1        | 0   |        |                    |           |           |         |
-|      icmp_ln10_fu_149_p2                               |     |        | icmp_ln10          | seteq     | auto      | 0       |
-|      add_ln10_fu_176_p2                                |     |        | add_ln10           | add       | fabric    | 0       |
-|      icmp_ln14_fu_181_p2                               |     |        | icmp_ln14          | seteq     | auto      | 0       |
-|      n_6_fu_186_p2                                     |     |        | n_6                | add       | fabric    | 0       |
-|      icmp_ln17_fu_192_p2                               |     |        | icmp_ln17          | seteq     | auto      | 0       |
-|      n_7_fu_228_p2                                     |     |        | n_7                | add       | fabric    | 0       |
-|      accum_2_fu_239_p2                                 |     |        | accum_2            | add       | fabric    | 0       |
-|    + aie_range_consume_Pipeline_VITIS_LOOP_78_3        | 0   |        |                    |           |           |         |
-|      icmp_ln78_fu_399_p2                               |     |        | icmp_ln78          | seteq     | auto      | 0       |
-|      add_ln78_fu_404_p2                                |     |        | add_ln78           | add       | fabric    | 0       |
-|      add_ln103_fu_462_p2                               |     |        | add_ln103          | add       | fabric    | 0       |
-|      add_ln103_1_fu_430_p2                             |     |        | add_ln103_1        | add       | fabric    | 0       |
-|   + seq_generator                                      | 0   |        |                    |           |           |         |
-|     icmp_ln31_fu_137_p2                                |     |        | icmp_ln31          | seteq     | auto      | 0       |
-|     icmp_ln32_fu_143_p2                                |     |        | icmp_ln32          | seteq     | auto      | 0       |
-|     and_ln37_fu_157_p3                                 |     |        | and_ln37           | select    | auto_sel  | 0       |
-|     current_mask_fu_163_p2                             |     |        | current_mask       | and       | auto      | 0       |
-|     icmp_ln41_fu_152_p2                                |     |        | icmp_ln41          | seteq     | auto      | 0       |
-|     bitset_128ns_128ns_7ns_1s_128_1_1_U76              |     |        | tmp_1              | bitset    | auto      | 0       |
-|    + seq_generator_Pipeline_VITIS_LOOP_49_2            | 0   |        |                    |           |           |         |
-|      icmp_ln49_fu_79_p2                                |     |        | icmp_ln49          | seteq     | auto      | 0       |
-|      i_2_fu_85_p2                                      |     |        | i_2                | add       | fabric    | 0       |
-|      bitselect_1ns_128ns_7ns_1_1_1_U71                 |     |        | tmp                | bitselect | auto      | 0       |
-|   + doppler                                            | 9   |        |                    |           |           |         |
-|     icmp_ln93_fu_215_p2                                |     |        | icmp_ln93          | seteq     | auto      | 0       |
-|     icmp_ln112_fu_292_p2                               |     |        | icmp_ln112         | seteq     | auto      | 0       |
-|     b_1_fu_298_p2                                      |     |        | b_1                | add       | fabric    | 0       |
-|     add_ln115_fu_312_p2                                |     |        | add_ln115          | add       | fabric    | 0       |
-|    + doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3 | 0   |        |                    |           |           |         |
-|      icmp_ln97_fu_157_p2                               |     |        | icmp_ln97          | seteq     | auto      | 0       |
-|      add_ln97_1_fu_163_p2                              |     |        | add_ln97_1         | add       | fabric    | 0       |
-|      icmp_ln101_fu_175_p2                              |     |        | icmp_ln101         | seteq     | auto      | 0       |
-|      select_ln97_fu_181_p3                             |     |        | select_ln97        | select    | auto_sel  | 0       |
-|      empty_60_fu_193_p3                                |     |        | empty_60           | select    | auto_sel  | 0       |
-|      add_ln97_fu_201_p2                                |     |        | add_ln97           | add       | fabric    | 0       |
-|      first_iter_0_fu_216_p2                            |     |        | first_iter_0       | seteq     | auto      | 0       |
-|      add_ln98_fu_232_p2                                |     |        | add_ln98           | add       | fabric    | 0       |
-|      add_ln98_1_fu_278_p2                              |     |        | add_ln98_1         | add       | fabric    | 0       |
-|      add_ln104_fu_247_p2                               |     |        | add_ln104          | add       | fabric    | 0       |
-|      add_ln101_fu_253_p2                               |     |        | add_ln101          | add       | fabric    | 0       |
-|    + doppler_forward_one                               | 4   |        |                    |           |           |         |
-|      add_ln129_fu_224_p2                               |     |        | add_ln129          | add       | fabric    | 0       |
-|      mul_16s_15ns_31_2_1_U85                           | 1   |        | mul_ln19           | mul       | auto      | 1       |
-|      mul_16s_15ns_31_2_1_U86                           | 1   |        | mul_ln20           | mul       | auto      | 1       |
-|      mul_16s_15ns_31_2_1_U87                           | 1   |        | mul_ln19_1         | mul       | auto      | 1       |
-|      mul_16s_15ns_31_2_1_U88                           | 1   |        | mul_ln20_1         | mul       | auto      | 1       |
-|      add_ln125_fu_230_p2                               |     |        | add_ln125          | add       | fabric    | 0       |
-|    + aie_consume_doppler                               | 5   |        |                    |           |           |         |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150                | 3   |        | mean               | fmul      | maxdsp    | 7       |
-|      icmp_ln162_fu_1242_p2                             |     |        | icmp_ln162         | setne     | auto      | 0       |
-|      icmp_ln162_1_fu_1248_p2                           |     |        | icmp_ln162_1       | seteq     | auto      | 0       |
-|      or_ln162_fu_1254_p2                               |     |        | or_ln162           | or        | auto      | 0       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | tmp_2              | fcmp      | auto      | 3       |
-|      and_ln162_fu_1258_p2                              |     |        | and_ln162          | and       | auto      | 0       |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150                | 3   |        | mul1_i             | fmul      | maxdsp    | 7       |
-|      median_bin_fu_1266_p3                             |     |        | median_bin         | select    | auto_sel  | 0       |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150                | 3   |        | bin_width          | fmul      | maxdsp    | 7       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | conv2              | sitofp    | auto      | 6       |
-|      fadd_32ns_32ns_32_10_full_dsp_1_U149              | 2   |        | add2               | fadd      | fulldsp   | 9       |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150                | 3   |        | median_mag         | fmul      | maxdsp    | 7       |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150                | 3   |        | threshold          | fmul      | maxdsp    | 7       |
-|      add_ln176_fu_1333_p2                              |     |        | add_ln176          | add       | fabric    | 0       |
-|      icmp_ln269_fu_1339_p2                             |     |        | icmp_ln269         | seteq     | auto      | 0       |
-|      rank_fu_1345_p2                                   |     |        | rank               | add       | fabric    | 0       |
-|      icmp_ln276_fu_1361_p2                             |     |        | icmp_ln276         | seteq     | auto      | 0       |
-|      dmask_seq_fu_1366_p3                              |     |        | dmask_seq          | select    | auto_sel  | 0       |
-|      dmask_mask_fu_1373_p3                             |     |        | dmask_mask         | select    | auto_sel  | 0       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_index        | select    | auto_sel  | 0       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_data_load_12 | ram       | auto      | 1       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_data_load_25 | ram       | auto      | 1       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_data_load_38 | ram       | auto      | 1       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_data_load_51 | ram       | auto      | 1       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_data_load_64 | ram       | auto      | 1       |
-|      fcmp_32ns_32ns_1_4_no_dsp_1_U152                  |     |        | dmask_data_load_77 | ram       | auto      | 1       |
-|     + aie_consume_doppler_Pipeline_1                   | 0   |        |                    |           |           |         |
-|       exitcond534_fu_50_p2                             |     |        | exitcond534        | seteq     | auto      | 0       |
-|       empty_99_fu_56_p2                                |     |        | empty_99           | add       | fabric    | 0       |
-|     + aie_consume_doppler_Pipeline_VITIS_LOOP_185_1    | 0   |        |                    |           |           |         |
-|       add_ln185_fu_170_p2                              |     |        | add_ln185          | add       | fabric    | 0       |
-|     + aie_consume_doppler_Pipeline_VITIS_LOOP_195_2    | 0   |        |                    |           |           |         |
-|       icmp_ln195_fu_122_p2                             |     |        | icmp_ln195         | seteq     | auto      | 0       |
-|       add_ln195_fu_128_p2                              |     |        | add_ln195          | add       | fabric    | 0       |
-|       sitofp_32s_32_7_no_dsp_1_U113                    |     |        | conv               | sitofp    | auto      | 6       |
-|       sitofp_32s_32_7_no_dsp_1_U113                    |     |        | conv1              | sitofp    | auto      | 6       |
-|     + aie_consume_doppler_Pipeline_VITIS_LOOP_210_3    | 0   |        |                    |           |           |         |
-|       icmp_ln210_fu_172_p2                             |     |        | icmp_ln210         | seteq     | auto      | 0       |
-|       add_ln210_fu_178_p2                              |     |        | add_ln210          | add       | fabric    | 0       |
-|       fdiv_32ns_32ns_32_30_no_dsp_1_U120               |     |        | dc                 | fdiv      | fabric    | 29      |
-|       add_ln317_fu_220_p2                              |     |        | add_ln317          | add       | fabric    | 0       |
-|       sub_ln18_fu_234_p2                               |     |        | sub_ln18           | sub       | fabric    | 0       |
-|       select_ln18_fu_244_p3                            |     |        | select_ln18        | select    | auto_sel  | 0       |
-|       lshr_79ns_32ns_79_2_1_U121                       |     |        | lshr_ln18          | lshr      | auto_pipe | 1       |
-|       shl_79ns_32ns_79_2_1_U122                        |     |        | shl_ln18           | shl       | auto_pipe | 1       |
-|       val_fu_302_p3                                    |     |        | val                | select    | auto_sel  | 0       |
-|       result_2_fu_307_p2                               |     |        | result_2           | sub       | fabric    | 0       |
-|       result_fu_312_p3                                 |     |        | result             | select    | auto_sel  | 0       |
-|       bin_1_fu_330_p3                                  |     |        | bin_1              | select    | auto_sel  | 0       |
-|       icmp_ln168_fu_350_p2                             |     |        | icmp_ln168         | setne     | auto      | 0       |
-|       bin_2_fu_356_p3                                  |     |        | bin_2              | select    | auto_sel  | 0       |
-|       addr_cmp_fu_370_p2                               |     |        | addr_cmp           | seteq     | auto      | 0       |
-|       reuse_select_fu_384_p3                           |     |        | reuse_select       | select    | auto_sel  | 0       |
-|       add_ln213_fu_390_p2                              |     |        | add_ln213          | add       | fabric    | 0       |
-|     + aie_consume_doppler_Pipeline_VITIS_LOOP_221_4    | 0   |        |                    |           |           |         |
-|       icmp_ln221_fu_100_p2                             |     |        | icmp_ln221         | seteq     | auto      | 0       |
-|       add_ln221_fu_106_p2                              |     |        | add_ln221          | add       | fabric    | 0       |
-|       sum_1_fu_120_p2                                  |     |        | sum_1              | add       | fabric    | 0       |
-|       icmp_ln223_fu_125_p2                             |     |        | icmp_ln223         | setgt     | auto      | 0       |
-|     + aie_consume_doppler_Pipeline_VITIS_LOOP_244_5    | 0   |        |                    |           |           |         |
-|       icmp_ln244_fu_719_p2                             |     |        | icmp_ln244         | seteq     | auto      | 0       |
-|       add_ln244_fu_753_p2                              |     |        | add_ln244          | add       | fabric    | 0       |
-|       add_ln250_fu_1694_p2                             |     |        | add_ln250          | add       | fabric    | 0       |
-|       add_ln250_1_fu_1721_p2                           |     |        | add_ln250_1        | add       | fabric    | 0       |
-|       icmp_ln250_fu_834_p2                             |     |        | icmp_ln250         | setne     | auto      | 0       |
-|       icmp_ln250_1_fu_840_p2                           |     |        | icmp_ln250_1       | seteq     | auto      | 0       |
-|       or_ln250_1_fu_1031_p2                            |     |        | or_ln250_1         | or        | auto      | 0       |
-|       icmp_ln250_2_fu_735_p2                           |     |        | icmp_ln250_2       | setne     | auto      | 0       |
-|       icmp_ln250_3_fu_741_p2                           |     |        | icmp_ln250_3       | seteq     | auto      | 0       |
-|       or_ln250_3_fu_747_p2                             |     |        | or_ln250_3         | or        | auto      | 0       |
-|       and_ln250_fu_1035_p2                             |     |        | and_ln250          | and       | auto      | 0       |
-|       keep_fu_1040_p2                                  |     |        | keep               | and       | auto      | 0       |
-|       icmp_ln250_4_fu_1062_p2                          |     |        | icmp_ln250_4       | setne     | auto      | 0       |
-|       icmp_ln250_5_fu_1068_p2                          |     |        | icmp_ln250_5       | seteq     | auto      | 0       |
-|       or_ln250_fu_1251_p2                              |     |        | or_ln250           | or        | auto      | 0       |
-|       and_ln250_2_fu_1255_p2                           |     |        | and_ln250_2        | and       | auto      | 0       |
-|       and_ln250_3_fu_1260_p2                           |     |        | and_ln250_3        | and       | auto      | 0       |
-|       icmp_ln250_6_fu_1115_p2                          |     |        | icmp_ln250_6       | setne     | auto      | 0       |
-|       icmp_ln250_7_fu_1121_p2                          |     |        | icmp_ln250_7       | seteq     | auto      | 0       |
-|       or_ln250_5_fu_1329_p2                            |     |        | or_ln250_5         | or        | auto      | 0       |
-|       and_ln250_4_fu_1333_p2                           |     |        | and_ln250_4        | and       | auto      | 0       |
-|       and_ln250_5_fu_1338_p2                           |     |        | and_ln250_5        | and       | auto      | 0       |
-|       icmp_ln250_8_fu_1182_p2                          |     |        | icmp_ln250_8       | setne     | auto      | 0       |
-|       icmp_ln250_9_fu_1188_p2                          |     |        | icmp_ln250_9       | seteq     | auto      | 0       |
-|       or_ln250_7_fu_1343_p2                            |     |        | or_ln250_7         | or        | auto      | 0       |
-|       and_ln250_6_fu_1347_p2                           |     |        | and_ln250_6        | and       | auto      | 0       |
-|       and_ln250_7_fu_1352_p2                           |     |        | and_ln250_7        | and       | auto      | 0       |
-|       icmp_ln250_10_fu_1225_p2                         |     |        | icmp_ln250_10      | setne     | auto      | 0       |
-|       icmp_ln250_11_fu_1231_p2                         |     |        | icmp_ln250_11      | seteq     | auto      | 0       |
-|       or_ln250_9_fu_1398_p2                            |     |        | or_ln250_9         | or        | auto      | 0       |
-|       and_ln250_8_fu_1402_p2                           |     |        | and_ln250_8        | and       | auto      | 0       |
-|       and_ln250_9_fu_1407_p2                           |     |        | and_ln250_9        | and       | auto      | 0       |
-|       icmp_ln250_12_fu_912_p2                          |     |        | icmp_ln250_12      | setne     | auto      | 0       |
-|       icmp_ln250_13_fu_918_p2                          |     |        | icmp_ln250_13      | seteq     | auto      | 0       |
-|       or_ln250_11_fu_1127_p2                           |     |        | or_ln250_11        | or        | auto      | 0       |
-|       and_ln250_10_fu_1131_p2                          |     |        | and_ln250_10       | and       | auto      | 0       |
-|       and_ln250_11_fu_1136_p2                          |     |        | and_ln250_11       | and       | auto      | 0       |
-|       icmp_ln250_14_fu_1283_p2                         |     |        | icmp_ln250_14      | setne     | auto      | 0       |
-|       icmp_ln250_15_fu_1289_p2                         |     |        | icmp_ln250_15      | seteq     | auto      | 0       |
-|       or_ln250_13_fu_1476_p2                           |     |        | or_ln250_13        | or        | auto      | 0       |
-|       and_ln250_12_fu_1480_p2                          |     |        | and_ln250_12       | and       | auto      | 0       |
-|       and_ln250_13_fu_1485_p2                          |     |        | and_ln250_13       | and       | auto      | 0       |
-|       icmp_ln250_16_fu_1317_p2                         |     |        | icmp_ln250_16      | setne     | auto      | 0       |
-|       icmp_ln250_17_fu_1323_p2                         |     |        | icmp_ln250_17      | seteq     | auto      | 0       |
-|       or_ln250_15_fu_1490_p2                           |     |        | or_ln250_15        | or        | auto      | 0       |
-|       and_ln250_14_fu_1494_p2                          |     |        | and_ln250_14       | and       | auto      | 0       |
-|       and_ln250_15_fu_1499_p2                          |     |        | and_ln250_15       | and       | auto      | 0       |
-|       icmp_ln250_18_fu_1375_p2                         |     |        | icmp_ln250_18      | setne     | auto      | 0       |
-|       icmp_ln250_19_fu_1381_p2                         |     |        | icmp_ln250_19      | seteq     | auto      | 0       |
-|       or_ln250_17_fu_1544_p2                           |     |        | or_ln250_17        | or        | auto      | 0       |
-|       and_ln250_16_fu_1548_p2                          |     |        | and_ln250_16       | and       | auto      | 0       |
-|       and_ln250_17_fu_1553_p2                          |     |        | and_ln250_17       | and       | auto      | 0       |
-|       icmp_ln250_20_fu_966_p2                          |     |        | icmp_ln250_20      | setne     | auto      | 0       |
-|       icmp_ln250_21_fu_972_p2                          |     |        | icmp_ln250_21      | seteq     | auto      | 0       |
-|       or_ln250_19_fu_1194_p2                           |     |        | or_ln250_19        | or        | auto      | 0       |
-|       and_ln250_18_fu_1198_p2                          |     |        | and_ln250_18       | and       | auto      | 0       |
-|       and_ln250_19_fu_1203_p2                          |     |        | and_ln250_19       | and       | auto      | 0       |
-|       icmp_ln250_22_fu_1429_p2                         |     |        | icmp_ln250_22      | setne     | auto      | 0       |
-|       icmp_ln250_23_fu_1435_p2                         |     |        | icmp_ln250_23      | seteq     | auto      | 0       |
-|       or_ln250_21_fu_1621_p2                           |     |        | or_ln250_21        | or        | auto      | 0       |
-|       and_ln250_20_fu_1625_p2                          |     |        | and_ln250_20       | and       | auto      | 0       |
-|       and_ln250_21_fu_1630_p2                          |     |        | and_ln250_21       | and       | auto      | 0       |
-|       icmp_ln250_24_fu_1464_p2                         |     |        | icmp_ln250_24      | setne     | auto      | 0       |
-|       icmp_ln250_25_fu_1470_p2                         |     |        | icmp_ln250_25      | seteq     | auto      | 0       |
-|       or_ln250_23_fu_1635_p2                           |     |        | or_ln250_23        | or        | auto      | 0       |
-|       and_ln250_22_fu_1639_p2                          |     |        | and_ln250_22       | and       | auto      | 0       |
-|       and_ln250_23_fu_1644_p2                          |     |        | and_ln250_23       | and       | auto      | 0       |
-|       icmp_ln250_26_fu_1521_p2                         |     |        | icmp_ln250_26      | setne     | auto      | 0       |
-|       icmp_ln250_27_fu_1527_p2                         |     |        | icmp_ln250_27      | seteq     | auto      | 0       |
-|       or_ln250_25_fu_1660_p2                           |     |        | or_ln250_25        | or        | auto      | 0       |
-|       and_ln250_24_fu_1664_p2                          |     |        | and_ln250_24       | and       | auto      | 0       |
-|       and_ln250_25_fu_1669_p2                          |     |        | and_ln250_25       | and       | auto      | 0       |
-|       icmp_ln250_28_fu_1019_p2                         |     |        | icmp_ln250_28      | setne     | auto      | 0       |
-|       icmp_ln250_29_fu_1025_p2                         |     |        | icmp_ln250_29      | seteq     | auto      | 0       |
-|       or_ln250_27_fu_1237_p2                           |     |        | or_ln250_27        | or        | auto      | 0       |
-|       and_ln250_26_fu_1241_p2                          |     |        | and_ln250_26       | and       | auto      | 0       |
-|       and_ln250_27_fu_1246_p2                          |     |        | and_ln250_27       | and       | auto      | 0       |
-|       icmp_ln250_30_fu_1575_p2                         |     |        | icmp_ln250_30      | setne     | auto      | 0       |
-|       icmp_ln250_31_fu_1581_p2                         |     |        | icmp_ln250_31      | seteq     | auto      | 0       |
-|       or_ln250_28_fu_1726_p2                           |     |        | or_ln250_28        | or        | auto      | 0       |
-|       and_ln250_28_fu_1730_p2                          |     |        | and_ln250_28       | and       | auto      | 0       |
-|       and_ln250_29_fu_1735_p2                          |     |        | and_ln250_29       | and       | auto      | 0       |
-|       icmp_ln250_32_fu_1609_p2                         |     |        | icmp_ln250_32      | setne     | auto      | 0       |
-|       icmp_ln250_33_fu_1615_p2                         |     |        | icmp_ln250_33      | seteq     | auto      | 0       |
-|       or_ln250_29_fu_1740_p2                           |     |        | or_ln250_29        | or        | auto      | 0       |
-|       and_ln250_30_fu_1744_p2                          |     |        | and_ln250_30       | and       | auto      | 0       |
-|       and_ln250_31_fu_1749_p2                          |     |        | and_ln250_31       | and       | auto      | 0       |
-|       or_ln250_30_fu_1295_p2                           |     |        | or_ln250_30        | or        | auto      | 0       |
-|       or_ln250_31_fu_1387_p2                           |     |        | or_ln250_31        | or        | auto      | 0       |
-|       or_ln250_32_fu_1393_p2                           |     |        | or_ln250_32        | or        | auto      | 0       |
-|       or_ln250_33_fu_1441_p2                           |     |        | or_ln250_33        | or        | auto      | 0       |
-|       or_ln250_34_fu_1533_p2                           |     |        | or_ln250_34        | or        | auto      | 0       |
-|       or_ln250_35_fu_1539_p2                           |     |        | or_ln250_35        | or        | auto      | 0       |
-|       or_ln250_36_fu_1754_p2                           |     |        | or_ln250_36        | or        | auto      | 0       |
-|       or_ln250_37_fu_1587_p2                           |     |        | or_ln250_37        | or        | auto      | 0       |
-|       or_ln250_38_fu_1649_p2                           |     |        | or_ln250_38        | or        | auto      | 0       |
-|       or_ln250_39_fu_1655_p2                           |     |        | or_ln250_39        | or        | auto      | 0       |
-|       or_ln250_40_fu_1674_p2                           |     |        | or_ln250_40        | or        | auto      | 0       |
-|       or_ln250_41_fu_1758_p2                           |     |        | or_ln250_41        | or        | auto      | 0       |
-|       or_ln250_42_fu_1764_p2                           |     |        | or_ln250_42        | or        | auto      | 0       |
-|       or_ln250_43_fu_1769_p2                           |     |        | or_ln250_43        | or        | auto      | 0       |
-|       keep_1_fu_1774_p2                                |     |        | keep_1             | or        | auto      | 0       |
-|       bitset_16ns_16ns_4ns_1ns_16_1_1_U133             |     |        | mask_1             | bitset    | auto      | 0       |
-|     + aie_consume_doppler_Pipeline_VITIS_LOOP_282_9    | 0   |        |                    |           |           |         |
-|       icmp_ln282_fu_84_p2                              |     |        | icmp_ln282         | seteq     | auto      | 0       |
-|       add_ln282_fu_90_p2                               |     |        | add_ln282          | add       | fabric    | 0       |
-|       add_ln284_fu_100_p2                              |     |        | add_ln284          | add       | fabric    | 0       |
-|       cond_fu_127_p3                                   |     |        | cond               | select    | auto_sel  | 0       |
-+--------------------------------------------------------+-----+--------+--------------------+-----------+-----------+---------+
++--------------------------------------------------------+-----+--------+---------------+-----------+-----------+---------+
+| Name                                                   | DSP | Pragma | Variable      | Op        | Impl      | Latency |
++--------------------------------------------------------+-----+--------+---------------+-----------+-----------+---------+
+| + kernel                                               | 30  |        |               |           |           |         |
+|  + adc_forward                                         | 4   |        |               |           |           |         |
+|    icmp_ln52_fu_108_p2                                 |     |        | icmp_ln52     | seteq     | auto      | 0       |
+|    c_4_fu_113_p2                                       |     |        | c_4           | add       | fabric    | 0       |
+|   + adc_forward_Pipeline_VITIS_LOOP_54_2               | 4   |        |               |           |           |         |
+|     icmp_ln54_fu_185_p2                                |     |        | icmp_ln54     | seteq     | auto      | 0       |
+|     add_ln54_fu_191_p2                                 |     |        | add_ln54      | add       | fabric    | 0       |
+|     mul_16s_15ns_31_1_1_U1                             | 1   |        | mul_ln19      | mul       | auto      | 0       |
+|     mul_16s_15ns_31_1_1_U2                             | 1   |        | mul_ln20      | mul       | auto      | 0       |
+|     mul_16s_15ns_31_1_1_U3                             | 1   |        | mul_ln19_2    | mul       | auto      | 0       |
+|     mul_16s_15ns_31_1_1_U4                             | 1   |        | mul_ln20_2    | mul       | auto      | 0       |
+|  + Block_entry_gmem_wr_proc                            | 26  |        |               |           |           |         |
+|   + aie_range_consume                                  | 0   |        |               |           |           |         |
+|     icmp_ln88_fu_864_p2                                |     |        | icmp_ln88     | seteq     | auto      | 0       |
+|     c_2_fu_869_p2                                      |     |        | c_2           | add       | fabric    | 0       |
+|     icmp_ln138_fu_984_p2                               |     |        | icmp_ln138    | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139    | seteq     | auto      | 0       |
+|     icmp_ln138_1_fu_994_p2                             |     |        | icmp_ln138_1  | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_1  | seteq     | auto      | 0       |
+|     icmp_ln138_2_fu_1030_p2                            |     |        | icmp_ln138_2  | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_2  | seteq     | auto      | 0       |
+|     icmp_ln138_3_fu_1040_p2                            |     |        | icmp_ln138_3  | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_3  | seteq     | auto      | 0       |
+|     icmp_ln138_4_fu_1050_p2                            |     |        | icmp_ln138_4  | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_4  | seteq     | auto      | 0       |
+|     icmp_ln138_5_fu_1060_p2                            |     |        | icmp_ln138_5  | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_5  | seteq     | auto      | 0       |
+|     icmp_ln138_6_fu_1070_p2                            |     |        | icmp_ln138_6  | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_6  | seteq     | auto      | 0       |
+|     icmp_ln138_7_fu_1080_p2                            |     |        | icmp_ln138_7  | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_7  | seteq     | auto      | 0       |
+|     icmp_ln138_8_fu_1090_p2                            |     |        | icmp_ln138_8  | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_8  | seteq     | auto      | 0       |
+|     icmp_ln138_9_fu_1100_p2                            |     |        | icmp_ln138_9  | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_9  | seteq     | auto      | 0       |
+|     icmp_ln138_10_fu_1110_p2                           |     |        | icmp_ln138_10 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_10 | seteq     | auto      | 0       |
+|     icmp_ln138_11_fu_1120_p2                           |     |        | icmp_ln138_11 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_11 | seteq     | auto      | 0       |
+|     icmp_ln138_12_fu_1130_p2                           |     |        | icmp_ln138_12 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_12 | seteq     | auto      | 0       |
+|     icmp_ln138_13_fu_1140_p2                           |     |        | icmp_ln138_13 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_13 | seteq     | auto      | 0       |
+|     icmp_ln138_14_fu_1150_p2                           |     |        | icmp_ln138_14 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_14 | seteq     | auto      | 0       |
+|     icmp_ln138_15_fu_1160_p2                           |     |        | icmp_ln138_15 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_15 | seteq     | auto      | 0       |
+|     icmp_ln138_16_fu_1170_p2                           |     |        | icmp_ln138_16 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_16 | seteq     | auto      | 0       |
+|     icmp_ln138_17_fu_1180_p2                           |     |        | icmp_ln138_17 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_17 | seteq     | auto      | 0       |
+|     icmp_ln138_18_fu_1190_p2                           |     |        | icmp_ln138_18 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_18 | seteq     | auto      | 0       |
+|     icmp_ln138_19_fu_1200_p2                           |     |        | icmp_ln138_19 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_19 | seteq     | auto      | 0       |
+|     icmp_ln138_20_fu_1210_p2                           |     |        | icmp_ln138_20 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_20 | seteq     | auto      | 0       |
+|     icmp_ln138_21_fu_1220_p2                           |     |        | icmp_ln138_21 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_21 | seteq     | auto      | 0       |
+|     icmp_ln138_22_fu_1230_p2                           |     |        | icmp_ln138_22 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_22 | seteq     | auto      | 0       |
+|     icmp_ln138_23_fu_1240_p2                           |     |        | icmp_ln138_23 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_23 | seteq     | auto      | 0       |
+|     icmp_ln138_24_fu_1250_p2                           |     |        | icmp_ln138_24 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_24 | seteq     | auto      | 0       |
+|     icmp_ln138_25_fu_1260_p2                           |     |        | icmp_ln138_25 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_25 | seteq     | auto      | 0       |
+|     icmp_ln138_26_fu_1270_p2                           |     |        | icmp_ln138_26 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_26 | seteq     | auto      | 0       |
+|     icmp_ln138_27_fu_1280_p2                           |     |        | icmp_ln138_27 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_27 | seteq     | auto      | 0       |
+|     icmp_ln138_28_fu_1290_p2                           |     |        | icmp_ln138_28 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_28 | seteq     | auto      | 0       |
+|     icmp_ln138_29_fu_1300_p2                           |     |        | icmp_ln138_29 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_29 | seteq     | auto      | 0       |
+|     icmp_ln138_30_fu_1310_p2                           |     |        | icmp_ln138_30 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_30 | seteq     | auto      | 0       |
+|     icmp_ln138_31_fu_1320_p2                           |     |        | icmp_ln138_31 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_31 | seteq     | auto      | 0       |
+|     icmp_ln138_32_fu_1330_p2                           |     |        | icmp_ln138_32 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_32 | seteq     | auto      | 0       |
+|     icmp_ln138_33_fu_1340_p2                           |     |        | icmp_ln138_33 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_33 | seteq     | auto      | 0       |
+|     icmp_ln138_34_fu_1350_p2                           |     |        | icmp_ln138_34 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_34 | seteq     | auto      | 0       |
+|     icmp_ln138_35_fu_1360_p2                           |     |        | icmp_ln138_35 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_35 | seteq     | auto      | 0       |
+|     icmp_ln138_36_fu_1370_p2                           |     |        | icmp_ln138_36 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_36 | seteq     | auto      | 0       |
+|     icmp_ln138_37_fu_1380_p2                           |     |        | icmp_ln138_37 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_37 | seteq     | auto      | 0       |
+|     icmp_ln138_38_fu_1390_p2                           |     |        | icmp_ln138_38 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_38 | seteq     | auto      | 0       |
+|     icmp_ln138_39_fu_1400_p2                           |     |        | icmp_ln138_39 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_39 | seteq     | auto      | 0       |
+|     icmp_ln138_40_fu_1410_p2                           |     |        | icmp_ln138_40 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_40 | seteq     | auto      | 0       |
+|     icmp_ln138_41_fu_1420_p2                           |     |        | icmp_ln138_41 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_41 | seteq     | auto      | 0       |
+|     icmp_ln138_42_fu_1430_p2                           |     |        | icmp_ln138_42 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_42 | seteq     | auto      | 0       |
+|     icmp_ln138_43_fu_1440_p2                           |     |        | icmp_ln138_43 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_43 | seteq     | auto      | 0       |
+|     icmp_ln138_44_fu_1450_p2                           |     |        | icmp_ln138_44 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_44 | seteq     | auto      | 0       |
+|     icmp_ln138_45_fu_1460_p2                           |     |        | icmp_ln138_45 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_45 | seteq     | auto      | 0       |
+|     icmp_ln138_46_fu_1470_p2                           |     |        | icmp_ln138_46 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_46 | seteq     | auto      | 0       |
+|     icmp_ln138_47_fu_1480_p2                           |     |        | icmp_ln138_47 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_47 | seteq     | auto      | 0       |
+|     icmp_ln138_48_fu_1490_p2                           |     |        | icmp_ln138_48 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_48 | seteq     | auto      | 0       |
+|     icmp_ln138_49_fu_1500_p2                           |     |        | icmp_ln138_49 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_49 | seteq     | auto      | 0       |
+|     icmp_ln138_50_fu_1510_p2                           |     |        | icmp_ln138_50 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_50 | seteq     | auto      | 0       |
+|     icmp_ln138_51_fu_1520_p2                           |     |        | icmp_ln138_51 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_51 | seteq     | auto      | 0       |
+|     icmp_ln138_52_fu_1530_p2                           |     |        | icmp_ln138_52 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_52 | seteq     | auto      | 0       |
+|     icmp_ln138_53_fu_1540_p2                           |     |        | icmp_ln138_53 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_53 | seteq     | auto      | 0       |
+|     icmp_ln138_54_fu_1550_p2                           |     |        | icmp_ln138_54 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_54 | seteq     | auto      | 0       |
+|     icmp_ln138_55_fu_1560_p2                           |     |        | icmp_ln138_55 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_55 | seteq     | auto      | 0       |
+|     icmp_ln138_56_fu_1570_p2                           |     |        | icmp_ln138_56 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_56 | seteq     | auto      | 0       |
+|     icmp_ln138_57_fu_1580_p2                           |     |        | icmp_ln138_57 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_57 | seteq     | auto      | 0       |
+|     icmp_ln138_58_fu_1590_p2                           |     |        | icmp_ln138_58 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_58 | seteq     | auto      | 0       |
+|     icmp_ln138_59_fu_1600_p2                           |     |        | icmp_ln138_59 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_59 | seteq     | auto      | 0       |
+|     icmp_ln138_60_fu_1610_p2                           |     |        | icmp_ln138_60 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_60 | seteq     | auto      | 0       |
+|     icmp_ln138_61_fu_1620_p2                           |     |        | icmp_ln138_61 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_61 | seteq     | auto      | 0       |
+|     icmp_ln138_62_fu_1630_p2                           |     |        | icmp_ln138_62 | seteq     | auto      | 0       |
+|     grp_fu_836_p2                                      |     |        | icmp_ln139_62 | seteq     | auto      | 0       |
+|     icmp_ln138_63_fu_1640_p2                           |     |        | icmp_ln138_63 | seteq     | auto      | 0       |
+|     grp_fu_850_p2                                      |     |        | icmp_ln139_63 | seteq     | auto      | 0       |
+|    + aie_range_consume_Pipeline_VITIS_LOOP_96_2        | 0   |        |               |           |           |         |
+|      icmp_ln96_fu_109_p2                               |     |        | icmp_ln96     | seteq     | auto      | 0       |
+|      add_ln96_fu_115_p2                                |     |        | add_ln96      | add       | fabric    | 0       |
+|    + aie_range_consume_Pipeline_VITIS_LOOP_10_1        | 0   |        |               |           |           |         |
+|      icmp_ln10_fu_148_p2                               |     |        | icmp_ln10     | seteq     | auto      | 0       |
+|      add_ln10_fu_159_p2                                |     |        | add_ln10      | add       | fabric    | 0       |
+|      icmp_ln15_fu_168_p2                               |     |        | icmp_ln15     | seteq     | auto      | 0       |
+|      n_6_fu_197_p2                                     |     |        | n_6           | add       | fabric    | 0       |
+|      icmp_ln18_fu_182_p2                               |     |        | icmp_ln18     | seteq     | auto      | 0       |
+|      n_7_fu_231_p2                                     |     |        | n_7           | add       | fabric    | 0       |
+|      accum_2_fu_246_p2                                 |     |        | accum_2       | add       | fabric    | 0       |
+|    + aie_range_consume_Pipeline_VITIS_LOOP_105_3       | 0   |        |               |           |           |         |
+|      icmp_ln105_fu_399_p2                              |     |        | icmp_ln105    | seteq     | auto      | 0       |
+|      add_ln105_fu_405_p2                               |     |        | add_ln105     | add       | fabric    | 0       |
+|      add_ln130_fu_465_p2                               |     |        | add_ln130     | add       | fabric    | 0       |
+|      add_ln130_1_fu_436_p2                             |     |        | add_ln130_1   | add       | fabric    | 0       |
+|   + seq_generator                                      | 0   |        |               |           |           |         |
+|     icmp_ln31_fu_137_p2                                |     |        | icmp_ln31     | seteq     | auto      | 0       |
+|     icmp_ln32_fu_143_p2                                |     |        | icmp_ln32     | seteq     | auto      | 0       |
+|     and_ln37_fu_159_p3                                 |     |        | and_ln37      | select    | auto_sel  | 0       |
+|     current_mask_fu_166_p2                             |     |        | current_mask  | and       | auto      | 0       |
+|     icmp_ln41_fu_149_p2                                |     |        | icmp_ln41     | seteq     | auto      | 0       |
+|     bitset_128ns_128ns_7ns_1s_128_1_1_U88              |     |        | tmp_1         | bitset    | auto      | 0       |
+|    + seq_generator_Pipeline_VITIS_LOOP_49_2            | 0   |        |               |           |           |         |
+|      icmp_ln49_fu_79_p2                                |     |        | icmp_ln49     | seteq     | auto      | 0       |
+|      i_2_fu_85_p2                                      |     |        | i_2           | add       | fabric    | 0       |
+|      bitselect_1ns_128ns_7ns_1_1_1_U83                 |     |        | tmp           | bitselect | auto      | 0       |
+|   + doppler                                            | 26  |        |               |           |           |         |
+|     icmp_ln93_fu_227_p2                                |     |        | icmp_ln93     | seteq     | auto      | 0       |
+|     icmp_ln113_fu_308_p2                               |     |        | icmp_ln113    | seteq     | auto      | 0       |
+|     b_1_fu_314_p2                                      |     |        | b_1           | add       | fabric    | 0       |
+|     add_ln116_fu_329_p2                                |     |        | add_ln116     | add       | fabric    | 0       |
+|    + doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3 | 0   |        |               |           |           |         |
+|      icmp_ln97_fu_157_p2                               |     |        | icmp_ln97     | seteq     | auto      | 0       |
+|      add_ln97_1_fu_163_p2                              |     |        | add_ln97_1    | add       | fabric    | 0       |
+|      icmp_ln103_fu_172_p2                              |     |        | icmp_ln103    | seteq     | auto      | 0       |
+|      select_ln97_fu_178_p3                             |     |        | select_ln97   | select    | auto_sel  | 0       |
+|      empty_69_fu_198_p3                                |     |        | empty_69      | select    | auto_sel  | 0       |
+|      add_ln97_fu_205_p2                                |     |        | add_ln97      | add       | fabric    | 0       |
+|      first_iter_0_fu_211_p2                            |     |        | first_iter_0  | seteq     | auto      | 0       |
+|      add_ln100_fu_232_p2                               |     |        | add_ln100     | add       | fabric    | 0       |
+|      add_ln100_1_fu_280_p2                             |     |        | add_ln100_1   | add       | fabric    | 0       |
+|      add_ln107_fu_248_p2                               |     |        | add_ln107     | add       | fabric    | 0       |
+|      add_ln103_fu_254_p2                               |     |        | add_ln103     | add       | fabric    | 0       |
+|    + doppler_forward_one                               | 4   |        |               |           |           |         |
+|      add_ln141_fu_238_p2                               |     |        | add_ln141     | add       | fabric    | 0       |
+|      mul_16s_15ns_31_1_1_U97                           | 1   |        | mul_ln19      | mul       | auto      | 0       |
+|      mul_16s_15ns_31_1_1_U98                           | 1   |        | mul_ln20      | mul       | auto      | 0       |
+|      mul_16s_15ns_31_1_1_U99                           | 1   |        | mul_ln19_1    | mul       | auto      | 0       |
+|      mul_16s_15ns_31_1_1_U100                          | 1   |        | mul_ln20_1    | mul       | auto      | 0       |
+|      add_ln137_fu_220_p2                               |     |        | add_ln137     | add       | fabric    | 0       |
+|    + aie_consume_doppler                               | 22  |        |               |           |           |         |
+|      icmp_ln234_fu_1234_p2                             |     |        | icmp_ln234    | setgt     | auto      | 0       |
+|      grp_fu_1246_p1                                    |     |        | mean_u        | select    | auto_sel  | 0       |
+|      udiv_30ns_31ns_29_34_seq_1_U156                   |     |        | udiv_ln235    | udiv      | auto_seq  | 33      |
+|      median_bin_fu_1295_p3                             |     |        | median_bin    | select    | auto_sel  | 0       |
+|      sitodp_32ns_64_7_no_dsp_1_U155                    |     |        | conv          | sitodp    | auto      | 6       |
+|      dmul_64ns_64ns_64_9_max_dsp_1_U154                | 11  |        | mul           | dmul      | maxdsp    | 8       |
+|      dmul_64ns_64ns_64_9_max_dsp_1_U154                | 11  |        | dc            | dmul      | maxdsp    | 8       |
+|      add_ln486_fu_1334_p2                              |     |        | add_ln486     | add       | fabric    | 0       |
+|      sub_ln18_fu_1348_p2                               |     |        | sub_ln18      | sub       | fabric    | 0       |
+|      select_ln18_fu_1358_p3                            |     |        | select_ln18   | select    | auto_sel  | 0       |
+|      lshr_ln18_fu_1386_p2                              |     |        | lshr_ln18     | lshr      | auto_pipe | 0       |
+|      shl_ln18_fu_1392_p2                               |     |        | shl_ln18      | shl       | auto_pipe | 0       |
+|      val_fu_1418_p3                                    |     |        | val           | select    | auto_sel  | 0       |
+|      result_2_fu_1425_p2                               |     |        | result_2      | sub       | fabric    | 0       |
+|      result_8_fu_1430_p3                               |     |        | result_8      | select    | auto_sel  | 0       |
+|      sitofp_32ns_32_7_no_dsp_1_U153                    |     |        | conv1         | sitofp    | auto      | 6       |
+|      fadd_32ns_32ns_32_8_full_dsp_1_U151               | 2   |        | add           | fadd      | fulldsp   | 7       |
+|      sitofp_32ns_32_7_no_dsp_1_U153                    |     |        | conv2         | sitofp    | auto      | 6       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U152                | 3   |        | dc_1          | fmul      | maxdsp    | 3       |
+|      add_ln317_fu_1464_p2                              |     |        | add_ln317     | add       | fabric    | 0       |
+|      sub_ln18_1_fu_1478_p2                             |     |        | sub_ln18_1    | sub       | fabric    | 0       |
+|      select_ln18_2_fu_1488_p3                          |     |        | select_ln18_2 | select    | auto_sel  | 0       |
+|      lshr_ln18_1_fu_1516_p2                            |     |        | lshr_ln18_1   | lshr      | auto_pipe | 0       |
+|      shl_ln18_1_fu_1522_p2                             |     |        | shl_ln18_1    | shl       | auto_pipe | 0       |
+|      val_1_fu_1548_p3                                  |     |        | val_1         | select    | auto_sel  | 0       |
+|      result_3_fu_1555_p2                               |     |        | result_3      | sub       | fabric    | 0       |
+|      result_fu_1560_p3                                 |     |        | result        | select    | auto_sel  | 0       |
+|      sitofp_32ns_32_7_no_dsp_1_U153                    |     |        | conv3         | sitofp    | auto      | 6       |
+|      fmul_32ns_32ns_32_4_max_dsp_1_U152                | 3   |        | dc_2          | fmul      | maxdsp    | 3       |
+|      add_ln317_1_fu_1594_p2                            |     |        | add_ln317_1   | add       | fabric    | 0       |
+|      sub_ln18_2_fu_1608_p2                             |     |        | sub_ln18_2    | sub       | fabric    | 0       |
+|      select_ln18_4_fu_1618_p3                          |     |        | select_ln18_4 | select    | auto_sel  | 0       |
+|      lshr_ln18_2_fu_1646_p2                            |     |        | lshr_ln18_2   | lshr      | auto_pipe | 0       |
+|      shl_ln18_2_fu_1652_p2                             |     |        | shl_ln18_2    | shl       | auto_pipe | 0       |
+|      val_2_fu_1678_p3                                  |     |        | val_2         | select    | auto_sel  | 0       |
+|      result_6_fu_1685_p2                               |     |        | result_6      | sub       | fabric    | 0       |
+|      result_9_fu_1690_p3                               |     |        | result_9      | select    | auto_sel  | 0       |
+|      add_ln188_fu_1727_p2                              |     |        | add_ln188     | add       | fabric    | 0       |
+|      icmp_ln312_fu_1733_p2                             |     |        | icmp_ln312    | seteq     | auto      | 0       |
+|      rank_fu_1739_p2                                   |     |        | rank          | add       | fabric    | 0       |
+|      icmp_ln320_fu_1755_p2                             |     |        | icmp_ln320    | seteq     | auto      | 0       |
+|      dmask_seq_fu_1760_p3                              |     |        | dmask_seq     | select    | auto_sel  | 0       |
+|      dmask_mask_fu_1770_p3                             |     |        | dmask_mask    | select    | auto_sel  | 0       |
+|      dmask_index_fu_1777_p3                            |     |        | dmask_index   | select    | auto_sel  | 0       |
+|     + aie_consume_doppler_Pipeline_1                   | 0   |        |               |           |           |         |
+|       exitcond624_fu_50_p2                             |     |        | exitcond624   | seteq     | auto      | 0       |
+|       empty_107_fu_56_p2                               |     |        | empty_107     | add       | fabric    | 0       |
+|     + aie_consume_doppler_Pipeline_VITIS_LOOP_196_1    | 0   |        |               |           |           |         |
+|       add_ln196_fu_170_p2                              |     |        | add_ln196     | add       | fabric    | 0       |
+|     + aie_consume_doppler_Pipeline_VITIS_LOOP_207_2    | 2   |        |               |           |           |         |
+|       icmp_ln207_fu_115_p2                             |     |        | icmp_ln207    | seteq     | auto      | 0       |
+|       add_ln207_fu_121_p2                              |     |        | add_ln207     | add       | fabric    | 0       |
+|       mul_16s_16s_32_1_1_U123                          | 1   |        | mul_ln213     | mul       | auto      | 0       |
+|       mul_16s_16s_32_1_1_U124                          | 1   |        | mul_ln213_1   | mul       | auto      | 0       |
+|       add_ln213_fu_162_p2                              |     |        | add_ln213     | add       | fabric    | 0       |
+|       power64_fu_166_p2                                |     |        | power64       | add       | fabric    | 0       |
+|       icmp_ln214_fu_182_p2                             |     |        | icmp_ln214    | seteq     | auto      | 0       |
+|       power_fu_188_p3                                  |     |        | power         | select    | auto_sel  | 0       |
+|       mean_acc_1_fu_202_p2                             |     |        | mean_acc_1    | add       | fabric    | 0       |
+|     + aie_consume_doppler_Pipeline_VITIS_LOOP_237_3    | 4   |        |               |           |           |         |
+|       icmp_ln237_fu_128_p2                             |     |        | icmp_ln237    | seteq     | auto      | 0       |
+|       add_ln237_fu_134_p2                              |     |        | add_ln237     | add       | fabric    | 0       |
+|       mul_32ns_29ns_60_3_1_U130                        | 4   |        | mul_ln239     | mul       | auto      | 2       |
+|       icmp_ln240_fu_174_p2                             |     |        | icmp_ln240    | setne     | auto      | 0       |
+|       bin_fu_179_p3                                    |     |        | bin           | select    | auto_sel  | 0       |
+|       addr_cmp_fu_193_p2                               |     |        | addr_cmp      | seteq     | auto      | 0       |
+|       reuse_select_fu_207_p3                           |     |        | reuse_select  | select    | auto_sel  | 0       |
+|       add_ln241_fu_214_p2                              |     |        | add_ln241     | add       | fabric    | 0       |
+|     + aie_consume_doppler_Pipeline_VITIS_LOOP_248_4    | 0   |        |               |           |           |         |
+|       icmp_ln248_fu_100_p2                             |     |        | icmp_ln248    | seteq     | auto      | 0       |
+|       add_ln248_fu_106_p2                              |     |        | add_ln248     | add       | fabric    | 0       |
+|       sum_1_fu_120_p2                                  |     |        | sum_1         | add       | fabric    | 0       |
+|       icmp_ln250_fu_126_p2                             |     |        | icmp_ln250    | setgt     | auto      | 0       |
+|     + aie_consume_doppler_Pipeline_VITIS_LOOP_287_5    | 0   |        |               |           |           |         |
+|       icmp_ln287_fu_662_p2                             |     |        | icmp_ln287    | seteq     | auto      | 0       |
+|       add_ln287_fu_668_p2                              |     |        | add_ln287     | add       | fabric    | 0       |
+|       add_ln293_fu_707_p2                              |     |        | add_ln293     | add       | fabric    | 0       |
+|       add_ln293_1_fu_968_p2                            |     |        | add_ln293_1   | add       | fabric    | 0       |
+|       grp_fu_617_p2                                    |     |        | keep          | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293    | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_1  | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_2  | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_3  | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_4  | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_5  | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_6  | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_7  | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_8  | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_9  | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_10 | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_11 | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_12 | setgt     | auto      | 0       |
+|       grp_fu_617_p2                                    |     |        | icmp_ln293_13 | setgt     | auto      | 0       |
+|       grp_fu_622_p2                                    |     |        | icmp_ln293_14 | setgt     | auto      | 0       |
+|       or_ln293_fu_813_p2                               |     |        | or_ln293      | or        | auto      | 0       |
+|       or_ln293_14_fu_817_p2                            |     |        | or_ln293_14   | or        | auto      | 0       |
+|       or_ln293_15_fu_821_p2                            |     |        | or_ln293_15   | or        | auto      | 0       |
+|       or_ln293_16_fu_875_p2                            |     |        | or_ln293_16   | or        | auto      | 0       |
+|       or_ln293_17_fu_879_p2                            |     |        | or_ln293_17   | or        | auto      | 0       |
+|       or_ln293_18_fu_883_p2                            |     |        | or_ln293_18   | or        | auto      | 0       |
+|       or_ln293_19_fu_889_p2                            |     |        | or_ln293_19   | or        | auto      | 0       |
+|       or_ln293_20_fu_942_p2                            |     |        | or_ln293_20   | or        | auto      | 0       |
+|       or_ln293_21_fu_946_p2                            |     |        | or_ln293_21   | or        | auto      | 0       |
+|       or_ln293_22_fu_950_p2                            |     |        | or_ln293_22   | or        | auto      | 0       |
+|       or_ln293_23_fu_973_p2                            |     |        | or_ln293_23   | or        | auto      | 0       |
+|       or_ln293_24_fu_977_p2                            |     |        | or_ln293_24   | or        | auto      | 0       |
+|       or_ln293_25_fu_981_p2                            |     |        | or_ln293_25   | or        | auto      | 0       |
+|       or_ln293_26_fu_987_p2                            |     |        | or_ln293_26   | or        | auto      | 0       |
+|       keep_1_fu_992_p2                                 |     |        | keep_1        | or        | auto      | 0       |
+|       bitset_16ns_16ns_4ns_1ns_16_1_1_U137             |     |        | mask_1        | bitset    | auto      | 0       |
+|     + aie_consume_doppler_Pipeline_VITIS_LOOP_326_9    | 0   |        |               |           |           |         |
+|       icmp_ln326_fu_82_p2                              |     |        | icmp_ln326    | seteq     | auto      | 0       |
+|       add_ln326_fu_88_p2                               |     |        | add_ln326     | add       | fabric    | 0       |
+|       add_ln329_fu_102_p2                              |     |        | add_ln329     | add       | fabric    | 0       |
+|       cond168_fu_120_p3                                |     |        | cond168       | select    | auto_sel  | 0       |
+|  + dummy                                               | 0   |        |               |           |           |         |
+|    icmp_ln9_fu_32_p2                                   |     |        | icmp_ln9      | seteq     | auto      | 0       |
++--------------------------------------------------------+-----+--------+---------------+-----------+-----------+---------+
 
 
 ================================================================
 == Storage Report
 ================================================================
-+-------------------------------------------+----------------+-----------+------+------+--------+--------+--------------------------+--------+---------+------------------+
-| Name                                      | Usage          | Type      | BRAM | URAM | CE_REG | Pragma | Variable                 | Impl   | Latency | Bitwidth, Depth, |
-|                                           |                |           |      |      |        |        |                          |        |         | Banks            |
-+-------------------------------------------+----------------+-----------+------+------+--------+--------+--------------------------+--------+---------+------------------+
-| + kernel                                  |                |           | 195  | 0    |        |        |                          |        |         |                  |
-|   control_s_axi_U                         | interface      | s_axilite |      |      |        |        |                          |        |         |                  |
-|   gmem_m_axi_U                            | interface      | m_axi     | 2    |      |        |        |                          |        |         |                  |
-|   doppler_mask_stream_U                   | fifo channel   | stream    | 157  |      | N      |        | doppler_mask_stream      | memory | 0       | 2816, 128, 1     |
-|  + adc_forward                            |                |           | 2    | 0    |        |        |                          |        |         |                  |
-|    hamming_window_2048_real_U             | rom_2p         |           | 2    |      | N      |        | hamming_window_2048_real | auto   | 1       | 15, 2048, 1      |
-|  + Block_entry_gmem_wr_proc               |                |           | 34   | 0    |        |        |                          |        |         |                  |
-|    idx_stream_fifo_U                      | fifo array     |           | 2    |      | N      |        | idx_stream               | memory | 0       | 32, 128, 1       |
-|    mask_stream_fifo_U                     | fifo array     |           | 9    |      | N      |        | mask_stream              | memory | 0       | 160, 128, 1      |
-|   + aie_range_consume                     |                |           | 3    | 0    |        |        |                          |        |         |                  |
-|     mask_head_U                           | ram_2p array   |           | 2    |      | N      |        | mask_head                | auto   | 1       | 32, 64, 1        |
-|     adr_buf_U                             | ram_1p array   |           | 1    |      | N      |        | adr_buf                  | auto   | 1       | 12, 128, 1       |
-|   + seq_generator                         |                |           | 4    | 0    |        |        |                          |        |         |                  |
-|     mask_seqs_U                           | ram_1p         |           | 4    |      | N      |        | mask_seqs                | auto   | 1       | 128, 128, 1      |
-|   + doppler                               |                |           | 16   | 0    |        |        |                          |        |         |                  |
-|     window_U                              | ram_2p array   |           | 8    |      | N      |        | window                   | auto   | 1       | 32, 4096, 1      |
-|    + doppler_forward_one                  |                |           | 1    | 0    |        |        |                          |        |         |                  |
-|      hamming_window_256_real_U            | rom_2p         |           | 1    |      | N      |        | hamming_window_256_real  | auto   | 1       | 15, 256, 1       |
-|    + aie_consume_doppler                  |                |           | 7    | 0    |        |        |                          |        |         |                  |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150   | ram_1p array   |           | 1    |      | N      |        | histogram                | auto   | 1       | 32, 64, 1        |
-|      in_data_real_U                       | ram_t2p array  |           | 1    |      | N      |        | in_data_real             | auto   | 1       | 16, 256, 1       |
-|      fmul_32ns_32ns_32_8_max_dsp_1_U150   | ram_t2p array  |           | 1    |      | N      |        | in_data_imag             | auto   | 1       | 16, 256, 1       |
-|      fadd_32ns_32ns_32_10_full_dsp_1_U149 | ram_1wnr array |           | 2    |      | N      |        | in_data_mag              | auto   | 1       | 32, 256, 1       |
-|      dmask_data_U                         | ram_2p array   |           | 2    |      | N      |        | dmask_data               | auto   | 1       | 32, 86, 1        |
-+-------------------------------------------+----------------+-----------+------+------+--------+--------+--------------------------+--------+---------+------------------+
++------------------------------------------+----------------+-----------+------+------+--------+--------+--------------------------+--------+---------+------------------+
+| Name                                     | Usage          | Type      | BRAM | URAM | CE_REG | Pragma | Variable                 | Impl   | Latency | Bitwidth, Depth, |
+|                                          |                |           |      |      |        |        |                          |        |         | Banks            |
++------------------------------------------+----------------+-----------+------+------+--------+--------+--------------------------+--------+---------+------------------+
+| + kernel                                 |                |           | 196  | 0    |        |        |                          |        |         |                  |
+|   control_s_axi_U                        | interface      | s_axilite |      |      |        |        |                          |        |         |                  |
+|   gmem_m_axi_U                           | interface      | m_axi     | 2    |      |        |        |                          |        |         |                  |
+|   doppler_mask_stream_U                  | fifo channel   | stream    | 157  |      | N      |        | doppler_mask_stream      | memory | 0       | 2816, 128, 1     |
+|  + adc_forward                           |                |           | 2    | 0    |        |        |                          |        |         |                  |
+|   + adc_forward_Pipeline_VITIS_LOOP_54_2 |                |           | 2    | 0    |        |        |                          |        |         |                  |
+|     hamming_window_2048_real_U           | rom_2p         |           | 2    |      | N      |        | hamming_window_2048_real | auto   | 1       | 15, 2048, 1      |
+|  + Block_entry_gmem_wr_proc              |                |           | 35   | 0    |        |        |                          |        |         |                  |
+|    idx_stream_fifo_U                     | fifo array     |           | 2    |      | N      |        | idx_stream               | memory | 0       | 32, 128, 1       |
+|    mask_stream_fifo_U                    | fifo array     |           | 9    |      | N      |        | mask_stream              | memory | 0       | 160, 128, 1      |
+|   + aie_range_consume                    |                |           | 3    | 0    |        |        |                          |        |         |                  |
+|     mask_head_U                          | ram_2p array   |           | 2    |      | N      |        | mask_head                | auto   | 1       | 32, 64, 1        |
+|     adr_buf_U                            | ram_1p array   |           | 1    |      | N      |        | adr_buf                  | auto   | 1       | 12, 128, 1       |
+|   + seq_generator                        |                |           | 4    | 0    |        |        |                          |        |         |                  |
+|     mask_seqs_U                          | ram_1p         |           | 4    |      | N      |        | mask_seqs                | auto   | 1       | 128, 128, 1      |
+|   + doppler                              |                |           | 17   | 0    |        |        |                          |        |         |                  |
+|     window_U                             | ram_2p array   |           | 8    |      | N      |        | window                   | auto   | 1       | 32, 4096, 1      |
+|    + doppler_forward_one                 |                |           | 1    | 0    |        |        |                          |        |         |                  |
+|      hamming_window_256_real_U           | rom_2p         |           | 1    |      | N      |        | hamming_window_256_real  | auto   | 1       | 15, 256, 1       |
+|    + aie_consume_doppler                 |                |           | 8    | 0    |        |        |                          |        |         |                  |
+|      histogram_U                         | ram_2p array   |           | 2    |      | N      |        | histogram                | auto   | 1       | 32, 64, 1        |
+|      in_data_real_U                      | ram_t2p array  |           | 1    |      | N      |        | in_data_real             | auto   | 1       | 16, 256, 1       |
+|      in_data_imag_U                      | ram_t2p array  |           | 1    |      | N      |        | in_data_imag             | auto   | 1       | 16, 256, 1       |
+|      in_data_mag_U                       | ram_1wnr array |           | 2    |      | N      |        | in_data_mag              | auto   | 1       | 32, 256, 1       |
+|      dmask_data_U                        | ram_2p array   |           | 2    |      | N      |        | dmask_data               | auto   | 1       | 32, 86, 1        |
++------------------------------------------+----------------+-----------+------+------+--------+--------+--------------------------+--------+---------+------------------+
 
 
 ================================================================
 == Pragma Report
 ================================================================
 * Ignored Pragmas
-+--------+----------------------------------+---------------------------------------------------+------------------------------------------------------------------+
-| Type   | Options                          | Location                                          | Messages                                                         |
-+--------+----------------------------------+---------------------------------------------------+------------------------------------------------------------------+
-| UNROLL |                                  | in aie_consume_doppler (src/doppler_part.cpp:249) | Not implemented                                                  |
-| STREAM | variable = in_adc0 depth = 1024  | in kernel (src/main.cpp:35)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = out_r_00 depth = 1024 | in kernel (src/main.cpp:36)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = out_r_01 depth = 1024 | in kernel (src/main.cpp:37)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = in_r_00 depth = 1024  | in kernel (src/main.cpp:38)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = in_r_01 depth = 1024  | in kernel (src/main.cpp:39)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = out_d_02 depth = 1024 | in kernel (src/main.cpp:40)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = out_d_03 depth = 1024 | in kernel (src/main.cpp:41)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = in_d_02 depth = 1024  | in kernel (src/main.cpp:42)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-| STREAM | variable = in_d_03 depth = 1024  | in kernel (src/main.cpp:43)                       | The stream pragma on function argument, in 'call' is unsupported |
-|        |                                  |                                                   | Not implemented                                                  |
-+--------+----------------------------------+---------------------------------------------------+------------------------------------------------------------------+
++--------------+----------------------------------+---------------------------------------------------+------------------------------------------------------------------+
+| Type         | Options                          | Location                                          | Messages                                                         |
++--------------+----------------------------------+---------------------------------------------------+------------------------------------------------------------------+
+| UNROLL       |                                  | in doppler (src/doppler_part.cpp:129)             | Not implemented                                                  |
+| UNROLL       |                                  | in aie_consume_doppler (src/doppler_part.cpp:292) | Not implemented                                                  |
+| UNROLL       |                                  | in aie_consume_doppler (src/doppler_part.cpp:301) | Not implemented                                                  |
+| LOOP_FLATTEN | off                              | in aie_consume_doppler (src/doppler_part.cpp:313) | Not implemented                                                  |
+| STREAM       | variable = in_adc0 depth = 1024  | in kernel (src/main.cpp:35)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = out_r_00 depth = 1024 | in kernel (src/main.cpp:36)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = out_r_01 depth = 1024 | in kernel (src/main.cpp:37)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = in_r_00 depth = 1024  | in kernel (src/main.cpp:38)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = in_r_01 depth = 1024  | in kernel (src/main.cpp:39)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = out_d_02 depth = 1024 | in kernel (src/main.cpp:40)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = out_d_03 depth = 1024 | in kernel (src/main.cpp:41)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = in_d_02 depth = 1024  | in kernel (src/main.cpp:42)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| STREAM       | variable = in_d_03 depth = 1024  | in kernel (src/main.cpp:43)                       | The stream pragma on function argument, in 'call' is unsupported |
+|              |                                  |                                                   | Not implemented                                                  |
+| LOOP_FLATTEN | off                              | in adc_forward (src/range_part.cpp:53)            | Not implemented                                                  |
++--------------+----------------------------------+---------------------------------------------------+------------------------------------------------------------------+
 
 * Pragmas with Warnings
-+----------+---------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Type     | Options | Location                                          | Messages                                                                                                                                                                |
-+----------+---------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| PIPELINE | II = 1  | in aie_consume_doppler (src/doppler_part.cpp:258) | Pipeline directive for loop 'VITIS_LOOP_257_7' (src/doppler_part.cpp:257:25) in function 'aie_consume_doppler' has been removed because the loop is unrolled completely |
-| PIPELINE |         | in aie_range_consume (src/range_part.cpp:86)      | Pipeline directive for loop 'VITIS_LOOP_85_4' (src/range_part.cpp:85:26) in function 'aie_range_consume' has been removed because the loop is unrolled completely       |
-| PIPELINE |         | in aie_range_consume (src/range_part.cpp:92)      | Pipeline directive for loop 'VITIS_LOOP_91_5' (src/range_part.cpp:91:26) in function 'aie_range_consume' has been removed because the loop is unrolled completely       |
-| PIPELINE |         | in aie_range_consume (src/range_part.cpp:102)     | Pipeline directive for loop 'VITIS_LOOP_101_6' (src/range_part.cpp:101:25) in function 'aie_range_consume' has been removed because the loop is unrolled completely     |
-+----------+---------+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------+---------+-----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type     | Options | Location                                      | Messages                                                                                                                                                            |
++----------+---------+-----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| PIPELINE |         | in aie_range_consume (src/range_part.cpp:113) | Pipeline directive for loop 'VITIS_LOOP_112_4' (src/range_part.cpp:112:27) in function 'aie_range_consume' has been removed because the loop is unrolled completely |
+| PIPELINE |         | in aie_range_consume (src/range_part.cpp:119) | Pipeline directive for loop 'VITIS_LOOP_118_5' (src/range_part.cpp:118:27) in function 'aie_range_consume' has been removed because the loop is unrolled completely |
+| PIPELINE |         | in aie_range_consume (src/range_part.cpp:129) | Pipeline directive for loop 'VITIS_LOOP_128_6' (src/range_part.cpp:128:25) in function 'aie_range_consume' has been removed because the loop is unrolled completely |
++----------+---------+-----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 * Inferred Pragmas
 +--------------+---------+-------------------------------------------------------------------------------------------------------+-----------------------------------+
 | Type         | Options | Location                                                                                              | Inferred From                     |
 +--------------+---------+-------------------------------------------------------------------------------------------------------+-----------------------------------+
-| LOOP_FLATTEN |         | loop VITIS_LOOP_101_3 (src/doppler_part.cpp:101:25) in doppler (src/doppler_part.cpp:101)             | pipeline src/doppler_part.cpp:102 |
-| LOOP_FLATTEN | off     | loop VITIS_LOOP_269_8 (src/doppler_part.cpp:269:21) in aie_consume_doppler (src/doppler_part.cpp:269) | pipeline src/doppler_part.cpp:283 |
-| LOOP_FLATTEN |         | loop VITIS_LOOP_28_2 (src/range_part.cpp:28:22) in adc_forward (src/range_part.cpp:28)                | pipeline src/range_part.cpp:29    |
-| PIPELINE     |         | loop VITIS_LOOP_221_4 (src/doppler_part.cpp:221:21) in aie_consume_doppler (src/doppler_part.cpp:221) | syn.compile.pipeline_loops=64     |
+| LOOP_FLATTEN |         | loop VITIS_LOOP_103_3 (src/doppler_part.cpp:103:25) in doppler (src/doppler_part.cpp:103)             | pipeline src/doppler_part.cpp:104 |
+| PIPELINE     |         | loop VITIS_LOOP_7_1 (src/angle_part.cpp:7:19) in dummy (src/angle_part.cpp:7)                         | syn.compile.pipeline_loops=64     |
+| PIPELINE     |         | loop VITIS_LOOP_248_4 (src/doppler_part.cpp:248:21) in aie_consume_doppler (src/doppler_part.cpp:248) | syn.compile.pipeline_loops=64     |
 | PIPELINE     |         | loop VITIS_LOOP_49_2 (src/doppler_part.cpp:49:26) in seq_generator (src/doppler_part.cpp:49)          | syn.compile.pipeline_loops=64     |
-| PIPELINE     |         | loop VITIS_LOOP_10_1 (src/range_part.cpp:10:20) in aie_range_consume (src/range_part.cpp:10)          | syn.compile.pipeline_loops=64     |
 +--------------+---------+-------------------------------------------------------------------------------------------------------+-----------------------------------+
 
 * Implemented Pragmas
-+----------+--------------------------------------------------+-----------------------------------------------+
-| Type     | Options                                          | Location                                      |
-+----------+--------------------------------------------------+-----------------------------------------------+
-| STREAM   | variable=mask_stream type=fifo depth=128         | in kernel (src/main.cpp:50)                   |
-| STREAM   | variable=idx_stream type=fifo depth=128          | in kernel (src/main.cpp:51)                   |
-| STREAM   | variable=doppler_mask_stream type=fifo depth=128 | in kernel (src/main.cpp:52)                   |
-| DATAFLOW |                                                  | in kernel (src/main.cpp:53)                   |
-| UNROLL   |                                                  | in aie_range_consume (src/range_part.cpp:110) |
-+----------+--------------------------------------------------+-----------------------------------------------+
++----------------+--------------------------------------------------+-----------------------------------------------------------------------------+
+| Type           | Options                                          | Location                                                                    |
++----------------+--------------------------------------------------+-----------------------------------------------------------------------------+
+| LOOP_TRIPCOUNT | max=256 min=256 avg=256                          | in doppler (src/doppler_part.cpp:98)                                        |
+| LOOP_TRIPCOUNT | max=16 min=16 avg=16                             | in doppler (src/doppler_part.cpp:105)                                       |
+| LOOP_TRIPCOUNT | max=86 min=86 avg=86                             | in aie_consume_doppler_pipeline_vitis_loop_326_9 (src/doppler_part.cpp:328) |
+| STREAM         | variable=mask_stream type=fifo depth=128         | in kernel (src/main.cpp:50)                                                 |
+| STREAM         | variable=idx_stream type=fifo depth=128          | in kernel (src/main.cpp:51)                                                 |
+| STREAM         | variable=doppler_mask_stream type=fifo depth=128 | in kernel (src/main.cpp:52)                                                 |
+| DATAFLOW       |                                                  | in kernel (src/main.cpp:53)                                                 |
+| LOOP_TRIPCOUNT | max=1024 min=1024 avg=1024                       | in adc_forward_pipeline_vitis_loop_54_2 (src/range_part.cpp:56)             |
+| UNROLL         |                                                  | in aie_range_consume (src/range_part.cpp:137)                               |
++----------------+--------------------------------------------------+-----------------------------------------------------------------------------+
 
 * Valid Pragma Syntax
-+-----------+----------------------------------------------------------------+---------------------------------------------------+
-| Type      | Options                                                        | Location                                          |
-+-----------+----------------------------------------------------------------+---------------------------------------------------+
-| PIPELINE  | II = 2                                                         | in doppler (src/doppler_part.cpp:102)             |
-| PIPELINE  | II = 1                                                         | in doppler_forward_one (src/doppler_part.cpp:126) |
-| PIPELINE  | II = 1                                                         | in aie_consume_doppler (src/doppler_part.cpp:186) |
-| PIPELINE  |                                                                | in aie_consume_doppler (src/doppler_part.cpp:196) |
-| PIPELINE  |                                                                | in aie_consume_doppler (src/doppler_part.cpp:211) |
-| PIPELINE  | II = 1                                                         | in aie_consume_doppler (src/doppler_part.cpp:245) |
-| PIPELINE  | ii=1                                                           | in aie_consume_doppler (src/doppler_part.cpp:283) |
-| INTERFACE | m_axi port = mm offset = slave bundle = gmem depth = 201326592 | in kernel (src/main.cpp:20)                       |
-| INTERFACE | s_axilite port=mm bundle=control                               | in kernel (src/main.cpp:22)                       |
-| INTERFACE | axis port = in_adc0                                            | in kernel (src/main.cpp:23)                       |
-| INTERFACE | axis port = out_r_00                                           | in kernel (src/main.cpp:24)                       |
-| INTERFACE | axis port = out_r_01                                           | in kernel (src/main.cpp:25)                       |
-| INTERFACE | axis port = in_r_00                                            | in kernel (src/main.cpp:26)                       |
-| INTERFACE | axis port = in_r_01                                            | in kernel (src/main.cpp:27)                       |
-| INTERFACE | axis port = out_d_02                                           | in kernel (src/main.cpp:28)                       |
-| INTERFACE | axis port = out_d_03                                           | in kernel (src/main.cpp:29)                       |
-| INTERFACE | axis port = in_d_02                                            | in kernel (src/main.cpp:30)                       |
-| INTERFACE | axis port = in_d_03                                            | in kernel (src/main.cpp:31)                       |
-| INTERFACE | s_axilite port = num_chirps bundle = control                   | in kernel (src/main.cpp:32)                       |
-| INTERFACE | s_axilite port = return bundle = control                       | in kernel (src/main.cpp:33)                       |
-| STREAM    | variable = mask_stream depth = 128                             | in kernel (src/main.cpp:50)                       |
-| STREAM    | variable = idx_stream depth = 128                              | in kernel (src/main.cpp:51)                       |
-| STREAM    | variable = doppler_mask_stream depth = 128                     | in kernel (src/main.cpp:52)                       |
-| DATAFLOW  |                                                                | in kernel (src/main.cpp:53)                       |
-| PIPELINE  | II = 1                                                         | in adc_forward (src/range_part.cpp:29)            |
-| PIPELINE  |                                                                | in aie_range_consume (src/range_part.cpp:70)      |
-| PIPELINE  |                                                                | in aie_range_consume (src/range_part.cpp:79)      |
-| UNROLL    |                                                                | in aie_range_consume (src/range_part.cpp:110)     |
-+-----------+----------------------------------------------------------------+---------------------------------------------------+
++----------------+----------------------------------------------------------------+---------------------------------------------------+
+| Type           | Options                                                        | Location                                          |
++----------------+----------------------------------------------------------------+---------------------------------------------------+
+| LOOP_TRIPCOUNT | min = 256 max = 256                                            | in doppler (src/doppler_part.cpp:98)              |
+| PIPELINE       |                                                                | in doppler (src/doppler_part.cpp:104)             |
+| LOOP_TRIPCOUNT | min = 16 max = 16                                              | in doppler (src/doppler_part.cpp:105)             |
+| PIPELINE       | II = 1                                                         | in doppler_forward_one (src/doppler_part.cpp:138) |
+| PIPELINE       | II = 1                                                         | in aie_consume_doppler (src/doppler_part.cpp:197) |
+| PIPELINE       | II = 1                                                         | in aie_consume_doppler (src/doppler_part.cpp:208) |
+| PIPELINE       | II = 2                                                         | in aie_consume_doppler (src/doppler_part.cpp:238) |
+| PIPELINE       | II = 1                                                         | in aie_consume_doppler (src/doppler_part.cpp:288) |
+| PIPELINE       | II = 1                                                         | in aie_consume_doppler (src/doppler_part.cpp:327) |
+| LOOP_TRIPCOUNT | min = 86 max = 86                                              | in aie_consume_doppler (src/doppler_part.cpp:328) |
+| INTERFACE      | m_axi port = mm offset = slave bundle = gmem depth = 201326592 | in kernel (src/main.cpp:20)                       |
+| INTERFACE      | s_axilite port=mm bundle=control                               | in kernel (src/main.cpp:22)                       |
+| INTERFACE      | axis port = in_adc0                                            | in kernel (src/main.cpp:23)                       |
+| INTERFACE      | axis port = out_r_00                                           | in kernel (src/main.cpp:24)                       |
+| INTERFACE      | axis port = out_r_01                                           | in kernel (src/main.cpp:25)                       |
+| INTERFACE      | axis port = in_r_00                                            | in kernel (src/main.cpp:26)                       |
+| INTERFACE      | axis port = in_r_01                                            | in kernel (src/main.cpp:27)                       |
+| INTERFACE      | axis port = out_d_02                                           | in kernel (src/main.cpp:28)                       |
+| INTERFACE      | axis port = out_d_03                                           | in kernel (src/main.cpp:29)                       |
+| INTERFACE      | axis port = in_d_02                                            | in kernel (src/main.cpp:30)                       |
+| INTERFACE      | axis port = in_d_03                                            | in kernel (src/main.cpp:31)                       |
+| INTERFACE      | s_axilite port = num_chirps bundle = control                   | in kernel (src/main.cpp:32)                       |
+| INTERFACE      | s_axilite port = return bundle = control                       | in kernel (src/main.cpp:33)                       |
+| STREAM         | variable = mask_stream depth = 128                             | in kernel (src/main.cpp:50)                       |
+| STREAM         | variable = idx_stream depth = 128                              | in kernel (src/main.cpp:51)                       |
+| STREAM         | variable = doppler_mask_stream depth = 128                     | in kernel (src/main.cpp:52)                       |
+| DATAFLOW       |                                                                | in kernel (src/main.cpp:53)                       |
+| PIPELINE       |                                                                | in build_mask_indices (src/range_part.cpp:11)     |
+| PIPELINE       | II = 1                                                         | in adc_forward (src/range_part.cpp:55)            |
+| LOOP_TRIPCOUNT | min=1024 max=1024                                              | in adc_forward (src/range_part.cpp:56)            |
+| PIPELINE       |                                                                | in aie_range_consume (src/range_part.cpp:97)      |
+| PIPELINE       |                                                                | in aie_range_consume (src/range_part.cpp:106)     |
+| UNROLL         |                                                                | in aie_range_consume (src/range_part.cpp:137)     |
++----------------+----------------------------------------------------------------+---------------------------------------------------+
 
 

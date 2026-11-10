@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Block_entry_gmem_wr_proc'" level="0">
-<item name = "Date">Mon Nov  9 15:21:28 2026
+<item name = "Date">Tue Nov 10 11:50:42 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 7.026 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 7.026 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -52,21 +52,21 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 8, -</column>
 <column name="FIFO">11, -, 314, 148, -</column>
-<column name="Instance">23, 9, 10822, 11099, 0</column>
+<column name="Instance">24, 26, 9083, 12832, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, 0, 494, -</column>
 <column name="Register">-, -, 191, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
-<specialColumn name="Utilization (%)">6, 2, 7, 14, 0</specialColumn>
+<specialColumn name="Utilization (%)">6, 6, 6, 17, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_aie_range_consume_fu_148">aie_range_consume, 3, 0, 2405, 3426, 0</column>
-<column name="grp_doppler_fu_185">doppler, 16, 9, 7658, 6988, 0</column>
-<column name="grp_seq_generator_fu_175">seq_generator, 4, 0, 759, 685, 0</column>
+<column name="grp_aie_range_consume_fu_148">aie_range_consume, 3, 0, 1087, 3433, 0</column>
+<column name="grp_doppler_fu_185">doppler, 17, 26, 7271, 8725, 0</column>
+<column name="grp_seq_generator_fu_175">seq_generator, 4, 0, 725, 674, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">

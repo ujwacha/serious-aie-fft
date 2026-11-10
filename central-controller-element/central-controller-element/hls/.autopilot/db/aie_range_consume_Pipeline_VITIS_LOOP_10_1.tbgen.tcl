@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 23
+set cdfgNum 24
 set C_modelName {aie_range_consume_Pipeline_VITIS_LOOP_10_1}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -71,15 +71,15 @@ set NewPortList {[
 
 set ArgLastReadFirstWriteLatency {
 	aie_range_consume_Pipeline_VITIS_LOOP_10_1 {
-		mask_head {Type I LastRead 1 FirstWrite -1}
-		adr_buf {Type O LastRead -1 FirstWrite 4}
-		n_out {Type O LastRead -1 FirstWrite 3}}}
+		mask_head {Type I LastRead 0 FirstWrite -1}
+		adr_buf {Type O LastRead -1 FirstWrite 2}
+		n_out {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "261", "Max" : "261"}
-	, {"Name" : "Interval", "Min" : "260", "Max" : "260"}
+	{"Name" : "Latency", "Min" : "132", "Max" : "132"}
+	, {"Name" : "Interval", "Min" : "130", "Max" : "130"}
 ]}
 
 set PipelineEnableSignalInfo {[

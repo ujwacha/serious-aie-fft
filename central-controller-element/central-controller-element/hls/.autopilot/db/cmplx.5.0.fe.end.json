@@ -1,31 +1,69 @@
 {
     "1": {
-        "name": "aie_range_consume_Pipeline_VITIS_LOOP_69_2",
-        "file": "src\/range_part.cpp",
-        "fileloc": "69",
-        "instructions": "29",
-        "total_instructions": "29",
-        "calls": "",
-        "basicblocks": "4",
-        "memory_accesses": "5",
-        "control_depth": "1",
-        "def_use_depth": "1",
+        "name": "doppler",
+        "file": "doppler_part.cpp",
+        "fileloc": "81",
+        "instructions": "40",
+        "total_instructions": "881",
+        "calls": "11 16 12",
+        "basicblocks": "7",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "0",
+        "loops": {
+            "L": "1",
+            "N": "1"
+        }
+    },
+    "2": {
+        "name": "seq_generator",
+        "file": "doppler_part.cpp",
+        "fileloc": "22",
+        "instructions": "34",
+        "total_instructions": "58",
+        "calls": "5",
+        "basicblocks": "8",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "0",
         "loads": {
-            "L": "1"
+            "G": "3"
         },
         "stores": {
-            "L": "3"
+            "G": "2"
         },
         "loops": {
             "L": "1"
         }
     },
-    "2": {
-        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_195_2",
+    "3": {
+        "name": "adc_forward_Pipeline_VITIS_LOOP_54_2",
+        "file": "src\/range_part.cpp",
+        "fileloc": "54",
+        "instructions": "53",
+        "total_instructions": "53",
+        "calls": "",
+        "basicblocks": "4",
+        "memory_accesses": "7",
+        "control_depth": "1",
+        "def_use_depth": "1",
+        "loads": {
+            "G": "2",
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_207_2",
         "file": "src\/doppler_part.cpp",
-        "fileloc": "182",
-        "instructions": "34",
-        "total_instructions": "34",
+        "fileloc": "205",
+        "instructions": "39",
+        "total_instructions": "39",
         "calls": "",
         "basicblocks": "4",
         "memory_accesses": "7",
@@ -41,40 +79,7 @@
             "L": "1"
         }
     },
-    "3": {
-        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_282_9",
-        "file": "src\/doppler_part.cpp",
-        "fileloc": "282",
-        "instructions": "24",
-        "total_instructions": "24",
-        "calls": "",
-        "basicblocks": "4",
-        "memory_accesses": "4",
-        "control_depth": "1",
-        "def_use_depth": "1",
-        "loads": {
-            "L": "2"
-        },
-        "stores": {
-            "L": "3"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "0": {
-        "name": "kernel",
-        "file": "main.cpp",
-        "fileloc": "12",
-        "instructions": "73",
-        "total_instructions": "1916",
-        "calls": "18 14 19",
-        "basicblocks": "1",
-        "memory_accesses": "0",
-        "control_depth": "0",
-        "def_use_depth": "1"
-    },
-    "4": {
+    "5": {
         "name": "seq_generator_Pipeline_VITIS_LOOP_49_2",
         "file": "src\/doppler_part.cpp",
         "fileloc": "22",
@@ -95,38 +100,58 @@
             "L": "1"
         }
     },
-    "5": {
-        "name": "doppler_forward_one",
+    "6": {
+        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_326_9",
         "file": "src\/doppler_part.cpp",
-        "fileloc": "123",
-        "instructions": "58",
-        "total_instructions": "58",
+        "fileloc": "326",
+        "instructions": "24",
+        "total_instructions": "24",
         "calls": "",
         "basicblocks": "4",
-        "memory_accesses": "8",
+        "memory_accesses": "4",
         "control_depth": "1",
         "def_use_depth": "1",
         "loads": {
-            "G": "2",
-            "L": "3"
+            "L": "2"
         },
         "stores": {
-            "L": "2"
+            "L": "3"
         },
         "loops": {
             "L": "1"
         }
     },
-    "6": {
-        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_210_3",
-        "file": "src\/doppler_part.cpp",
-        "fileloc": "210",
-        "instructions": "66",
-        "total_instructions": "66",
+    "7": {
+        "name": "aie_range_consume_Pipeline_VITIS_LOOP_10_1",
+        "file": "src\/range_part.cpp",
+        "fileloc": "103",
+        "instructions": "49",
+        "total_instructions": "49",
         "calls": "",
-        "basicblocks": "6",
-        "memory_accesses": "9",
+        "basicblocks": "8",
+        "memory_accesses": "11",
         "control_depth": "2",
+        "def_use_depth": "4",
+        "loads": {
+            "L": "6"
+        },
+        "stores": {
+            "L": "8"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "8": {
+        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_237_3",
+        "file": "src\/doppler_part.cpp",
+        "fileloc": "237",
+        "instructions": "39",
+        "total_instructions": "39",
+        "calls": "",
+        "basicblocks": "4",
+        "memory_accesses": "9",
+        "control_depth": "1",
         "def_use_depth": "1",
         "loads": {
             "L": "5"
@@ -138,7 +163,85 @@
             "L": "1"
         }
     },
-    "7": {
+    "9": {
+        "name": "dummy",
+        "file": "angle_part.cpp",
+        "fileloc": "3",
+        "instructions": "10",
+        "total_instructions": "10",
+        "calls": "",
+        "basicblocks": "4",
+        "memory_accesses": "1",
+        "control_depth": "1",
+        "def_use_depth": "0",
+        "loops": {
+            "L": "1"
+        }
+    },
+    "10": {
+        "name": "aie_range_consume",
+        "file": "range_part.cpp",
+        "fileloc": "84",
+        "instructions": "419",
+        "total_instructions": "636",
+        "calls": "18 7 20",
+        "basicblocks": "4",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "1",
+        "loads": {
+            "L": "66"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "11": {
+        "name": "doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3",
+        "file": "src\/doppler_part.cpp",
+        "fileloc": "97",
+        "instructions": "52",
+        "total_instructions": "52",
+        "calls": "",
+        "basicblocks": "6",
+        "memory_accesses": "9",
+        "control_depth": "2",
+        "def_use_depth": "1",
+        "loads": {
+            "L": "3"
+        },
+        "stores": {
+            "L": "7"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "12": {
+        "name": "aie_consume_doppler",
+        "file": "doppler_part.cpp",
+        "fileloc": "186",
+        "instructions": "314",
+        "total_instructions": "731",
+        "calls": "13 15 4 8 21 17 6",
+        "basicblocks": "6",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "32",
+        "loads": {
+            "L": "91"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "13": {
         "name": "aie_consume_doppler_Pipeline_1",
         "file": "doppler_part.cpp",
         "fileloc": "0",
@@ -159,19 +262,19 @@
             "L": "1"
         }
     },
-    "8": {
-        "name": "aie_range_consume",
+    "14": {
+        "name": "adc_forward",
         "file": "range_part.cpp",
-        "fileloc": "57",
-        "instructions": "419",
-        "total_instructions": "636",
-        "calls": "1 16 17",
+        "fileloc": "50",
+        "instructions": "19",
+        "total_instructions": "72",
+        "calls": "3",
         "basicblocks": "4",
         "memory_accesses": "0",
         "control_depth": "0",
         "def_use_depth": "1",
         "loads": {
-            "L": "66"
+            "L": "1"
         },
         "stores": {
             "L": "2"
@@ -180,31 +283,10 @@
             "L": "1"
         }
     },
-    "9": {
-        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_244_5",
+    "15": {
+        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_196_1",
         "file": "src\/doppler_part.cpp",
-        "fileloc": "238",
-        "instructions": "367",
-        "total_instructions": "367",
-        "calls": "",
-        "basicblocks": "6",
-        "memory_accesses": "70",
-        "control_depth": "2",
-        "def_use_depth": "1",
-        "loads": {
-            "L": "51"
-        },
-        "stores": {
-            "L": "3"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "10": {
-        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_185_1",
-        "file": "src\/doppler_part.cpp",
-        "fileloc": "185",
+        "fileloc": "196",
         "instructions": "37",
         "total_instructions": "37",
         "calls": "",
@@ -222,122 +304,98 @@
             "L": "1"
         }
     },
-    "11": {
-        "name": "doppler",
-        "file": "doppler_part.cpp",
-        "fileloc": "81",
-        "instructions": "39",
-        "total_instructions": "1058",
-        "calls": "20 5 13",
-        "basicblocks": "7",
-        "memory_accesses": "0",
-        "control_depth": "0",
-        "def_use_depth": "0",
-        "loops": {
-            "L": "1",
-            "N": "1"
-        }
-    },
-    "12": {
-        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_221_4",
-        "file": "src\/doppler_part.cpp",
-        "fileloc": "219",
-        "instructions": "29",
-        "total_instructions": "29",
-        "calls": "",
-        "basicblocks": "7",
-        "memory_accesses": "5",
-        "control_depth": "2",
-        "def_use_depth": "1",
-        "loads": {
-            "L": "3"
-        },
-        "stores": {
-            "L": "4"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "13": {
-        "name": "aie_consume_doppler",
-        "file": "doppler_part.cpp",
-        "fileloc": "174",
-        "instructions": "337",
-        "total_instructions": "909",
-        "calls": "7 10 2 6 12 9 3",
-        "basicblocks": "4",
-        "memory_accesses": "0",
-        "control_depth": "0",
-        "def_use_depth": "7",
-        "loads": {
-            "L": "91"
-        },
-        "stores": {
-            "L": "4"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "14": {
-        "name": "kernel_",
+    "0": {
+        "name": "kernel",
         "file": "main.cpp",
-        "fileloc": "0",
-        "instructions": "26",
-        "total_instructions": "1778",
-        "calls": "8 15 11",
+        "fileloc": "12",
+        "instructions": "73",
+        "total_instructions": "1756",
+        "calls": "14 19 9",
         "basicblocks": "1",
         "memory_accesses": "0",
         "control_depth": "0",
         "def_use_depth": "1"
     },
-    "15": {
-        "name": "seq_generator",
-        "file": "doppler_part.cpp",
-        "fileloc": "22",
-        "instructions": "34",
-        "total_instructions": "58",
-        "calls": "4",
-        "basicblocks": "8",
-        "memory_accesses": "0",
-        "control_depth": "0",
-        "def_use_depth": "0",
-        "loads": {
-            "G": "3"
-        },
-        "stores": {
-            "G": "2"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
     "16": {
-        "name": "aie_range_consume_Pipeline_VITIS_LOOP_10_1",
-        "file": "src\/range_part.cpp",
-        "fileloc": "76",
-        "instructions": "49",
-        "total_instructions": "49",
+        "name": "doppler_forward_one",
+        "file": "src\/doppler_part.cpp",
+        "fileloc": "135",
+        "instructions": "58",
+        "total_instructions": "58",
         "calls": "",
-        "basicblocks": "8",
-        "memory_accesses": "11",
-        "control_depth": "2",
-        "def_use_depth": "4",
+        "basicblocks": "4",
+        "memory_accesses": "8",
+        "control_depth": "1",
+        "def_use_depth": "1",
         "loads": {
-            "L": "6"
+            "G": "2",
+            "L": "3"
         },
         "stores": {
-            "L": "8"
+            "L": "2"
         },
         "loops": {
             "L": "1"
         }
     },
     "17": {
-        "name": "aie_range_consume_Pipeline_VITIS_LOOP_78_3",
+        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_287_5",
+        "file": "src\/doppler_part.cpp",
+        "fileloc": "280",
+        "instructions": "234",
+        "total_instructions": "234",
+        "calls": "",
+        "basicblocks": "6",
+        "memory_accesses": "70",
+        "control_depth": "2",
+        "def_use_depth": "1",
+        "loads": {
+            "L": "51"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "18": {
+        "name": "aie_range_consume_Pipeline_VITIS_LOOP_96_2",
         "file": "src\/range_part.cpp",
-        "fileloc": "78",
+        "fileloc": "96",
+        "instructions": "29",
+        "total_instructions": "29",
+        "calls": "",
+        "basicblocks": "4",
+        "memory_accesses": "5",
+        "control_depth": "1",
+        "def_use_depth": "1",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "3"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "19": {
+        "name": "kernel_",
+        "file": "main.cpp",
+        "fileloc": "0",
+        "instructions": "26",
+        "total_instructions": "1601",
+        "calls": "10 2 1",
+        "basicblocks": "1",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "1"
+    },
+    "20": {
+        "name": "aie_range_consume_Pipeline_VITIS_LOOP_105_3",
+        "file": "src\/range_part.cpp",
+        "fileloc": "105",
         "instructions": "139",
         "total_instructions": "139",
         "calls": "",
@@ -355,56 +413,22 @@
             "L": "1"
         }
     },
-    "18": {
-        "name": "adc_forward",
-        "file": "range_part.cpp",
-        "fileloc": "25",
-        "instructions": "62",
-        "total_instructions": "62",
-        "calls": "",
-        "basicblocks": "4",
-        "memory_accesses": "9",
-        "control_depth": "1",
-        "def_use_depth": "1",
-        "loads": {
-            "G": "2",
-            "L": "2"
-        },
-        "stores": {
-            "L": "4"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "19": {
-        "name": "dummy",
-        "file": "angle_part.cpp",
-        "fileloc": "3",
-        "instructions": "3",
-        "total_instructions": "3",
-        "calls": "",
-        "basicblocks": "1",
-        "memory_accesses": "0",
-        "control_depth": "0",
-        "def_use_depth": "0"
-    },
-    "20": {
-        "name": "doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_101_3",
+    "21": {
+        "name": "aie_consume_doppler_Pipeline_VITIS_LOOP_248_4",
         "file": "src\/doppler_part.cpp",
-        "fileloc": "97",
-        "instructions": "52",
-        "total_instructions": "52",
+        "fileloc": "246",
+        "instructions": "29",
+        "total_instructions": "29",
         "calls": "",
-        "basicblocks": "6",
-        "memory_accesses": "9",
+        "basicblocks": "7",
+        "memory_accesses": "5",
         "control_depth": "2",
         "def_use_depth": "1",
         "loads": {
             "L": "3"
         },
         "stores": {
-            "L": "7"
+            "L": "4"
         },
         "loops": {
             "L": "1"

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'aie_consume_doppler_Pipeline_1'" level="0">
-<item name = "Date">Mon Nov  9 15:21:26 2026
+<item name = "Date">Tue Nov 10 11:50:41 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 3.458 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 5.046 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">66, 66, 0.464 us, 0.464 us, 0, 0, loop pipeline stp</column>
+<column name="">66, 66, 0.528 us, 0.528 us, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Detail">
@@ -52,8 +52,8 @@
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, 0, 41, -</column>
-<column name="Register">-, -, 24, -, -</column>
+<column name="Multiplexer">-, -, 0, 36, -</column>
+<column name="Register">-, -, 17, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -78,8 +78,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="empty_99_fu_56_p2">+, 0, 0, 14, 7, 1</column>
-<column name="exitcond534_fu_50_p2">icmp, 0, 0, 15, 7, 8</column>
+<column name="empty_107_fu_56_p2">+, 0, 0, 14, 7, 1</column>
+<column name="exitcond624_fu_50_p2">icmp, 0, 0, 15, 7, 8</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -87,7 +87,7 @@
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_p_load">14, 3, 7, 21</column>
+<column name="ap_sig_allocacmp_p_load">9, 2, 7, 14</column>
 <column name="empty_fu_24">9, 2, 7, 14</column>
 </table>
 </item>
@@ -96,9 +96,8 @@
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="empty_99_reg_85">7, 0, 7, 0</column>
 <column name="empty_fu_24">7, 0, 7, 0</column>
-<column name="p_load_reg_77">7, 0, 7, 0</column>
+<column name="p_load_reg_78">7, 0, 7, 0</column>
 </table>
 </item>
 </section>

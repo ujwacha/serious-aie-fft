@@ -1,8 +1,6 @@
 # Inferred from syn.compile.pipeline_loops=64
-set_directive_pipeline aie_consume_doppler/VITIS_LOOP_221_4
+set_directive_pipeline dummy/VITIS_LOOP_7_1
+set_directive_pipeline aie_consume_doppler/VITIS_LOOP_248_4
 set_directive_pipeline seq_generator/VITIS_LOOP_49_2
-set_directive_pipeline aie_range_consume/VITIS_LOOP_10_1
 # Inferred from performance & pipeline pragmas/directives
-set_directive_loop_flatten doppler/VITIS_LOOP_101_3
-set_directive_loop_flatten aie_consume_doppler/VITIS_LOOP_269_8 -off
-set_directive_loop_flatten adc_forward/VITIS_LOOP_28_2
+set_directive_loop_flatten doppler/VITIS_LOOP_103_3

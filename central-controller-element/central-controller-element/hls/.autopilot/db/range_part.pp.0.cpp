@@ -55483,7 +55483,7 @@ struct DopplerMaskPacket {
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    float data[86];
+    int32_t data[86];
 };
 
 
@@ -55570,6 +55570,7 @@ void build_mask_indices(const ap_uint<32> *mask_words, unsigned int *idxs,
   unsigned int n = 0, accum = 0;
 
   VITIS_LOOP_10_1: for (int i = 0; i < 64; i++) {
+#pragma HLS pipeline
     auto high_mask = mask_words[i].range(31, 16);
     auto low_mask = mask_words[i].range(15, 0);
 
@@ -55583,12 +55584,14 @@ void build_mask_indices(const ap_uint<32> *mask_words, unsigned int *idxs,
 
   count = n;
 }
-
+# 50 "src/range_part.cpp"
 void adc_forward(hls::stream<pkt_adc> &in_adc0, hls::stream<pkt> &out_r_00,
                  hls::stream<pkt> &out_r_01, unsigned int num_chirps) {
-  VITIS_LOOP_27_1: for (unsigned int c = 0; c < num_chirps; c++) {
-    VITIS_LOOP_28_2: for (int i = 0; i < 1024; i++) {
+  VITIS_LOOP_52_1: for (unsigned int c = 0; c < num_chirps; c++) {
+#pragma HLS loop_flatten off
+    VITIS_LOOP_54_2: for (int i = 0; i < 1024; i++) {
 #pragma HLS PIPELINE II = 1
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
       pkt_adc in_packet = in_adc0.read();
       ap_uint<64> in_data = in_packet.data;
 
@@ -55620,7 +55623,7 @@ void aie_range_consume(hls::stream<pkt> &in_r_00,
                        hls::stream<pkt> &in_r_01,
                        hls::stream<MaskPacket> &mask_stream, ap_uint<32> *mm,
                        unsigned int sequence, unsigned int num_chirps) {
-  VITIS_LOOP_61_1: for (unsigned int c = 0; c < num_chirps; c++) {
+  VITIS_LOOP_88_1: for (unsigned int c = 0; c < num_chirps; c++) {
     ap_uint<16> chirp = (ap_uint<16>)c;
 
 
@@ -55628,7 +55631,7 @@ void aie_range_consume(hls::stream<pkt> &in_r_00,
     unsigned int adr_buf[128];
     unsigned int count;
 
-    VITIS_LOOP_69_2: for (int i = 0; i < 64; i++) {
+    VITIS_LOOP_96_2: for (int i = 0; i < 64; i++) {
 #pragma HLS PIPELINE
       mask_head[i] = in_r_00.read().data;
       in_r_01.read();
@@ -55637,20 +55640,20 @@ void aie_range_consume(hls::stream<pkt> &in_r_00,
 
     build_mask_indices(mask_head, adr_buf, count);
 
-    VITIS_LOOP_78_3: for (int i = 0; i < count; i++) {
+    VITIS_LOOP_105_3: for (int i = 0; i < count; i++) {
 #pragma HLS PIPELINE
 
 
       ap_uint<32> buf[16];
 
       if (i % 2 == 0) {
-        VITIS_LOOP_85_4: for (int j = 0; j < 16; j++) {
+        VITIS_LOOP_112_4: for (int j = 0; j < 16; j++) {
 #pragma HLS PIPELINE
           buf[j] = in_r_00.read().data;
         }
       } else {
 
-        VITIS_LOOP_91_5: for (int j = 0; j < 16; j++) {
+        VITIS_LOOP_118_5: for (int j = 0; j < 16; j++) {
 #pragma HLS PIPELINE
           buf[j] = in_r_01.read().data;
         }
@@ -55660,7 +55663,7 @@ void aie_range_consume(hls::stream<pkt> &in_r_00,
       ap_uint<32> *dst = range_bin_ptr(mm, (ap_uint<16>)sequence,
                                        chirp, (ap_uint<16>)adr_buf[i]);
 
-      VITIS_LOOP_101_6: for (int j = 0; j < 16; j++) {
+      VITIS_LOOP_128_6: for (int j = 0; j < 16; j++) {
 #pragma HLS PIPELINE
         dst[j] = buf[j];
       }
@@ -55668,7 +55671,7 @@ void aie_range_consume(hls::stream<pkt> &in_r_00,
 
 
     ap_uint<128> condensed = 0;
-    VITIS_LOOP_109_7: for (int i = 0; i < 64; i++) {
+    VITIS_LOOP_136_7: for (int i = 0; i < 64; i++) {
 #pragma HLS UNROLL
       condensed[i * 2] = (mask_head[i].range(15, 0) == 0xFFFF) ? 1 : 0;
       condensed[i * 2 + 1] = (mask_head[i].range(31, 16) == 0xFFFF) ? 1 : 0;

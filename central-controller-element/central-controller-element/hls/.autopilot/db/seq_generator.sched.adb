@@ -200,7 +200,7 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.82</m_delay>
+				<m_delay>2.92</m_delay>
 				<m_topoIndex>2</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -606,7 +606,7 @@
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
-				<Asap>2</Asap>
+				<Asap>1</Asap>
 				<Alap>3</Alap>
 				<oprand_edges>
 					<count>2</count>
@@ -678,7 +678,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>10</m_topoIndex>
+				<m_topoIndex>11</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_13">
@@ -738,7 +738,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>11</m_topoIndex>
+				<m_topoIndex>12</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_14">
@@ -796,7 +796,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>3.25</m_delay>
-				<m_topoIndex>12</m_topoIndex>
+				<m_topoIndex>13</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_15">
@@ -841,8 +841,8 @@
 					</Obj>
 					<bitwidth>128</bitwidth>
 				</Value>
-				<Asap>4</Asap>
-				<Alap>4</Alap>
+				<Asap>3</Asap>
+				<Alap>3</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -960,8 +960,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>5</Alap>
+				<Asap>4</Asap>
+				<Alap>4</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -1020,8 +1020,8 @@
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
-				<Asap>2</Asap>
-				<Alap>5</Alap>
+				<Asap>1</Asap>
+				<Alap>4</Alap>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
@@ -1034,7 +1034,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>2.07</m_delay>
-				<m_topoIndex>13</m_topoIndex>
+				<m_topoIndex>10</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_19">
@@ -1079,8 +1079,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>5</Alap>
+				<Asap>4</Asap>
+				<Alap>4</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -1139,8 +1139,8 @@
 					</Obj>
 					<bitwidth>7</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>7</Alap>
+				<Asap>4</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
@@ -1200,8 +1200,8 @@
 					</Obj>
 					<bitwidth>128</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>7</Alap>
+				<Asap>4</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1258,8 +1258,8 @@
 					</Obj>
 					<bitwidth>128</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>7</Alap>
+				<Asap>4</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
@@ -1319,8 +1319,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>7</Alap>
+				<Asap>4</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -1379,8 +1379,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>5</Alap>
+				<Asap>4</Asap>
+				<Alap>4</Alap>
 				<oprand_edges>
 					<count>6</count>
 					<item_version>0</item_version>
@@ -1442,8 +1442,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>5</Asap>
-				<Alap>5</Alap>
+				<Asap>4</Asap>
+				<Alap>4</Alap>
 				<oprand_edges>
 					<count>5</count>
 					<item_version>0</item_version>
@@ -1458,7 +1458,7 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
+				<m_delay>2.58</m_delay>
 				<m_topoIndex>23</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -1490,8 +1490,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>6</Asap>
-				<Alap>7</Alap>
+				<Asap>5</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1548,8 +1548,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>6</Asap>
-				<Alap>7</Alap>
+				<Asap>5</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1606,8 +1606,8 @@
 					</Obj>
 					<bitwidth>128</bitwidth>
 				</Value>
-				<Asap>6</Asap>
-				<Alap>7</Alap>
+				<Asap>5</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
@@ -1665,8 +1665,8 @@
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
-				<Asap>6</Asap>
-				<Alap>7</Alap>
+				<Asap>5</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1723,8 +1723,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>6</Asap>
-				<Alap>7</Alap>
+				<Asap>5</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
@@ -1783,8 +1783,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>6</Asap>
-				<Alap>7</Alap>
+				<Asap>5</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
@@ -1841,8 +1841,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>7</Asap>
-				<Alap>7</Alap>
+				<Asap>6</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>5</count>
 					<item_version>0</item_version>
@@ -1857,7 +1857,7 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.82</m_delay>
+				<m_delay>2.92</m_delay>
 				<m_topoIndex>30</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -1903,8 +1903,8 @@
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
-				<Asap>7</Asap>
-				<Alap>7</Alap>
+				<Asap>6</Asap>
+				<Alap>6</Alap>
 				<oprand_edges>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -3426,7 +3426,7 @@
 		<item>
 			<first>18</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3454,7 +3454,7 @@
 		<item>
 			<first>22</first>
 			<second>
-				<first>4</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3468,119 +3468,119 @@
 		<item>
 			<first>24</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>25</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>26</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>28</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>29</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>30</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>31</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>32</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>33</first>
 			<second>
-				<first>5</first>
+				<first>4</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>34</first>
 			<second>
-				<first>6</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>36</first>
 			<second>
-				<first>6</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>38</first>
 			<second>
-				<first>6</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>39</first>
 			<second>
-				<first>6</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>40</first>
 			<second>
-				<first>6</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>42</first>
 			<second>
-				<first>6</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>44</first>
 			<second>
-				<first>7</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>45</first>
 			<second>
-				<first>7</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3605,43 +3605,43 @@
 		<item>
 			<first>27</first>
 			<second>
-				<first>2</first>
-				<second>5</second>
+				<first>1</first>
+				<second>4</second>
 			</second>
 		</item>
 		<item>
 			<first>35</first>
 			<second>
-				<first>5</first>
-				<second>6</second>
+				<first>4</first>
+				<second>5</second>
 			</second>
 		</item>
 		<item>
 			<first>37</first>
 			<second>
-				<first>6</first>
-				<second>6</second>
+				<first>5</first>
+				<second>5</second>
 			</second>
 		</item>
 		<item>
 			<first>41</first>
 			<second>
-				<first>6</first>
-				<second>6</second>
+				<first>5</first>
+				<second>5</second>
 			</second>
 		</item>
 		<item>
 			<first>43</first>
 			<second>
-				<first>6</first>
-				<second>6</second>
+				<first>5</first>
+				<second>5</second>
 			</second>
 		</item>
 		<item>
 			<first>46</first>
 			<second>
-				<first>7</first>
-				<second>7</second>
+				<first>6</first>
+				<second>6</second>
 			</second>
 		</item>
 	</bblk_ent_exit>

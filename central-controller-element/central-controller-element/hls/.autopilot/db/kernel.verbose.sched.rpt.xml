@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'kernel'" level="0">
-<item name = "Date">Mon Nov  9 15:21:25 2026
+<item name = "Date">Tue Nov 10 11:50:40 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 7.026 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 7.026 ns, 2.16 ns</column>
 </table>
 </item>
 </section>

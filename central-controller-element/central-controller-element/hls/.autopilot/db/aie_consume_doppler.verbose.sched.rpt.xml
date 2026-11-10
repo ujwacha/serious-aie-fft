@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'aie_consume_doppler'" level="0">
-<item name = "Date">Mon Nov  9 15:21:25 2026
+<item name = "Date">Tue Nov 10 11:50:40 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 6.312 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 6.442 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">4304, 4625, 21.520 us, 23.125 us, 4304, 4625, no</column>
+<column name="">1663, 1888, 13.304 us, 15.104 us, 1663, 1888, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_269_8">411, 411, 137, -, -, 3, no</column>
+<column name="- VITIS_LOOP_312_8">411, 411, 137, -, -, 3, no</column>
 </table>
 </item>
 </section>

@@ -9,8 +9,8 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>kernel</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
@@ -41,10 +41,10 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>195</BRAM_18K>
-<DSP>13</DSP>
-<FF>12895</FF>
-<LUT>13106</LUT>
+<BRAM_18K>196</BRAM_18K>
+<DSP>30</DSP>
+<FF>10993</FF>
+<LUT>14932</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

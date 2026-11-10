@@ -9,8 +9,8 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>aie_consume_doppler</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
@@ -21,50 +21,50 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>4304</Best-caseLatency>
-<Average-caseLatency>4465</Average-caseLatency>
-<Worst-caseLatency>4625</Worst-caseLatency>
-<Best-caseRealTimeLatency>30.240 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>31.371 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>32.495 us</Worst-caseRealTimeLatency>
-<Interval-min>4304</Interval-min>
-<Interval-max>4625</Interval-max>
+<Best-caseLatency>1663</Best-caseLatency>
+<Average-caseLatency>1776</Average-caseLatency>
+<Worst-caseLatency>1888</Worst-caseLatency>
+<Best-caseRealTimeLatency>13.304 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>14.208 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>15.104 us</Worst-caseRealTimeLatency>
+<Interval-min>1663</Interval-min>
+<Interval-max>1888</Interval-max>
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_269_8>
-<Slack>3.65</Slack>
+<VITIS_LOOP_312_8>
+<Slack>5.84</Slack>
 <TripCount>3</TripCount>
 <isPerfectNested>0</isPerfectNested>
 <Latency>411</Latency>
-<AbsoluteTimeLatency>2887</AbsoluteTimeLatency>
+<AbsoluteTimeLatency>3288</AbsoluteTimeLatency>
 <IterationLatency>137</IterationLatency>
 <PerformancePragma>-</PerformancePragma>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_269_8>
+</VITIS_LOOP_312_8>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>Timing Violation</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/doppler_part.cpp:270</SourceLocation>
+<SourceLocation>src/doppler_part.cpp:190</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_269_8>
-<Name>VITIS_LOOP_269_8</Name>
+<VITIS_LOOP_312_8>
+<Name>VITIS_LOOP_312_8</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/doppler_part.cpp:176</SourceLocation>
-</VITIS_LOOP_269_8>
+<SourceLocation>src/doppler_part.cpp:188</SourceLocation>
+</VITIS_LOOP_312_8>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>7</BRAM_18K>
-<DSP>5</DSP>
-<FF>6731</FF>
-<LUT>6227</LUT>
+<BRAM_18K>8</BRAM_18K>
+<DSP>22</DSP>
+<FF>6535</FF>
+<LUT>7897</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

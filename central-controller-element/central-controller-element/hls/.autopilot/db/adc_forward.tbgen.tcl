@@ -2,9 +2,9 @@ set moduleName adc_forward
 set isTopModule 0
 set isCombinational 0
 set isDatapathOnly 0
-set isPipelined 1
-set isPipelined_legacy 1
-set pipeline_type loop_auto_rewind
+set isPipelined 0
+set isPipelined_legacy 0
+set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
 set restart_counter_num 0
 set isOneStateSeq 0
@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 23
+set cdfgNum 24
 set C_modelName {adc_forward}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -61,21 +61,21 @@ set portList {
 	{ ap_continue sc_in sc_logic 1 continue -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ in_adc0_TVALID sc_in sc_logic 1 invld 3 } 
-	{ out_r_00_TREADY sc_in sc_logic 1 outacc 7 } 
-	{ out_r_01_TREADY sc_in sc_logic 1 outacc 11 } 
 	{ in_adc0_TDATA sc_in sc_lv 64 signal 0 } 
+	{ in_adc0_TVALID sc_in sc_logic 1 invld 3 } 
 	{ in_adc0_TREADY sc_out sc_logic 1 inacc 3 } 
 	{ in_adc0_TKEEP sc_in sc_lv 8 signal 1 } 
 	{ in_adc0_TSTRB sc_in sc_lv 8 signal 2 } 
 	{ in_adc0_TLAST sc_in sc_lv 1 signal 3 } 
 	{ out_r_00_TDATA sc_out sc_lv 32 signal 4 } 
 	{ out_r_00_TVALID sc_out sc_logic 1 outvld 7 } 
+	{ out_r_00_TREADY sc_in sc_logic 1 outacc 7 } 
 	{ out_r_00_TKEEP sc_out sc_lv 4 signal 5 } 
 	{ out_r_00_TSTRB sc_out sc_lv 4 signal 6 } 
 	{ out_r_00_TLAST sc_out sc_lv 1 signal 7 } 
 	{ out_r_01_TDATA sc_out sc_lv 32 signal 8 } 
 	{ out_r_01_TVALID sc_out sc_logic 1 outvld 11 } 
+	{ out_r_01_TREADY sc_in sc_logic 1 outacc 11 } 
 	{ out_r_01_TKEEP sc_out sc_lv 4 signal 9 } 
 	{ out_r_01_TSTRB sc_out sc_lv 4 signal 10 } 
 	{ out_r_01_TLAST sc_out sc_lv 1 signal 11 } 
@@ -89,21 +89,21 @@ set NewPortList {[
  	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "in_adc0_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "in_adc0_V_last_V", "role": "default" }} , 
- 	{ "name": "out_r_00_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_r_00_V_last_V", "role": "default" }} , 
- 	{ "name": "out_r_01_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_r_01_V_last_V", "role": "default" }} , 
  	{ "name": "in_adc0_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "in_adc0_V_data_V", "role": "default" }} , 
+ 	{ "name": "in_adc0_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "in_adc0_V_last_V", "role": "default" }} , 
  	{ "name": "in_adc0_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "in_adc0_V_last_V", "role": "default" }} , 
  	{ "name": "in_adc0_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "in_adc0_V_keep_V", "role": "default" }} , 
  	{ "name": "in_adc0_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "in_adc0_V_strb_V", "role": "default" }} , 
  	{ "name": "in_adc0_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "in_adc0_V_last_V", "role": "default" }} , 
  	{ "name": "out_r_00_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "out_r_00_V_data_V", "role": "default" }} , 
  	{ "name": "out_r_00_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "out_r_00_V_last_V", "role": "default" }} , 
+ 	{ "name": "out_r_00_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_r_00_V_last_V", "role": "default" }} , 
  	{ "name": "out_r_00_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_r_00_V_keep_V", "role": "default" }} , 
  	{ "name": "out_r_00_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_r_00_V_strb_V", "role": "default" }} , 
  	{ "name": "out_r_00_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_r_00_V_last_V", "role": "default" }} , 
  	{ "name": "out_r_01_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "out_r_01_V_data_V", "role": "default" }} , 
  	{ "name": "out_r_01_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "out_r_01_V_last_V", "role": "default" }} , 
+ 	{ "name": "out_r_01_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_r_01_V_last_V", "role": "default" }} , 
  	{ "name": "out_r_01_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_r_01_V_keep_V", "role": "default" }} , 
  	{ "name": "out_r_01_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_r_01_V_strb_V", "role": "default" }} , 
  	{ "name": "out_r_01_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_r_01_V_last_V", "role": "default" }} , 
@@ -111,30 +111,43 @@ set NewPortList {[
 
 set ArgLastReadFirstWriteLatency {
 	adc_forward {
-		in_adc0_V_data_V {Type I LastRead 2 FirstWrite -1}
-		in_adc0_V_keep_V {Type I LastRead 2 FirstWrite -1}
-		in_adc0_V_strb_V {Type I LastRead 2 FirstWrite -1}
-		in_adc0_V_last_V {Type I LastRead 2 FirstWrite -1}
-		out_r_00_V_data_V {Type O LastRead -1 FirstWrite 4}
-		out_r_00_V_keep_V {Type O LastRead -1 FirstWrite 4}
-		out_r_00_V_strb_V {Type O LastRead -1 FirstWrite 4}
-		out_r_00_V_last_V {Type O LastRead -1 FirstWrite 4}
-		out_r_01_V_data_V {Type O LastRead -1 FirstWrite 4}
-		out_r_01_V_keep_V {Type O LastRead -1 FirstWrite 4}
-		out_r_01_V_strb_V {Type O LastRead -1 FirstWrite 4}
-		out_r_01_V_last_V {Type O LastRead -1 FirstWrite 4}
+		in_adc0_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_adc0_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_adc0_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_adc0_V_last_V {Type I LastRead 1 FirstWrite -1}
+		out_r_00_V_data_V {Type O LastRead -1 FirstWrite 3}
+		out_r_00_V_keep_V {Type O LastRead -1 FirstWrite 3}
+		out_r_00_V_strb_V {Type O LastRead -1 FirstWrite 3}
+		out_r_00_V_last_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_data_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_keep_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_strb_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_last_V {Type O LastRead -1 FirstWrite 3}
 		num_chirps {Type I LastRead 0 FirstWrite -1}
+		hamming_window_2048_real {Type I LastRead -1 FirstWrite -1}}
+	adc_forward_Pipeline_VITIS_LOOP_54_2 {
+		in_adc0_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_adc0_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_adc0_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_adc0_V_last_V {Type I LastRead 1 FirstWrite -1}
+		out_r_00_V_data_V {Type O LastRead -1 FirstWrite 3}
+		out_r_00_V_keep_V {Type O LastRead -1 FirstWrite 3}
+		out_r_00_V_strb_V {Type O LastRead -1 FirstWrite 3}
+		out_r_00_V_last_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_data_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_keep_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_strb_V {Type O LastRead -1 FirstWrite 3}
+		out_r_01_V_last_V {Type O LastRead -1 FirstWrite 3}
 		hamming_window_2048_real {Type I LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "2", "Max" : "4398046510086"}
-	, {"Name" : "Interval", "Min" : "1", "Max" : "4398046510081"}
+	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
+	, {"Name" : "Interval", "Min" : "-1", "Max" : "-1"}
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
@@ -145,10 +158,10 @@ set Spec2ImplPortList {
 	out_r_00_V_data_V { axis {  { out_r_00_TDATA out_data 1 32 } } }
 	out_r_00_V_keep_V { axis {  { out_r_00_TKEEP out_data 1 4 } } }
 	out_r_00_V_strb_V { axis {  { out_r_00_TSTRB out_data 1 4 } } }
-	out_r_00_V_last_V { axis {  { out_r_00_TREADY out_acc 0 1 }  { out_r_00_TVALID out_vld 1 1 }  { out_r_00_TLAST out_data 1 1 } } }
+	out_r_00_V_last_V { axis {  { out_r_00_TVALID out_vld 1 1 }  { out_r_00_TREADY out_acc 0 1 }  { out_r_00_TLAST out_data 1 1 } } }
 	out_r_01_V_data_V { axis {  { out_r_01_TDATA out_data 1 32 } } }
 	out_r_01_V_keep_V { axis {  { out_r_01_TKEEP out_data 1 4 } } }
 	out_r_01_V_strb_V { axis {  { out_r_01_TSTRB out_data 1 4 } } }
-	out_r_01_V_last_V { axis {  { out_r_01_TREADY out_acc 0 1 }  { out_r_01_TVALID out_vld 1 1 }  { out_r_01_TLAST out_data 1 1 } } }
+	out_r_01_V_last_V { axis {  { out_r_01_TVALID out_vld 1 1 }  { out_r_01_TREADY out_acc 0 1 }  { out_r_01_TLAST out_data 1 1 } } }
 	num_chirps { ap_none {  { num_chirps in_data 0 32 } } }
 }

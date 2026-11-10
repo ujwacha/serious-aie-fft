@@ -9,10 +9,10 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Mon Nov  9 15:19:49 2026",
- "timestampMillis": "1794216889919",
+ "dateTimestamp": "Tue Nov 10 11:49:24 2026",
+ "timestampMillis": "1794290664104",
  "buildStep": {
-  "cmdId": "cc374fae-2f50-4543-9661-d52339bcf454",
+  "cmdId": "e2a7dcf5-e54a-4ea3-b0a0-9857a14c47b8",
   "name": "v++",
   "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/logs/central-controller-element.steps.log",
   "commandLine": "/home/light/FPGA/2026.1/Vitis/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg --work_dir central-controller-element ",
@@ -28,7 +28,7 @@
   "iniFiles": [
    {
     "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg",
-    "content": "part=xa7z030fbg484-1I\n# part=xa7z020clg484-1Q\n\n[hls]\npackage.output.format=ip_catalog\npackage.output.syn=false\nsyn.interface.default_axi=0\nsyn.file=./src/main.h\nsyn.file=./src/main.cpp\nsyn.file=./src/range_part.h\nsyn.file=./src/range_part.cpp\nsyn.file=./src/doppler_part.h\nsyn.file=./src/doppler_part.cpp\nsyn.file=./src/angle_part.h\nsyn.file=./src/angle_part.cpp\nsyn.file=./src/complex-math.h\nsyn.file=./src/complex-math.cpp\nsyn.file=./src/hamming.h\nsyn.top=kernel\ntb.file=./tb/test.cpp\nclock=5"
+    "content": "part=xa7z030fbg484-1I\n# part=xa7z020clg484-1Q\n\n[hls]\npackage.output.format=ip_catalog\npackage.output.syn=false\nsyn.interface.default_axi=0\nsyn.file=./src/main.h\nsyn.file=./src/main.cpp\nsyn.file=./src/range_part.h\nsyn.file=./src/range_part.cpp\nsyn.file=./src/doppler_part.h\nsyn.file=./src/doppler_part.cpp\nsyn.file=./src/angle_part.h\nsyn.file=./src/angle_part.cpp\nsyn.file=./src/complex-math.h\nsyn.file=./src/complex-math.cpp\nsyn.file=./src/hamming.h\nsyn.top=kernel\ntb.file=./tb/test.cpp\nclock=8"
    }
   ],
   "cwd": "/home/light/MajorProject/serious-aie-fft/central-controller-element"
@@ -38,10 +38,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Mon Nov  9 15:19:49 2026",
- "timestampMillis": "1794216889919",
+ "dateTimestamp": "Tue Nov 10 11:49:24 2026",
+ "timestampMillis": "1794290664104",
  "status": {
-  "cmdId": "cc374fae-2f50-4543-9661-d52339bcf454",
+  "cmdId": "e2a7dcf5-e54a-4ea3-b0a0-9857a14c47b8",
   "state": "CS_RUNNING"
  }
 }
@@ -49,8 +49,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Mon Nov  9 15:19:55 2026",
- "timestampMillis": "1794216895264",
+ "dateTimestamp": "Tue Nov 10 11:49:28 2026",
+ "timestampMillis": "1794290668132",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -95,10 +95,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Mon Nov  9 15:19:55 2026",
- "timestampMillis": "1794216895265",
+ "dateTimestamp": "Tue Nov 10 11:49:28 2026",
+ "timestampMillis": "1794290668132",
  "buildStep": {
-  "cmdId": "28e26bec-25b8-41f7-a7f0-a7a76774e871",
+  "cmdId": "b93afbfc-b14e-45f4-ae31-1f44e814f8b7",
   "name": "",
   "logFile": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/hls.log",
   "commandLine": "",
@@ -111,10 +111,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Mon Nov  9 15:19:55 2026",
- "timestampMillis": "1794216895266",
+ "dateTimestamp": "Tue Nov 10 11:49:28 2026",
+ "timestampMillis": "1794290668132",
  "status": {
-  "cmdId": "28e26bec-25b8-41f7-a7f0-a7a76774e871",
+  "cmdId": "b93afbfc-b14e-45f4-ae31-1f44e814f8b7",
   "state": "CS_RUNNING"
  }
 }
@@ -122,8 +122,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:19:55 2026",
- "timestampMillis": "1794216895266",
+ "dateTimestamp": "Tue Nov 10 11:49:28 2026",
+ "timestampMillis": "1794290668133",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/hls_data.json",
   "name": "",
@@ -136,8 +136,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:19:55 2026",
- "timestampMillis": "1794216895266",
+ "dateTimestamp": "Tue Nov 10 11:49:28 2026",
+ "timestampMillis": "1794290668133",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth.rpt",
   "name": "",
@@ -150,8 +150,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:19:55 2026",
- "timestampMillis": "1794216895266",
+ "dateTimestamp": "Tue Nov 10 11:49:28 2026",
+ "timestampMillis": "1794290668133",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/syn/report/csynth.xml",
   "name": "",
@@ -164,8 +164,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991053",
+ "dateTimestamp": "Tue Nov 10 11:50:44 2026",
+ "timestampMillis": "1794290744815",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls",
   "name": "",
@@ -178,8 +178,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991054",
+ "dateTimestamp": "Tue Nov 10 11:50:44 2026",
+ "timestampMillis": "1794290744816",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls",
   "name": "",
@@ -192,8 +192,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991054",
+ "dateTimestamp": "Tue Nov 10 11:50:44 2026",
+ "timestampMillis": "1794290744816",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls",
   "name": "",
@@ -206,10 +206,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991054",
+ "dateTimestamp": "Tue Nov 10 11:50:44 2026",
+ "timestampMillis": "1794290744816",
  "status": {
-  "cmdId": "28e26bec-25b8-41f7-a7f0-a7a76774e871",
+  "cmdId": "b93afbfc-b14e-45f4-ae31-1f44e814f8b7",
   "state": "CS_PASSED"
  }
 }
@@ -217,10 +217,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991358",
+ "dateTimestamp": "Tue Nov 10 11:50:45 2026",
+ "timestampMillis": "1794290745119",
  "status": {
-  "cmdId": "cc374fae-2f50-4543-9661-d52339bcf454",
+  "cmdId": "e2a7dcf5-e54a-4ea3-b0a0-9857a14c47b8",
   "state": "CS_PASSED"
  }
 }
@@ -228,8 +228,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991391",
+ "dateTimestamp": "Tue Nov 10 11:50:45 2026",
+ "timestampMillis": "1794290745151",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/reports/v++_compile_central-controller-element_guidance.html",
   "name": "",
@@ -242,8 +242,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  9 15:21:31 2026",
- "timestampMillis": "1794216991391",
+ "dateTimestamp": "Tue Nov 10 11:50:45 2026",
+ "timestampMillis": "1794290745151",
  "report": {
   "path": "/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/reports/.db/v++_compile_central-controller-element_guidance.pb3",
   "name": "",

@@ -20,4 +20,5 @@ obj/main.o: ../../../../src/main.cpp ../../../../src/main.h \
   /home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_special.h \
   /home/light/FPGA/2026.1/Vitis/include/hls_stream.h \
   /home/light/FPGA/2026.1/Vitis/include/etc/hls_stream_common.h \
+  ../../../../src/hamming.h ../../../../src/angle_part.h \
   ../../../../src/doppler_part.h ../../../../src/range_part.h

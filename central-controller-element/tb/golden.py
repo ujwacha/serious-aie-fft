@@ -61,8 +61,19 @@ def round_away(x: float) -> int:
 # window, straight out of hamming.h so the model follows the header
 # --------------------------------------------------------------------------
 def load_window() -> list[int]:
+    """Read only the 2048-point range window.
+
+    hamming.h also carries the 256-point Doppler table, so matching every
+    {real, 0} pair in the file would concatenate both tables.
+    """
     text = HAMMING.read_text()
-    return [int(v) for v in re.findall(r"\{\s*(-?\d+),\s*0\}", text)]
+    match = re.search(
+        r"/\* BEGIN hamming_window_2048 \*/(.*?)/\* END hamming_window_2048 \*/",
+        text,
+        re.S,
+    )
+    block = match.group(1) if match else text
+    return [int(v) for v in re.findall(r"\{\s*(-?\d+),\s*0\}", block)]
 
 
 def load_iq(path: Path) -> list[complex]:

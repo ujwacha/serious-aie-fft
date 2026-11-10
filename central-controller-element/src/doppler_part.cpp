@@ -10,7 +10,7 @@
 
 // Per-sequence accumulators, defined once here (declared extern in the header).
 ap_uint<128> mask_seqs[TOTAL_SEQUENCES];
-ap_uint<16>   chirp_ind[TOTAL_SEQUENCES];
+ap_uint<16> chirp_ind[TOTAL_SEQUENCES];
 
 // 10^(8.393/10): the AIE threshold kernel's 8.393 dB margin, expressed as a
 // power (magnitude-squared) ratio.
@@ -95,17 +95,18 @@ void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
 
     // One 16-word range block per chirp: same address aie_consume_one() wrote.
     for (int c = 0; c < TOTAL_CHIRPS; c++) {
+#pragma HLS LOOP_TRIPCOUNT min = 256 max =                                     \
+    256 // tell the tool the bound is constant
       ap_uint<32> *src = range_bin_ptr(mm, a.seq, (ap_uint<16>)c, a.index);
 
       // one dram brust here
       for (int j = 0; j < 16; j++) {
-#pragma HLS PIPELINE II = 2
+#pragma HLS pipeline
+#pragma HLS LOOP_TRIPCOUNT min = 16 max = 16
         // 16 contiguous words per chirp = one DDR burst
         window[j][c] = src[j];
       }
     }
-
-
 
     // Doppler FFT along the chirp axis (c) for each of the 16 bins: send the
     // bin to the AIE 256-point FFT, then consume its result.
@@ -115,19 +116,30 @@ void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
                           (ap_uint<16>)(a.index + b));
     }
   }
+
+  // End-of-frame marker, written once after the last range block.  dummy()
+  // drains the mask stream until it sees this; without it the sink blocks and
+  // csim reports an empty stream read.
+  DopplerMaskPacket end;
+  end.rank = 0xFFFF;
+  end.mask = 0;
+  end.seq = 0;
+  end.index = 0;
+  for (int i = 0; i < 86; i++) {
+#pragma HLS UNROLL
+    end.data[i] = 0;
+  }
+  mask_stream.write(end);
 }
 
-
-
-
 void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
-			 hls::stream<pkt> &out_d_03) {
-  for (int i = 0; i < TOTAL_CHIRPS; i+=2) {
+                         hls::stream<pkt> &out_d_03) {
+  for (int i = 0; i < TOTAL_CHIRPS; i += 2) {
 #pragma HLS PIPELINE II = 1
 
     // Split the 64-bit beat into two cint16 samples
     cint16 s_low = bits_to_cint16(in_adc0[i]);
-    cint16 s_high = bits_to_cint16(in_adc0[i+1]);
+    cint16 s_high = bits_to_cint16(in_adc0[i + 1]);
 
     // Window coefficients
     cint16 w_low = hamming_window_256[i];
@@ -148,27 +160,27 @@ void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
   }
 }
 
+// inline unsigned int histogram_index(int32_t mag, int32_t mean) {
+//   // Magnitude already computed by the caller (in_data_mag); mean is the mean
+//   // magnitude over the frame. Map [0, 4*mean] onto the 64 bins [0, 63]:
+//   //
+//   //   bin = (mag - lower) * (upper_bin - lower_bin) / (upper - lower)
+//   //
+//   // with lower = 0, upper = 4*mean, lower_bin = 0, upper_bin = 64.
+//   // Anything above 4*mean is clamped into the last bin.
+//   //
+//   // No usable scale reference: put every sample in the first bin.
+//   if (!(mean > 0))
+//     return 0;
 
-inline unsigned int histogram_index(float mag, float mean) {
-  // Magnitude already computed by the caller (in_data_mag); mean is the mean
-  // magnitude over the frame. Map [0, 4*mean] onto the 64 bins [0, 63]:
-  //
-  //   bin = (mag - lower) * (upper_bin - lower_bin) / (upper - lower)
-  //
-  // with lower = 0, upper = 4*mean, lower_bin = 0, upper_bin = 64.
-  // Anything above 4*mean is clamped into the last bin.
-  //
-  // No usable scale reference: put every sample in the first bin.
-  if (!(mean > 0.0f))
-    return 0;
+//   int bin = (int)(mag * 64 / (4 * mean));
+//   if (bin < 0)
+//     bin = 0;
+//   if (bin > 63)
+//     bin = 63;
+//   return (unsigned int)bin;
+// }
 
-  int bin = (int)(mag * 64.0f / (4.0f * mean));
-  if (bin < 0)
-    bin = 0;
-  if (bin > 63)
-    bin = 63;
-  return (unsigned int)bin;
-}
 
 
 void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
@@ -176,11 +188,10 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
                          ap_uint<32> *mm, ap_uint<16> seq, ap_uint<16> ind) {
 
   unsigned int histogram[64] = {0};
-  cint16 in_data[256];
-  float in_data_mag[256];
 
-  float mean = 0.0f;
-  
+  cint16 in_data[256];
+  int32_t in_data_mag[256];
+
   // Store the raw samples only; this loop touches the streams and in_data.
   for (int i = 0; i < 256; i += 2) {
 #pragma HLS PIPELINE II = 1
@@ -191,29 +202,45 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
     in_data[i + 1] = odd_element;
   }
 
-  // Power and mean in a second pass, off the stream loop's critical path.
+  int64_t mean_acc = 0;
+
   for (int i = 0; i < 256; i++) {
-#pragma HLS PIPELINE
-    int re = (int)in_data[i].real;
-    int im = (int)in_data[i].imag;
+#pragma HLS PIPELINE II = 1
+    int32_t re = (int32_t)in_data[i].real;
+    int32_t im = (int32_t)in_data[i].imag;
 
-    in_data_mag[i] = (float)re * re + (float)im * im;
+    // widen BEFORE multiply to avoid (-32768)^2 + (-32768)^2 = 2^31 overflow
+    int64_t power64 = (int64_t)re * re + (int64_t)im * im;
+    int32_t power = (power64 > INT32_MAX) ? INT32_MAX : (int32_t)power64;
 
-    // The mean is taken over the powers, not the components.
-    mean += in_data_mag[i];
+    in_data_mag[i] = power;
+    mean_acc += power;
   }
 
+  // ÷256 via shift; result is Q2.30 average power (same scale as in_data_mag[])
+  int32_t mean = (int32_t)(mean_acc >> 8);
 
-  mean /= 256.0f;
+  /// this shit was slow, AI made a better one IDK how it fucking works
 
-  // ---- histogram of the magnitudes squared ------------------------------
+  ///
+  //   // ---- histogram of the magnitudes squared
+  //   ------------------------------ for (int i = 0; i < 256; i++) {
+  // #pragma HLS PIPELINE
+  //     auto index = histogram_index(in_data_mag[i], mean);
+  //     histogram[index] += 1;
+  //   }
+
+  // ---- histogram (Q24 reciprocal, 32-bit scale, DSP multiply) -----------
+  uint32_t mean_u = (mean > 0) ? (uint32_t)mean : 1u;
+  uint32_t scale_q24 = (mean > 0) ? ((16u << 24) / mean_u) : 0u;
+
   for (int i = 0; i < 256; i++) {
-#pragma  HLS PIPELINE     
-    auto index = histogram_index(in_data_mag[i], mean);
-    histogram[index] += 1;
+#pragma HLS PIPELINE II = 2
+    uint64_t bin64 = ((uint64_t)(uint32_t)in_data_mag[i] * scale_q24) >> 24;
+    uint32_t bin = (bin64 > 63u) ? 63u : (uint32_t)bin64;
+    histogram[bin] += 1;
   }
-  
-  
+
   // ---- median -----------------------------------------------------------
   // Walk bins from 0 until the cumulative count passes half the samples.
   int sum = 0;
@@ -226,28 +253,44 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
     }
   }
 
-
   // ---- threshold --------------------------------------------------------
   // Bin width of the [0, 4*mean] range, then the median power at the centre
   // of its bin.  The threshold is that noise floor scaled by the same
   // 8.393 dB margin the AIE threshold kernel uses, in power form.
-  const float bin_width = (4.0f * mean) / 64.0f;
-  const float median_mag = (median_bin + 0.5f) * bin_width;
-  const float threshold = median_mag * kThrMagMult;
 
-  ap_uint<16> mask; 
+  
+  const int32_t bin_width = (4.0 * mean) / 64.0;
+  const int32_t median_mag =   (median_bin + 0.5f) * bin_width; //  (median_bin * bin_width) + (bin_width / 2);
+  const int32_t threshold = median_mag * kThrMagMult;
 
+
+
+
+  // // ---- threshold --------------------------------------------------------
+  // uint32_t bin_width = mean_u >> 4;
+  
+  // // Cast median_bin to 8-bit so HLS uses ONE DSP block instead of 4
+  // uint32_t median_mag = ((uint32_t)(uint8_t)median_bin * bin_width) + (bin_width >> 1);
+  
+  // // Multiply by 7 using shift and subtract (zero multipliers)
+  // uint32_t threshold = (median_mag << 3) - median_mag;
+
+
+  
+  ap_uint<16> mask = 0;
+
+  
   // ---- keep / write back ------------------------------------------------
   // A bin is 16 samples: if any sample in the bin is above the threshold, the
   // whole bin is written back.  mm is the base of the three-cube allocation;
   // doppler_bin_ptr() resolves the 16-word burst for each kept bin.
   for (int b = 0; b < 256 / 16; b++) {
-#pragma HLS PIPELINE II = 1    
+#pragma HLS PIPELINE II = 1
     bool keep = false;
 
     for (int j = 0; j < 16; j++) {
 #pragma HLS UNROLL
-      if (in_data_mag[b * 16 + j] > threshold)
+      if ((uint32_t)in_data_mag[b * 16 + j] > threshold)
         keep = true;
     }
 
@@ -255,7 +298,7 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
       mask[b] = 1;
       ap_uint<32> *dst = doppler_bin_ptr(mm, seq, (ap_uint<16>)(b * 16), ind);
       for (int j = 0; j < 16; j++) {
-#pragma HLS PIPELINE II = 1
+#pragma HLS UNROLL
         dst[j] = cint16_to_bits(in_data[b * 16 + j]);
       }
     } else {
@@ -267,6 +310,7 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
   // shipped in 3 ranks of 86 floats.  Rank 0 also carries the mask and the
   // range/sequence coordinates; the last rank has 2 unused slots.
   for (int rank = 0; rank < 3; rank++) {
+#pragma HLS loop_flatten off
     DopplerMaskPacket dmask;
     dmask.rank = (ap_uint<16>)rank;
     dmask.mask = 0;
@@ -280,9 +324,10 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
     }
 
     for (int i = 0; i < 86; i++) {
-#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE II = 1
+#pragma HLS LOOP_TRIPCOUNT min = 86 max = 86
       int src = rank * 86 + i;
-      dmask.data[i] = (src < TOTAL_CHIRPS) ? in_data_mag[src] : 0.0f;
+      dmask.data[i] = (src < TOTAL_CHIRPS) ? in_data_mag[src] : 0;
     }
 
     mask_stream.write(dmask);

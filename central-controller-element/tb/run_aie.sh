@@ -21,6 +21,8 @@ SIMOUT="$BUILD/x86simulator_output/data"
 CHIRPS="${1:-1}"
 LINES=1024
 
+mkdir -p "$AIE/data" "$SIMOUT"
+
 for f in windowed0 windowed1; do
     [ -f "$WORK/$f.txt" ] || { echo "run_aie: missing $WORK/$f.txt" >&2; exit 1; }
 done

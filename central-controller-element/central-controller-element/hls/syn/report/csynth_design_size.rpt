@@ -6,58 +6,57 @@
 +---------------+----------------------------+--------------+----------------------------------------------------------------------------------------+
 | Phase         | Step                       | Instructions | Description                                                                            |
 +---------------+----------------------------+--------------+----------------------------------------------------------------------------------------+
-| Compile/Link  |                            | 8,038        | After all functions are compiled and linked into a single design                       |
+| Compile/Link  |                            | 12,504       | After all functions are compiled and linked into a single design                       |
 |               |                            |              |                                                                                        |
 | Unroll/Inline |                            |              | After user unroll and inline pragmas are applied                                       |
-|               | (1) unroll                 | 3,561        | user unroll pragmas are applied                                                        |
-|               | (2) simplification         | 3,043        | simplification of applied user unroll pragmas                                          |
-|               | (3) inline                 | 2,655        | user inline pragmas are applied                                                        |
-|               | (4) simplification         | 2,132        | simplification of applied user inline pragmas                                          |
+|               | (1) unroll                 |  3,982       | user unroll pragmas are applied                                                        |
+|               | (2) simplification         |  3,170       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                 |  2,772       | user inline pragmas are applied                                                        |
+|               | (4) simplification         |  2,196       | simplification of applied user inline pragmas                                          |
 |               |                            |              |                                                                                        |
 | Array/Struct  |                            |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
-|               | (1) array partition        | 2,131        | user array partition pragmas are applied                                               |
-|               | (2) simplification         | 2,131        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
-|               | (3) aggregate/disaggregate | 2,171        | user struct aggregate/disaggregate pragmas are applied                                 |
-|               | (4) array reshape          | 2,732        | apply array reshape pragmas                                                            |
-|               | (5) access patterns        | 3,304        | array access pattern optmizations                                                      |
+|               | (1) array partition        |  2,195       | user array partition pragmas are applied                                               |
+|               | (2) simplification         |  2,195       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate |  2,236       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape          |  3,367       | apply array reshape pragmas                                                            |
+|               | (5) access patterns        |  3,661       | array access pattern optmizations                                                      |
 |               |                            |              |                                                                                        |
 | Performance   |                            |              | After transformations are applied to meet performance pragma targets                   |
-|               | (1) loop simplification    | 3,227        | loop and instruction simplification                                                    |
-|               | (2) parallelization        | 3,089        | loops are unrolled or pipelined to meet performance targets                            |
-|               | (3) array partition        | 2,957        | arrays are partitioned to meet performance targets                                     |
-|               | (4) simplification         | 2,861        | simplification of design after performance transformations                             |
+|               | (1) loop simplification    |  3,583       | loop and instruction simplification                                                    |
+|               | (2) parallelization        |  3,445       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition        |  3,312       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification         |  3,216       | simplification of design after performance transformations                             |
 |               |                            |              |                                                                                        |
 | HW Transforms |                            |              | After hardware transfomations                                                          |
-|               | (1) lowering               | 2,589        | initial conversion to HW specific instructions                                         |
-|               | (2) optimizations          | 2,393        | high level synthesis optimizations                                                     |
+|               | (1) lowering               |  3,016       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations          |  2,734       | high level synthesis optimizations                                                     |
 +---------------+----------------------------+--------------+----------------------------------------------------------------------------------------+
 
 * Instructions per Function for each Compilation Phase
-+-------------------------+----------------------+-----------------+---------------+--------------+-------------+---------------+
-| Function                | Location             | Compile/Link    | Unroll/Inline | Array/Struct | Performance | HW Transforms |
-+-------------------------+----------------------+-----------------+---------------+--------------+-------------+---------------+
-| + kernel                | main.cpp:12          | 8,038           | 2,132         | 3,304        | 2,861       | 2,393         |
-|  + adc_forward          | range_part.cpp:25    | 1,374           |   146         |   239        |   146       |    88         |
-|     bits_to_cint16      | complex-math.cpp:3   |   186 (2 calls) |               |              |             |               |
-|     cmul                | complex-math.cpp:17  |    78 (2 calls) |               |              |             |               |
-|     cint16_to_bits      | complex-math.cpp:10  |   478 (2 calls) |               |              |             |               |
-|  + aie_range_consume    | range_part.cpp:57    | 1,367           | 1,082         | 1,528        | 1,267       |               |
-|     build_mask_indices  | range_part.cpp:5     |   187           |               |              |             |               |
-|     range_bin_ptr       | main.h:55            |    33           |               |              |             |               |
-|    seq_generator        | doppler_part.cpp:22  |   463           |    45         |    93        |    92       |               |
-|  + doppler              | doppler_part.cpp:81  | 4,760           |   828         | 1,377        | 1,289       |               |
-|     range_bin_ptr       | main.h:55            |    33           |               |              |             |               |
-|   + doppler_forward_one | doppler_part.cpp:123 | 1,118           |    75         |   148        |   114       |               |
-|      bits_to_cint16     | complex-math.cpp:3   |   186 (2 calls) |               |              |             |               |
-|      cmul               | complex-math.cpp:17  |    78 (2 calls) |               |              |             |               |
-|      cint16_to_bits     | complex-math.cpp:10  |   478 (2 calls) |               |              |             |               |
-|   + aie_consume_doppler | doppler_part.cpp:174 | 3,344           |   703         | 1,167        | 1,115       |               |
-|      bits_to_cint16     | complex-math.cpp:3   |   186 (2 calls) |               |              |             |               |
-|      histogram_index    | doppler_part.cpp:152 | 2,150           |               |              |             |               |
-|      doppler_bin_ptr    | main.h:61            |    34           |               |              |             |               |
-|      cint16_to_bits     | complex-math.cpp:10  |   239           |               |              |             |               |
-|    dummy                | angle_part.cpp:3     |    13           |     3         |     2        |     2       |     3         |
-+-------------------------+----------------------+-----------------+---------------+--------------+-------------+---------------+
++-------------------------+----------------------+------------------+---------------+--------------+-------------+---------------+
+| Function                | Location             | Compile/Link     | Unroll/Inline | Array/Struct | Performance | HW Transforms |
++-------------------------+----------------------+------------------+---------------+--------------+-------------+---------------+
+| + kernel                | main.cpp:12          | 12,504           | 2,196         | 3,661        | 3,216       | 2,734         |
+|  + adc_forward          | range_part.cpp:50    |  1,374           |   146         |   239        |   146       |    89         |
+|     bits_to_cint16      | complex-math.cpp:3   |    186 (2 calls) |               |              |             |               |
+|     cmul                | complex-math.cpp:17  |     78 (2 calls) |               |              |             |               |
+|     cint16_to_bits      | complex-math.cpp:10  |    478 (2 calls) |               |              |             |               |
+|  + aie_range_consume    | range_part.cpp:84    |  1,367           | 1,082         | 1,528        | 1,267       |               |
+|     build_mask_indices  | range_part.cpp:5     |    187           |               |              |             |               |
+|     range_bin_ptr       | main.h:55            |     33           |               |              |             |               |
+|    seq_generator        | doppler_part.cpp:22  |    463           |    45         |    93        |    92       |               |
+|  + doppler              | doppler_part.cpp:81  |  9,188           |   887         | 1,723        | 1,635       |               |
+|     range_bin_ptr       | main.h:55            |     33           |               |              |             |               |
+|   + doppler_forward_one | doppler_part.cpp:135 |  1,118           |    75         |   148        |   114       |               |
+|      bits_to_cint16     | complex-math.cpp:3   |    186 (2 calls) |               |              |             |               |
+|      cmul               | complex-math.cpp:17  |     78 (2 calls) |               |              |             |               |
+|      cint16_to_bits     | complex-math.cpp:10  |    478 (2 calls) |               |              |             |               |
+|   + aie_consume_doppler | doppler_part.cpp:186 |  7,645           |   760         | 1,138        | 1,086       |               |
+|      bits_to_cint16     | complex-math.cpp:3   |    186 (2 calls) |               |              |             |               |
+|      doppler_bin_ptr    | main.h:61            |     34           |               |              |             |               |
+|      cint16_to_bits     | complex-math.cpp:10  |    239           |               |              |             |               |
+|    dummy                | angle_part.cpp:3     |     51           |     8         |    13        |    11       |    11         |
++-------------------------+----------------------+------------------+---------------+--------------+-------------+---------------+
 
 * Design Size Message Settings
 +---------------------------------------------+--------+------------------------------------------------------------------+

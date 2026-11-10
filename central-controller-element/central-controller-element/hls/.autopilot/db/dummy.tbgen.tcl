@@ -2,12 +2,12 @@ set moduleName dummy
 set isTopModule 0
 set isCombinational 0
 set isDatapathOnly 0
-set isPipelined 0
-set isPipelined_legacy 0
-set pipeline_type none
+set isPipelined 1
+set isPipelined_legacy 1
+set pipeline_type loop_auto_rewind
 set FunctionProtocol ap_ctrl_hs
 set restart_counter_num 0
-set isOneStateSeq 1
+set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 23
+set cdfgNum 24
 set C_modelName {dummy}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -64,7 +64,7 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "0", "Max" : "0"}
+	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
 	, {"Name" : "Interval", "Min" : "0", "Max" : "0"}
 ]}
 

@@ -34,6 +34,7 @@ architecture behav of kernel_aie_consume_doppler_Pipeline_1 is
     constant ap_const_boolean_0 : BOOLEAN := false;
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
     constant ap_const_lv7_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv7_40 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
     constant ap_const_lv7_1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
 
@@ -47,19 +48,18 @@ attribute shreg_extract : string;
     signal ap_enable_reg_pp0_iter1 : STD_LOGIC := '0';
     signal ap_idle_pp0 : STD_LOGIC;
     signal ap_block_pp0_stage0_subdone : BOOLEAN;
-    signal exitcond534_fu_50_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal exitcond624_fu_50_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_condition_exit_pp0_iter0_stage0 : STD_LOGIC;
     signal ap_loop_exit_ready : STD_LOGIC;
     signal ap_ready_int : STD_LOGIC;
-    signal p_load_reg_77 : STD_LOGIC_VECTOR (6 downto 0);
+    signal p_load_reg_78 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
-    signal empty_99_fu_56_p2 : STD_LOGIC_VECTOR (6 downto 0);
-    signal empty_99_reg_85 : STD_LOGIC_VECTOR (6 downto 0);
-    signal p_cast_fu_62_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal p_cast_fu_67_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal empty_fu_24 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
-    signal ap_sig_allocacmp_p_load : STD_LOGIC_VECTOR (6 downto 0);
+    signal empty_107_fu_56_p2 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_loop_init : STD_LOGIC;
+    signal ap_sig_allocacmp_p_load : STD_LOGIC_VECTOR (6 downto 0);
     signal histogram_we0_local : STD_LOGIC;
     signal histogram_ce0_local : STD_LOGIC;
     signal ap_done_reg : STD_LOGIC := '0';
@@ -158,10 +158,10 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then
-                if ((ap_loop_init = ap_const_logic_1)) then 
+                if (((exitcond624_fu_50_p2 = ap_const_lv1_0) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1))) then 
+                    empty_fu_24 <= empty_107_fu_56_p2;
+                elsif ((ap_loop_init = ap_const_logic_1)) then 
                     empty_fu_24 <= ap_const_lv7_0;
-                elsif ((ap_enable_reg_pp0_iter1 = ap_const_logic_1)) then 
-                    empty_fu_24 <= empty_99_reg_85;
                 end if;
             end if; 
         end if;
@@ -170,8 +170,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then
-                empty_99_reg_85 <= empty_99_fu_56_p2;
-                p_load_reg_77 <= ap_sig_allocacmp_p_load;
+                p_load_reg_78 <= ap_sig_allocacmp_p_load;
             end if;
         end if;
     end process;
@@ -190,9 +189,9 @@ begin
         ap_block_pp0_stage0_11001 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_pp0_stage0_subdone <= not((ap_const_boolean_1 = ap_const_boolean_1));
 
-    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter0, ap_block_pp0_stage0_subdone, exitcond534_fu_50_p2)
+    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter0, ap_block_pp0_stage0_subdone, exitcond624_fu_50_p2)
     begin
-        if (((exitcond534_fu_50_p2 = ap_const_lv1_1) and (ap_const_boolean_0 = ap_block_pp0_stage0_subdone) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then 
+        if (((exitcond624_fu_50_p2 = ap_const_lv1_1) and (ap_const_boolean_0 = ap_block_pp0_stage0_subdone) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then 
             ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_1;
         else 
             ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_0;
@@ -245,24 +244,18 @@ begin
     end process;
 
 
-    ap_sig_allocacmp_p_load_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, empty_99_reg_85, ap_block_pp0_stage0, empty_fu_24, ap_loop_init)
+    ap_sig_allocacmp_p_load_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, empty_fu_24, ap_loop_init)
     begin
-        if (((ap_const_boolean_0 = ap_block_pp0_stage0) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then
-            if ((ap_loop_init = ap_const_logic_1)) then 
-                ap_sig_allocacmp_p_load <= ap_const_lv7_0;
-            elsif ((ap_enable_reg_pp0_iter1 = ap_const_logic_1)) then 
-                ap_sig_allocacmp_p_load <= empty_99_reg_85;
-            else 
-                ap_sig_allocacmp_p_load <= empty_fu_24;
-            end if;
+        if (((ap_loop_init = ap_const_logic_1) and (ap_const_boolean_0 = ap_block_pp0_stage0) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then 
+            ap_sig_allocacmp_p_load <= ap_const_lv7_0;
         else 
             ap_sig_allocacmp_p_load <= empty_fu_24;
         end if; 
     end process;
 
-    empty_99_fu_56_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_p_load) + unsigned(ap_const_lv7_1));
-    exitcond534_fu_50_p2 <= "1" when (ap_sig_allocacmp_p_load = ap_const_lv7_40) else "0";
-    histogram_address0 <= p_cast_fu_62_p1(6 - 1 downto 0);
+    empty_107_fu_56_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_p_load) + unsigned(ap_const_lv7_1));
+    exitcond624_fu_50_p2 <= "1" when (ap_sig_allocacmp_p_load = ap_const_lv7_40) else "0";
+    histogram_address0 <= p_cast_fu_67_p1(6 - 1 downto 0);
     histogram_ce0 <= histogram_ce0_local;
 
     histogram_ce0_local_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, ap_block_pp0_stage0_11001)
@@ -286,5 +279,5 @@ begin
         end if; 
     end process;
 
-    p_cast_fu_62_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(p_load_reg_77),64));
+    p_cast_fu_67_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(p_load_reg_78),64));
 end behav;

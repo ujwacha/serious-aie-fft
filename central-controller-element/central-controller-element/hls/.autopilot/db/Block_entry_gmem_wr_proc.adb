@@ -2337,11 +2337,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>2405</second>
+              <second>1087</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>3426</second>
+              <second>3433</second>
             </item>
             <item>
               <first>URAM</first>
@@ -2356,19 +2356,19 @@
             <item_version>0</item_version>
             <item>
               <first>BRAM</first>
-              <second>16</second>
+              <second>17</second>
             </item>
             <item>
               <first>DSP</first>
-              <second>9</second>
+              <second>26</second>
             </item>
             <item>
               <first>FF</first>
-              <second>7658</second>
+              <second>7271</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>6988</second>
+              <second>8725</second>
             </item>
             <item>
               <first>URAM</first>
@@ -2387,11 +2387,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>759</second>
+              <second>725</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>685</second>
+              <second>674</second>
             </item>
             <item>
               <first>URAM</first>

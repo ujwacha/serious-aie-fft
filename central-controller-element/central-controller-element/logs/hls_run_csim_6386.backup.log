@@ -1,0 +1,84 @@
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element'.
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.h' from hls_config.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.cpp' from hls_config.cfg(11)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.h' from hls_config.cfg(12)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.cpp' from hls_config.cfg(13)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.h' from hls_config.cfg(14)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.cpp' from hls_config.cfg(15)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.h' from hls_config.cfg(16)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.cpp' from hls_config.cfg(17)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(18)
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(19)
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+INFO: [HLS 200-1465] Applying config ini 'clock=8' from hls_config.cfg(21)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 8ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+make: 'csim.exe' is up to date.
+TB: windowed 256 chirps (524288 samples) -> tb/work/windowed{0,1}.txt
+TB: running range AIE (bash /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/run_aie.sh 256)
+run_aie: 32/256 chirps
+run_aie: 64/256 chirps
+run_aie: 96/256 chirps
+run_aie: 128/256 chirps
+run_aie: 160/256 chirps
+run_aie: 192/256 chirps
+run_aie: 224/256 chirps
+run_aie: 256/256 chirps
+run_aie: 256 chirps done -> tb/work/aie{0,1}.txt
+TB: range AIE returned 54336 / 52560 words
+TB: python3 /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/rd_test.py --prepare --chirps 256
+  AIE range: 256 chirps, 16 active range block(s)
+  prepared 16 block(s) -> 32768 / 32768 Doppler samples per stream
+TB: captured 524288 range words and 524288 Doppler words
+TB: python3 /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/rd_test.py --check --chirps 256
+
+== range-Doppler chain check ==
+  scene  : dense
+  chirps : 256 (2048 range x 256 Doppler)
+  windowed0: 262144 samples match exactly
+  windowed1: 262144 samples match exactly
+  range cube: 524288 words match the AIE payload exactly
+  Doppler window: 65536 samples match exactly
+  Doppler FFT: 65536 samples match exactly
+  Doppler cube: 524288 words match the model (16 active block(s))
+  targets:
+    ( 256,   0) amp  2.0: peak at ( 256,   0) power 352836 ok
+    ( 320,  16) amp  1.8: peak at ( 320,  16) power 286730 ok
+    ( 384,  32) amp  1.6: peak at ( 384,  32) power 226525 ok
+    ( 448,  48) amp  1.5: peak at ( 448,  48) power 199300 ok
+    ( 512,  64) amp  1.4: peak at ( 512,  64) power 173200 ok
+    ( 576,  80) amp  1.3: peak at ( 576,  80) power 149122 ok
+    ( 640,  96) amp  1.2: peak at ( 640,  96) power 127250 ok
+    ( 704, 112) amp  1.1: peak at ( 704, 112) power 106745 ok
+
+  RESULT: PASS
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 262144
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 81.97 seconds. Total CPU system time: 27.74 seconds. Total elapsed time: 98.74 seconds; peak allocated memory: 376.398 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 1m 43s

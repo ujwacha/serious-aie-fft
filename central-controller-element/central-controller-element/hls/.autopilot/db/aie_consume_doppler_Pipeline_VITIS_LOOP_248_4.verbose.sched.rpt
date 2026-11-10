@@ -1,0 +1,192 @@
+
+
+================================================================
+== Vitis HLS Report for 'aie_consume_doppler_Pipeline_VITIS_LOOP_248_4'
+================================================================
+* Date:           Tue Nov 10 11:50:39 2026
+
+* Version:        2026.1 (Build 6493734 on Jun 16 2026)
+* Project:        central-controller-element
+* Solution:       hls
+* Product family: azynq
+* Target device:  xa7z030-fbg484-1I
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  8.00 ns|  5.806 ns|     2.16 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max   | min | max |   Type  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |        4|      197|  32.000 ns|  1.576 us|    4|  197|       no|
+    +---------+---------+-----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- VITIS_LOOP_248_4  |        2|      194|         3|          3|        N/A|  0 ~ 64|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 3, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 1
+  Pipeline-0 : II = 3, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 6 2 
+5 --> 
+6 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.58>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%sum = alloca i32 1" [src/doppler_part.cpp:246]   --->   Operation 7 'alloca' 'sum' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/doppler_part.cpp:248]   --->   Operation 8 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.58ns)   --->   "%store_ln248 = store i7 0, i7 %i" [src/doppler_part.cpp:248]   --->   Operation 9 'store' 'store_ln248' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 10 [1/1] (1.58ns)   --->   "%store_ln246 = store i32 0, i32 %sum" [src/doppler_part.cpp:246]   --->   Operation 10 'store' 'store_ln246' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body68"   --->   Operation 11 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.25>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%i_6 = load i7 %i" [src/doppler_part.cpp:248]   --->   Operation 12 'load' 'i_6' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%trunc_ln248 = trunc i7 %i_6" [src/doppler_part.cpp:248]   --->   Operation 13 'trunc' 'trunc_ln248' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (1.87ns)   --->   "%icmp_ln248 = icmp_eq  i7 %i_6, i7 64" [src/doppler_part.cpp:248]   --->   Operation 14 'icmp' 'icmp_ln248' <Predicate = true> <Delay = 1.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (1.87ns)   --->   "%add_ln248 = add i7 %i_6, i7 1" [src/doppler_part.cpp:248]   --->   Operation 15 'add' 'add_ln248' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln248 = br i1 %icmp_ln248, void %for.body68.split, void %for.end75.loopexit.exitStub" [src/doppler_part.cpp:248]   --->   Operation 16 'br' 'br_ln248' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln248 = zext i7 %i_6" [src/doppler_part.cpp:248]   --->   Operation 17 'zext' 'zext_ln248' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%histogram_addr = getelementptr i32 %histogram, i64 0, i64 %zext_ln248" [src/doppler_part.cpp:249]   --->   Operation 18 'getelementptr' 'histogram_addr' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_2 : Operation 19 [2/2] (3.25ns)   --->   "%histogram_load = load i6 %histogram_addr" [src/doppler_part.cpp:249]   --->   Operation 19 'load' 'histogram_load' <Predicate = (!icmp_ln248)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 3 <SV = 2> <Delay = 5.80>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%sum_load = load i32 %sum" [src/doppler_part.cpp:249]   --->   Operation 20 'load' 'sum_load' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_3 : Operation 21 [1/2] ( I:3.25ns O:3.25ns )   --->   "%histogram_load = load i6 %histogram_addr" [src/doppler_part.cpp:249]   --->   Operation 21 'load' 'histogram_load' <Predicate = (!icmp_ln248)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 22 [1/1] (2.55ns)   --->   "%sum_1 = add i32 %histogram_load, i32 %sum_load" [src/doppler_part.cpp:249]   --->   Operation 22 'add' 'sum_1' <Predicate = (!icmp_ln248)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 4.14>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%specpipeline_ln246 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, i32 4294967295, void @empty_17" [src/doppler_part.cpp:246]   --->   Operation 23 'specpipeline' 'specpipeline_ln246' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%speclooptripcount_ln246 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 64, i64 32" [src/doppler_part.cpp:246]   --->   Operation 24 'speclooptripcount' 'speclooptripcount_ln246' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%specloopname_ln248 = specloopname void @_ssdm_op_SpecLoopName, void @empty_0" [src/doppler_part.cpp:248]   --->   Operation 25 'specloopname' 'specloopname_ln248' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_4 : Operation 26 [1/1] (2.55ns)   --->   "%icmp_ln250 = icmp_sgt  i32 %sum_1, i32 128" [src/doppler_part.cpp:250]   --->   Operation 26 'icmp' 'icmp_ln250' <Predicate = (!icmp_ln248)> <Delay = 2.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%br_ln250 = br i1 %icmp_ln250, void %for.inc73, void %for.end75.split.loop.exit135.exitStub" [src/doppler_part.cpp:250]   --->   Operation 27 'br' 'br_ln250' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_4 : Operation 28 [1/1] (1.58ns)   --->   "%store_ln248 = store i7 %add_ln248, i7 %i" [src/doppler_part.cpp:248]   --->   Operation 28 'store' 'store_ln248' <Predicate = (!icmp_ln248 & !icmp_ln250)> <Delay = 1.58>
+ST_4 : Operation 29 [1/1] (1.58ns)   --->   "%store_ln246 = store i32 %sum_1, i32 %sum" [src/doppler_part.cpp:246]   --->   Operation 29 'store' 'store_ln246' <Predicate = (!icmp_ln248 & !icmp_ln250)> <Delay = 1.58>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%br_ln248 = br void %for.body68" [src/doppler_part.cpp:248]   --->   Operation 30 'br' 'br_ln248' <Predicate = (!icmp_ln248 & !icmp_ln250)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 3.17>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%write_ln248 = write void @_ssdm_op_Write.ap_auto.i6P0A, i6 %i_6_out, i6 %trunc_ln248" [src/doppler_part.cpp:248]   --->   Operation 31 'write' 'write_ln248' <Predicate = (!icmp_ln248)> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] (1.58ns)   --->   "%br_ln0 = br void %UnifiedReturnBlock"   --->   Operation 32 'br' 'br_ln0' <Predicate = (!icmp_ln248)> <Delay = 1.58>
+ST_5 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node ret_ln0)   --->   "%UnifiedRetVal = phi i1 1, void %for.end75.loopexit.exitStub, i1 0, void %for.end75.split.loop.exit135.exitStub"   --->   Operation 33 'phi' 'UnifiedRetVal' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 34 [1/1] (1.58ns) (out node of the LUT)   --->   "%ret_ln0 = ret i1 %UnifiedRetVal"   --->   Operation 34 'ret' 'ret_ln0' <Predicate = true> <Delay = 1.58>
+
+State 6 <SV = 2> <Delay = 1.58>
+ST_6 : Operation 35 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i6P0A, i6 %i_6_out, i6 0"   --->   Operation 35 'write' 'write_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 36 [1/1] (1.58ns)   --->   "%br_ln0 = br void %UnifiedReturnBlock"   --->   Operation 36 'br' 'br_ln0' <Predicate = true> <Delay = 1.58>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 8.000ns, clock uncertainty: 2.160ns.
+
+ <State 1>: 1.588ns
+The critical path consists of the following:
+	'alloca' operation 7 bit ('i', src/doppler_part.cpp:248) [4]  (0.000 ns)
+	'store' operation ('store_ln248', src/doppler_part.cpp:248) of constant 0 7 bit on local variable 'i', src/doppler_part.cpp:248 [5]  (1.588 ns)
+
+ <State 2>: 3.254ns
+The critical path consists of the following:
+	'load' operation 7 bit ('i', src/doppler_part.cpp:248) on local variable 'i', src/doppler_part.cpp:248 [9]  (0.000 ns)
+	'getelementptr' operation 6 bit ('histogram_addr', src/doppler_part.cpp:249) [20]  (0.000 ns)
+	'load' operation 32 bit ('histogram_load', src/doppler_part.cpp:249) on array 'histogram' [21]  (3.254 ns)
+
+ <State 3>: 5.806ns
+The critical path consists of the following:
+	'load' operation 32 bit ('histogram_load', src/doppler_part.cpp:249) on array 'histogram' [21]  (3.254 ns)
+	'add' operation 32 bit ('sum', src/doppler_part.cpp:249) [22]  (2.552 ns)
+
+ <State 4>: 4.140ns
+The critical path consists of the following:
+	'icmp' operation 1 bit ('icmp_ln250', src/doppler_part.cpp:250) [23]  (2.552 ns)
+	'store' operation ('store_ln248', src/doppler_part.cpp:248) of variable 'add_ln248', src/doppler_part.cpp:248 7 bit on local variable 'i', src/doppler_part.cpp:248 [26]  (1.588 ns)
+
+ <State 5>: 3.176ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation 1 bit ('UnifiedRetVal') [36]  (1.588 ns)
+	'br' operation ('br_ln0') [31]  (1.588 ns)
+	'phi' operation 1 bit ('UnifiedRetVal') [36]  (0.000 ns)
+	blocking operation 1.588 ns on control path)
+
+ <State 6>: 1.588ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation 1 bit ('UnifiedRetVal') [36]  (1.588 ns)
+	'br' operation ('br_ln0') [34]  (1.588 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

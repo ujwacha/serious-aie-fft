@@ -9,8 +9,8 @@
 <ProductFamily>azynq</ProductFamily>
 <Part>xa7z030-fbg484-1I</Part>
 <TopModelName>Block_entry_gmem_wr_proc</TopModelName>
-<TargetClockPeriod>5.00</TargetClockPeriod>
-<ClockUncertainty>1.35</ClockUncertainty>
+<TargetClockPeriod>8.00</TargetClockPeriod>
+<ClockUncertainty>2.16</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
@@ -40,10 +40,10 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>34</BRAM_18K>
-<DSP>9</DSP>
-<FF>11327</FF>
-<LUT>11749</LUT>
+<BRAM_18K>35</BRAM_18K>
+<DSP>26</DSP>
+<FF>9588</FF>
+<LUT>13482</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

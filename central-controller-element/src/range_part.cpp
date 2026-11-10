@@ -8,6 +8,7 @@ void build_mask_indices(const ap_uint<32> *mask_words, unsigned int *idxs,
   unsigned int n = 0, accum = 0;
 
   for (int i = 0; i < 64; i++) {
+#pragma HLS pipeline 
     auto high_mask = mask_words[i].range(31, 16);
     auto low_mask = mask_words[i].range(15, 0);
 
@@ -22,11 +23,37 @@ void build_mask_indices(const ap_uint<32> *mask_words, unsigned int *idxs,
   count = n;
 }
 
+
+// void build_mask_indices(const ap_uint<32> *mask_words, unsigned int *idxs,
+//                         unsigned int &count) {
+
+//   // Step 1: flatten the 64×32-bit words into a 128-bit "keep" mask
+//   ap_uint<128> keep = 0;
+//   for (int i = 0; i < 64; i++) {
+// #pragma HLS UNROLL
+//     keep[i * 2]     = (mask_words[i].range(15, 0)  == 0xFFFF) ? 1 : 0;
+//     keep[i * 2 + 1] = (mask_words[i].range(31, 16) == 0xFFFF) ? 1 : 0;
+//   }
+
+//   // Step 2: emit indices — n is now a chain of 1-bit adds, no loop recurrence
+//   unsigned int n = 0;
+//   for (int i = 0; i < 128; i++) {
+// #pragma HLS UNROLL
+//     if (keep[i]) {
+//       idxs[n] = i * 16;
+//       n++;
+//     }
+//   }
+//   count = n;
+// }
+
 void adc_forward(hls::stream<pkt_adc> &in_adc0, hls::stream<pkt> &out_r_00,
                  hls::stream<pkt> &out_r_01, unsigned int num_chirps) {
   for (unsigned int c = 0; c < num_chirps; c++) {
+#pragma HLS loop_flatten off
     for (int i = 0; i < 1024; i++) {
 #pragma HLS PIPELINE II = 1
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024     // ← ADD THIS      
       pkt_adc in_packet = in_adc0.read();
       ap_uint<64> in_data = in_packet.data; // field, no parens
 

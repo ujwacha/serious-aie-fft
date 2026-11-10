@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'kernel'" level="0">
-<item name = "Date">Mon Nov  9 15:21:28 2026
+<item name = "Date">Tue Nov 10 11:50:42 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 7.026 ns, 1.35 ns</column>
+<column name="ap_clk">8.00 ns, 7.026 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -31,9 +31,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="adc_forward_U0">adc_forward, 2, 4398046510086, 14.052 ns, 3.1e+04 sec, 1, 4398046510081, loop auto-rewind stp (delay=0 cycle(s))</column>
+<column name="adc_forward_U0">adc_forward, ?, ?, ?, ?, ?, ?, no</column>
 <column name="Block_entry_gmem_wr_proc_U0">Block_entry_gmem_wr_proc, ?, ?, ?, ?, ?, ?, no</column>
-<column name="dummy_U0">dummy, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="dummy_U0">dummy, ?, ?, ?, ?, 0, 0, loop auto-rewind stp (delay=0 cycle(s))</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -52,22 +52,22 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 14, -</column>
 <column name="FIFO">157, -, 157, 74, -</column>
-<column name="Instance">38, 13, 12736, 13000, 0</column>
+<column name="Instance">39, 30, 10834, 14826, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, 0, 18, -</column>
 <column name="Register">-, -, 2, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
-<specialColumn name="Utilization (%)">36, 3, 8, 16, 0</specialColumn>
+<specialColumn name="Utilization (%)">36, 7, 6, 18, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="Block_entry_gmem_wr_proc_U0">Block_entry_gmem_wr_proc, 34, 9, 11327, 11749, 0</column>
-<column name="adc_forward_U0">adc_forward, 2, 4, 493, 257, 0</column>
+<column name="Block_entry_gmem_wr_proc_U0">Block_entry_gmem_wr_proc, 35, 26, 9588, 13482, 0</column>
+<column name="adc_forward_U0">adc_forward, 2, 4, 330, 327, 0</column>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 144, 232, 0</column>
-<column name="dummy_U0">dummy, 0, 0, 2, 20, 0</column>
+<column name="dummy_U0">dummy, 0, 0, 2, 43, 0</column>
 <column name="gmem_m_axi_U">gmem_m_axi, 2, 0, 770, 742, 0</column>
 </table>
 </item>

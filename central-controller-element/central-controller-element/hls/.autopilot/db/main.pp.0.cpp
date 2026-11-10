@@ -55479,7 +55479,7 @@ struct DopplerMaskPacket {
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    float data[86];
+    int32_t data[86];
 };
 
 
@@ -55533,14 +55533,7 @@ __attribute__((sdx_kernel("kernel", 0))) void kernel(ap_uint<32> *mm,
 # 2 "src/main.cpp" 2
 
 # 1 "src/angle_part.h" 1
-
-
-
-
-
-
-
-
+# 10 "src/angle_part.h"
 void dummy(hls::stream<DopplerMaskPacket> &mask_stream);
 # 4 "src/main.cpp" 2
 # 1 "src/doppler_part.h" 1

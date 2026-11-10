@@ -20,4 +20,34 @@ obj/doppler_part.o: ../../../../src/doppler_part.cpp \
   /home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_ref.h \
   /home/light/FPGA/2026.1/Vitis/include/etc/ap_fixed_special.h \
   /home/light/FPGA/2026.1/Vitis/include/hls_stream.h \
-  /home/light/FPGA/2026.1/Vitis/include/etc/hls_stream_common.h
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_stream_common.h \
+  ../../../../src/hamming.h ../../../../src/complex-math.h \
+  /home/light/FPGA/2026.1/Vitis/include/hls_math.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_hotbm_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/utils/x_hls_defines.h \
+  /home/light/FPGA/2026.1/Vitis/include/utils/hls_version.h \
+  /home/light/FPGA/2026.1/Vitis/include/utils/x_hls_utils.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_cordic_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_exp_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_log_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_sqrt_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_round_copysign_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_pow_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_diff_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_comparison_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_frexp_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_modf_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_isequal_isnotequal_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_all_any_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_select_bitselect_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_erf_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_fmod_rem_quo_remainder_divide_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_lgamma_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/utils/x_hls_traits.h \
+  /home/light/FPGA/2026.1/Vitis/include/hls_x_complex.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_tgamma_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_fract_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_mad_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_cbrt_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_hypot_apfixed.h \
+  /home/light/FPGA/2026.1/Vitis/include/etc/hls_ldexp_apfixed.h
