@@ -310,6 +310,17 @@ would push the down-chirp beat of a 30 m/s target past `fs`.
 The minimum-ADC variant meeting 6 cm is 0.29 GS/s / 2.52 GHz / 7.08 us, but
 the 1 GS/s point keeps much more velocity headroom for a small cost.
 
+### Design note
+
+The full argument - derivations, envelope, design-space solve, what the
+alternating slopes do to the threshold/AND/Doppler stages, the pairing and
+ghost problem, a validation plan and the questions still open - is a standalone
+write-up meant for review:
+
+- [docs/waveform-design.md](docs/waveform-design.md)
+- [docs/waveform-design.pdf](docs/waveform-design.pdf) (rebuilt with
+  `./docs/build_pdf.sh`)
+
 ## Measured behaviour
 
 ### DRAM traffic per 2048 × 256 frame
