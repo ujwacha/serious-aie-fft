@@ -264,6 +264,22 @@ Recommended point for 100 m / 30 m/s / ~5 cm:
 | Coarse dual estimate | 24 mm/s (128 pairs) |
 | Range-Doppler coupling at 30 m/s | 5.6 m (removed by dual-slope) |
 
+### One chirp in the time domain
+
+![chirp frequency vs time](docs/img/waveform_chirp.png)
+
+The ramp sweeps 2.91 GHz in 2.09 us (slope 1.391 MHz/us, 2048 samples at
+0.98 GS/s). An echo from 100 m arrives `2R/c = 667 ns` late, so the mixer
+output is a constant tone at `f_b = slope x 2R/c = 928 MHz`. That is the beat
+the range FFT measures.
+
+The same tone also carries the Doppler shift `2v/lambda`, which at 30 m/s is
+52 MHz — 1.8 % of the sweep, but about 100 range bins wide. An up/down chirp
+pair separates the two: the up-chirp beat is 876 MHz, the down-chirp beat is
+980 MHz, and their difference alone gives the velocity. That is why the
+bandwidth stops at 2.907 GHz: pushing it higher (steeper slope, same 0.98 GS/s)
+would push the down-chirp beat of a 30 m/s target past `fs`.
+
 ![waveform trade-offs](docs/img/waveform_tradeoffs.png)
 
 The minimum-ADC variant meeting 6 cm is 0.29 GS/s / 2.52 GHz / 7.08 us, but
