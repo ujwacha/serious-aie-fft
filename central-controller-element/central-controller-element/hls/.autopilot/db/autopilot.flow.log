@@ -3593,3 +3593,123 @@ Execute   close_project
 Execute     close_solution 
 Execute       cleanup_all 
 Execute       cleanup_all 
+Execute       source -notrace -encoding utf-8 /home/light/FPGA/2026.1/Vitis/tps/tcl/tcl8.6/clock.tcl 
+Execute         source -encoding utf-8 /home/light/FPGA/2026.1/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
+INFO-FLOW: Workspace /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls opened at Tue Nov 10 13:14:35 +0545 2026
+Execute       send_msg_by_id INFO @200-2174@%s%s component hls_config.cfg 
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+Execute       apply_ini hls_config.cfg 
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/main.h' from hls_config.cfg(8) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.h' from hls_config.cfg(8)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.h' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/main.cpp' from hls_config.cfg(9) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/main.cpp' from hls_config.cfg(9)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/range_part.h' from hls_config.cfg(10) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.h' from hls_config.cfg(10)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.h' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/range_part.cpp' from hls_config.cfg(11) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/range_part.cpp' from hls_config.cfg(11)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/doppler_part.h' from hls_config.cfg(12) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.h' from hls_config.cfg(12)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.h' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/doppler_part.cpp' from hls_config.cfg(13) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/doppler_part.cpp' from hls_config.cfg(13)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/angle_part.h' from hls_config.cfg(14) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.h' from hls_config.cfg(14)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.h' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/angle_part.cpp' from hls_config.cfg(15) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/angle_part.cpp' from hls_config.cfg(15)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/angle_part.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/complex-math.h' from hls_config.cfg(16) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.h' from hls_config.cfg(16)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.h' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/complex-math.cpp' from hls_config.cfg(17) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/complex-math.cpp' from hls_config.cfg(17)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/complex-math.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=./src/hamming.h' from hls_config.cfg(18) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=./src/hamming.h' from hls_config.cfg(18)
+Execute         add_files /home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h 
+INFO: [HLS 200-10] Adding design file '/home/light/MajorProject/serious-aie-fft/central-controller-element/src/hamming.h' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'tb.file=./tb/test.cpp' from hls_config.cfg(20) 
+INFO: [HLS 200-1465] Applying config ini 'tb.file=./tb/test.cpp' from hls_config.cfg(20)
+Execute         add_files -tb /home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp 
+INFO: [HLS 200-10] Adding test bench file '/home/light/MajorProject/serious-aie-fft/central-controller-element/tb/test.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.top=kernel' from hls_config.cfg(19) 
+INFO: [HLS 200-1465] Applying config ini 'syn.top=kernel' from hls_config.cfg(19)
+Execute         set_top kernel 
+Execute         send_msg_by_id INFO @200-1465@%s 'part=xa7z030fbg484-1I' from hls_config.cfg(1) 
+INFO: [HLS 200-1465] Applying config ini 'part=xa7z030fbg484-1I' from hls_config.cfg(1)
+Execute         set_part xa7z030fbg484-1I 
+Execute           create_platform xa7z030fbg484-1I -board  
+DBG:HLSDevice: Trying to load device library: /home/light/FPGA/2026.1/Vitis/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /home/light/FPGA/2026.1/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xa7z030-fbg484-1I'
+Command           create_platform done; 0.84 sec.
+Execute           source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/ip/util.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute             source /home/light/FPGA/2026.1/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Command           ap_source done; 0.15 sec.
+Execute           ap_part_info -name xa7z030-fbg484-1I -data info 
+Execute           config_compile -quiet -complex-mul-dsp=0 
+Command         set_part done; 1 sec.
+Execute         send_msg_by_id INFO @200-1465@%s 'clock=8' from hls_config.cfg(21) 
+INFO: [HLS 200-1465] Applying config ini 'clock=8' from hls_config.cfg(21)
+Execute         create_clock -period 8ns 
+Execute           ap_set_clock -name default -period 8 -unit ns -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 8ns.
+Execute         send_msg_by_id INFO @200-1465@%s 'package.output.format=ip_catalog' from hls_config.cfg(5) 
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+Execute         config_export -format=ip_catalog 
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.interface.default_axi=0' from hls_config.cfg(7) 
+INFO: [HLS 200-1465] Applying config ini 'syn.interface.default_axi=0' from hls_config.cfg(7)
+Execute         config_interface -default_axi=0 
+Command       apply_ini done; 1.08 sec.
+Execute       write_component -config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg 
+Execute         send_msg_by_id INFO @200-2176@%s /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/vitis-comp.json
+Command     open_solution done; 1.11 sec.
+Command   open_component done; 1.12 sec.
+Execute   apply_ini /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/config.cmdline -iscmdline 
+Execute   ::AP::init_summary_file csim 
+Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
+Execute   csim_design 
+Execute     source /home/light/MajorProject/serious-aie-fft/central-controller-element/central-controller-element/hls/.autopilot/db/global.setting.tcl 
+INFO: [SIM 211-2] *************** CSIM start ***************
+Execute     send_msg_by_id INFO @200-2191@%s%s C-Simulation clang-16 
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+Execute     source csim/.lst_opt.tcl 
+Execute     send_msg_by_id INFO @200-2036@%s debug 
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+Execute     ap_part_info -name xa7z030-fbg484-1I -data info 
+Execute     source run_sim.tcl 
+Command     ap_source done; 79.01 sec.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; 79.22 sec.
+Execute   close_project 
+Execute     close_solution 
+Execute       cleanup_all 
+Execute       cleanup_all 

@@ -86,6 +86,31 @@ SCENES = {
     ],
 }
 
+# ---------------------------------------------------------------------------
+# Physical moving-object scene: one FMCW lidar return at 1153 nm.
+#
+# Sawtooth FMCW, one chirp = N_RANGE samples at FS_HZ, sweep CHIRP_BW_HZ.
+# A target at range R gives a beat tone at f_b = 2*B*R/(c*T) and a per-chirp
+# Doppler phase 2*pi*(2*v/lambda)*T, so the range bin is 2*B*R/c and the
+# Doppler bin is v*T_cpi/lambda*2.
+# ---------------------------------------------------------------------------
+LIGHT_C = 299792458.0
+WAVELENGTH_M = 1153e-9
+CHIRP_BW_HZ = 1.0e9
+FS_HZ = 2.0e9
+CHIRP_S = N_RANGE / FS_HZ
+CPI_S = N_DOPPLER * CHIRP_S
+RANGE_RES_M = LIGHT_C / (2.0 * CHIRP_BW_HZ)
+VEL_RES_MPS = WAVELENGTH_M / (2.0 * CPI_S)
+MOVING_RANGE_BIN = 300
+MOVING_DOPPLER_BIN = 64
+MOVING_RANGE_M = MOVING_RANGE_BIN * RANGE_RES_M
+MOVING_VEL_MPS = MOVING_DOPPLER_BIN * VEL_RES_MPS
+MOVING_AMP = 2.0
+
+# Positive Doppler bin = positive beat-frequency offset = approaching target.
+SCENES["moving"] = [(MOVING_RANGE_BIN, MOVING_DOPPLER_BIN, MOVING_AMP, 0.0)]
+
 
 def round_away(x: float) -> int:
     return math.floor(x + 0.5) if x >= 0 else math.ceil(x - 0.5)
@@ -231,6 +256,13 @@ def write_iq(path: Path, values: list[complex]) -> None:
 # ---------------------------------------------------------------------------
 def generate(scene: str, chirps: int) -> None:
     targets = SCENES[scene]
+    if scene == "moving":
+        print(f"  lidar scene: lambda {WAVELENGTH_M * 1e9:.0f} nm, "
+              f"R {MOVING_RANGE_M:.3f} m (bin {MOVING_RANGE_BIN}), "
+              f"v {MOVING_VEL_MPS * 100:.2f} cm/s (bin {MOVING_DOPPLER_BIN}), "
+              f"range res {RANGE_RES_M * 100:.1f} cm, "
+              f"vel res {VEL_RES_MPS * 1e3:.3f} mm/s, "
+              f"CPI {CPI_S * 1e3:.3f} ms")
     rng = random.Random(0x5EED + 100003 * 0 + len(targets))
     sigma = 1.0 / math.sqrt(2.0)
 
