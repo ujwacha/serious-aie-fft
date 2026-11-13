@@ -232,6 +232,43 @@ python3 central-controller-element/tb/shift_sweep.py          # TP_SHIFT sweep
 python3 central-controller-element/tb/range_mask.py           # AIE-only mask stats
 ```
 
+## Waveform design
+
+`tb/waveform_optimizer.py` sweeps bandwidth and ADC rate under the constraints
+`R_nyq >= 100 m` and `v = 30 m/s at 100 m`, for the current chirp-to-chirp
+Doppler and for an automotive dual-slope estimator.
+
+The short version:
+
+- The current chain's unambiguous velocity is `lambda/(4T) = lambda fs/(4N)`.
+  Bandwidth does not enter it. For 30 m/s it would need `fs = 213 GS/s`
+  (`T = 9.6 ns`); at a 10 GS/s ADC the limit is 1.41 m/s.
+- Raising `B` to 3 GHz and `T` to 2 us buys range resolution (15 cm -> 5 cm)
+  and finer velocity resolution, but it *halves* the slow-time span.
+- The automotive fix is to measure the Doppler shift of the beat itself with
+  alternating up/down chirps. The usable envelope is triangular in range,
+  `v_max(R) = lambda fs/2 * min(R/R_nyq, 1-R/R_nyq)`, and the slow-time phase
+  is kept only for fine resolution (hybrid unwrapping).
+
+Recommended point for 100 m / 30 m/s / ~5 cm:
+
+| Quantity | Value |
+|---|---|
+| Bandwidth | 2.91 GHz |
+| Range resolution | 5.16 cm |
+| Nyquist range | 105.6 m |
+| ADC rate | 0.98 GS/s |
+| Chirp time | 2.09 us |
+| Velocity envelope | 282 m/s peak (at ~53 m), 30 m/s at 100 m |
+| Fine velocity resolution | 1.08 mm/s (slow-time, unwrapped) |
+| Coarse dual estimate | 24 mm/s (128 pairs) |
+| Range-Doppler coupling at 30 m/s | 5.6 m (removed by dual-slope) |
+
+![waveform trade-offs](docs/img/waveform_tradeoffs.png)
+
+The minimum-ADC variant meeting 6 cm is 0.29 GS/s / 2.52 GHz / 7.08 us, but
+the 1 GS/s point keeps much more velocity headroom for a small cost.
+
 ## Measured behaviour
 
 ### DRAM traffic per 2048 × 256 frame
