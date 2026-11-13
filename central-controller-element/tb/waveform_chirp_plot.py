@@ -101,7 +101,8 @@ def main():
     svg.text(60, 56,
              f"B {B / 1e9:.2f} GHz, T {T:.0f} ns, fs {FS / 1e9:.2f} GS/s "
              f"({N_RANGE} samples), slope {SLOPE / 1e12:.2f} MHz/us, "
-             f"R_nyq {R_NYQ:.1f} m", 11, c="#555")
+             f"R_nyq {R_NYQ:.1f} m  -  one up-chirp; the next chirp "
+             f"mirrors the slope", 11, c="#555")
 
     # ---------------------------------------------------------------- main
     x0, y0, pw, ph = 110, 100, 760, 400

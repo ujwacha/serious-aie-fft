@@ -268,10 +268,35 @@ Recommended point for 100 m / 30 m/s / ~5 cm:
 
 ![chirp frequency vs time](docs/img/waveform_chirp.png)
 
+This is the **up-chirp half** of the pair. A single ramp is all one chirp ever
+is; the dual slope lives across chirps, not inside one.
+
 The ramp sweeps 2.91 GHz in 2.09 us (slope 1.391 MHz/us, 2048 samples at
 0.98 GS/s). An echo from 100 m arrives `2R/c = 667 ns` late, so the mixer
 output is a constant tone at `f_b = slope x 2R/c = 928 MHz`. That is the beat
 the range FFT measures.
+
+### The pair
+
+![dual-slope pair](docs/img/waveform_pair.png)
+
+Chirp 0 sweeps up, chirp 1 sweeps down, and the CPI alternates them 128 times.
+For an approaching target the Doppler term flips sign between the two, so the
+same target produces two different tones:
+
+| | beat | value at 100 m, 30 m/s |
+|---|---|---|
+| up-chirp | `f_R - f_D` | 876 MHz |
+| down-chirp | `f_R + f_D` | 980 MHz |
+
+```
+range    = (f_up + f_down) / 2 = 928 MHz
+velocity = (f_down - f_up) / 2 = 52 MHz
+```
+
+This is the whole reason for the second slope: a lone 928 MHz tone is
+ambiguous — it is 100 m at 0 m/s or about 94 m at 30 m/s — and no amount of
+bandwidth or chirp time resolves that. Two slopes do.
 
 The same tone also carries the Doppler shift `2v/lambda`, which at 30 m/s is
 52 MHz — 1.8 % of the sweep, but about 100 range bins wide. An up/down chirp
