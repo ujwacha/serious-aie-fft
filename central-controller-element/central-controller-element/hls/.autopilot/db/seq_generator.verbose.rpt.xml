@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'seq_generator'" level="0">
-<item name = "Date">Tue Nov 10 11:50:41 2026
+<item name = "Date">Sat Nov 14 14:52:49 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -63,7 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="bitset_128ns_128ns_7ns_1s_128_1_1_U88">bitset_128ns_128ns_7ns_1s_128_1_1, 0, 0, 0, 143, 0</column>
+<column name="bitset_128ns_128ns_7ns_1s_128_1_1_U90">bitset_128ns_128ns_7ns_1s_128_1_1, 0, 0, 0, 143, 0</column>
 <column name="grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91">seq_generator_Pipeline_VITIS_LOOP_49_2, 0, 0, 19, 114, 0</column>
 </table>
 </item>

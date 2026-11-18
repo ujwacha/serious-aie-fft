@@ -42,17 +42,20 @@ void kernel(ap_uint<32> *mm, hls::stream<pkt_adc> &in_adc0,
 #pragma HLS STREAM variable = in_d_02 depth = 1024
 #pragma HLS STREAM variable = in_d_03 depth = 1024
 
+  // Two sequences for now: 0 and 1.
+  SequenceList sequences = {{0, 1}, 2};
+
   // The whole frame is one DATAFLOW region: each stage loops over the chirps
   // internally, and only the streams connect them.
   hls::stream<MaskPacket> mask_stream;
   hls::stream<Addr> idx_stream;
-  hls::stream<DopplerMaskPacket> doppler_mask_stream;
+  hls::stream<ap_uint<64>> doppler_mask_stream;
 #pragma HLS STREAM variable = mask_stream depth = 128
 #pragma HLS STREAM variable = idx_stream depth = 128
 #pragma HLS STREAM variable = doppler_mask_stream depth = 128
 #pragma HLS DATAFLOW
-  adc_forward(in_adc0, out_r_00, out_r_01, num_chirps);
-  aie_range_consume(in_r_00, in_r_01, mask_stream, mm, 0, num_chirps);
+  adc_forward(in_adc0, out_r_00, out_r_01, num_chirps, sequences);
+  aie_range_consume(in_r_00, in_r_01, mask_stream, mm, num_chirps, sequences);
   seq_generator(mask_stream, idx_stream);
   doppler(mm, idx_stream, out_d_02, out_d_03, in_d_02, in_d_03,
           doppler_mask_stream);

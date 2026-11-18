@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 24
+set cdfgNum 27
 set C_modelName {aie_range_consume}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -206,8 +206,9 @@ set ArgLastReadFirstWriteLatency {
 		mask_stream {Type O LastRead -1 FirstWrite 39}
 		gmem {Type O LastRead 20 FirstWrite 4}
 		mm {Type I LastRead 0 FirstWrite -1}
-		num_chirps {Type I LastRead 0 FirstWrite -1}}
-	aie_range_consume_Pipeline_VITIS_LOOP_96_2 {
+		num_chirps {Type I LastRead 0 FirstWrite -1}
+		agg_tmp1_ids {Type I LastRead -1 FirstWrite -1}}
+	aie_range_consume_Pipeline_VITIS_LOOP_102_3 {
 		in_r_00_V_data_V {Type I LastRead 1 FirstWrite -1}
 		in_r_00_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_r_00_V_strb_V {Type I LastRead 1 FirstWrite -1}
@@ -221,10 +222,11 @@ set ArgLastReadFirstWriteLatency {
 		mask_head {Type I LastRead 0 FirstWrite -1}
 		adr_buf {Type O LastRead -1 FirstWrite 2}
 		n_out {Type O LastRead -1 FirstWrite 2}}
-	aie_range_consume_Pipeline_VITIS_LOOP_105_3 {
+	aie_range_consume_Pipeline_VITIS_LOOP_112_4 {
 		n_reload {Type I LastRead 0 FirstWrite -1}
 		adr_buf {Type I LastRead 0 FirstWrite -1}
-		shl_ln {Type I LastRead 0 FirstWrite -1}
+		seq {Type I LastRead 0 FirstWrite -1}
+		zext_ln138 {Type I LastRead 0 FirstWrite -1}
 		mm {Type I LastRead 0 FirstWrite -1}
 		gmem {Type O LastRead 20 FirstWrite 4}
 		in_r_00_V_data_V {Type I LastRead 18 FirstWrite -1}

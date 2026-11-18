@@ -151,7 +151,7 @@ architecture behav of kernel is
     attribute DowngradeIPIdentifiedWarnings of behav : architecture is "yes";
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=196,HLS_SYN_DSP=0,HLS_SYN_FF=10993,HLS_SYN_LUT=14932,HLS_VERSION=2026_1}";
+    "kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=43,HLS_SYN_DSP=0,HLS_SYN_FF=6699,HLS_SYN_LUT=10383,HLS_VERSION=2026_1}";
     constant C_S_AXI_DATA_WIDTH : INTEGER := 32;
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER := 32;
@@ -250,8 +250,10 @@ architecture behav of kernel is
     signal Block_entry_gmem_wr_proc_U0_out_d_03_TLAST : STD_LOGIC_VECTOR (0 downto 0);
     signal Block_entry_gmem_wr_proc_U0_in_d_02_TREADY : STD_LOGIC;
     signal Block_entry_gmem_wr_proc_U0_in_d_03_TREADY : STD_LOGIC;
-    signal Block_entry_gmem_wr_proc_U0_doppler_mask_stream_din : STD_LOGIC_VECTOR (2815 downto 0);
+    signal Block_entry_gmem_wr_proc_U0_doppler_mask_stream_din : STD_LOGIC_VECTOR (63 downto 0);
     signal Block_entry_gmem_wr_proc_U0_doppler_mask_stream_write : STD_LOGIC;
+    signal Block_entry_gmem_wr_proc_U0_doppler_mask_stream_num_data_valid : STD_LOGIC_VECTOR (31 downto 0);
+    signal Block_entry_gmem_wr_proc_U0_doppler_mask_stream_fifo_cap : STD_LOGIC_VECTOR (31 downto 0);
     signal dummy_U0_ap_start : STD_LOGIC;
     signal dummy_U0_ap_done : STD_LOGIC;
     signal dummy_U0_ap_continue : STD_LOGIC;
@@ -259,7 +261,7 @@ architecture behav of kernel is
     signal dummy_U0_ap_ready : STD_LOGIC;
     signal dummy_U0_doppler_mask_stream_read : STD_LOGIC;
     signal doppler_mask_stream_full_n : STD_LOGIC;
-    signal doppler_mask_stream_dout : STD_LOGIC_VECTOR (2815 downto 0);
+    signal doppler_mask_stream_dout : STD_LOGIC_VECTOR (63 downto 0);
     signal doppler_mask_stream_empty_n : STD_LOGIC;
     signal doppler_mask_stream_num_data_valid : STD_LOGIC_VECTOR (7 downto 0);
     signal doppler_mask_stream_fifo_cap : STD_LOGIC_VECTOR (7 downto 0);
@@ -402,11 +404,11 @@ architecture behav of kernel is
         in_d_03_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
         in_d_03_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
         in_d_03_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
-        doppler_mask_stream_din : OUT STD_LOGIC_VECTOR (2815 downto 0);
+        doppler_mask_stream_din : OUT STD_LOGIC_VECTOR (63 downto 0);
         doppler_mask_stream_full_n : IN STD_LOGIC;
         doppler_mask_stream_write : OUT STD_LOGIC;
-        doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
-        doppler_mask_stream_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0) );
+        doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (31 downto 0);
+        doppler_mask_stream_fifo_cap : IN STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -419,7 +421,7 @@ architecture behav of kernel is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        doppler_mask_stream_dout : IN STD_LOGIC_VECTOR (2815 downto 0);
+        doppler_mask_stream_dout : IN STD_LOGIC_VECTOR (63 downto 0);
         doppler_mask_stream_empty_n : IN STD_LOGIC;
         doppler_mask_stream_read : OUT STD_LOGIC;
         doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
@@ -427,16 +429,16 @@ architecture behav of kernel is
     end component;
 
 
-    component kernel_fifo_w2816_d128_A IS
+    component kernel_fifo_w64_d128_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
         if_read_ce : IN STD_LOGIC;
         if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (2815 downto 0);
+        if_din : IN STD_LOGIC_VECTOR (63 downto 0);
         if_full_n : OUT STD_LOGIC;
         if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (2815 downto 0);
+        if_dout : OUT STD_LOGIC_VECTOR (63 downto 0);
         if_empty_n : OUT STD_LOGIC;
         if_read : IN STD_LOGIC;
         if_num_data_valid : OUT STD_LOGIC_VECTOR (7 downto 0);
@@ -843,8 +845,8 @@ begin
         doppler_mask_stream_din => Block_entry_gmem_wr_proc_U0_doppler_mask_stream_din,
         doppler_mask_stream_full_n => doppler_mask_stream_full_n,
         doppler_mask_stream_write => Block_entry_gmem_wr_proc_U0_doppler_mask_stream_write,
-        doppler_mask_stream_num_data_valid => doppler_mask_stream_num_data_valid,
-        doppler_mask_stream_fifo_cap => doppler_mask_stream_fifo_cap);
+        doppler_mask_stream_num_data_valid => Block_entry_gmem_wr_proc_U0_doppler_mask_stream_num_data_valid,
+        doppler_mask_stream_fifo_cap => Block_entry_gmem_wr_proc_U0_doppler_mask_stream_fifo_cap);
 
     dummy_U0 : component kernel_dummy
     port map (
@@ -861,7 +863,7 @@ begin
         doppler_mask_stream_num_data_valid => doppler_mask_stream_num_data_valid,
         doppler_mask_stream_fifo_cap => doppler_mask_stream_fifo_cap);
 
-    doppler_mask_stream_U : component kernel_fifo_w2816_d128_A
+    doppler_mask_stream_U : component kernel_fifo_w64_d128_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -926,6 +928,8 @@ begin
 
     Block_entry_gmem_wr_proc_U0_ap_continue <= ap_sync_done;
     Block_entry_gmem_wr_proc_U0_ap_start <= ((ap_sync_reg_Block_entry_gmem_wr_proc_U0_ap_ready xor ap_const_logic_1) and ap_start and ap_const_logic_1);
+    Block_entry_gmem_wr_proc_U0_doppler_mask_stream_fifo_cap <= std_logic_vector(IEEE.numeric_std.resize(unsigned(std_logic_vector(IEEE.numeric_std.resize(unsigned(doppler_mask_stream_fifo_cap),8))),32));
+    Block_entry_gmem_wr_proc_U0_doppler_mask_stream_num_data_valid <= std_logic_vector(IEEE.numeric_std.resize(unsigned(std_logic_vector(IEEE.numeric_std.resize(unsigned(doppler_mask_stream_num_data_valid),8))),32));
     adc_forward_U0_ap_continue <= ap_sync_done;
     adc_forward_U0_ap_start <= ((ap_sync_reg_adc_forward_U0_ap_ready xor ap_const_logic_1) and ap_start and ap_const_logic_1);
     ap_done <= ap_sync_done;

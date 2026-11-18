@@ -21,50 +21,29 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>1663</Best-caseLatency>
-<Average-caseLatency>1776</Average-caseLatency>
-<Worst-caseLatency>1888</Worst-caseLatency>
-<Best-caseRealTimeLatency>13.304 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>14.208 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>15.104 us</Worst-caseRealTimeLatency>
-<Interval-min>1663</Interval-min>
-<Interval-max>1888</Interval-max>
+<Best-caseLatency>1665</Best-caseLatency>
+<Average-caseLatency>1762</Average-caseLatency>
+<Worst-caseLatency>1858</Worst-caseLatency>
+<Best-caseRealTimeLatency>13.320 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>14.096 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>14.864 us</Worst-caseRealTimeLatency>
+<Interval-min>1665</Interval-min>
+<Interval-max>1858</Interval-max>
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
-<SummaryOfLoopLatency>
-<VITIS_LOOP_312_8>
-<Slack>5.84</Slack>
-<TripCount>3</TripCount>
-<isPerfectNested>0</isPerfectNested>
-<Latency>411</Latency>
-<AbsoluteTimeLatency>3288</AbsoluteTimeLatency>
-<IterationLatency>137</IterationLatency>
-<PerformancePragma>-</PerformancePragma>
-<InstanceList>
-</InstanceList>
-</VITIS_LOOP_312_8>
-</SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>Timing Violation</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/doppler_part.cpp:190</SourceLocation>
-<SummaryOfLoopViolations>
-<VITIS_LOOP_312_8>
-<Name>VITIS_LOOP_312_8</Name>
-<IssueType>-</IssueType>
-<ViolationType>-</ViolationType>
-<SourceLocation>src/doppler_part.cpp:188</SourceLocation>
-</VITIS_LOOP_312_8>
-</SummaryOfLoopViolations>
+<SourceLocation>src/doppler_part.cpp:182</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>8</BRAM_18K>
-<DSP>22</DSP>
-<FF>6535</FF>
-<LUT>7897</LUT>
+<DSP>10</DSP>
+<FF>2171</FF>
+<LUT>3162</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -283,7 +262,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>2816</Bits>
+<Bits>64</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -316,7 +295,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>8</Bits>
+<Bits>32</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -327,7 +306,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>8</Bits>
+<Bits>32</Bits>
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>

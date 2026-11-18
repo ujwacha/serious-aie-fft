@@ -212,11 +212,11 @@ output   in_d_03_TREADY;
 input  [3:0] in_d_03_TKEEP;
 input  [3:0] in_d_03_TSTRB;
 input  [0:0] in_d_03_TLAST;
-output  [2815:0] doppler_mask_stream_din;
+output  [63:0] doppler_mask_stream_din;
 input   doppler_mask_stream_full_n;
 output   doppler_mask_stream_write;
-input  [7:0] doppler_mask_stream_num_data_valid;
-input  [7:0] doppler_mask_stream_fifo_cap;
+input  [31:0] doppler_mask_stream_num_data_valid;
+input  [31:0] doppler_mask_stream_fifo_cap;
 
 reg ap_done;
 reg ap_idle;
@@ -249,114 +249,114 @@ reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    internal_ap_ready;
-reg   [31:0] num_chirps_read_reg_241;
+reg   [31:0] num_chirps_read_reg_245;
 wire    ap_CS_fsm_state2;
-reg   [63:0] mm_read_reg_246;
-wire    grp_aie_range_consume_fu_148_ap_start;
-wire    grp_aie_range_consume_fu_148_ap_done;
-wire    grp_aie_range_consume_fu_148_ap_idle;
-wire    grp_aie_range_consume_fu_148_ap_ready;
-wire    grp_aie_range_consume_fu_148_in_r_00_TREADY;
-wire    grp_aie_range_consume_fu_148_in_r_01_TREADY;
-wire   [159:0] grp_aie_range_consume_fu_148_mask_stream_din;
-wire    grp_aie_range_consume_fu_148_mask_stream_write;
-wire    grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID;
-wire   [63:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR;
-wire   [0:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID;
-wire   [31:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN;
-wire   [2:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE;
-wire   [1:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST;
-wire   [1:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE;
-wire   [2:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION;
-wire   [0:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER;
-wire    grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID;
-wire   [31:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB;
-wire    grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST;
-wire   [0:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_WID;
-wire   [0:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER;
-wire    grp_aie_range_consume_fu_148_m_axi_gmem_0_ARVALID;
-wire   [63:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARADDR;
-wire   [0:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARID;
-wire   [31:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLEN;
-wire   [2:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARSIZE;
-wire   [1:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARBURST;
-wire   [1:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLOCK;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARCACHE;
-wire   [2:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARPROT;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARQOS;
-wire   [3:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARREGION;
-wire   [0:0] grp_aie_range_consume_fu_148_m_axi_gmem_0_ARUSER;
-wire    grp_aie_range_consume_fu_148_m_axi_gmem_0_RREADY;
-wire    grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY;
-wire    grp_seq_generator_fu_175_ap_start;
-wire    grp_seq_generator_fu_175_ap_done;
-wire    grp_seq_generator_fu_175_ap_idle;
-wire    grp_seq_generator_fu_175_ap_ready;
-wire    grp_seq_generator_fu_175_mask_stream_read;
-wire   [31:0] grp_seq_generator_fu_175_idx_stream_din;
-wire    grp_seq_generator_fu_175_idx_stream_write;
-wire    grp_doppler_fu_185_ap_start;
-wire    grp_doppler_fu_185_ap_done;
-wire    grp_doppler_fu_185_ap_idle;
-wire    grp_doppler_fu_185_ap_ready;
-wire    grp_doppler_fu_185_m_axi_gmem_0_AWVALID;
-wire   [63:0] grp_doppler_fu_185_m_axi_gmem_0_AWADDR;
-wire   [0:0] grp_doppler_fu_185_m_axi_gmem_0_AWID;
-wire   [31:0] grp_doppler_fu_185_m_axi_gmem_0_AWLEN;
-wire   [2:0] grp_doppler_fu_185_m_axi_gmem_0_AWSIZE;
-wire   [1:0] grp_doppler_fu_185_m_axi_gmem_0_AWBURST;
-wire   [1:0] grp_doppler_fu_185_m_axi_gmem_0_AWLOCK;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_AWCACHE;
-wire   [2:0] grp_doppler_fu_185_m_axi_gmem_0_AWPROT;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_AWQOS;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_AWREGION;
-wire   [0:0] grp_doppler_fu_185_m_axi_gmem_0_AWUSER;
-wire    grp_doppler_fu_185_m_axi_gmem_0_WVALID;
-wire   [31:0] grp_doppler_fu_185_m_axi_gmem_0_WDATA;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_WSTRB;
-wire    grp_doppler_fu_185_m_axi_gmem_0_WLAST;
-wire   [0:0] grp_doppler_fu_185_m_axi_gmem_0_WID;
-wire   [0:0] grp_doppler_fu_185_m_axi_gmem_0_WUSER;
-wire    grp_doppler_fu_185_m_axi_gmem_0_ARVALID;
-wire   [63:0] grp_doppler_fu_185_m_axi_gmem_0_ARADDR;
-wire   [0:0] grp_doppler_fu_185_m_axi_gmem_0_ARID;
-wire   [31:0] grp_doppler_fu_185_m_axi_gmem_0_ARLEN;
-wire   [2:0] grp_doppler_fu_185_m_axi_gmem_0_ARSIZE;
-wire   [1:0] grp_doppler_fu_185_m_axi_gmem_0_ARBURST;
-wire   [1:0] grp_doppler_fu_185_m_axi_gmem_0_ARLOCK;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_ARCACHE;
-wire   [2:0] grp_doppler_fu_185_m_axi_gmem_0_ARPROT;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_ARQOS;
-wire   [3:0] grp_doppler_fu_185_m_axi_gmem_0_ARREGION;
-wire   [0:0] grp_doppler_fu_185_m_axi_gmem_0_ARUSER;
-wire    grp_doppler_fu_185_m_axi_gmem_0_RREADY;
-wire    grp_doppler_fu_185_m_axi_gmem_0_BREADY;
-wire    grp_doppler_fu_185_idx_stream_read;
-wire   [31:0] grp_doppler_fu_185_out_d_02_TDATA;
-wire    grp_doppler_fu_185_out_d_02_TVALID;
-wire    grp_doppler_fu_185_out_d_02_TREADY;
-wire   [3:0] grp_doppler_fu_185_out_d_02_TKEEP;
-wire   [3:0] grp_doppler_fu_185_out_d_02_TSTRB;
-wire   [0:0] grp_doppler_fu_185_out_d_02_TLAST;
-wire   [31:0] grp_doppler_fu_185_out_d_03_TDATA;
-wire    grp_doppler_fu_185_out_d_03_TVALID;
-wire    grp_doppler_fu_185_out_d_03_TREADY;
-wire   [3:0] grp_doppler_fu_185_out_d_03_TKEEP;
-wire   [3:0] grp_doppler_fu_185_out_d_03_TSTRB;
-wire   [0:0] grp_doppler_fu_185_out_d_03_TLAST;
-wire    grp_doppler_fu_185_in_d_02_TREADY;
-wire    grp_doppler_fu_185_in_d_03_TREADY;
-wire   [2815:0] grp_doppler_fu_185_doppler_mask_stream_din;
-wire    grp_doppler_fu_185_doppler_mask_stream_write;
-reg    grp_aie_range_consume_fu_148_ap_start_reg;
+reg   [63:0] mm_read_reg_250;
+wire    grp_aie_range_consume_fu_150_ap_start;
+wire    grp_aie_range_consume_fu_150_ap_done;
+wire    grp_aie_range_consume_fu_150_ap_idle;
+wire    grp_aie_range_consume_fu_150_ap_ready;
+wire    grp_aie_range_consume_fu_150_in_r_00_TREADY;
+wire    grp_aie_range_consume_fu_150_in_r_01_TREADY;
+wire   [159:0] grp_aie_range_consume_fu_150_mask_stream_din;
+wire    grp_aie_range_consume_fu_150_mask_stream_write;
+wire    grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID;
+wire   [63:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR;
+wire   [0:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID;
+wire   [31:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN;
+wire   [2:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE;
+wire   [1:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST;
+wire   [1:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE;
+wire   [2:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION;
+wire   [0:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER;
+wire    grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID;
+wire   [31:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB;
+wire    grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST;
+wire   [0:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_WID;
+wire   [0:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER;
+wire    grp_aie_range_consume_fu_150_m_axi_gmem_0_ARVALID;
+wire   [63:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARADDR;
+wire   [0:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARID;
+wire   [31:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLEN;
+wire   [2:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARSIZE;
+wire   [1:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARBURST;
+wire   [1:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLOCK;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARCACHE;
+wire   [2:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARPROT;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARQOS;
+wire   [3:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARREGION;
+wire   [0:0] grp_aie_range_consume_fu_150_m_axi_gmem_0_ARUSER;
+wire    grp_aie_range_consume_fu_150_m_axi_gmem_0_RREADY;
+wire    grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY;
+wire    grp_seq_generator_fu_179_ap_start;
+wire    grp_seq_generator_fu_179_ap_done;
+wire    grp_seq_generator_fu_179_ap_idle;
+wire    grp_seq_generator_fu_179_ap_ready;
+wire    grp_seq_generator_fu_179_mask_stream_read;
+wire   [31:0] grp_seq_generator_fu_179_idx_stream_din;
+wire    grp_seq_generator_fu_179_idx_stream_write;
+wire    grp_doppler_fu_189_ap_start;
+wire    grp_doppler_fu_189_ap_done;
+wire    grp_doppler_fu_189_ap_idle;
+wire    grp_doppler_fu_189_ap_ready;
+wire    grp_doppler_fu_189_m_axi_gmem_0_AWVALID;
+wire   [63:0] grp_doppler_fu_189_m_axi_gmem_0_AWADDR;
+wire   [0:0] grp_doppler_fu_189_m_axi_gmem_0_AWID;
+wire   [31:0] grp_doppler_fu_189_m_axi_gmem_0_AWLEN;
+wire   [2:0] grp_doppler_fu_189_m_axi_gmem_0_AWSIZE;
+wire   [1:0] grp_doppler_fu_189_m_axi_gmem_0_AWBURST;
+wire   [1:0] grp_doppler_fu_189_m_axi_gmem_0_AWLOCK;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_AWCACHE;
+wire   [2:0] grp_doppler_fu_189_m_axi_gmem_0_AWPROT;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_AWQOS;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_AWREGION;
+wire   [0:0] grp_doppler_fu_189_m_axi_gmem_0_AWUSER;
+wire    grp_doppler_fu_189_m_axi_gmem_0_WVALID;
+wire   [31:0] grp_doppler_fu_189_m_axi_gmem_0_WDATA;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_WSTRB;
+wire    grp_doppler_fu_189_m_axi_gmem_0_WLAST;
+wire   [0:0] grp_doppler_fu_189_m_axi_gmem_0_WID;
+wire   [0:0] grp_doppler_fu_189_m_axi_gmem_0_WUSER;
+wire    grp_doppler_fu_189_m_axi_gmem_0_ARVALID;
+wire   [63:0] grp_doppler_fu_189_m_axi_gmem_0_ARADDR;
+wire   [0:0] grp_doppler_fu_189_m_axi_gmem_0_ARID;
+wire   [31:0] grp_doppler_fu_189_m_axi_gmem_0_ARLEN;
+wire   [2:0] grp_doppler_fu_189_m_axi_gmem_0_ARSIZE;
+wire   [1:0] grp_doppler_fu_189_m_axi_gmem_0_ARBURST;
+wire   [1:0] grp_doppler_fu_189_m_axi_gmem_0_ARLOCK;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_ARCACHE;
+wire   [2:0] grp_doppler_fu_189_m_axi_gmem_0_ARPROT;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_ARQOS;
+wire   [3:0] grp_doppler_fu_189_m_axi_gmem_0_ARREGION;
+wire   [0:0] grp_doppler_fu_189_m_axi_gmem_0_ARUSER;
+wire    grp_doppler_fu_189_m_axi_gmem_0_RREADY;
+wire    grp_doppler_fu_189_m_axi_gmem_0_BREADY;
+wire    grp_doppler_fu_189_idx_stream_read;
+wire   [31:0] grp_doppler_fu_189_out_d_02_TDATA;
+wire    grp_doppler_fu_189_out_d_02_TVALID;
+wire    grp_doppler_fu_189_out_d_02_TREADY;
+wire   [3:0] grp_doppler_fu_189_out_d_02_TKEEP;
+wire   [3:0] grp_doppler_fu_189_out_d_02_TSTRB;
+wire   [0:0] grp_doppler_fu_189_out_d_02_TLAST;
+wire   [31:0] grp_doppler_fu_189_out_d_03_TDATA;
+wire    grp_doppler_fu_189_out_d_03_TVALID;
+wire    grp_doppler_fu_189_out_d_03_TREADY;
+wire   [3:0] grp_doppler_fu_189_out_d_03_TKEEP;
+wire   [3:0] grp_doppler_fu_189_out_d_03_TSTRB;
+wire   [0:0] grp_doppler_fu_189_out_d_03_TLAST;
+wire    grp_doppler_fu_189_in_d_02_TREADY;
+wire    grp_doppler_fu_189_in_d_03_TREADY;
+wire   [63:0] grp_doppler_fu_189_doppler_mask_stream_din;
+wire    grp_doppler_fu_189_doppler_mask_stream_write;
+reg    grp_aie_range_consume_fu_150_ap_start_reg;
 wire    ap_CS_fsm_state3;
 wire    mask_stream_full_n;
 reg    mask_stream_write;
-reg    grp_seq_generator_fu_175_ap_start_reg;
+reg    grp_seq_generator_fu_179_ap_start_reg;
 wire    ap_CS_fsm_state4;
 wire   [159:0] mask_stream_dout;
 wire    mask_stream_empty_n;
@@ -364,7 +364,7 @@ reg    mask_stream_read;
 wire    ap_CS_fsm_state5;
 wire    idx_stream_full_n;
 reg    idx_stream_write;
-reg    grp_doppler_fu_185_ap_start_reg;
+reg    grp_doppler_fu_189_ap_start_reg;
 wire    ap_CS_fsm_state6;
 wire    ap_CS_fsm_state7;
 wire   [31:0] idx_stream_dout;
@@ -499,68 +499,68 @@ initial begin
 #0 start_once_reg = 1'b0;
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 8'd1;
-#0 grp_aie_range_consume_fu_148_ap_start_reg = 1'b0;
-#0 grp_seq_generator_fu_175_ap_start_reg = 1'b0;
-#0 grp_doppler_fu_185_ap_start_reg = 1'b0;
+#0 grp_aie_range_consume_fu_150_ap_start_reg = 1'b0;
+#0 grp_seq_generator_fu_179_ap_start_reg = 1'b0;
+#0 grp_doppler_fu_189_ap_start_reg = 1'b0;
 end
 
-kernel_aie_range_consume grp_aie_range_consume_fu_148(
+kernel_aie_range_consume grp_aie_range_consume_fu_150(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_aie_range_consume_fu_148_ap_start),
-    .ap_done(grp_aie_range_consume_fu_148_ap_done),
-    .ap_idle(grp_aie_range_consume_fu_148_ap_idle),
-    .ap_ready(grp_aie_range_consume_fu_148_ap_ready),
+    .ap_start(grp_aie_range_consume_fu_150_ap_start),
+    .ap_done(grp_aie_range_consume_fu_150_ap_done),
+    .ap_idle(grp_aie_range_consume_fu_150_ap_idle),
+    .ap_ready(grp_aie_range_consume_fu_150_ap_ready),
     .in_r_00_TDATA(in_r_00_TDATA_int_regslice),
     .in_r_00_TVALID(in_r_00_TVALID_int_regslice),
-    .in_r_00_TREADY(grp_aie_range_consume_fu_148_in_r_00_TREADY),
+    .in_r_00_TREADY(grp_aie_range_consume_fu_150_in_r_00_TREADY),
     .in_r_00_TKEEP(in_r_00_TKEEP_int_regslice),
     .in_r_00_TSTRB(in_r_00_TSTRB_int_regslice),
     .in_r_00_TLAST(in_r_00_TLAST_int_regslice),
     .in_r_01_TDATA(in_r_01_TDATA_int_regslice),
     .in_r_01_TVALID(in_r_01_TVALID_int_regslice),
-    .in_r_01_TREADY(grp_aie_range_consume_fu_148_in_r_01_TREADY),
+    .in_r_01_TREADY(grp_aie_range_consume_fu_150_in_r_01_TREADY),
     .in_r_01_TKEEP(in_r_01_TKEEP_int_regslice),
     .in_r_01_TSTRB(in_r_01_TSTRB_int_regslice),
     .in_r_01_TLAST(in_r_01_TLAST_int_regslice),
-    .mask_stream_din(grp_aie_range_consume_fu_148_mask_stream_din),
+    .mask_stream_din(grp_aie_range_consume_fu_150_mask_stream_din),
     .mask_stream_full_n(mask_stream_full_n),
-    .mask_stream_write(grp_aie_range_consume_fu_148_mask_stream_write),
-    .m_axi_gmem_0_AWVALID(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID),
+    .mask_stream_write(grp_aie_range_consume_fu_150_mask_stream_write),
+    .m_axi_gmem_0_AWVALID(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID),
     .m_axi_gmem_0_AWREADY(m_axi_gmem_0_AWREADY),
-    .m_axi_gmem_0_AWADDR(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR),
-    .m_axi_gmem_0_AWID(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID),
-    .m_axi_gmem_0_AWLEN(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN),
-    .m_axi_gmem_0_AWSIZE(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE),
-    .m_axi_gmem_0_AWBURST(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST),
-    .m_axi_gmem_0_AWLOCK(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK),
-    .m_axi_gmem_0_AWCACHE(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE),
-    .m_axi_gmem_0_AWPROT(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT),
-    .m_axi_gmem_0_AWQOS(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS),
-    .m_axi_gmem_0_AWREGION(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION),
-    .m_axi_gmem_0_AWUSER(grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER),
-    .m_axi_gmem_0_WVALID(grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID),
+    .m_axi_gmem_0_AWADDR(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR),
+    .m_axi_gmem_0_AWID(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID),
+    .m_axi_gmem_0_AWLEN(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN),
+    .m_axi_gmem_0_AWSIZE(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE),
+    .m_axi_gmem_0_AWBURST(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST),
+    .m_axi_gmem_0_AWLOCK(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK),
+    .m_axi_gmem_0_AWCACHE(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE),
+    .m_axi_gmem_0_AWPROT(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT),
+    .m_axi_gmem_0_AWQOS(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS),
+    .m_axi_gmem_0_AWREGION(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION),
+    .m_axi_gmem_0_AWUSER(grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER),
+    .m_axi_gmem_0_WVALID(grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID),
     .m_axi_gmem_0_WREADY(m_axi_gmem_0_WREADY),
-    .m_axi_gmem_0_WDATA(grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA),
-    .m_axi_gmem_0_WSTRB(grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB),
-    .m_axi_gmem_0_WLAST(grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST),
-    .m_axi_gmem_0_WID(grp_aie_range_consume_fu_148_m_axi_gmem_0_WID),
-    .m_axi_gmem_0_WUSER(grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER),
-    .m_axi_gmem_0_ARVALID(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARVALID),
+    .m_axi_gmem_0_WDATA(grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA),
+    .m_axi_gmem_0_WSTRB(grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB),
+    .m_axi_gmem_0_WLAST(grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST),
+    .m_axi_gmem_0_WID(grp_aie_range_consume_fu_150_m_axi_gmem_0_WID),
+    .m_axi_gmem_0_WUSER(grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER),
+    .m_axi_gmem_0_ARVALID(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARVALID),
     .m_axi_gmem_0_ARREADY(1'b0),
-    .m_axi_gmem_0_ARADDR(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARADDR),
-    .m_axi_gmem_0_ARID(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARID),
-    .m_axi_gmem_0_ARLEN(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLEN),
-    .m_axi_gmem_0_ARSIZE(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARSIZE),
-    .m_axi_gmem_0_ARBURST(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARBURST),
-    .m_axi_gmem_0_ARLOCK(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLOCK),
-    .m_axi_gmem_0_ARCACHE(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARCACHE),
-    .m_axi_gmem_0_ARPROT(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARPROT),
-    .m_axi_gmem_0_ARQOS(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARQOS),
-    .m_axi_gmem_0_ARREGION(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARREGION),
-    .m_axi_gmem_0_ARUSER(grp_aie_range_consume_fu_148_m_axi_gmem_0_ARUSER),
+    .m_axi_gmem_0_ARADDR(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARADDR),
+    .m_axi_gmem_0_ARID(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARID),
+    .m_axi_gmem_0_ARLEN(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLEN),
+    .m_axi_gmem_0_ARSIZE(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARSIZE),
+    .m_axi_gmem_0_ARBURST(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARBURST),
+    .m_axi_gmem_0_ARLOCK(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLOCK),
+    .m_axi_gmem_0_ARCACHE(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARCACHE),
+    .m_axi_gmem_0_ARPROT(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARPROT),
+    .m_axi_gmem_0_ARQOS(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARQOS),
+    .m_axi_gmem_0_ARREGION(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARREGION),
+    .m_axi_gmem_0_ARUSER(grp_aie_range_consume_fu_150_m_axi_gmem_0_ARUSER),
     .m_axi_gmem_0_RVALID(1'b0),
-    .m_axi_gmem_0_RREADY(grp_aie_range_consume_fu_148_m_axi_gmem_0_RREADY),
+    .m_axi_gmem_0_RREADY(grp_aie_range_consume_fu_150_m_axi_gmem_0_RREADY),
     .m_axi_gmem_0_RDATA(32'd0),
     .m_axi_gmem_0_RLAST(1'b0),
     .m_axi_gmem_0_RID(1'd0),
@@ -568,71 +568,71 @@ kernel_aie_range_consume grp_aie_range_consume_fu_148(
     .m_axi_gmem_0_RUSER(1'd0),
     .m_axi_gmem_0_RRESP(2'd0),
     .m_axi_gmem_0_BVALID(m_axi_gmem_0_BVALID),
-    .m_axi_gmem_0_BREADY(grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY),
+    .m_axi_gmem_0_BREADY(grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY),
     .m_axi_gmem_0_BRESP(m_axi_gmem_0_BRESP),
     .m_axi_gmem_0_BID(m_axi_gmem_0_BID),
     .m_axi_gmem_0_BUSER(m_axi_gmem_0_BUSER),
-    .mm(mm_read_reg_246),
-    .num_chirps(num_chirps_read_reg_241)
+    .mm(mm_read_reg_250),
+    .num_chirps(num_chirps_read_reg_245)
 );
 
-kernel_seq_generator grp_seq_generator_fu_175(
+kernel_seq_generator grp_seq_generator_fu_179(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_seq_generator_fu_175_ap_start),
-    .ap_done(grp_seq_generator_fu_175_ap_done),
-    .ap_idle(grp_seq_generator_fu_175_ap_idle),
-    .ap_ready(grp_seq_generator_fu_175_ap_ready),
+    .ap_start(grp_seq_generator_fu_179_ap_start),
+    .ap_done(grp_seq_generator_fu_179_ap_done),
+    .ap_idle(grp_seq_generator_fu_179_ap_idle),
+    .ap_ready(grp_seq_generator_fu_179_ap_ready),
     .mask_stream_dout(mask_stream_dout),
     .mask_stream_empty_n(mask_stream_empty_n),
-    .mask_stream_read(grp_seq_generator_fu_175_mask_stream_read),
-    .idx_stream_din(grp_seq_generator_fu_175_idx_stream_din),
+    .mask_stream_read(grp_seq_generator_fu_179_mask_stream_read),
+    .idx_stream_din(grp_seq_generator_fu_179_idx_stream_din),
     .idx_stream_full_n(idx_stream_full_n),
-    .idx_stream_write(grp_seq_generator_fu_175_idx_stream_write)
+    .idx_stream_write(grp_seq_generator_fu_179_idx_stream_write)
 );
 
-kernel_doppler grp_doppler_fu_185(
+kernel_doppler grp_doppler_fu_189(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_doppler_fu_185_ap_start),
-    .ap_done(grp_doppler_fu_185_ap_done),
-    .ap_idle(grp_doppler_fu_185_ap_idle),
-    .ap_ready(grp_doppler_fu_185_ap_ready),
-    .m_axi_gmem_0_AWVALID(grp_doppler_fu_185_m_axi_gmem_0_AWVALID),
+    .ap_start(grp_doppler_fu_189_ap_start),
+    .ap_done(grp_doppler_fu_189_ap_done),
+    .ap_idle(grp_doppler_fu_189_ap_idle),
+    .ap_ready(grp_doppler_fu_189_ap_ready),
+    .m_axi_gmem_0_AWVALID(grp_doppler_fu_189_m_axi_gmem_0_AWVALID),
     .m_axi_gmem_0_AWREADY(m_axi_gmem_0_AWREADY),
-    .m_axi_gmem_0_AWADDR(grp_doppler_fu_185_m_axi_gmem_0_AWADDR),
-    .m_axi_gmem_0_AWID(grp_doppler_fu_185_m_axi_gmem_0_AWID),
-    .m_axi_gmem_0_AWLEN(grp_doppler_fu_185_m_axi_gmem_0_AWLEN),
-    .m_axi_gmem_0_AWSIZE(grp_doppler_fu_185_m_axi_gmem_0_AWSIZE),
-    .m_axi_gmem_0_AWBURST(grp_doppler_fu_185_m_axi_gmem_0_AWBURST),
-    .m_axi_gmem_0_AWLOCK(grp_doppler_fu_185_m_axi_gmem_0_AWLOCK),
-    .m_axi_gmem_0_AWCACHE(grp_doppler_fu_185_m_axi_gmem_0_AWCACHE),
-    .m_axi_gmem_0_AWPROT(grp_doppler_fu_185_m_axi_gmem_0_AWPROT),
-    .m_axi_gmem_0_AWQOS(grp_doppler_fu_185_m_axi_gmem_0_AWQOS),
-    .m_axi_gmem_0_AWREGION(grp_doppler_fu_185_m_axi_gmem_0_AWREGION),
-    .m_axi_gmem_0_AWUSER(grp_doppler_fu_185_m_axi_gmem_0_AWUSER),
-    .m_axi_gmem_0_WVALID(grp_doppler_fu_185_m_axi_gmem_0_WVALID),
+    .m_axi_gmem_0_AWADDR(grp_doppler_fu_189_m_axi_gmem_0_AWADDR),
+    .m_axi_gmem_0_AWID(grp_doppler_fu_189_m_axi_gmem_0_AWID),
+    .m_axi_gmem_0_AWLEN(grp_doppler_fu_189_m_axi_gmem_0_AWLEN),
+    .m_axi_gmem_0_AWSIZE(grp_doppler_fu_189_m_axi_gmem_0_AWSIZE),
+    .m_axi_gmem_0_AWBURST(grp_doppler_fu_189_m_axi_gmem_0_AWBURST),
+    .m_axi_gmem_0_AWLOCK(grp_doppler_fu_189_m_axi_gmem_0_AWLOCK),
+    .m_axi_gmem_0_AWCACHE(grp_doppler_fu_189_m_axi_gmem_0_AWCACHE),
+    .m_axi_gmem_0_AWPROT(grp_doppler_fu_189_m_axi_gmem_0_AWPROT),
+    .m_axi_gmem_0_AWQOS(grp_doppler_fu_189_m_axi_gmem_0_AWQOS),
+    .m_axi_gmem_0_AWREGION(grp_doppler_fu_189_m_axi_gmem_0_AWREGION),
+    .m_axi_gmem_0_AWUSER(grp_doppler_fu_189_m_axi_gmem_0_AWUSER),
+    .m_axi_gmem_0_WVALID(grp_doppler_fu_189_m_axi_gmem_0_WVALID),
     .m_axi_gmem_0_WREADY(m_axi_gmem_0_WREADY),
-    .m_axi_gmem_0_WDATA(grp_doppler_fu_185_m_axi_gmem_0_WDATA),
-    .m_axi_gmem_0_WSTRB(grp_doppler_fu_185_m_axi_gmem_0_WSTRB),
-    .m_axi_gmem_0_WLAST(grp_doppler_fu_185_m_axi_gmem_0_WLAST),
-    .m_axi_gmem_0_WID(grp_doppler_fu_185_m_axi_gmem_0_WID),
-    .m_axi_gmem_0_WUSER(grp_doppler_fu_185_m_axi_gmem_0_WUSER),
-    .m_axi_gmem_0_ARVALID(grp_doppler_fu_185_m_axi_gmem_0_ARVALID),
+    .m_axi_gmem_0_WDATA(grp_doppler_fu_189_m_axi_gmem_0_WDATA),
+    .m_axi_gmem_0_WSTRB(grp_doppler_fu_189_m_axi_gmem_0_WSTRB),
+    .m_axi_gmem_0_WLAST(grp_doppler_fu_189_m_axi_gmem_0_WLAST),
+    .m_axi_gmem_0_WID(grp_doppler_fu_189_m_axi_gmem_0_WID),
+    .m_axi_gmem_0_WUSER(grp_doppler_fu_189_m_axi_gmem_0_WUSER),
+    .m_axi_gmem_0_ARVALID(grp_doppler_fu_189_m_axi_gmem_0_ARVALID),
     .m_axi_gmem_0_ARREADY(m_axi_gmem_0_ARREADY),
-    .m_axi_gmem_0_ARADDR(grp_doppler_fu_185_m_axi_gmem_0_ARADDR),
-    .m_axi_gmem_0_ARID(grp_doppler_fu_185_m_axi_gmem_0_ARID),
-    .m_axi_gmem_0_ARLEN(grp_doppler_fu_185_m_axi_gmem_0_ARLEN),
-    .m_axi_gmem_0_ARSIZE(grp_doppler_fu_185_m_axi_gmem_0_ARSIZE),
-    .m_axi_gmem_0_ARBURST(grp_doppler_fu_185_m_axi_gmem_0_ARBURST),
-    .m_axi_gmem_0_ARLOCK(grp_doppler_fu_185_m_axi_gmem_0_ARLOCK),
-    .m_axi_gmem_0_ARCACHE(grp_doppler_fu_185_m_axi_gmem_0_ARCACHE),
-    .m_axi_gmem_0_ARPROT(grp_doppler_fu_185_m_axi_gmem_0_ARPROT),
-    .m_axi_gmem_0_ARQOS(grp_doppler_fu_185_m_axi_gmem_0_ARQOS),
-    .m_axi_gmem_0_ARREGION(grp_doppler_fu_185_m_axi_gmem_0_ARREGION),
-    .m_axi_gmem_0_ARUSER(grp_doppler_fu_185_m_axi_gmem_0_ARUSER),
+    .m_axi_gmem_0_ARADDR(grp_doppler_fu_189_m_axi_gmem_0_ARADDR),
+    .m_axi_gmem_0_ARID(grp_doppler_fu_189_m_axi_gmem_0_ARID),
+    .m_axi_gmem_0_ARLEN(grp_doppler_fu_189_m_axi_gmem_0_ARLEN),
+    .m_axi_gmem_0_ARSIZE(grp_doppler_fu_189_m_axi_gmem_0_ARSIZE),
+    .m_axi_gmem_0_ARBURST(grp_doppler_fu_189_m_axi_gmem_0_ARBURST),
+    .m_axi_gmem_0_ARLOCK(grp_doppler_fu_189_m_axi_gmem_0_ARLOCK),
+    .m_axi_gmem_0_ARCACHE(grp_doppler_fu_189_m_axi_gmem_0_ARCACHE),
+    .m_axi_gmem_0_ARPROT(grp_doppler_fu_189_m_axi_gmem_0_ARPROT),
+    .m_axi_gmem_0_ARQOS(grp_doppler_fu_189_m_axi_gmem_0_ARQOS),
+    .m_axi_gmem_0_ARREGION(grp_doppler_fu_189_m_axi_gmem_0_ARREGION),
+    .m_axi_gmem_0_ARUSER(grp_doppler_fu_189_m_axi_gmem_0_ARUSER),
     .m_axi_gmem_0_RVALID(m_axi_gmem_0_RVALID),
-    .m_axi_gmem_0_RREADY(grp_doppler_fu_185_m_axi_gmem_0_RREADY),
+    .m_axi_gmem_0_RREADY(grp_doppler_fu_189_m_axi_gmem_0_RREADY),
     .m_axi_gmem_0_RDATA(m_axi_gmem_0_RDATA),
     .m_axi_gmem_0_RLAST(m_axi_gmem_0_RLAST),
     .m_axi_gmem_0_RID(m_axi_gmem_0_RID),
@@ -640,43 +640,43 @@ kernel_doppler grp_doppler_fu_185(
     .m_axi_gmem_0_RUSER(m_axi_gmem_0_RUSER),
     .m_axi_gmem_0_RRESP(m_axi_gmem_0_RRESP),
     .m_axi_gmem_0_BVALID(m_axi_gmem_0_BVALID),
-    .m_axi_gmem_0_BREADY(grp_doppler_fu_185_m_axi_gmem_0_BREADY),
+    .m_axi_gmem_0_BREADY(grp_doppler_fu_189_m_axi_gmem_0_BREADY),
     .m_axi_gmem_0_BRESP(m_axi_gmem_0_BRESP),
     .m_axi_gmem_0_BID(m_axi_gmem_0_BID),
     .m_axi_gmem_0_BUSER(m_axi_gmem_0_BUSER),
-    .mm(mm_read_reg_246),
+    .mm(mm_read_reg_250),
     .idx_stream_dout(idx_stream_dout),
     .idx_stream_empty_n(idx_stream_empty_n),
-    .idx_stream_read(grp_doppler_fu_185_idx_stream_read),
-    .out_d_02_TDATA(grp_doppler_fu_185_out_d_02_TDATA),
-    .out_d_02_TVALID(grp_doppler_fu_185_out_d_02_TVALID),
-    .out_d_02_TREADY(grp_doppler_fu_185_out_d_02_TREADY),
-    .out_d_02_TKEEP(grp_doppler_fu_185_out_d_02_TKEEP),
-    .out_d_02_TSTRB(grp_doppler_fu_185_out_d_02_TSTRB),
-    .out_d_02_TLAST(grp_doppler_fu_185_out_d_02_TLAST),
-    .out_d_03_TDATA(grp_doppler_fu_185_out_d_03_TDATA),
-    .out_d_03_TVALID(grp_doppler_fu_185_out_d_03_TVALID),
-    .out_d_03_TREADY(grp_doppler_fu_185_out_d_03_TREADY),
-    .out_d_03_TKEEP(grp_doppler_fu_185_out_d_03_TKEEP),
-    .out_d_03_TSTRB(grp_doppler_fu_185_out_d_03_TSTRB),
-    .out_d_03_TLAST(grp_doppler_fu_185_out_d_03_TLAST),
+    .idx_stream_read(grp_doppler_fu_189_idx_stream_read),
+    .out_d_02_TDATA(grp_doppler_fu_189_out_d_02_TDATA),
+    .out_d_02_TVALID(grp_doppler_fu_189_out_d_02_TVALID),
+    .out_d_02_TREADY(grp_doppler_fu_189_out_d_02_TREADY),
+    .out_d_02_TKEEP(grp_doppler_fu_189_out_d_02_TKEEP),
+    .out_d_02_TSTRB(grp_doppler_fu_189_out_d_02_TSTRB),
+    .out_d_02_TLAST(grp_doppler_fu_189_out_d_02_TLAST),
+    .out_d_03_TDATA(grp_doppler_fu_189_out_d_03_TDATA),
+    .out_d_03_TVALID(grp_doppler_fu_189_out_d_03_TVALID),
+    .out_d_03_TREADY(grp_doppler_fu_189_out_d_03_TREADY),
+    .out_d_03_TKEEP(grp_doppler_fu_189_out_d_03_TKEEP),
+    .out_d_03_TSTRB(grp_doppler_fu_189_out_d_03_TSTRB),
+    .out_d_03_TLAST(grp_doppler_fu_189_out_d_03_TLAST),
     .in_d_02_TDATA(in_d_02_TDATA_int_regslice),
     .in_d_02_TVALID(in_d_02_TVALID_int_regslice),
-    .in_d_02_TREADY(grp_doppler_fu_185_in_d_02_TREADY),
+    .in_d_02_TREADY(grp_doppler_fu_189_in_d_02_TREADY),
     .in_d_02_TKEEP(in_d_02_TKEEP_int_regslice),
     .in_d_02_TSTRB(in_d_02_TSTRB_int_regslice),
     .in_d_02_TLAST(in_d_02_TLAST_int_regslice),
     .in_d_03_TDATA(in_d_03_TDATA_int_regslice),
     .in_d_03_TVALID(in_d_03_TVALID_int_regslice),
-    .in_d_03_TREADY(grp_doppler_fu_185_in_d_03_TREADY),
+    .in_d_03_TREADY(grp_doppler_fu_189_in_d_03_TREADY),
     .in_d_03_TKEEP(in_d_03_TKEEP_int_regslice),
     .in_d_03_TSTRB(in_d_03_TSTRB_int_regslice),
     .in_d_03_TLAST(in_d_03_TLAST_int_regslice),
-    .doppler_mask_stream_din(grp_doppler_fu_185_doppler_mask_stream_din),
+    .doppler_mask_stream_din(grp_doppler_fu_189_doppler_mask_stream_din),
     .doppler_mask_stream_full_n(doppler_mask_stream_full_n),
-    .doppler_mask_stream_write(grp_doppler_fu_185_doppler_mask_stream_write),
-    .doppler_mask_stream_num_data_valid(8'd0),
-    .doppler_mask_stream_fifo_cap(8'd0)
+    .doppler_mask_stream_write(grp_doppler_fu_189_doppler_mask_stream_write),
+    .doppler_mask_stream_num_data_valid(doppler_mask_stream_num_data_valid),
+    .doppler_mask_stream_fifo_cap(doppler_mask_stream_fifo_cap)
 );
 
 kernel_fifo_w32_d128_A idx_stream_fifo_U(
@@ -684,7 +684,7 @@ kernel_fifo_w32_d128_A idx_stream_fifo_U(
     .reset(ap_rst),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_seq_generator_fu_175_idx_stream_din),
+    .if_din(grp_seq_generator_fu_179_idx_stream_din),
     .if_full_n(idx_stream_full_n),
     .if_write(idx_stream_write),
     .if_dout(idx_stream_dout),
@@ -697,7 +697,7 @@ kernel_fifo_w160_d128_A mask_stream_fifo_U(
     .reset(ap_rst),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(grp_aie_range_consume_fu_148_mask_stream_din),
+    .if_din(grp_aie_range_consume_fu_150_mask_stream_din),
     .if_full_n(mask_stream_full_n),
     .if_write(mask_stream_write),
     .if_dout(mask_stream_dout),
@@ -823,7 +823,7 @@ regslice_both_out_d_02_V_data_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_02_TDATA_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_02_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_02_TVALID),
     .ack_in(out_d_02_TREADY_int_regslice),
     .data_out(out_d_02_TDATA),
     .vld_out(regslice_both_out_d_02_V_data_V_U_vld_out),
@@ -837,7 +837,7 @@ regslice_both_out_d_02_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_02_TKEEP_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_02_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_02_TVALID),
     .ack_in(regslice_both_out_d_02_V_keep_V_U_ack_in_dummy),
     .data_out(out_d_02_TKEEP),
     .vld_out(regslice_both_out_d_02_V_keep_V_U_vld_out),
@@ -851,7 +851,7 @@ regslice_both_out_d_02_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_02_TSTRB_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_02_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_02_TVALID),
     .ack_in(regslice_both_out_d_02_V_strb_V_U_ack_in_dummy),
     .data_out(out_d_02_TSTRB),
     .vld_out(regslice_both_out_d_02_V_strb_V_U_vld_out),
@@ -865,7 +865,7 @@ regslice_both_out_d_02_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_02_TLAST_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_02_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_02_TVALID),
     .ack_in(regslice_both_out_d_02_V_last_V_U_ack_in_dummy),
     .data_out(out_d_02_TLAST),
     .vld_out(regslice_both_out_d_02_V_last_V_U_vld_out),
@@ -879,7 +879,7 @@ regslice_both_out_d_03_V_data_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_03_TDATA_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_03_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_03_TVALID),
     .ack_in(out_d_03_TREADY_int_regslice),
     .data_out(out_d_03_TDATA),
     .vld_out(regslice_both_out_d_03_V_data_V_U_vld_out),
@@ -893,7 +893,7 @@ regslice_both_out_d_03_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_03_TKEEP_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_03_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_03_TVALID),
     .ack_in(regslice_both_out_d_03_V_keep_V_U_ack_in_dummy),
     .data_out(out_d_03_TKEEP),
     .vld_out(regslice_both_out_d_03_V_keep_V_U_vld_out),
@@ -907,7 +907,7 @@ regslice_both_out_d_03_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_03_TSTRB_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_03_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_03_TVALID),
     .ack_in(regslice_both_out_d_03_V_strb_V_U_ack_in_dummy),
     .data_out(out_d_03_TSTRB),
     .vld_out(regslice_both_out_d_03_V_strb_V_U_vld_out),
@@ -921,7 +921,7 @@ regslice_both_out_d_03_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_d_03_TLAST_int_regslice),
-    .vld_in(grp_doppler_fu_185_out_d_03_TVALID),
+    .vld_in(grp_doppler_fu_189_out_d_03_TVALID),
     .ack_in(regslice_both_out_d_03_V_last_V_U_ack_in_dummy),
     .data_out(out_d_03_TLAST),
     .vld_out(regslice_both_out_d_03_V_last_V_U_vld_out),
@@ -1063,36 +1063,36 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_aie_range_consume_fu_148_ap_start_reg <= 1'b0;
+        grp_aie_range_consume_fu_150_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state2)) begin
-            grp_aie_range_consume_fu_148_ap_start_reg <= 1'b1;
-        end else if ((grp_aie_range_consume_fu_148_ap_ready == 1'b1)) begin
-            grp_aie_range_consume_fu_148_ap_start_reg <= 1'b0;
+            grp_aie_range_consume_fu_150_ap_start_reg <= 1'b1;
+        end else if ((grp_aie_range_consume_fu_150_ap_ready == 1'b1)) begin
+            grp_aie_range_consume_fu_150_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_doppler_fu_185_ap_start_reg <= 1'b0;
+        grp_doppler_fu_189_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state6)) begin
-            grp_doppler_fu_185_ap_start_reg <= 1'b1;
-        end else if ((grp_doppler_fu_185_ap_ready == 1'b1)) begin
-            grp_doppler_fu_185_ap_start_reg <= 1'b0;
+            grp_doppler_fu_189_ap_start_reg <= 1'b1;
+        end else if ((grp_doppler_fu_189_ap_ready == 1'b1)) begin
+            grp_doppler_fu_189_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_seq_generator_fu_175_ap_start_reg <= 1'b0;
+        grp_seq_generator_fu_179_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state4)) begin
-            grp_seq_generator_fu_175_ap_start_reg <= 1'b1;
-        end else if ((grp_seq_generator_fu_175_ap_ready == 1'b1)) begin
-            grp_seq_generator_fu_175_ap_start_reg <= 1'b0;
+            grp_seq_generator_fu_179_ap_start_reg <= 1'b1;
+        end else if ((grp_seq_generator_fu_179_ap_ready == 1'b1)) begin
+            grp_seq_generator_fu_179_ap_start_reg <= 1'b0;
         end
     end
 end
@@ -1111,26 +1111,26 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        mm_read_reg_246 <= mm;
-        num_chirps_read_reg_241 <= num_chirps;
+        mm_read_reg_250 <= mm;
+        num_chirps_read_reg_245 <= num_chirps;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_doppler_fu_185_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TDATA_reg <= grp_doppler_fu_185_out_d_02_TDATA;
-        out_d_02_TKEEP_reg <= grp_doppler_fu_185_out_d_02_TKEEP;
-        out_d_02_TLAST_reg <= grp_doppler_fu_185_out_d_02_TLAST;
-        out_d_02_TSTRB_reg <= grp_doppler_fu_185_out_d_02_TSTRB;
+    if (((grp_doppler_fu_189_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_02_TDATA_reg <= grp_doppler_fu_189_out_d_02_TDATA;
+        out_d_02_TKEEP_reg <= grp_doppler_fu_189_out_d_02_TKEEP;
+        out_d_02_TLAST_reg <= grp_doppler_fu_189_out_d_02_TLAST;
+        out_d_02_TSTRB_reg <= grp_doppler_fu_189_out_d_02_TSTRB;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_doppler_fu_185_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TDATA_reg <= grp_doppler_fu_185_out_d_03_TDATA;
-        out_d_03_TKEEP_reg <= grp_doppler_fu_185_out_d_03_TKEEP;
-        out_d_03_TLAST_reg <= grp_doppler_fu_185_out_d_03_TLAST;
-        out_d_03_TSTRB_reg <= grp_doppler_fu_185_out_d_03_TSTRB;
+    if (((grp_doppler_fu_189_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_03_TDATA_reg <= grp_doppler_fu_189_out_d_03_TDATA;
+        out_d_03_TKEEP_reg <= grp_doppler_fu_189_out_d_03_TKEEP;
+        out_d_03_TLAST_reg <= grp_doppler_fu_189_out_d_03_TLAST;
+        out_d_03_TSTRB_reg <= grp_doppler_fu_189_out_d_03_TSTRB;
     end
 end
 
@@ -1145,7 +1145,7 @@ end
 assign ap_ST_fsm_state2_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_aie_range_consume_fu_148_ap_done == 1'b0)) begin
+    if ((grp_aie_range_consume_fu_150_ap_done == 1'b0)) begin
         ap_ST_fsm_state3_blk = 1'b1;
     end else begin
         ap_ST_fsm_state3_blk = 1'b0;
@@ -1155,7 +1155,7 @@ end
 assign ap_ST_fsm_state4_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_seq_generator_fu_175_ap_done == 1'b0)) begin
+    if ((grp_seq_generator_fu_179_ap_done == 1'b0)) begin
         ap_ST_fsm_state5_blk = 1'b1;
     end else begin
         ap_ST_fsm_state5_blk = 1'b0;
@@ -1165,7 +1165,7 @@ end
 assign ap_ST_fsm_state6_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_doppler_fu_185_ap_done == 1'b0)) begin
+    if ((grp_doppler_fu_189_ap_done == 1'b0)) begin
         ap_ST_fsm_state7_blk = 1'b1;
     end else begin
         ap_ST_fsm_state7_blk = 1'b0;
@@ -1198,7 +1198,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        idx_stream_read = grp_doppler_fu_185_idx_stream_read;
+        idx_stream_read = grp_doppler_fu_189_idx_stream_read;
     end else begin
         idx_stream_read = 1'b0;
     end
@@ -1206,7 +1206,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        idx_stream_write = grp_seq_generator_fu_175_idx_stream_write;
+        idx_stream_write = grp_seq_generator_fu_179_idx_stream_write;
     end else begin
         idx_stream_write = 1'b0;
     end
@@ -1214,7 +1214,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        in_d_02_TREADY_int_regslice = grp_doppler_fu_185_in_d_02_TREADY;
+        in_d_02_TREADY_int_regslice = grp_doppler_fu_189_in_d_02_TREADY;
     end else begin
         in_d_02_TREADY_int_regslice = 1'b0;
     end
@@ -1222,7 +1222,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        in_d_03_TREADY_int_regslice = grp_doppler_fu_185_in_d_03_TREADY;
+        in_d_03_TREADY_int_regslice = grp_doppler_fu_189_in_d_03_TREADY;
     end else begin
         in_d_03_TREADY_int_regslice = 1'b0;
     end
@@ -1230,7 +1230,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_r_00_TREADY_int_regslice = grp_aie_range_consume_fu_148_in_r_00_TREADY;
+        in_r_00_TREADY_int_regslice = grp_aie_range_consume_fu_150_in_r_00_TREADY;
     end else begin
         in_r_00_TREADY_int_regslice = 1'b0;
     end
@@ -1238,7 +1238,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_r_01_TREADY_int_regslice = grp_aie_range_consume_fu_148_in_r_01_TREADY;
+        in_r_01_TREADY_int_regslice = grp_aie_range_consume_fu_150_in_r_01_TREADY;
     end else begin
         in_r_01_TREADY_int_regslice = 1'b0;
     end
@@ -1254,7 +1254,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_ARVALID = grp_doppler_fu_185_m_axi_gmem_0_ARVALID;
+        m_axi_gmem_0_ARVALID = grp_doppler_fu_189_m_axi_gmem_0_ARVALID;
     end else begin
         m_axi_gmem_0_ARVALID = 1'b0;
     end
@@ -1262,9 +1262,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWADDR = grp_doppler_fu_185_m_axi_gmem_0_AWADDR;
+        m_axi_gmem_0_AWADDR = grp_doppler_fu_189_m_axi_gmem_0_AWADDR;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWADDR = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR;
+        m_axi_gmem_0_AWADDR = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR;
     end else begin
         m_axi_gmem_0_AWADDR = 'bx;
     end
@@ -1272,9 +1272,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWBURST = grp_doppler_fu_185_m_axi_gmem_0_AWBURST;
+        m_axi_gmem_0_AWBURST = grp_doppler_fu_189_m_axi_gmem_0_AWBURST;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWBURST = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST;
+        m_axi_gmem_0_AWBURST = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST;
     end else begin
         m_axi_gmem_0_AWBURST = 'bx;
     end
@@ -1282,9 +1282,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWCACHE = grp_doppler_fu_185_m_axi_gmem_0_AWCACHE;
+        m_axi_gmem_0_AWCACHE = grp_doppler_fu_189_m_axi_gmem_0_AWCACHE;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWCACHE = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE;
+        m_axi_gmem_0_AWCACHE = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE;
     end else begin
         m_axi_gmem_0_AWCACHE = 'bx;
     end
@@ -1292,9 +1292,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWID = grp_doppler_fu_185_m_axi_gmem_0_AWID;
+        m_axi_gmem_0_AWID = grp_doppler_fu_189_m_axi_gmem_0_AWID;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWID = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID;
+        m_axi_gmem_0_AWID = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID;
     end else begin
         m_axi_gmem_0_AWID = 'bx;
     end
@@ -1302,9 +1302,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWLEN = grp_doppler_fu_185_m_axi_gmem_0_AWLEN;
+        m_axi_gmem_0_AWLEN = grp_doppler_fu_189_m_axi_gmem_0_AWLEN;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWLEN = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN;
+        m_axi_gmem_0_AWLEN = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN;
     end else begin
         m_axi_gmem_0_AWLEN = 'bx;
     end
@@ -1312,9 +1312,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWLOCK = grp_doppler_fu_185_m_axi_gmem_0_AWLOCK;
+        m_axi_gmem_0_AWLOCK = grp_doppler_fu_189_m_axi_gmem_0_AWLOCK;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWLOCK = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK;
+        m_axi_gmem_0_AWLOCK = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK;
     end else begin
         m_axi_gmem_0_AWLOCK = 'bx;
     end
@@ -1322,9 +1322,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWPROT = grp_doppler_fu_185_m_axi_gmem_0_AWPROT;
+        m_axi_gmem_0_AWPROT = grp_doppler_fu_189_m_axi_gmem_0_AWPROT;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWPROT = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT;
+        m_axi_gmem_0_AWPROT = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT;
     end else begin
         m_axi_gmem_0_AWPROT = 'bx;
     end
@@ -1332,9 +1332,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWQOS = grp_doppler_fu_185_m_axi_gmem_0_AWQOS;
+        m_axi_gmem_0_AWQOS = grp_doppler_fu_189_m_axi_gmem_0_AWQOS;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWQOS = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS;
+        m_axi_gmem_0_AWQOS = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS;
     end else begin
         m_axi_gmem_0_AWQOS = 'bx;
     end
@@ -1342,9 +1342,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWREGION = grp_doppler_fu_185_m_axi_gmem_0_AWREGION;
+        m_axi_gmem_0_AWREGION = grp_doppler_fu_189_m_axi_gmem_0_AWREGION;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWREGION = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION;
+        m_axi_gmem_0_AWREGION = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION;
     end else begin
         m_axi_gmem_0_AWREGION = 'bx;
     end
@@ -1352,9 +1352,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWSIZE = grp_doppler_fu_185_m_axi_gmem_0_AWSIZE;
+        m_axi_gmem_0_AWSIZE = grp_doppler_fu_189_m_axi_gmem_0_AWSIZE;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWSIZE = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE;
+        m_axi_gmem_0_AWSIZE = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE;
     end else begin
         m_axi_gmem_0_AWSIZE = 'bx;
     end
@@ -1362,9 +1362,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWUSER = grp_doppler_fu_185_m_axi_gmem_0_AWUSER;
+        m_axi_gmem_0_AWUSER = grp_doppler_fu_189_m_axi_gmem_0_AWUSER;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWUSER = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER;
+        m_axi_gmem_0_AWUSER = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER;
     end else begin
         m_axi_gmem_0_AWUSER = 'bx;
     end
@@ -1372,9 +1372,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_AWVALID = grp_doppler_fu_185_m_axi_gmem_0_AWVALID;
+        m_axi_gmem_0_AWVALID = grp_doppler_fu_189_m_axi_gmem_0_AWVALID;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_AWVALID = grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID;
+        m_axi_gmem_0_AWVALID = grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID;
     end else begin
         m_axi_gmem_0_AWVALID = 1'b0;
     end
@@ -1382,9 +1382,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_BREADY = grp_doppler_fu_185_m_axi_gmem_0_BREADY;
+        m_axi_gmem_0_BREADY = grp_doppler_fu_189_m_axi_gmem_0_BREADY;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_BREADY = grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY;
+        m_axi_gmem_0_BREADY = grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY;
     end else begin
         m_axi_gmem_0_BREADY = 1'b0;
     end
@@ -1392,7 +1392,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_RREADY = grp_doppler_fu_185_m_axi_gmem_0_RREADY;
+        m_axi_gmem_0_RREADY = grp_doppler_fu_189_m_axi_gmem_0_RREADY;
     end else begin
         m_axi_gmem_0_RREADY = 1'b0;
     end
@@ -1400,9 +1400,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_WDATA = grp_doppler_fu_185_m_axi_gmem_0_WDATA;
+        m_axi_gmem_0_WDATA = grp_doppler_fu_189_m_axi_gmem_0_WDATA;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_WDATA = grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA;
+        m_axi_gmem_0_WDATA = grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA;
     end else begin
         m_axi_gmem_0_WDATA = 'bx;
     end
@@ -1410,9 +1410,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_WID = grp_doppler_fu_185_m_axi_gmem_0_WID;
+        m_axi_gmem_0_WID = grp_doppler_fu_189_m_axi_gmem_0_WID;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_WID = grp_aie_range_consume_fu_148_m_axi_gmem_0_WID;
+        m_axi_gmem_0_WID = grp_aie_range_consume_fu_150_m_axi_gmem_0_WID;
     end else begin
         m_axi_gmem_0_WID = 'bx;
     end
@@ -1420,9 +1420,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_WLAST = grp_doppler_fu_185_m_axi_gmem_0_WLAST;
+        m_axi_gmem_0_WLAST = grp_doppler_fu_189_m_axi_gmem_0_WLAST;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_WLAST = grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST;
+        m_axi_gmem_0_WLAST = grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST;
     end else begin
         m_axi_gmem_0_WLAST = 'bx;
     end
@@ -1430,9 +1430,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_WSTRB = grp_doppler_fu_185_m_axi_gmem_0_WSTRB;
+        m_axi_gmem_0_WSTRB = grp_doppler_fu_189_m_axi_gmem_0_WSTRB;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_WSTRB = grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB;
+        m_axi_gmem_0_WSTRB = grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB;
     end else begin
         m_axi_gmem_0_WSTRB = 'bx;
     end
@@ -1440,9 +1440,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_WUSER = grp_doppler_fu_185_m_axi_gmem_0_WUSER;
+        m_axi_gmem_0_WUSER = grp_doppler_fu_189_m_axi_gmem_0_WUSER;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_WUSER = grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER;
+        m_axi_gmem_0_WUSER = grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER;
     end else begin
         m_axi_gmem_0_WUSER = 'bx;
     end
@@ -1450,9 +1450,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state6))) begin
-        m_axi_gmem_0_WVALID = grp_doppler_fu_185_m_axi_gmem_0_WVALID;
+        m_axi_gmem_0_WVALID = grp_doppler_fu_189_m_axi_gmem_0_WVALID;
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
-        m_axi_gmem_0_WVALID = grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID;
+        m_axi_gmem_0_WVALID = grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID;
     end else begin
         m_axi_gmem_0_WVALID = 1'b0;
     end
@@ -1460,7 +1460,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        mask_stream_read = grp_seq_generator_fu_175_mask_stream_read;
+        mask_stream_read = grp_seq_generator_fu_179_mask_stream_read;
     end else begin
         mask_stream_read = 1'b0;
     end
@@ -1468,71 +1468,71 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        mask_stream_write = grp_aie_range_consume_fu_148_mask_stream_write;
+        mask_stream_write = grp_aie_range_consume_fu_150_mask_stream_write;
     end else begin
         mask_stream_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TDATA_int_regslice = grp_doppler_fu_185_out_d_02_TDATA;
+    if (((grp_doppler_fu_189_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_02_TDATA_int_regslice = grp_doppler_fu_189_out_d_02_TDATA;
     end else begin
         out_d_02_TDATA_int_regslice = out_d_02_TDATA_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TKEEP_int_regslice = grp_doppler_fu_185_out_d_02_TKEEP;
+    if (((grp_doppler_fu_189_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_02_TKEEP_int_regslice = grp_doppler_fu_189_out_d_02_TKEEP;
     end else begin
         out_d_02_TKEEP_int_regslice = out_d_02_TKEEP_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TLAST_int_regslice = grp_doppler_fu_185_out_d_02_TLAST;
+    if (((grp_doppler_fu_189_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_02_TLAST_int_regslice = grp_doppler_fu_189_out_d_02_TLAST;
     end else begin
         out_d_02_TLAST_int_regslice = out_d_02_TLAST_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_02_TSTRB_int_regslice = grp_doppler_fu_185_out_d_02_TSTRB;
+    if (((grp_doppler_fu_189_out_d_02_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_02_TSTRB_int_regslice = grp_doppler_fu_189_out_d_02_TSTRB;
     end else begin
         out_d_02_TSTRB_int_regslice = out_d_02_TSTRB_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TDATA_int_regslice = grp_doppler_fu_185_out_d_03_TDATA;
+    if (((grp_doppler_fu_189_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_03_TDATA_int_regslice = grp_doppler_fu_189_out_d_03_TDATA;
     end else begin
         out_d_03_TDATA_int_regslice = out_d_03_TDATA_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TKEEP_int_regslice = grp_doppler_fu_185_out_d_03_TKEEP;
+    if (((grp_doppler_fu_189_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_03_TKEEP_int_regslice = grp_doppler_fu_189_out_d_03_TKEEP;
     end else begin
         out_d_03_TKEEP_int_regslice = out_d_03_TKEEP_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TLAST_int_regslice = grp_doppler_fu_185_out_d_03_TLAST;
+    if (((grp_doppler_fu_189_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_03_TLAST_int_regslice = grp_doppler_fu_189_out_d_03_TLAST;
     end else begin
         out_d_03_TLAST_int_regslice = out_d_03_TLAST_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_doppler_fu_185_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        out_d_03_TSTRB_int_regslice = grp_doppler_fu_185_out_d_03_TSTRB;
+    if (((grp_doppler_fu_189_out_d_03_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        out_d_03_TSTRB_int_regslice = grp_doppler_fu_189_out_d_03_TSTRB;
     end else begin
         out_d_03_TSTRB_int_regslice = out_d_03_TSTRB_reg;
     end
@@ -1567,7 +1567,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state3 : begin
-            if (((1'b1 == ap_CS_fsm_state3) & (grp_aie_range_consume_fu_148_ap_done == 1'b1))) begin
+            if (((1'b1 == ap_CS_fsm_state3) & (grp_aie_range_consume_fu_150_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -1577,7 +1577,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state5;
         end
         ap_ST_fsm_state5 : begin
-            if (((grp_seq_generator_fu_175_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+            if (((grp_seq_generator_fu_179_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
                 ap_NS_fsm = ap_ST_fsm_state6;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state5;
@@ -1587,7 +1587,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state7;
         end
         ap_ST_fsm_state7 : begin
-            if (((grp_doppler_fu_185_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+            if (((grp_doppler_fu_189_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
                 ap_NS_fsm = ap_ST_fsm_state8;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state7;
@@ -1632,19 +1632,19 @@ end
 
 assign ap_ready = internal_ap_ready;
 
-assign doppler_mask_stream_din = grp_doppler_fu_185_doppler_mask_stream_din;
+assign doppler_mask_stream_din = grp_doppler_fu_189_doppler_mask_stream_din;
 
-assign doppler_mask_stream_write = grp_doppler_fu_185_doppler_mask_stream_write;
+assign doppler_mask_stream_write = grp_doppler_fu_189_doppler_mask_stream_write;
 
-assign grp_aie_range_consume_fu_148_ap_start = grp_aie_range_consume_fu_148_ap_start_reg;
+assign grp_aie_range_consume_fu_150_ap_start = grp_aie_range_consume_fu_150_ap_start_reg;
 
-assign grp_doppler_fu_185_ap_start = grp_doppler_fu_185_ap_start_reg;
+assign grp_doppler_fu_189_ap_start = grp_doppler_fu_189_ap_start_reg;
 
-assign grp_doppler_fu_185_out_d_02_TREADY = (out_d_02_TREADY_int_regslice & ap_CS_fsm_state7);
+assign grp_doppler_fu_189_out_d_02_TREADY = (out_d_02_TREADY_int_regslice & ap_CS_fsm_state7);
 
-assign grp_doppler_fu_185_out_d_03_TREADY = (out_d_03_TREADY_int_regslice & ap_CS_fsm_state7);
+assign grp_doppler_fu_189_out_d_03_TREADY = (out_d_03_TREADY_int_regslice & ap_CS_fsm_state7);
 
-assign grp_seq_generator_fu_175_ap_start = grp_seq_generator_fu_175_ap_start_reg;
+assign grp_seq_generator_fu_179_ap_start = grp_seq_generator_fu_179_ap_start_reg;
 
 assign in_d_02_TREADY = regslice_both_in_d_02_V_data_V_U_ack_in;
 
@@ -1654,35 +1654,35 @@ assign in_r_00_TREADY = regslice_both_in_r_00_V_data_V_U_ack_in;
 
 assign in_r_01_TREADY = regslice_both_in_r_01_V_data_V_U_ack_in;
 
-assign m_axi_gmem_0_ARADDR = grp_doppler_fu_185_m_axi_gmem_0_ARADDR;
+assign m_axi_gmem_0_ARADDR = grp_doppler_fu_189_m_axi_gmem_0_ARADDR;
 
-assign m_axi_gmem_0_ARBURST = grp_doppler_fu_185_m_axi_gmem_0_ARBURST;
+assign m_axi_gmem_0_ARBURST = grp_doppler_fu_189_m_axi_gmem_0_ARBURST;
 
-assign m_axi_gmem_0_ARCACHE = grp_doppler_fu_185_m_axi_gmem_0_ARCACHE;
+assign m_axi_gmem_0_ARCACHE = grp_doppler_fu_189_m_axi_gmem_0_ARCACHE;
 
-assign m_axi_gmem_0_ARID = grp_doppler_fu_185_m_axi_gmem_0_ARID;
+assign m_axi_gmem_0_ARID = grp_doppler_fu_189_m_axi_gmem_0_ARID;
 
-assign m_axi_gmem_0_ARLEN = grp_doppler_fu_185_m_axi_gmem_0_ARLEN;
+assign m_axi_gmem_0_ARLEN = grp_doppler_fu_189_m_axi_gmem_0_ARLEN;
 
-assign m_axi_gmem_0_ARLOCK = grp_doppler_fu_185_m_axi_gmem_0_ARLOCK;
+assign m_axi_gmem_0_ARLOCK = grp_doppler_fu_189_m_axi_gmem_0_ARLOCK;
 
-assign m_axi_gmem_0_ARPROT = grp_doppler_fu_185_m_axi_gmem_0_ARPROT;
+assign m_axi_gmem_0_ARPROT = grp_doppler_fu_189_m_axi_gmem_0_ARPROT;
 
-assign m_axi_gmem_0_ARQOS = grp_doppler_fu_185_m_axi_gmem_0_ARQOS;
+assign m_axi_gmem_0_ARQOS = grp_doppler_fu_189_m_axi_gmem_0_ARQOS;
 
-assign m_axi_gmem_0_ARREGION = grp_doppler_fu_185_m_axi_gmem_0_ARREGION;
+assign m_axi_gmem_0_ARREGION = grp_doppler_fu_189_m_axi_gmem_0_ARREGION;
 
-assign m_axi_gmem_0_ARSIZE = grp_doppler_fu_185_m_axi_gmem_0_ARSIZE;
+assign m_axi_gmem_0_ARSIZE = grp_doppler_fu_189_m_axi_gmem_0_ARSIZE;
 
-assign m_axi_gmem_0_ARUSER = grp_doppler_fu_185_m_axi_gmem_0_ARUSER;
+assign m_axi_gmem_0_ARUSER = grp_doppler_fu_189_m_axi_gmem_0_ARUSER;
 
 assign out_d_02_TVALID = regslice_both_out_d_02_V_data_V_U_vld_out;
 
-assign out_d_02_TVALID_int_regslice = grp_doppler_fu_185_out_d_02_TVALID;
+assign out_d_02_TVALID_int_regslice = grp_doppler_fu_189_out_d_02_TVALID;
 
 assign out_d_03_TVALID = regslice_both_out_d_03_V_data_V_U_vld_out;
 
-assign out_d_03_TVALID_int_regslice = grp_doppler_fu_185_out_d_03_TVALID;
+assign out_d_03_TVALID_int_regslice = grp_doppler_fu_189_out_d_03_TVALID;
 
 assign start_out = real_start;
 

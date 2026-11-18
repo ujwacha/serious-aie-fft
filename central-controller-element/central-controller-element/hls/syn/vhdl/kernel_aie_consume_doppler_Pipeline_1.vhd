@@ -48,7 +48,7 @@ attribute shreg_extract : string;
     signal ap_enable_reg_pp0_iter1 : STD_LOGIC := '0';
     signal ap_idle_pp0 : STD_LOGIC;
     signal ap_block_pp0_stage0_subdone : BOOLEAN;
-    signal exitcond624_fu_50_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal exitcond654_fu_50_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_condition_exit_pp0_iter0_stage0 : STD_LOGIC;
     signal ap_loop_exit_ready : STD_LOGIC;
     signal ap_ready_int : STD_LOGIC;
@@ -57,7 +57,7 @@ attribute shreg_extract : string;
     signal p_cast_fu_67_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal empty_fu_24 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
-    signal empty_107_fu_56_p2 : STD_LOGIC_VECTOR (6 downto 0);
+    signal empty_111_fu_56_p2 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_loop_init : STD_LOGIC;
     signal ap_sig_allocacmp_p_load : STD_LOGIC_VECTOR (6 downto 0);
     signal histogram_we0_local : STD_LOGIC;
@@ -158,8 +158,8 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then
-                if (((exitcond624_fu_50_p2 = ap_const_lv1_0) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1))) then 
-                    empty_fu_24 <= empty_107_fu_56_p2;
+                if (((exitcond654_fu_50_p2 = ap_const_lv1_0) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1))) then 
+                    empty_fu_24 <= empty_111_fu_56_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
                     empty_fu_24 <= ap_const_lv7_0;
                 end if;
@@ -189,9 +189,9 @@ begin
         ap_block_pp0_stage0_11001 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_pp0_stage0_subdone <= not((ap_const_boolean_1 = ap_const_boolean_1));
 
-    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter0, ap_block_pp0_stage0_subdone, exitcond624_fu_50_p2)
+    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter0, ap_block_pp0_stage0_subdone, exitcond654_fu_50_p2)
     begin
-        if (((exitcond624_fu_50_p2 = ap_const_lv1_1) and (ap_const_boolean_0 = ap_block_pp0_stage0_subdone) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then 
+        if (((exitcond654_fu_50_p2 = ap_const_lv1_1) and (ap_const_boolean_0 = ap_block_pp0_stage0_subdone) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then 
             ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_1;
         else 
             ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_0;
@@ -253,8 +253,8 @@ begin
         end if; 
     end process;
 
-    empty_107_fu_56_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_p_load) + unsigned(ap_const_lv7_1));
-    exitcond624_fu_50_p2 <= "1" when (ap_sig_allocacmp_p_load = ap_const_lv7_40) else "0";
+    empty_111_fu_56_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_p_load) + unsigned(ap_const_lv7_1));
+    exitcond654_fu_50_p2 <= "1" when (ap_sig_allocacmp_p_load = ap_const_lv7_40) else "0";
     histogram_address0 <= p_cast_fu_67_p1(6 - 1 downto 0);
     histogram_ce0 <= histogram_ce0_local;
 

@@ -36,10 +36,11 @@ module kernel_adc_forward (
         num_chirps
 );
 
-parameter    ap_ST_fsm_state1 = 4'd1;
-parameter    ap_ST_fsm_state2 = 4'd2;
-parameter    ap_ST_fsm_state3 = 4'd4;
-parameter    ap_ST_fsm_state4 = 4'd8;
+parameter    ap_ST_fsm_state1 = 5'd1;
+parameter    ap_ST_fsm_state2 = 5'd2;
+parameter    ap_ST_fsm_state3 = 5'd4;
+parameter    ap_ST_fsm_state4 = 5'd8;
+parameter    ap_ST_fsm_state5 = 5'd16;
 
 input   ap_clk;
 input   ap_rst;
@@ -73,31 +74,38 @@ reg ap_idle;
 reg ap_ready;
 
 reg    ap_done_reg;
-(* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [31:0] num_chirps_read_reg_131;
+reg   [31:0] num_chirps_read_reg_165;
 reg    ap_block_state1;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_done;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_idle;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_ready;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TREADY;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TREADY;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_in_adc0_TREADY;
-wire   [31:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TDATA;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID;
-wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TKEEP;
-wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TSTRB;
-wire   [0:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TLAST;
-wire   [31:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TDATA;
-wire    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID;
-wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TKEEP;
-wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TSTRB;
-wire   [0:0] grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TLAST;
-reg    grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg;
+wire   [31:0] c_4_fu_136_p2;
+reg   [31:0] c_4_reg_173;
 wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_ln52_fu_108_p2;
+wire   [1:0] seq_count_1_fu_148_p2;
+reg   [1:0] seq_count_1_reg_181;
 wire    ap_CS_fsm_state3;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_done;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_idle;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_ready;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TREADY;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TREADY;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_in_adc0_TREADY;
+wire   [31:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TDATA;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID;
+wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TKEEP;
+wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TSTRB;
+wire   [0:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TLAST;
+wire   [31:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TDATA;
+wire    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID;
+wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TKEEP;
+wire   [3:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TSTRB;
+wire   [0:0] grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TLAST;
+reg   [1:0] seq_count_reg_82;
+wire   [0:0] icmp_ln53_fu_131_p2;
+wire    ap_CS_fsm_state4;
+reg    grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start_reg;
+wire   [0:0] icmp_ln55_fu_142_p2;
 reg   [31:0] out_r_00_TDATA_reg;
 reg   [3:0] out_r_00_TKEEP_reg;
 reg   [3:0] out_r_00_TSTRB_reg;
@@ -106,17 +114,17 @@ reg   [31:0] out_r_01_TDATA_reg;
 reg   [3:0] out_r_01_TKEEP_reg;
 reg   [3:0] out_r_01_TSTRB_reg;
 reg   [0:0] out_r_01_TLAST_reg;
-reg   [31:0] c_fu_60;
-wire   [31:0] c_4_fu_113_p2;
-wire    ap_CS_fsm_state4;
+reg   [31:0] c_fu_72;
+wire    ap_CS_fsm_state5;
 wire    regslice_both_out_r_00_V_data_V_U_apdone_blk;
 wire    regslice_both_out_r_01_V_data_V_U_apdone_blk;
-reg    ap_block_state4;
-reg   [3:0] ap_NS_fsm;
+reg    ap_block_state5;
+reg   [4:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 wire    ap_ST_fsm_state2_blk;
-reg    ap_ST_fsm_state3_blk;
+wire    ap_ST_fsm_state3_blk;
 reg    ap_ST_fsm_state4_blk;
+reg    ap_ST_fsm_state5_blk;
 wire    regslice_both_in_adc0_V_data_V_U_apdone_blk;
 wire   [63:0] in_adc0_TDATA_int_regslice;
 wire    in_adc0_TVALID_int_regslice;
@@ -171,36 +179,36 @@ wire    ap_ce_reg;
 // power-on initialization
 initial begin
 #0 ap_done_reg = 1'b0;
-#0 ap_CS_fsm = 4'd1;
-#0 grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg = 1'b0;
-#0 c_fu_60 = 32'd0;
+#0 ap_CS_fsm = 5'd1;
+#0 grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start_reg = 1'b0;
+#0 c_fu_72 = 32'd0;
 end
 
-kernel_adc_forward_Pipeline_VITIS_LOOP_54_2 grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70(
+kernel_adc_forward_Pipeline_VITIS_LOOP_58_3 grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start),
-    .ap_done(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_done),
-    .ap_idle(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_idle),
-    .ap_ready(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_ready),
+    .ap_start(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start),
+    .ap_done(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_done),
+    .ap_idle(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_idle),
+    .ap_ready(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_ready),
     .in_adc0_TVALID(in_adc0_TVALID_int_regslice),
-    .out_r_00_TREADY(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TREADY),
-    .out_r_01_TREADY(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TREADY),
+    .out_r_00_TREADY(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TREADY),
+    .out_r_01_TREADY(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TREADY),
     .in_adc0_TDATA(in_adc0_TDATA_int_regslice),
-    .in_adc0_TREADY(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_in_adc0_TREADY),
+    .in_adc0_TREADY(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_in_adc0_TREADY),
     .in_adc0_TKEEP(in_adc0_TKEEP_int_regslice),
     .in_adc0_TSTRB(in_adc0_TSTRB_int_regslice),
     .in_adc0_TLAST(in_adc0_TLAST_int_regslice),
-    .out_r_00_TDATA(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TDATA),
-    .out_r_00_TVALID(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID),
-    .out_r_00_TKEEP(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TKEEP),
-    .out_r_00_TSTRB(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TSTRB),
-    .out_r_00_TLAST(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TLAST),
-    .out_r_01_TDATA(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TDATA),
-    .out_r_01_TVALID(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID),
-    .out_r_01_TKEEP(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TKEEP),
-    .out_r_01_TSTRB(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TSTRB),
-    .out_r_01_TLAST(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TLAST)
+    .out_r_00_TDATA(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TDATA),
+    .out_r_00_TVALID(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID),
+    .out_r_00_TKEEP(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TKEEP),
+    .out_r_00_TSTRB(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TSTRB),
+    .out_r_00_TLAST(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TLAST),
+    .out_r_01_TDATA(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TDATA),
+    .out_r_01_TVALID(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID),
+    .out_r_01_TKEEP(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TKEEP),
+    .out_r_01_TSTRB(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TSTRB),
+    .out_r_01_TLAST(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TLAST)
 );
 
 kernel_regslice_both #(
@@ -265,7 +273,7 @@ regslice_both_out_r_00_V_data_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_00_TDATA_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID),
     .ack_in(out_r_00_TREADY_int_regslice),
     .data_out(out_r_00_TDATA),
     .vld_out(regslice_both_out_r_00_V_data_V_U_vld_out),
@@ -279,7 +287,7 @@ regslice_both_out_r_00_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_00_TKEEP_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID),
     .ack_in(regslice_both_out_r_00_V_keep_V_U_ack_in_dummy),
     .data_out(out_r_00_TKEEP),
     .vld_out(regslice_both_out_r_00_V_keep_V_U_vld_out),
@@ -293,7 +301,7 @@ regslice_both_out_r_00_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_00_TSTRB_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID),
     .ack_in(regslice_both_out_r_00_V_strb_V_U_ack_in_dummy),
     .data_out(out_r_00_TSTRB),
     .vld_out(regslice_both_out_r_00_V_strb_V_U_vld_out),
@@ -307,7 +315,7 @@ regslice_both_out_r_00_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_00_TLAST_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID),
     .ack_in(regslice_both_out_r_00_V_last_V_U_ack_in_dummy),
     .data_out(out_r_00_TLAST),
     .vld_out(regslice_both_out_r_00_V_last_V_U_vld_out),
@@ -321,7 +329,7 @@ regslice_both_out_r_01_V_data_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_01_TDATA_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID),
     .ack_in(out_r_01_TREADY_int_regslice),
     .data_out(out_r_01_TDATA),
     .vld_out(regslice_both_out_r_01_V_data_V_U_vld_out),
@@ -335,7 +343,7 @@ regslice_both_out_r_01_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_01_TKEEP_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID),
     .ack_in(regslice_both_out_r_01_V_keep_V_U_ack_in_dummy),
     .data_out(out_r_01_TKEEP),
     .vld_out(regslice_both_out_r_01_V_keep_V_U_vld_out),
@@ -349,7 +357,7 @@ regslice_both_out_r_01_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_01_TSTRB_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID),
     .ack_in(regslice_both_out_r_01_V_strb_V_U_ack_in_dummy),
     .data_out(out_r_01_TSTRB),
     .vld_out(regslice_both_out_r_01_V_strb_V_U_vld_out),
@@ -363,7 +371,7 @@ regslice_both_out_r_01_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .data_in(out_r_01_TLAST_int_regslice),
-    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID),
+    .vld_in(grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID),
     .ack_in(regslice_both_out_r_01_V_last_V_U_ack_in_dummy),
     .data_out(out_r_01_TLAST),
     .vld_out(regslice_both_out_r_01_V_last_V_U_vld_out),
@@ -385,7 +393,7 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if (((1'b0 == ap_block_state4) & (1'b1 == ap_CS_fsm_state4))) begin
+        end else if (((1'b0 == ap_block_state5) & (1'b1 == ap_CS_fsm_state5))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -393,45 +401,65 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg <= 1'b0;
+        grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start_reg <= 1'b0;
     end else begin
-        if (((icmp_ln52_fu_108_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-            grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg <= 1'b1;
-        end else if ((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_ready == 1'b1)) begin
-            grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg <= 1'b0;
+        if (((1'b1 == ap_CS_fsm_state3) & (icmp_ln55_fu_142_p2 == 1'd0))) begin
+            grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start_reg <= 1'b1;
+        end else if ((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_ready == 1'b1)) begin
+            grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        c_fu_60 <= 32'd0;
-    end else if (((icmp_ln52_fu_108_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        c_fu_60 <= c_4_fu_113_p2;
+        c_fu_72 <= 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state3) & (icmp_ln55_fu_142_p2 == 1'd1))) begin
+        c_fu_72 <= c_4_reg_173;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        seq_count_reg_82 <= seq_count_1_reg_181;
+    end else if (((icmp_ln53_fu_131_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        seq_count_reg_82 <= 2'd0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        c_4_reg_173 <= c_4_fu_136_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        num_chirps_read_reg_131 <= num_chirps;
+        num_chirps_read_reg_165 <= num_chirps;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_00_TDATA_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TDATA;
-        out_r_00_TKEEP_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TKEEP;
-        out_r_00_TLAST_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TLAST;
-        out_r_00_TSTRB_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TSTRB;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_00_TDATA_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TDATA;
+        out_r_00_TKEEP_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TKEEP;
+        out_r_00_TLAST_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TLAST;
+        out_r_00_TSTRB_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TSTRB;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_01_TDATA_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TDATA;
-        out_r_01_TKEEP_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TKEEP;
-        out_r_01_TLAST_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TLAST;
-        out_r_01_TSTRB_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TSTRB;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_01_TDATA_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TDATA;
+        out_r_01_TKEEP_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TKEEP;
+        out_r_01_TLAST_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TLAST;
+        out_r_01_TSTRB_reg <= grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TSTRB;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        seq_count_1_reg_181 <= seq_count_1_fu_148_p2;
     end
 end
 
@@ -445,16 +473,10 @@ end
 
 assign ap_ST_fsm_state2_blk = 1'b0;
 
-always @ (*) begin
-    if ((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_done == 1'b0)) begin
-        ap_ST_fsm_state3_blk = 1'b1;
-    end else begin
-        ap_ST_fsm_state3_blk = 1'b0;
-    end
-end
+assign ap_ST_fsm_state3_blk = 1'b0;
 
 always @ (*) begin
-    if ((1'b1 == ap_block_state4)) begin
+    if ((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_done == 1'b0)) begin
         ap_ST_fsm_state4_blk = 1'b1;
     end else begin
         ap_ST_fsm_state4_blk = 1'b0;
@@ -462,7 +484,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state4) & (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_block_state5)) begin
+        ap_ST_fsm_state5_blk = 1'b1;
+    end else begin
+        ap_ST_fsm_state5_blk = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_state5) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -470,7 +500,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -478,7 +508,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state4) & (1'b1 == ap_CS_fsm_state4))) begin
+    if (((1'b0 == ap_block_state5) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -486,72 +516,72 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_adc0_TREADY_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_in_adc0_TREADY;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        in_adc0_TREADY_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_in_adc0_TREADY;
     end else begin
         in_adc0_TREADY_int_regslice = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_00_TDATA_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TDATA;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_00_TDATA_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TDATA;
     end else begin
         out_r_00_TDATA_int_regslice = out_r_00_TDATA_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_00_TKEEP_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TKEEP;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_00_TKEEP_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TKEEP;
     end else begin
         out_r_00_TKEEP_int_regslice = out_r_00_TKEEP_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_00_TLAST_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TLAST;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_00_TLAST_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TLAST;
     end else begin
         out_r_00_TLAST_int_regslice = out_r_00_TLAST_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_00_TSTRB_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TSTRB;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_00_TSTRB_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TSTRB;
     end else begin
         out_r_00_TSTRB_int_regslice = out_r_00_TSTRB_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_01_TDATA_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TDATA;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_01_TDATA_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TDATA;
     end else begin
         out_r_01_TDATA_int_regslice = out_r_01_TDATA_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_01_TKEEP_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TKEEP;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_01_TKEEP_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TKEEP;
     end else begin
         out_r_01_TKEEP_int_regslice = out_r_01_TKEEP_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_01_TLAST_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TLAST;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_01_TLAST_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TLAST;
     end else begin
         out_r_01_TLAST_int_regslice = out_r_01_TLAST_reg;
     end
 end
 
 always @ (*) begin
-    if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
-        out_r_01_TSTRB_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TSTRB;
+    if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        out_r_01_TSTRB_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TSTRB;
     end else begin
         out_r_01_TSTRB_int_regslice = out_r_01_TSTRB_reg;
     end
@@ -567,24 +597,31 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((icmp_ln52_fu_108_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state4;
-            end else begin
+            if (((icmp_ln53_fu_131_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         ap_ST_fsm_state3 : begin
-            if (((grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
+            if (((1'b1 == ap_CS_fsm_state3) & (icmp_ln55_fu_142_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state3;
+                ap_NS_fsm = ap_ST_fsm_state4;
             end
         end
         ap_ST_fsm_state4 : begin
-            if (((1'b0 == ap_block_state4) & (1'b1 == ap_CS_fsm_state4))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
+            if (((grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+                ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
+            end
+        end
+        ap_ST_fsm_state5 : begin
+            if (((1'b0 == ap_block_state5) & (1'b1 == ap_CS_fsm_state5))) begin
+                ap_NS_fsm = ap_ST_fsm_state1;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         default : begin
@@ -601,32 +638,38 @@ assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
+assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+
 always @ (*) begin
-    ap_block_state1 = ((ap_start == 1'b0) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0));
 end
 
 always @ (*) begin
-    ap_block_state4 = ((regslice_both_out_r_01_V_data_V_U_apdone_blk == 1'b1) | (regslice_both_out_r_00_V_data_V_U_apdone_blk == 1'b1));
+    ap_block_state5 = ((regslice_both_out_r_01_V_data_V_U_apdone_blk == 1'b1) | (regslice_both_out_r_00_V_data_V_U_apdone_blk == 1'b1));
 end
 
-assign c_4_fu_113_p2 = (c_fu_60 + 32'd1);
+assign c_4_fu_136_p2 = (c_fu_72 + 32'd1);
 
-assign grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_ap_start_reg;
+assign grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_ap_start_reg;
 
-assign grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TREADY = (out_r_00_TREADY_int_regslice & ap_CS_fsm_state3);
+assign grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TREADY = (out_r_00_TREADY_int_regslice & ap_CS_fsm_state4);
 
-assign grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TREADY = (out_r_01_TREADY_int_regslice & ap_CS_fsm_state3);
+assign grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TREADY = (out_r_01_TREADY_int_regslice & ap_CS_fsm_state4);
 
-assign icmp_ln52_fu_108_p2 = ((c_fu_60 == num_chirps_read_reg_131) ? 1'b1 : 1'b0);
+assign icmp_ln53_fu_131_p2 = ((c_fu_72 == num_chirps_read_reg_165) ? 1'b1 : 1'b0);
+
+assign icmp_ln55_fu_142_p2 = ((seq_count_reg_82 == 2'd2) ? 1'b1 : 1'b0);
 
 assign in_adc0_TREADY = regslice_both_in_adc0_V_data_V_U_ack_in;
 
 assign out_r_00_TVALID = regslice_both_out_r_00_V_data_V_U_vld_out;
 
-assign out_r_00_TVALID_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_00_TVALID;
+assign out_r_00_TVALID_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_00_TVALID;
 
 assign out_r_01_TVALID = regslice_both_out_r_01_V_data_V_U_vld_out;
 
-assign out_r_01_TVALID_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_54_2_fu_70_out_r_01_TVALID;
+assign out_r_01_TVALID_int_regslice = grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93_out_r_01_TVALID;
+
+assign seq_count_1_fu_148_p2 = (seq_count_reg_82 + 2'd1);
 
 endmodule //kernel_adc_forward

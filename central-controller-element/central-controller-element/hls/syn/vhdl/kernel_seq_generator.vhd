@@ -200,7 +200,7 @@ begin
         current_mask => current_mask_reg_252,
         mask_seq => mask_seq_reg_223);
 
-    bitset_128ns_128ns_7ns_1s_128_1_1_U88 : component kernel_bitset_128ns_128ns_7ns_1s_128_1_1
+    bitset_128ns_128ns_7ns_1s_128_1_1_U90 : component kernel_bitset_128ns_128ns_7ns_1s_128_1_1
     generic map (
         DATAWIDTH => 128,
         ADDRWIDTH => 7)

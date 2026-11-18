@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Block_entry_gmem_wr_proc'" level="0">
-<item name = "Date">Tue Nov 10 11:50:40 2026
+<item name = "Date">Sat Nov 14 14:52:48 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -31,9 +31,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aie_range_consume_fu_148">aie_range_consume, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_seq_generator_fu_175">seq_generator, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_doppler_fu_185">doppler, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_aie_range_consume_fu_150">aie_range_consume, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_seq_generator_fu_179">seq_generator, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_doppler_fu_189">doppler, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

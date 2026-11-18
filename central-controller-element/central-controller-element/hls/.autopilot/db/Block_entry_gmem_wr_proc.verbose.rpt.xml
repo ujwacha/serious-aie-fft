@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Block_entry_gmem_wr_proc'" level="0">
-<item name = "Date">Tue Nov 10 11:50:42 2026
+<item name = "Date">Sat Nov 14 14:52:50 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -31,9 +31,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aie_range_consume_fu_148">aie_range_consume, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_seq_generator_fu_175">seq_generator, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_doppler_fu_185">doppler, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_aie_range_consume_fu_150">aie_range_consume, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_seq_generator_fu_179">seq_generator, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_doppler_fu_189">doppler, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -52,21 +52,21 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 8, -</column>
 <column name="FIFO">11, -, 314, 148, -</column>
-<column name="Instance">24, 26, 9083, 12832, 0</column>
+<column name="Instance">24, 14, 4737, 8129, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, 0, 494, -</column>
 <column name="Register">-, -, 191, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
-<specialColumn name="Utilization (%)">6, 6, 6, 17, 0</specialColumn>
+<specialColumn name="Utilization (%)">6, 3, 3, 11, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_aie_range_consume_fu_148">aie_range_consume, 3, 0, 1087, 3433, 0</column>
-<column name="grp_doppler_fu_185">doppler, 17, 26, 7271, 8725, 0</column>
-<column name="grp_seq_generator_fu_175">seq_generator, 4, 0, 725, 674, 0</column>
+<column name="grp_aie_range_consume_fu_150">aie_range_consume, 3, 0, 1105, 3465, 0</column>
+<column name="grp_doppler_fu_189">doppler, 17, 14, 2907, 3990, 0</column>
+<column name="grp_seq_generator_fu_179">seq_generator, 4, 0, 725, 674, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -85,8 +85,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_doppler_fu_185_out_d_02_TREADY">and, 0, 0, 2, 1, 1</column>
-<column name="grp_doppler_fu_185_out_d_03_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="grp_doppler_fu_189_out_d_02_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="grp_doppler_fu_189_out_d_03_TREADY">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state8">or, 0, 0, 2, 1, 1</column>
 </table>
@@ -139,11 +139,11 @@
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">8, 0, 8, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="grp_aie_range_consume_fu_148_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_doppler_fu_185_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_seq_generator_fu_175_ap_start_reg">1, 0, 1, 0</column>
-<column name="mm_read_reg_246">64, 0, 64, 0</column>
-<column name="num_chirps_read_reg_241">32, 0, 32, 0</column>
+<column name="grp_aie_range_consume_fu_150_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_doppler_fu_189_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_seq_generator_fu_179_ap_start_reg">1, 0, 1, 0</column>
+<column name="mm_read_reg_250">64, 0, 64, 0</column>
+<column name="num_chirps_read_reg_245">32, 0, 32, 0</column>
 <column name="out_d_02_TDATA_reg">32, 0, 32, 0</column>
 <column name="out_d_02_TKEEP_reg">4, 0, 4, 0</column>
 <column name="out_d_02_TLAST_reg">1, 0, 1, 0</column>
@@ -256,11 +256,11 @@
 <column name="in_d_03_TLAST">in, 1, axis, in_d_03_V_last_V, pointer</column>
 <column name="in_d_03_TKEEP">in, 4, axis, in_d_03_V_keep_V, pointer</column>
 <column name="in_d_03_TSTRB">in, 4, axis, in_d_03_V_strb_V, pointer</column>
-<column name="doppler_mask_stream_din">out, 2816, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_din">out, 64, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_full_n">in, 1, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_write">out, 1, ap_fifo, doppler_mask_stream, pointer</column>
-<column name="doppler_mask_stream_num_data_valid">in, 8, ap_fifo, doppler_mask_stream, pointer</column>
-<column name="doppler_mask_stream_fifo_cap">in, 8, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_num_data_valid">in, 32, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_fifo_cap">in, 32, ap_fifo, doppler_mask_stream, pointer</column>
 </table>
 </item>
 </section>

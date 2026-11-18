@@ -2,19 +2,20 @@
 == Vivado RTL Synthesis Results
 ================================================================
 + General Information:
-    * Date:            Thu Oct 22 22:55:57 +0545 2026
+    * Date:            Sat Nov 14 14:15:46 +0545 2026
     * Version:         2026.1 (Build 6493734 on Jun 16 2026)
     * Project:         central-controller-element
     * Solution:        hls
     * Product family:  azynq
-    * Target device:   xa7z020-clg484-1Q
+    * Target device:   xa7z030-fbg484-1I
 
 
 ================================================================
 == Run Constraints & Options
 ================================================================
 + Design Constraints & Options:
-    * RTL Synthesis target clock:  10 ns
+    * RTL Synthesis target clock:  8 ns
+    * C-Synthesis target clock:    8 ns
     * C-Synthesis uncertainty:     27%
 
 + RTL Synthesis Options:
@@ -29,12 +30,12 @@
 ================================================================
 == RTL Synthesis Resource Summary
 ================================================================
-LUT:              1871
-FF:               3023
-DSP:              0
-BRAM:             2
+LUT:              4342
+FF:               6227
+DSP:              19
+BRAM:             34
 URAM:             0
-SRL:              290
+SRL:              248
 
 
 ================================================================
@@ -44,24 +45,112 @@ SRL:              290
 +----------------+-------------+
 | Timing         | Period (ns) |
 +----------------+-------------+
-| Target         | 10.000      |
-| Post-Synthesis | 5.789       |
+| Target         | 8.000       |
+| Post-Synthesis | 4.820       |
 +----------------+-------------+
 
 
 ================================================================
 == RTL Synthesis Resources
 ================================================================
-+-------------------+-----+----+-----+------+------+-----+--------+------+---------+----------+--------+
-| Name              | LUT | FF | DSP | BRAM | URAM | SRL | Pragma | Impl | Latency | Variable | Source |
-+-------------------+-----+----+-----+------+------+-----+--------+------+---------+----------+--------+
-| inst              |     |    |     |      |      | 290 |        |      |         |          |        |
-|   (inst)          |     |    |     |      |      | 2   |        |      |         |          |        |
-|   control_s_axi_U |     |    |     |      |      |     |        |      |         |          |        |
-|   gmem_a_m_axi_U  |     |    |     |      |      | 63  |        |      |         |          |        |
-|   gmem_b_m_axi_U  |     |    |     |      |      | 63  |        |      |         |          |        |
-|   gmem_c_m_axi_U  |     |    |     |      |      | 162 |        |      |         |          |        |
-+-------------------+-----+----+-----+------+------+-----+--------+------+---------+----------+--------+
++------------------------------------------------------------------------+-----+----+-----+------+------+-----+--------+------+---------+----------+--------+
+| Name                                                                   | LUT | FF | DSP | BRAM | URAM | SRL | Pragma | Impl | Latency | Variable | Source |
++------------------------------------------------------------------------+-----+----+-----+------+------+-----+--------+------+---------+----------+--------+
+| inst                                                                   |     |    |     |      |      | 248 |        |      |         |          |        |
+|   Block_entry_gmem_wr_proc_U0                                          |     |    |     |      |      | 23  |        |      |         |          |        |
+|     (Block_entry_gmem_wr_proc_U0)                                      |     |    |     |      |      |     |        |      |         |          |        |
+|     grp_aie_range_consume_fu_150                                       |     |    |     |      |      |     |        |      |         |          |        |
+|       (grp_aie_range_consume_fu_150)                                   |     |    |     |      |      |     |        |      |         |          |        |
+|       adr_buf_U                                                        |     |    |     |      |      |     |        |      |         |          |        |
+|       agg_tmp1_ids_U                                                   |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_aie_range_consume_Pipeline_VITIS_LOOP_102_3_fu_810           |     |    |     |      |      |     |        |      |         |          |        |
+|         flow_control_loop_pipe_sequential_init_U                       |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_aie_range_consume_Pipeline_VITIS_LOOP_10_1_fu_831            |     |    |     |      |      |     |        |      |         |          |        |
+|         (grp_aie_range_consume_Pipeline_VITIS_LOOP_10_1_fu_831)        |     |    |     |      |      |     |        |      |         |          |        |
+|         flow_control_loop_pipe_sequential_init_U                       |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_aie_range_consume_Pipeline_VITIS_LOOP_112_4_fu_838           |     |    |     |      |      |     |        |      |         |          |        |
+|         (grp_aie_range_consume_Pipeline_VITIS_LOOP_112_4_fu_838)       |     |    |     |      |      |     |        |      |         |          |        |
+|         flow_control_loop_pipe_sequential_init_U                       |     |    |     |      |      |     |        |      |         |          |        |
+|       mask_head_U                                                      |     |    |     |      |      |     |        |      |         |          |        |
+|     grp_doppler_fu_189                                                 |     |    |     |      |      | 23  |        |      |         |          |        |
+|       (grp_doppler_fu_189)                                             |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_aie_consume_doppler_fu_196                                   |     |    |     |      |      | 9   |        |      |         |          |        |
+|         (grp_aie_consume_doppler_fu_196)                               |     |    |     |      |      |     |        |      |         |          |        |
+|         dmask_data_U                                                   |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_1_fu_1022                     |     |    |     |      |      |     |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_196_1_fu_1028      |     |    |     |      |      |     |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_207_2_fu_1052      |     |    |     |      |      | 9   |        |      |         |          |        |
+|           (grp_aie_consume_doppler_Pipeline_VITIS_LOOP_207_2_fu_1052)  |     |    |     |      |      | 9   |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_243_3_fu_1060      |     |    |     |      |      |     |        |      |         |          |        |
+|           (grp_aie_consume_doppler_Pipeline_VITIS_LOOP_243_3_fu_1060)  |     |    |     |      |      |     |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066      |     |    |     |      |      |     |        |      |         |          |        |
+|           (grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066)  |     |    |     |      |      |     |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|           mul_32ns_32ns_64_3_1_U134                                    |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_264_5_fu_1073      |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_304_6_fu_1079      |     |    |     |      |      |     |        |      |         |          |        |
+|           (grp_aie_consume_doppler_Pipeline_VITIS_LOOP_304_6_fu_1079)  |     |    |     |      |      |     |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|         grp_aie_consume_doppler_Pipeline_VITIS_LOOP_343_10_fu_1093     |     |    |     |      |      |     |        |      |         |          |        |
+|           (grp_aie_consume_doppler_Pipeline_VITIS_LOOP_343_10_fu_1093) |     |    |     |      |      |     |        |      |         |          |        |
+|           flow_control_loop_pipe_sequential_init_U                     |     |    |     |      |      |     |        |      |         |          |        |
+|         histogram_U                                                    |     |    |     |      |      |     |        |      |         |          |        |
+|         in_data_imag_U                                                 |     |    |     |      |      |     |        |      |         |          |        |
+|         in_data_mag_U                                                  |     |    |     |      |      |     |        |      |         |          |        |
+|         in_data_real_U                                                 |     |    |     |      |      |     |        |      |         |          |        |
+|         mul_31ns_7ns_38_5_1_U155                                       |     |    |     |      |      |     |        |      |         |          |        |
+|         mul_38ns_11ns_48_5_1_U156                                      |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163     |     |    |     |      |      | 13  |        |      |         |          |        |
+|         (grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163) |     |    |     |      |      | 13  |        |      |         |          |        |
+|         flow_control_loop_pipe_sequential_init_U                       |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_doppler_forward_one_fu_172                                   |     |    |     |      |      | 1   |        |      |         |          |        |
+|         (grp_doppler_forward_one_fu_172)                               |     |    |     |      |      | 1   |        |      |         |          |        |
+|         flow_control_loop_pipe_sequential_init_U                       |     |    |     |      |      |     |        |      |         |          |        |
+|       window_U                                                         |     |    |     |      |      |     |        |      |         |          |        |
+|     grp_seq_generator_fu_179                                           |     |    |     |      |      |     |        |      |         |          |        |
+|       (grp_seq_generator_fu_179)                                       |     |    |     |      |      |     |        |      |         |          |        |
+|       grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91                 |     |    |     |      |      |     |        |      |         |          |        |
+|         flow_control_loop_pipe_sequential_init_U                       |     |    |     |      |      |     |        |      |         |          |        |
+|       mask_seqs_U                                                      |     |    |     |      |      |     |        |      |         |          |        |
+|     idx_stream_fifo_U                                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     mask_stream_fifo_U                                                 |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_in_d_02_V_data_V_U                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_in_d_03_V_data_V_U                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_in_r_00_V_data_V_U                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_in_r_01_V_data_V_U                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_02_V_data_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_02_V_keep_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_02_V_last_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_02_V_strb_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_03_V_data_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_03_V_keep_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_03_V_last_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_d_03_V_strb_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|   adc_forward_U0                                                       |     |    |     |      |      |     |        |      |         |          |        |
+|     (adc_forward_U0)                                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     grp_adc_forward_Pipeline_VITIS_LOOP_58_3_fu_93                     |     |    |     |      |      |     |        |      |         |          |        |
+|       flow_control_loop_pipe_sequential_init_U                         |     |    |     |      |      |     |        |      |         |          |        |
+|       hamming_window_2048_real_U                                       |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_in_adc0_V_data_V_U                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_in_adc0_V_last_V_U                                   |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_00_V_data_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_00_V_keep_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_00_V_last_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_00_V_strb_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_01_V_data_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_01_V_keep_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_01_V_last_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|     regslice_both_out_r_01_V_strb_V_U                                  |     |    |     |      |      |     |        |      |         |          |        |
+|   control_s_axi_U                                                      |     |    |     |      |      |     |        |      |         |          |        |
+|   doppler_mask_stream_U                                                |     |    |     |      |      |     |        |      |         |          |        |
+|   dummy_U0                                                             |     |    |     |      |      |     |        |      |         |          |        |
+|   gmem_m_axi_U                                                         |     |    |     |      |      | 225 |        |      |         |          |        |
+|   start_for_dummy_U0_U                                                 |     |    |     |      |      |     |        |      |         |          |        |
++------------------------------------------------------------------------+-----+----+-----+------+------+-----+--------+------+---------+----------+--------+
 
 
 ================================================================
@@ -70,18 +159,18 @@ SRL:              290
 +-----------------------------------------------------------+-----------+--------+--------+
 | Criteria                                                  | Guideline | Actual | Status |
 +-----------------------------------------------------------+-----------+--------+--------+
-| LUT                                                       | 70%       | 3.52%  | OK     |
-| FD                                                        | 50%       | 2.84%  | OK     |
-| LUTRAM+SRL                                                | 25%       | 1.70%  | OK     |
-| MUXF7                                                     | 15%       | 0.02%  | OK     |
-| DSP                                                       | 80%       | 0.00%  | OK     |
-| RAMB/FIFO                                                 | 80%       | 0.71%  | OK     |
-| DSP+RAMB+URAM (Avg)                                       | 70%       | 0.71%  | OK     |
+| LUT                                                       | 70%       | 5.52%  | OK     |
+| FD                                                        | 50%       | 3.96%  | OK     |
+| LUTRAM+SRL                                                | 25%       | 0.95%  | OK     |
+| MUXF7                                                     | 15%       | 0.05%  | OK     |
+| DSP                                                       | 80%       | 4.75%  | OK     |
+| RAMB/FIFO                                                 | 80%       | 6.42%  | OK     |
+| DSP+RAMB+URAM (Avg)                                       | 70%       | 5.58%  | OK     |
 | BUFGCE* + BUFGCTRL                                        | 24        | 0      | OK     |
-| DONT_TOUCH (cells/nets)                                   | 0         | 6      | REVIEW |
+| DONT_TOUCH (cells/nets)                                   | 0         | 4      | REVIEW |
 | MARK_DEBUG (nets)                                         | 0         | 0      | OK     |
-| Control Sets                                              | 998       | 105    | OK     |
-| Average Fanout for modules > 100k cells                   | 4         | 2.83   | OK     |
+| Control Sets                                              | 1474      | 260    | OK     |
+| Average Fanout for modules > 100k cells                   | 4         | 2.72   | OK     |
 | Max Average Fanout for modules > 100k cells               | 4         | 0      | OK     |
 | Non-FD high fanout nets > 10k loads                       | 0         | 0      | OK     |
 +-----------------------------------------------------------+-----------+--------+--------+
@@ -100,94 +189,66 @@ SRL:              290
 == RTL Synthesis Timing Paths
 ================================================================
 * Timing was met
-+-------+-------+---------------------+--------------------------------------------------------------------+--------------+------------+----------------+----------------+--------------+
-| Path  | SLACK | STARTPOINT PIN      | ENDPOINT PIN                                                       | LOGIC LEVELS | MAX FANOUT | DATAPATH DELAY | DATAPATH LOGIC | DATAPATH NET |
-|       |       |                     |                                                                    |              |            |                |          DELAY |        DELAY |
-+-------+-------+---------------------+--------------------------------------------------------------------+--------------+------------+----------------+----------------+--------------+
-| Path1 | 4.211 | ap_CS_fsm_reg[23]/C | gmem_c_m_axi_U/store_unit_0/conservative_gen.num_beat_cnt_reg[7]/D |            5 |         66 |          5.814 |          1.814 |        4.000 |
-| Path2 | 4.274 | ap_CS_fsm_reg[23]/C | gmem_c_m_axi_U/store_unit_0/conservative_gen.num_beat_cnt_reg[6]/D |            5 |         66 |          5.751 |          1.751 |        4.000 |
-| Path3 | 4.278 | ap_CS_fsm_reg[23]/C | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[6]/D             |            6 |         84 |          5.747 |          2.159 |        3.588 |
-| Path4 | 4.278 | ap_CS_fsm_reg[23]/C | gmem_b_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[6]/D             |            6 |         84 |          5.747 |          2.159 |        3.588 |
-| Path5 | 4.284 | ap_CS_fsm_reg[23]/C | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[8]/D             |            6 |         84 |          5.741 |          2.153 |        3.588 |
-+-------+-------+---------------------+--------------------------------------------------------------------+--------------+------------+----------------+----------------+--------------+
++-------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+------------+----------------+----------------+--------------+
+| Path  | SLACK | STARTPOINT PIN                                                                                                                                                                    | ENDPOINT PIN                                                                                                                                                                         | LOGIC LEVELS | MAX FANOUT | DATAPATH DELAY | DATAPATH LOGIC | DATAPATH NET |
+|       |       |                                                                                                                                                                                   |                                                                                                                                                                                      |              |            |                |          DELAY |        DELAY |
++-------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+------------+----------------+----------------+--------------+
+| Path1 | 3.180 | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product/CLK | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg/PCIN[0]  |            0 |          1 |          3.564 |          3.564 |        0.000 |
+| Path2 | 3.180 | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product/CLK | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg/PCIN[10] |            0 |          1 |          3.564 |          3.564 |        0.000 |
+| Path3 | 3.180 | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product/CLK | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg/PCIN[11] |            0 |          1 |          3.564 |          3.564 |        0.000 |
+| Path4 | 3.180 | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product/CLK | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg/PCIN[12] |            0 |          1 |          3.564 |          3.564 |        0.000 |
+| Path5 | 3.180 | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product/CLK | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg/PCIN[13] |            0 |          1 |          3.564 |          3.564 |        0.000 |
++-------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+------------+----------------+----------------+--------------+
 
-    +----------------------------------------------------------------------------+----------------------+
-    | Path1 Cells                                                                | Primitive Type       |
-    +----------------------------------------------------------------------------+----------------------+
-    | ap_CS_fsm_reg[23]                                                          | FLOP_LATCH.flop.FDRE |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_3 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_2 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_1 | LUT.others.LUT4      |
-    | gmem_c_m_axi_U/store_unit_0/conservative_gen.fifo_burst/i__carry__0_i_2    | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/_inferred__2/i__carry__0                       | CARRY.others.CARRY4  |
-    | gmem_c_m_axi_U/store_unit_0/conservative_gen.num_beat_cnt_reg[7]           | FLOP_LATCH.flop.FDRE |
-    +----------------------------------------------------------------------------+----------------------+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Path1 Cells                                                                                                                                                                   | Primitive Type   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product | MULT.dsp.DSP48E1 |
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg   | MULT.dsp.DSP48E1 |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
 
-    +----------------------------------------------------------------------------+----------------------+
-    | Path2 Cells                                                                | Primitive Type       |
-    +----------------------------------------------------------------------------+----------------------+
-    | ap_CS_fsm_reg[23]                                                          | FLOP_LATCH.flop.FDRE |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_3 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_2 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_1 | LUT.others.LUT4      |
-    | gmem_c_m_axi_U/store_unit_0/conservative_gen.fifo_burst/i__carry__0_i_2    | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/_inferred__2/i__carry__0                       | CARRY.others.CARRY4  |
-    | gmem_c_m_axi_U/store_unit_0/conservative_gen.num_beat_cnt_reg[6]           | FLOP_LATCH.flop.FDRE |
-    +----------------------------------------------------------------------------+----------------------+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Path2 Cells                                                                                                                                                                   | Primitive Type   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product | MULT.dsp.DSP48E1 |
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg   | MULT.dsp.DSP48E1 |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
 
-    +----------------------------------------------------------------------------+----------------------+
-    | Path3 Cells                                                                | Primitive Type       |
-    +----------------------------------------------------------------------------+----------------------+
-    | ap_CS_fsm_reg[23]                                                          | FLOP_LATCH.flop.FDRE |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_3 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_2 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/reg_140[31]_i_1                     | LUT.others.LUT5      |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr[4]_i_6                       | LUT.others.LUT6      |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[4]_i_1                   | CARRY.others.CARRY4  |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[8]_i_2                   | CARRY.others.CARRY4  |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[6]                       | FLOP_LATCH.flop.FDRE |
-    +----------------------------------------------------------------------------+----------------------+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Path3 Cells                                                                                                                                                                   | Primitive Type   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product | MULT.dsp.DSP48E1 |
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg   | MULT.dsp.DSP48E1 |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
 
-    +----------------------------------------------------------------------------+----------------------+
-    | Path4 Cells                                                                | Primitive Type       |
-    +----------------------------------------------------------------------------+----------------------+
-    | ap_CS_fsm_reg[23]                                                          | FLOP_LATCH.flop.FDRE |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_3 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_2 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/reg_140[31]_i_1                     | LUT.others.LUT5      |
-    | gmem_b_m_axi_U/load_unit_0/buff_rdata/mOutPtr[4]_i_6__0                    | LUT.others.LUT6      |
-    | gmem_b_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[4]_i_1__0                | CARRY.others.CARRY4  |
-    | gmem_b_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[8]_i_2__0                | CARRY.others.CARRY4  |
-    | gmem_b_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[6]                       | FLOP_LATCH.flop.FDRE |
-    +----------------------------------------------------------------------------+----------------------+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Path4 Cells                                                                                                                                                                   | Primitive Type   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product | MULT.dsp.DSP48E1 |
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg   | MULT.dsp.DSP48E1 |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
 
-    +----------------------------------------------------------------------------+----------------------+
-    | Path5 Cells                                                                | Primitive Type       |
-    +----------------------------------------------------------------------------+----------------------+
-    | ap_CS_fsm_reg[23]                                                          | FLOP_LATCH.flop.FDRE |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_3 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/U_fifo_srl/mem_reg[30][0]_srl31_i_2 | LUT.others.LUT6      |
-    | gmem_c_m_axi_U/store_unit_0/buff_wdata/reg_140[31]_i_1                     | LUT.others.LUT5      |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr[4]_i_6                       | LUT.others.LUT6      |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[4]_i_1                   | CARRY.others.CARRY4  |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[8]_i_2                   | CARRY.others.CARRY4  |
-    | gmem_a_m_axi_U/load_unit_0/buff_rdata/mOutPtr_reg[8]                       | FLOP_LATCH.flop.FDRE |
-    +----------------------------------------------------------------------------+----------------------+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Path5 Cells                                                                                                                                                                   | Primitive Type   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/tmp_product | MULT.dsp.DSP48E1 |
+    | Block_entry_gmem_wr_proc_U0/grp_doppler_fu_189/grp_aie_consume_doppler_fu_196/grp_aie_consume_doppler_Pipeline_VITIS_LOOP_253_4_fu_1066/mul_32ns_32ns_64_3_1_U134/buff0_reg   | MULT.dsp.DSP48E1 |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
 
 
 ================================================================
 == RTL Synthesis Vivado Reports
 ================================================================
-+--------------------------+----------------------------------------------------------------+
-| Report Type              | Report Location                                                |
-+--------------------------+----------------------------------------------------------------+
-| design_analysis          | impl/verilog/report/add_vec_design_analysis_synth.rpt          |
-| failfast                 | impl/verilog/report/add_vec_failfast_synth.rpt                 |
-| power                    | impl/verilog/report/add_vec_power_synth.rpt                    |
-| timing                   | impl/verilog/report/add_vec_timing_synth.rpt                   |
-| timing_paths             | impl/verilog/report/add_vec_timing_paths_synth.rpt             |
-| utilization              | impl/verilog/report/add_vec_utilization_synth.rpt              |
-| utilization_hierarchical | impl/verilog/report/add_vec_utilization_hierarchical_synth.rpt |
-+--------------------------+----------------------------------------------------------------+
++--------------------------+---------------------------------------------------------------+
+| Report Type              | Report Location                                               |
++--------------------------+---------------------------------------------------------------+
+| design_analysis          | impl/verilog/report/kernel_design_analysis_synth.rpt          |
+| failfast                 | impl/verilog/report/kernel_failfast_synth.rpt                 |
+| power                    | impl/verilog/report/kernel_power_synth.rpt                    |
+| timing                   | impl/verilog/report/kernel_timing_synth.rpt                   |
+| timing_paths             | impl/verilog/report/kernel_timing_paths_synth.rpt             |
+| utilization              | impl/verilog/report/kernel_utilization_synth.rpt              |
+| utilization_hierarchical | impl/verilog/report/kernel_utilization_hierarchical_synth.rpt |
++--------------------------+---------------------------------------------------------------+
 
 

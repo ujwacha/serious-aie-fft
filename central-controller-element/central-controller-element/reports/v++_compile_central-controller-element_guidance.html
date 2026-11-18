@@ -3407,7 +3407,7 @@ window.onload = function () { addSorting(); }
 <center><h1>Design Guidance Report</h1></center><center><table class="header" border="0">
 <tr><td><b>Copyright</b></td><td>Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.</td></tr>
 <tr><td><b>Tool Version</b></td><td>xcd v.2026.1 (lin64) Build 0 </td></tr>
-<tr><td><b>Date</b></td><td>Tue Nov 10 11:50:45 2026</td></tr>
+<tr><td><b>Date</b></td><td>Sat Nov 14 14:52:53 2026</td></tr>
 <tr><td><b>Host</b></td><td>voidpc running 64-bit Ubuntu 24.04.5 LTS</td></tr>
 <tr><td><b>Command</b></td><td>/home/light/FPGA/2026.1/Vitis/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/light/MajorProject/serious-aie-fft/central-controller-element/hls_config.cfg --work_dir central-controller-element </td></tr>
 </table></center><br>
@@ -3416,7 +3416,7 @@ window.onload = function () { addSorting(); }
 <tr><td><a href="#VIOLATION DETAILS">2 VIOLATION DETAILS</a></tr></td>
 </table>
 <a name="REPORT SUMMARY"></a><h1>1 REPORT SUMMARY</h1>
-<pre>Violations found: 28
+<pre>Violations found: 26
 </pre>
 <pre>Rule Specs Violated: 3
 </pre>
@@ -3432,112 +3432,6 @@ window.onload = function () { addSorting(); }
 <th align="left">Categories</th>
 <th align="left" width="350">Details</th>
 <th align="left" width="380">Resolution</th>
-</tr>
-<tr>
-<td align="left">21</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">15</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">1</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.kernel.Interface</td>
-<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=132">range_part.cpp</a>)
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">28</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">22</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'aie_consume_doppler' consists of the following:
-	'sitodp' operation 64 bit ('conv', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=262">doppler_part.cpp</a>) [57]  (6.442 ns)
-
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">8</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.kernel.Interface</td>
-<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=304">doppler_part.cpp</a>)
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">23</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">9</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">%s</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.kernel.Interface</td>
-<td align="left">Multiple burst reads of length 16 and bit width 32 in loop 'VITIS_LOOP_103_3'(<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>)
-</td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
 <td align="left">16</td>
@@ -3581,11 +3475,11 @@ window.onload = function () { addSorting(); }
 </tr>
 <tr>
 <td align="left">24</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.kernel.Interface</td>
 <td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3612,14 +3506,11 @@ window.onload = function () { addSorting(); }
 <tr>
 <td align="left">25</td>
 <td align="left">Kernel</td>
-<td align="left">WARNING</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Kernel Related</td>
 <td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">The critical path in module 'kernel' consists of the following:
-	'call' operation ('_ln59', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/main.cpp#line=59">main.cpp</a>) to 'dummy' [106]  (6.585 ns)
-
-</td>
+<td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
@@ -3644,11 +3535,11 @@ window.onload = function () { addSorting(); }
 </tr>
 <tr>
 <td align="left">26</td>
-<td align="left">Interface</td>
+<td align="left">Kernel</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.kernel.Interface</td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.kernel.Kernel</td>
 <td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3676,18 +3567,8 @@ window.onload = function () { addSorting(); }
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.kernel.Throughput</td>
-<td align="left">The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=19">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=103">range_part.cpp</a>) and 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=16">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=103">range_part.cpp</a>).
+<td align="left">The II Violation in module 'aie_range_consume_Pipeline_VITIS_LOOP_10_1' (loop 'VITIS_LOOP_10_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=19">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=110">range_part.cpp</a>) and 'add' operation 32 bit ('n', <a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=16">range_part.cpp</a>-><a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=110">range_part.cpp</a>).
 </td>
-<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">27</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.kernel.Kernel</td>
-<td align="left">%s</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
@@ -3728,6 +3609,99 @@ window.onload = function () { addSorting(); }
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.kernel.Throughput</td>
 <td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">21</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.kernel.Interface</td>
+<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/range_part.cpp#line=140">range_part.cpp</a>)
+</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.kernel.Interface</td>
+<td align="left">Multiple burst writes of length 16 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=313">doppler_part.cpp</a>)
+</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.kernel.Throughput</td>
+<td align="left">%s</td>
+<td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.kernel.Interface</td>
+<td align="left">Multiple burst reads of length 16 and bit width 32 in loop 'VITIS_LOOP_103_3'(<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/light/MajorProject/serious-aie-fft/central-controller-element/src/doppler_part.cpp#line=103">doppler_part.cpp</a>)
+</td>
 <td align="left"><a href="http:///docs.amd.com/access/sources/dita/map?Doc_Version=2026.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 </table>

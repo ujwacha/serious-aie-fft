@@ -55478,13 +55478,24 @@ struct Addr {
 };
 
 
+struct SequenceList {
+    unsigned int ids[8];
+    unsigned int num;
+};
+
+
 struct DopplerMaskPacket {
     ap_uint<16> rank;
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    int32_t data[86];
+    int32_t data[256];
 };
+
+
+
+
+constexpr int kDopplerPacketWords = sizeof(DopplerMaskPacket) / 8;
 
 
 void build_mask_indices(const ap_uint<32> *mask_words,
@@ -55539,13 +55550,14 @@ void kernel(ap_uint<32> *mm,
 
 
 void adc_forward(hls::stream<pkt_adc> &in_adc0, hls::stream<pkt> &out_r_00,
-                 hls::stream<pkt> &out_r_01, unsigned int num_chirps);
+                 hls::stream<pkt> &out_r_01, unsigned int num_chirps,
+                 SequenceList sequences);
 
 
 
 void aie_range_consume(hls::stream<pkt> &in_r_00, hls::stream<pkt> &in_r_01,
                        hls::stream<MaskPacket> &mask_stream, ap_uint<32> *mm,
-                       unsigned int sequence, unsigned int num_chirps);
+                       unsigned int num_chirps, SequenceList sequences);
 # 2 "src/range_part.cpp" 2
 
 # 1 "src/complex-math.h" 1
@@ -55586,101 +55598,110 @@ void build_mask_indices(const ap_uint<32> *mask_words, unsigned int *idxs,
 }
 # 50 "src/range_part.cpp"
 void adc_forward(hls::stream<pkt_adc> &in_adc0, hls::stream<pkt> &out_r_00,
-                 hls::stream<pkt> &out_r_01, unsigned int num_chirps) {
-  VITIS_LOOP_52_1: for (unsigned int c = 0; c < num_chirps; c++) {
+                 hls::stream<pkt> &out_r_01, unsigned int num_chirps,
+                 SequenceList sequences) {
+  VITIS_LOOP_53_1: for (unsigned int c = 0; c < num_chirps; c++) {
 #pragma HLS loop_flatten off
-    VITIS_LOOP_54_2: for (int i = 0; i < 1024; i++) {
+    VITIS_LOOP_55_2: for (unsigned int seq_count = 0; seq_count < sequences.num; seq_count++) {
+#pragma HLS loop_flatten off
+
+      VITIS_LOOP_58_3: for (int i = 0; i < 1024; i++) {
 #pragma HLS PIPELINE II = 1
-#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
-      pkt_adc in_packet = in_adc0.read();
-      ap_uint<64> in_data = in_packet.data;
+#pragma HLS LOOP_TRIPCOUNT min = 1024 max = 1024
+        pkt_adc in_packet = in_adc0.read();
+        ap_uint<64> in_data = in_packet.data;
 
 
-      cint16 s_low = bits_to_cint16(in_data.range(31, 0));
-      cint16 s_high = bits_to_cint16(in_data.range(63, 32));
+        cint16 s_low = bits_to_cint16(in_data.range(31, 0));
+        cint16 s_high = bits_to_cint16(in_data.range(63, 32));
 
 
-      cint16 w_low = hamming_window_2048[2 * i];
-      cint16 w_high = hamming_window_2048[2 * i + 1];
+        cint16 w_low = hamming_window_2048[2 * i];
+        cint16 w_high = hamming_window_2048[2 * i + 1];
 
 
-      cint16 y_low = cmul(s_low, w_low);
-      cint16 y_high = cmul(s_high, w_high);
+        cint16 y_low = cmul(s_low, w_low);
+        cint16 y_high = cmul(s_high, w_high);
 
 
-      pkt q0, q1;
-      q0.data = cint16_to_bits(y_low);
-      q1.data = cint16_to_bits(y_high);
-      q0.last = in_packet.last;
-      q1.last = in_packet.last;
-      out_r_00.write(q0);
-      out_r_01.write(q1);
+        pkt q0, q1;
+        q0.data = cint16_to_bits(y_low);
+        q1.data = cint16_to_bits(y_high);
+        q0.last = in_packet.last;
+        q1.last = in_packet.last;
+        out_r_00.write(q0);
+        out_r_01.write(q1);
+      }
     }
   }
 }
 
-void aie_range_consume(hls::stream<pkt> &in_r_00,
-                       hls::stream<pkt> &in_r_01,
+void aie_range_consume(hls::stream<pkt> &in_r_00, hls::stream<pkt> &in_r_01,
                        hls::stream<MaskPacket> &mask_stream, ap_uint<32> *mm,
-                       unsigned int sequence, unsigned int num_chirps) {
-  VITIS_LOOP_88_1: for (unsigned int c = 0; c < num_chirps; c++) {
-    ap_uint<16> chirp = (ap_uint<16>)c;
+                       unsigned int num_chirps, SequenceList sequences) {
+  VITIS_LOOP_92_1: for (unsigned int c = 0; c < num_chirps; c++) {
+    VITIS_LOOP_93_2: for (unsigned int seq_count = 0; seq_count < sequences.num; seq_count++) {
+
+      ap_uint<16> chirp = (ap_uint<16>)c;
 
 
-    ap_uint<32> mask_head[64];
-    unsigned int adr_buf[128];
-    unsigned int count;
+      ap_uint<32> mask_head[64];
+      unsigned int adr_buf[128];
+      unsigned int count;
 
-    VITIS_LOOP_96_2: for (int i = 0; i < 64; i++) {
+      VITIS_LOOP_102_3: for (int i = 0; i < 64; i++) {
 #pragma HLS PIPELINE
-      mask_head[i] = in_r_00.read().data;
-      in_r_01.read();
-    }
+        mask_head[i] = in_r_00.read().data;
+        in_r_01.read();
+      }
 
 
-    build_mask_indices(mask_head, adr_buf, count);
 
-    VITIS_LOOP_105_3: for (int i = 0; i < count; i++) {
+      build_mask_indices(mask_head, adr_buf, count);
+
+      VITIS_LOOP_112_4: for (int i = 0; i < count; i++) {
 #pragma HLS PIPELINE
 
 
-      ap_uint<32> buf[16];
+        ap_uint<32> buf[16];
 
-      if (i % 2 == 0) {
-        VITIS_LOOP_112_4: for (int j = 0; j < 16; j++) {
+        if (i % 2 == 0) {
+          VITIS_LOOP_119_5: for (int j = 0; j < 16; j++) {
 #pragma HLS PIPELINE
-          buf[j] = in_r_00.read().data;
+            buf[j] = in_r_00.read().data;
+          }
+        } else {
+
+          VITIS_LOOP_125_6: for (int j = 0; j < 16; j++) {
+#pragma HLS PIPELINE
+            buf[j] = in_r_01.read().data;
+          }
         }
-      } else {
 
-        VITIS_LOOP_118_5: for (int j = 0; j < 16; j++) {
+
+        ap_uint<32> *dst =
+            range_bin_ptr(mm, (ap_uint<16>)sequences.ids[seq_count], chirp,
+                          (ap_uint<16>)adr_buf[i]);
+
+        VITIS_LOOP_136_7: for (int j = 0; j < 16; j++) {
 #pragma HLS PIPELINE
-          buf[j] = in_r_01.read().data;
+          dst[j] = buf[j];
         }
       }
 
 
-      ap_uint<32> *dst = range_bin_ptr(mm, (ap_uint<16>)sequence,
-                                       chirp, (ap_uint<16>)adr_buf[i]);
-
-      VITIS_LOOP_128_6: for (int j = 0; j < 16; j++) {
-#pragma HLS PIPELINE
-        dst[j] = buf[j];
-      }
-    }
-
-
-    ap_uint<128> condensed = 0;
-    VITIS_LOOP_136_7: for (int i = 0; i < 64; i++) {
+      ap_uint<128> condensed = 0;
+      VITIS_LOOP_144_8: for (int i = 0; i < 64; i++) {
 #pragma HLS UNROLL
-      condensed[i * 2] = (mask_head[i].range(15, 0) == 0xFFFF) ? 1 : 0;
-      condensed[i * 2 + 1] = (mask_head[i].range(31, 16) == 0xFFFF) ? 1 : 0;
-    }
+        condensed[i * 2] = (mask_head[i].range(15, 0) == 0xFFFF) ? 1 : 0;
+        condensed[i * 2 + 1] = (mask_head[i].range(31, 16) == 0xFFFF) ? 1 : 0;
+      }
 
-    MaskPacket mp;
-    mp.mask = condensed;
-    mp.seq = (ap_uint<8>)sequence;
-    mp.chirp = (ap_uint<8>)chirp;
-    mask_stream.write(mp);
+      MaskPacket mp;
+      mp.mask = condensed;
+      mp.seq = (ap_uint<8>)sequences.ids[seq_count];
+      mp.chirp = (ap_uint<8>)chirp;
+      mask_stream.write(mp);
+    }
   }
 }

@@ -94,7 +94,7 @@ attribute shreg_extract : string;
     signal accum_fu_54 : STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
     signal accum_2_fu_246_p2 : STD_LOGIC_VECTOR (11 downto 0);
     signal ap_loop_init : STD_LOGIC;
-    signal i_2_fu_58 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
+    signal i_3_fu_58 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
     signal add_ln10_fu_159_p2 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_sig_allocacmp_i : STD_LOGIC_VECTOR (6 downto 0);
     signal n_fu_62 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
@@ -252,13 +252,13 @@ begin
         end if;
     end process;
 
-    i_2_fu_58_assign_proc : process (ap_clk)
+    i_3_fu_58_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_loop_init = ap_const_logic_1))) then 
-                i_2_fu_58 <= ap_const_lv7_0;
+                i_3_fu_58 <= ap_const_lv7_0;
             elsif (((icmp_ln10_reg_289 = ap_const_lv1_0) and (ap_enable_reg_pp0_iter0_reg = ap_const_logic_1) and (ap_const_boolean_0 = ap_block_pp0_stage1_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage1))) then 
-                i_2_fu_58 <= add_ln10_fu_159_p2;
+                i_3_fu_58 <= add_ln10_fu_159_p2;
             end if; 
         end if;
     end process;
@@ -485,12 +485,12 @@ begin
     end process;
 
 
-    ap_sig_allocacmp_i_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, ap_loop_init, i_2_fu_58)
+    ap_sig_allocacmp_i_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, ap_loop_init, i_3_fu_58)
     begin
         if (((ap_const_boolean_0 = ap_block_pp0_stage0) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_loop_init = ap_const_logic_1))) then 
             ap_sig_allocacmp_i <= ap_const_lv7_0;
         else 
-            ap_sig_allocacmp_i <= i_2_fu_58;
+            ap_sig_allocacmp_i <= i_3_fu_58;
         end if; 
     end process;
 

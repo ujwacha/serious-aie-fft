@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'doppler_forward_one'" level="0">
-<item name = "Date">Tue Nov 10 11:50:41 2026
+<item name = "Date">Sat Nov 14 14:52:49 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_137_1">131, 131, 5, 1, 1, 128, yes</column>
+<column name="- VITIS_LOOP_129_1">131, 131, 5, 1, 1, 128, yes</column>
 </table>
 </item>
 </section>
@@ -62,10 +62,10 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_16s_15ns_31_1_1_U97">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
-<column name="mul_16s_15ns_31_1_1_U98">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
 <column name="mul_16s_15ns_31_1_1_U99">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
 <column name="mul_16s_15ns_31_1_1_U100">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
+<column name="mul_16s_15ns_31_1_1_U101">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
+<column name="mul_16s_15ns_31_1_1_U102">mul_16s_15ns_31_1_1, 0, 1, 0, 6, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -83,8 +83,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln137_fu_220_p2">+, 0, 0, 14, 9, 2</column>
-<column name="add_ln141_fu_238_p2">+, 0, 0, 12, 12, 12</column>
+<column name="add_ln129_fu_220_p2">+, 0, 0, 14, 9, 2</column>
+<column name="add_ln133_fu_238_p2">+, 0, 0, 12, 12, 12</column>
 <column name="ap_block_pp0_stage0_01001_grp1">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state5_pp0_stage0_iter4_grp1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
@@ -94,7 +94,7 @@
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_i_3">9, 2, 9, 18</column>
+<column name="ap_sig_allocacmp_i_5">9, 2, 9, 18</column>
 <column name="i_fu_98">9, 2, 9, 18</column>
 <column name="out_d_02_TDATA_blk_n">9, 2, 1, 2</column>
 <column name="out_d_03_TDATA_blk_n">9, 2, 1, 2</column>
@@ -117,7 +117,7 @@
 <column name="c_imag_3_reg_467">16, 0, 16, 0</column>
 <column name="c_real_2_reg_452">16, 0, 16, 0</column>
 <column name="c_real_3_reg_462">16, 0, 16, 0</column>
-<column name="i_3_reg_421">9, 0, 9, 0</column>
+<column name="i_5_reg_421">9, 0, 9, 0</column>
 <column name="i_fu_98">9, 0, 9, 0</column>
 <column name="r_imag_1_reg_497">16, 0, 16, 0</column>
 <column name="r_imag_reg_487">16, 0, 16, 0</column>

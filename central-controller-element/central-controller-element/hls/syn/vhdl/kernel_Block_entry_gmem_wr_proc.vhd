@@ -104,11 +104,11 @@ port (
     in_d_03_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
     in_d_03_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
     in_d_03_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
-    doppler_mask_stream_din : OUT STD_LOGIC_VECTOR (2815 downto 0);
+    doppler_mask_stream_din : OUT STD_LOGIC_VECTOR (63 downto 0);
     doppler_mask_stream_full_n : IN STD_LOGIC;
     doppler_mask_stream_write : OUT STD_LOGIC;
-    doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
-    doppler_mask_stream_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0) );
+    doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (31 downto 0);
+    doppler_mask_stream_fifo_cap : IN STD_LOGIC_VECTOR (31 downto 0) );
 end;
 
 
@@ -138,7 +138,6 @@ architecture behav of kernel_Block_entry_gmem_wr_proc is
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv9_0 : STD_LOGIC_VECTOR (8 downto 0) := "000000000";
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
 
 attribute shreg_extract : string;
     signal real_start : STD_LOGIC;
@@ -150,116 +149,116 @@ attribute shreg_extract : string;
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal internal_ap_ready : STD_LOGIC;
-    signal num_chirps_read_reg_241 : STD_LOGIC_VECTOR (31 downto 0);
+    signal num_chirps_read_reg_245 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal mm_read_reg_246 : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_aie_range_consume_fu_148_ap_start : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_ap_done : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_ap_idle : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_ap_ready : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_in_r_00_TREADY : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_in_r_01_TREADY : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_mask_stream_din : STD_LOGIC_VECTOR (159 downto 0);
-    signal grp_aie_range_consume_fu_148_mask_stream_write : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_WID : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARVALID : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARID : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_RREADY : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY : STD_LOGIC;
-    signal grp_seq_generator_fu_175_ap_start : STD_LOGIC;
-    signal grp_seq_generator_fu_175_ap_done : STD_LOGIC;
-    signal grp_seq_generator_fu_175_ap_idle : STD_LOGIC;
-    signal grp_seq_generator_fu_175_ap_ready : STD_LOGIC;
-    signal grp_seq_generator_fu_175_mask_stream_read : STD_LOGIC;
-    signal grp_seq_generator_fu_175_idx_stream_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_seq_generator_fu_175_idx_stream_write : STD_LOGIC;
-    signal grp_doppler_fu_185_ap_start : STD_LOGIC;
-    signal grp_doppler_fu_185_ap_done : STD_LOGIC;
-    signal grp_doppler_fu_185_ap_idle : STD_LOGIC;
-    signal grp_doppler_fu_185_ap_ready : STD_LOGIC;
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWVALID : STD_LOGIC;
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWID : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_WVALID : STD_LOGIC;
-    signal grp_doppler_fu_185_m_axi_gmem_0_WDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_WSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_WLAST : STD_LOGIC;
-    signal grp_doppler_fu_185_m_axi_gmem_0_WID : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_WUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARVALID : STD_LOGIC;
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARID : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_m_axi_gmem_0_RREADY : STD_LOGIC;
-    signal grp_doppler_fu_185_m_axi_gmem_0_BREADY : STD_LOGIC;
-    signal grp_doppler_fu_185_idx_stream_read : STD_LOGIC;
-    signal grp_doppler_fu_185_out_d_02_TDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_doppler_fu_185_out_d_02_TVALID : STD_LOGIC;
-    signal grp_doppler_fu_185_out_d_02_TREADY : STD_LOGIC;
-    signal grp_doppler_fu_185_out_d_02_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_out_d_02_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_out_d_02_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_out_d_03_TDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_doppler_fu_185_out_d_03_TVALID : STD_LOGIC;
-    signal grp_doppler_fu_185_out_d_03_TREADY : STD_LOGIC;
-    signal grp_doppler_fu_185_out_d_03_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_out_d_03_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_doppler_fu_185_out_d_03_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_doppler_fu_185_in_d_02_TREADY : STD_LOGIC;
-    signal grp_doppler_fu_185_in_d_03_TREADY : STD_LOGIC;
-    signal grp_doppler_fu_185_doppler_mask_stream_din : STD_LOGIC_VECTOR (2815 downto 0);
-    signal grp_doppler_fu_185_doppler_mask_stream_write : STD_LOGIC;
-    signal grp_aie_range_consume_fu_148_ap_start_reg : STD_LOGIC := '0';
+    signal mm_read_reg_250 : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_aie_range_consume_fu_150_ap_start : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_ap_done : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_ap_idle : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_ap_ready : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_in_r_00_TREADY : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_in_r_01_TREADY : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_mask_stream_din : STD_LOGIC_VECTOR (159 downto 0);
+    signal grp_aie_range_consume_fu_150_mask_stream_write : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_WID : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARVALID : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARID : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_RREADY : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY : STD_LOGIC;
+    signal grp_seq_generator_fu_179_ap_start : STD_LOGIC;
+    signal grp_seq_generator_fu_179_ap_done : STD_LOGIC;
+    signal grp_seq_generator_fu_179_ap_idle : STD_LOGIC;
+    signal grp_seq_generator_fu_179_ap_ready : STD_LOGIC;
+    signal grp_seq_generator_fu_179_mask_stream_read : STD_LOGIC;
+    signal grp_seq_generator_fu_179_idx_stream_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_seq_generator_fu_179_idx_stream_write : STD_LOGIC;
+    signal grp_doppler_fu_189_ap_start : STD_LOGIC;
+    signal grp_doppler_fu_189_ap_done : STD_LOGIC;
+    signal grp_doppler_fu_189_ap_idle : STD_LOGIC;
+    signal grp_doppler_fu_189_ap_ready : STD_LOGIC;
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWVALID : STD_LOGIC;
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWID : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_WVALID : STD_LOGIC;
+    signal grp_doppler_fu_189_m_axi_gmem_0_WDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_WSTRB : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_WLAST : STD_LOGIC;
+    signal grp_doppler_fu_189_m_axi_gmem_0_WID : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_WUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARVALID : STD_LOGIC;
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARID : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_m_axi_gmem_0_RREADY : STD_LOGIC;
+    signal grp_doppler_fu_189_m_axi_gmem_0_BREADY : STD_LOGIC;
+    signal grp_doppler_fu_189_idx_stream_read : STD_LOGIC;
+    signal grp_doppler_fu_189_out_d_02_TDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_doppler_fu_189_out_d_02_TVALID : STD_LOGIC;
+    signal grp_doppler_fu_189_out_d_02_TREADY : STD_LOGIC;
+    signal grp_doppler_fu_189_out_d_02_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_out_d_02_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_out_d_02_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_out_d_03_TDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_doppler_fu_189_out_d_03_TVALID : STD_LOGIC;
+    signal grp_doppler_fu_189_out_d_03_TREADY : STD_LOGIC;
+    signal grp_doppler_fu_189_out_d_03_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_out_d_03_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_doppler_fu_189_out_d_03_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_doppler_fu_189_in_d_02_TREADY : STD_LOGIC;
+    signal grp_doppler_fu_189_in_d_03_TREADY : STD_LOGIC;
+    signal grp_doppler_fu_189_doppler_mask_stream_din : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_doppler_fu_189_doppler_mask_stream_write : STD_LOGIC;
+    signal grp_aie_range_consume_fu_150_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal mask_stream_full_n : STD_LOGIC;
     signal mask_stream_write : STD_LOGIC;
-    signal grp_seq_generator_fu_175_ap_start_reg : STD_LOGIC := '0';
+    signal grp_seq_generator_fu_179_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
     signal mask_stream_dout : STD_LOGIC_VECTOR (159 downto 0);
@@ -269,7 +268,7 @@ attribute shreg_extract : string;
     attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
     signal idx_stream_full_n : STD_LOGIC;
     signal idx_stream_write : STD_LOGIC;
-    signal grp_doppler_fu_185_ap_start_reg : STD_LOGIC := '0';
+    signal grp_doppler_fu_189_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
     signal ap_CS_fsm_state7 : STD_LOGIC;
@@ -575,11 +574,11 @@ attribute shreg_extract : string;
         in_d_03_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
         in_d_03_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
         in_d_03_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
-        doppler_mask_stream_din : OUT STD_LOGIC_VECTOR (2815 downto 0);
+        doppler_mask_stream_din : OUT STD_LOGIC_VECTOR (63 downto 0);
         doppler_mask_stream_full_n : IN STD_LOGIC;
         doppler_mask_stream_write : OUT STD_LOGIC;
-        doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
-        doppler_mask_stream_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0) );
+        doppler_mask_stream_num_data_valid : IN STD_LOGIC_VECTOR (31 downto 0);
+        doppler_mask_stream_fifo_cap : IN STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -631,64 +630,64 @@ attribute shreg_extract : string;
 
 
 begin
-    grp_aie_range_consume_fu_148 : component kernel_aie_range_consume
+    grp_aie_range_consume_fu_150 : component kernel_aie_range_consume
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_aie_range_consume_fu_148_ap_start,
-        ap_done => grp_aie_range_consume_fu_148_ap_done,
-        ap_idle => grp_aie_range_consume_fu_148_ap_idle,
-        ap_ready => grp_aie_range_consume_fu_148_ap_ready,
+        ap_start => grp_aie_range_consume_fu_150_ap_start,
+        ap_done => grp_aie_range_consume_fu_150_ap_done,
+        ap_idle => grp_aie_range_consume_fu_150_ap_idle,
+        ap_ready => grp_aie_range_consume_fu_150_ap_ready,
         in_r_00_TDATA => in_r_00_TDATA_int_regslice,
         in_r_00_TVALID => in_r_00_TVALID_int_regslice,
-        in_r_00_TREADY => grp_aie_range_consume_fu_148_in_r_00_TREADY,
+        in_r_00_TREADY => grp_aie_range_consume_fu_150_in_r_00_TREADY,
         in_r_00_TKEEP => in_r_00_TKEEP_int_regslice,
         in_r_00_TSTRB => in_r_00_TSTRB_int_regslice,
         in_r_00_TLAST => in_r_00_TLAST_int_regslice,
         in_r_01_TDATA => in_r_01_TDATA_int_regslice,
         in_r_01_TVALID => in_r_01_TVALID_int_regslice,
-        in_r_01_TREADY => grp_aie_range_consume_fu_148_in_r_01_TREADY,
+        in_r_01_TREADY => grp_aie_range_consume_fu_150_in_r_01_TREADY,
         in_r_01_TKEEP => in_r_01_TKEEP_int_regslice,
         in_r_01_TSTRB => in_r_01_TSTRB_int_regslice,
         in_r_01_TLAST => in_r_01_TLAST_int_regslice,
-        mask_stream_din => grp_aie_range_consume_fu_148_mask_stream_din,
+        mask_stream_din => grp_aie_range_consume_fu_150_mask_stream_din,
         mask_stream_full_n => mask_stream_full_n,
-        mask_stream_write => grp_aie_range_consume_fu_148_mask_stream_write,
-        m_axi_gmem_0_AWVALID => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID,
+        mask_stream_write => grp_aie_range_consume_fu_150_mask_stream_write,
+        m_axi_gmem_0_AWVALID => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID,
         m_axi_gmem_0_AWREADY => m_axi_gmem_0_AWREADY,
-        m_axi_gmem_0_AWADDR => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR,
-        m_axi_gmem_0_AWID => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID,
-        m_axi_gmem_0_AWLEN => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN,
-        m_axi_gmem_0_AWSIZE => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE,
-        m_axi_gmem_0_AWBURST => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST,
-        m_axi_gmem_0_AWLOCK => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK,
-        m_axi_gmem_0_AWCACHE => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE,
-        m_axi_gmem_0_AWPROT => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT,
-        m_axi_gmem_0_AWQOS => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS,
-        m_axi_gmem_0_AWREGION => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION,
-        m_axi_gmem_0_AWUSER => grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER,
-        m_axi_gmem_0_WVALID => grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID,
+        m_axi_gmem_0_AWADDR => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR,
+        m_axi_gmem_0_AWID => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID,
+        m_axi_gmem_0_AWLEN => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN,
+        m_axi_gmem_0_AWSIZE => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE,
+        m_axi_gmem_0_AWBURST => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST,
+        m_axi_gmem_0_AWLOCK => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK,
+        m_axi_gmem_0_AWCACHE => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE,
+        m_axi_gmem_0_AWPROT => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT,
+        m_axi_gmem_0_AWQOS => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS,
+        m_axi_gmem_0_AWREGION => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION,
+        m_axi_gmem_0_AWUSER => grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER,
+        m_axi_gmem_0_WVALID => grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID,
         m_axi_gmem_0_WREADY => m_axi_gmem_0_WREADY,
-        m_axi_gmem_0_WDATA => grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA,
-        m_axi_gmem_0_WSTRB => grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB,
-        m_axi_gmem_0_WLAST => grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST,
-        m_axi_gmem_0_WID => grp_aie_range_consume_fu_148_m_axi_gmem_0_WID,
-        m_axi_gmem_0_WUSER => grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER,
-        m_axi_gmem_0_ARVALID => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARVALID,
+        m_axi_gmem_0_WDATA => grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA,
+        m_axi_gmem_0_WSTRB => grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB,
+        m_axi_gmem_0_WLAST => grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST,
+        m_axi_gmem_0_WID => grp_aie_range_consume_fu_150_m_axi_gmem_0_WID,
+        m_axi_gmem_0_WUSER => grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER,
+        m_axi_gmem_0_ARVALID => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARVALID,
         m_axi_gmem_0_ARREADY => ap_const_logic_0,
-        m_axi_gmem_0_ARADDR => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARADDR,
-        m_axi_gmem_0_ARID => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARID,
-        m_axi_gmem_0_ARLEN => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLEN,
-        m_axi_gmem_0_ARSIZE => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARSIZE,
-        m_axi_gmem_0_ARBURST => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARBURST,
-        m_axi_gmem_0_ARLOCK => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARLOCK,
-        m_axi_gmem_0_ARCACHE => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARCACHE,
-        m_axi_gmem_0_ARPROT => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARPROT,
-        m_axi_gmem_0_ARQOS => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARQOS,
-        m_axi_gmem_0_ARREGION => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARREGION,
-        m_axi_gmem_0_ARUSER => grp_aie_range_consume_fu_148_m_axi_gmem_0_ARUSER,
+        m_axi_gmem_0_ARADDR => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARADDR,
+        m_axi_gmem_0_ARID => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARID,
+        m_axi_gmem_0_ARLEN => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLEN,
+        m_axi_gmem_0_ARSIZE => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARSIZE,
+        m_axi_gmem_0_ARBURST => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARBURST,
+        m_axi_gmem_0_ARLOCK => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARLOCK,
+        m_axi_gmem_0_ARCACHE => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARCACHE,
+        m_axi_gmem_0_ARPROT => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARPROT,
+        m_axi_gmem_0_ARQOS => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARQOS,
+        m_axi_gmem_0_ARREGION => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARREGION,
+        m_axi_gmem_0_ARUSER => grp_aie_range_consume_fu_150_m_axi_gmem_0_ARUSER,
         m_axi_gmem_0_RVALID => ap_const_logic_0,
-        m_axi_gmem_0_RREADY => grp_aie_range_consume_fu_148_m_axi_gmem_0_RREADY,
+        m_axi_gmem_0_RREADY => grp_aie_range_consume_fu_150_m_axi_gmem_0_RREADY,
         m_axi_gmem_0_RDATA => ap_const_lv32_0,
         m_axi_gmem_0_RLAST => ap_const_logic_0,
         m_axi_gmem_0_RID => ap_const_lv1_0,
@@ -696,71 +695,71 @@ begin
         m_axi_gmem_0_RUSER => ap_const_lv1_0,
         m_axi_gmem_0_RRESP => ap_const_lv2_0,
         m_axi_gmem_0_BVALID => m_axi_gmem_0_BVALID,
-        m_axi_gmem_0_BREADY => grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY,
+        m_axi_gmem_0_BREADY => grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY,
         m_axi_gmem_0_BRESP => m_axi_gmem_0_BRESP,
         m_axi_gmem_0_BID => m_axi_gmem_0_BID,
         m_axi_gmem_0_BUSER => m_axi_gmem_0_BUSER,
-        mm => mm_read_reg_246,
-        num_chirps => num_chirps_read_reg_241);
+        mm => mm_read_reg_250,
+        num_chirps => num_chirps_read_reg_245);
 
-    grp_seq_generator_fu_175 : component kernel_seq_generator
+    grp_seq_generator_fu_179 : component kernel_seq_generator
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_seq_generator_fu_175_ap_start,
-        ap_done => grp_seq_generator_fu_175_ap_done,
-        ap_idle => grp_seq_generator_fu_175_ap_idle,
-        ap_ready => grp_seq_generator_fu_175_ap_ready,
+        ap_start => grp_seq_generator_fu_179_ap_start,
+        ap_done => grp_seq_generator_fu_179_ap_done,
+        ap_idle => grp_seq_generator_fu_179_ap_idle,
+        ap_ready => grp_seq_generator_fu_179_ap_ready,
         mask_stream_dout => mask_stream_dout,
         mask_stream_empty_n => mask_stream_empty_n,
-        mask_stream_read => grp_seq_generator_fu_175_mask_stream_read,
-        idx_stream_din => grp_seq_generator_fu_175_idx_stream_din,
+        mask_stream_read => grp_seq_generator_fu_179_mask_stream_read,
+        idx_stream_din => grp_seq_generator_fu_179_idx_stream_din,
         idx_stream_full_n => idx_stream_full_n,
-        idx_stream_write => grp_seq_generator_fu_175_idx_stream_write);
+        idx_stream_write => grp_seq_generator_fu_179_idx_stream_write);
 
-    grp_doppler_fu_185 : component kernel_doppler
+    grp_doppler_fu_189 : component kernel_doppler
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_doppler_fu_185_ap_start,
-        ap_done => grp_doppler_fu_185_ap_done,
-        ap_idle => grp_doppler_fu_185_ap_idle,
-        ap_ready => grp_doppler_fu_185_ap_ready,
-        m_axi_gmem_0_AWVALID => grp_doppler_fu_185_m_axi_gmem_0_AWVALID,
+        ap_start => grp_doppler_fu_189_ap_start,
+        ap_done => grp_doppler_fu_189_ap_done,
+        ap_idle => grp_doppler_fu_189_ap_idle,
+        ap_ready => grp_doppler_fu_189_ap_ready,
+        m_axi_gmem_0_AWVALID => grp_doppler_fu_189_m_axi_gmem_0_AWVALID,
         m_axi_gmem_0_AWREADY => m_axi_gmem_0_AWREADY,
-        m_axi_gmem_0_AWADDR => grp_doppler_fu_185_m_axi_gmem_0_AWADDR,
-        m_axi_gmem_0_AWID => grp_doppler_fu_185_m_axi_gmem_0_AWID,
-        m_axi_gmem_0_AWLEN => grp_doppler_fu_185_m_axi_gmem_0_AWLEN,
-        m_axi_gmem_0_AWSIZE => grp_doppler_fu_185_m_axi_gmem_0_AWSIZE,
-        m_axi_gmem_0_AWBURST => grp_doppler_fu_185_m_axi_gmem_0_AWBURST,
-        m_axi_gmem_0_AWLOCK => grp_doppler_fu_185_m_axi_gmem_0_AWLOCK,
-        m_axi_gmem_0_AWCACHE => grp_doppler_fu_185_m_axi_gmem_0_AWCACHE,
-        m_axi_gmem_0_AWPROT => grp_doppler_fu_185_m_axi_gmem_0_AWPROT,
-        m_axi_gmem_0_AWQOS => grp_doppler_fu_185_m_axi_gmem_0_AWQOS,
-        m_axi_gmem_0_AWREGION => grp_doppler_fu_185_m_axi_gmem_0_AWREGION,
-        m_axi_gmem_0_AWUSER => grp_doppler_fu_185_m_axi_gmem_0_AWUSER,
-        m_axi_gmem_0_WVALID => grp_doppler_fu_185_m_axi_gmem_0_WVALID,
+        m_axi_gmem_0_AWADDR => grp_doppler_fu_189_m_axi_gmem_0_AWADDR,
+        m_axi_gmem_0_AWID => grp_doppler_fu_189_m_axi_gmem_0_AWID,
+        m_axi_gmem_0_AWLEN => grp_doppler_fu_189_m_axi_gmem_0_AWLEN,
+        m_axi_gmem_0_AWSIZE => grp_doppler_fu_189_m_axi_gmem_0_AWSIZE,
+        m_axi_gmem_0_AWBURST => grp_doppler_fu_189_m_axi_gmem_0_AWBURST,
+        m_axi_gmem_0_AWLOCK => grp_doppler_fu_189_m_axi_gmem_0_AWLOCK,
+        m_axi_gmem_0_AWCACHE => grp_doppler_fu_189_m_axi_gmem_0_AWCACHE,
+        m_axi_gmem_0_AWPROT => grp_doppler_fu_189_m_axi_gmem_0_AWPROT,
+        m_axi_gmem_0_AWQOS => grp_doppler_fu_189_m_axi_gmem_0_AWQOS,
+        m_axi_gmem_0_AWREGION => grp_doppler_fu_189_m_axi_gmem_0_AWREGION,
+        m_axi_gmem_0_AWUSER => grp_doppler_fu_189_m_axi_gmem_0_AWUSER,
+        m_axi_gmem_0_WVALID => grp_doppler_fu_189_m_axi_gmem_0_WVALID,
         m_axi_gmem_0_WREADY => m_axi_gmem_0_WREADY,
-        m_axi_gmem_0_WDATA => grp_doppler_fu_185_m_axi_gmem_0_WDATA,
-        m_axi_gmem_0_WSTRB => grp_doppler_fu_185_m_axi_gmem_0_WSTRB,
-        m_axi_gmem_0_WLAST => grp_doppler_fu_185_m_axi_gmem_0_WLAST,
-        m_axi_gmem_0_WID => grp_doppler_fu_185_m_axi_gmem_0_WID,
-        m_axi_gmem_0_WUSER => grp_doppler_fu_185_m_axi_gmem_0_WUSER,
-        m_axi_gmem_0_ARVALID => grp_doppler_fu_185_m_axi_gmem_0_ARVALID,
+        m_axi_gmem_0_WDATA => grp_doppler_fu_189_m_axi_gmem_0_WDATA,
+        m_axi_gmem_0_WSTRB => grp_doppler_fu_189_m_axi_gmem_0_WSTRB,
+        m_axi_gmem_0_WLAST => grp_doppler_fu_189_m_axi_gmem_0_WLAST,
+        m_axi_gmem_0_WID => grp_doppler_fu_189_m_axi_gmem_0_WID,
+        m_axi_gmem_0_WUSER => grp_doppler_fu_189_m_axi_gmem_0_WUSER,
+        m_axi_gmem_0_ARVALID => grp_doppler_fu_189_m_axi_gmem_0_ARVALID,
         m_axi_gmem_0_ARREADY => m_axi_gmem_0_ARREADY,
-        m_axi_gmem_0_ARADDR => grp_doppler_fu_185_m_axi_gmem_0_ARADDR,
-        m_axi_gmem_0_ARID => grp_doppler_fu_185_m_axi_gmem_0_ARID,
-        m_axi_gmem_0_ARLEN => grp_doppler_fu_185_m_axi_gmem_0_ARLEN,
-        m_axi_gmem_0_ARSIZE => grp_doppler_fu_185_m_axi_gmem_0_ARSIZE,
-        m_axi_gmem_0_ARBURST => grp_doppler_fu_185_m_axi_gmem_0_ARBURST,
-        m_axi_gmem_0_ARLOCK => grp_doppler_fu_185_m_axi_gmem_0_ARLOCK,
-        m_axi_gmem_0_ARCACHE => grp_doppler_fu_185_m_axi_gmem_0_ARCACHE,
-        m_axi_gmem_0_ARPROT => grp_doppler_fu_185_m_axi_gmem_0_ARPROT,
-        m_axi_gmem_0_ARQOS => grp_doppler_fu_185_m_axi_gmem_0_ARQOS,
-        m_axi_gmem_0_ARREGION => grp_doppler_fu_185_m_axi_gmem_0_ARREGION,
-        m_axi_gmem_0_ARUSER => grp_doppler_fu_185_m_axi_gmem_0_ARUSER,
+        m_axi_gmem_0_ARADDR => grp_doppler_fu_189_m_axi_gmem_0_ARADDR,
+        m_axi_gmem_0_ARID => grp_doppler_fu_189_m_axi_gmem_0_ARID,
+        m_axi_gmem_0_ARLEN => grp_doppler_fu_189_m_axi_gmem_0_ARLEN,
+        m_axi_gmem_0_ARSIZE => grp_doppler_fu_189_m_axi_gmem_0_ARSIZE,
+        m_axi_gmem_0_ARBURST => grp_doppler_fu_189_m_axi_gmem_0_ARBURST,
+        m_axi_gmem_0_ARLOCK => grp_doppler_fu_189_m_axi_gmem_0_ARLOCK,
+        m_axi_gmem_0_ARCACHE => grp_doppler_fu_189_m_axi_gmem_0_ARCACHE,
+        m_axi_gmem_0_ARPROT => grp_doppler_fu_189_m_axi_gmem_0_ARPROT,
+        m_axi_gmem_0_ARQOS => grp_doppler_fu_189_m_axi_gmem_0_ARQOS,
+        m_axi_gmem_0_ARREGION => grp_doppler_fu_189_m_axi_gmem_0_ARREGION,
+        m_axi_gmem_0_ARUSER => grp_doppler_fu_189_m_axi_gmem_0_ARUSER,
         m_axi_gmem_0_RVALID => m_axi_gmem_0_RVALID,
-        m_axi_gmem_0_RREADY => grp_doppler_fu_185_m_axi_gmem_0_RREADY,
+        m_axi_gmem_0_RREADY => grp_doppler_fu_189_m_axi_gmem_0_RREADY,
         m_axi_gmem_0_RDATA => m_axi_gmem_0_RDATA,
         m_axi_gmem_0_RLAST => m_axi_gmem_0_RLAST,
         m_axi_gmem_0_RID => m_axi_gmem_0_RID,
@@ -768,43 +767,43 @@ begin
         m_axi_gmem_0_RUSER => m_axi_gmem_0_RUSER,
         m_axi_gmem_0_RRESP => m_axi_gmem_0_RRESP,
         m_axi_gmem_0_BVALID => m_axi_gmem_0_BVALID,
-        m_axi_gmem_0_BREADY => grp_doppler_fu_185_m_axi_gmem_0_BREADY,
+        m_axi_gmem_0_BREADY => grp_doppler_fu_189_m_axi_gmem_0_BREADY,
         m_axi_gmem_0_BRESP => m_axi_gmem_0_BRESP,
         m_axi_gmem_0_BID => m_axi_gmem_0_BID,
         m_axi_gmem_0_BUSER => m_axi_gmem_0_BUSER,
-        mm => mm_read_reg_246,
+        mm => mm_read_reg_250,
         idx_stream_dout => idx_stream_dout,
         idx_stream_empty_n => idx_stream_empty_n,
-        idx_stream_read => grp_doppler_fu_185_idx_stream_read,
-        out_d_02_TDATA => grp_doppler_fu_185_out_d_02_TDATA,
-        out_d_02_TVALID => grp_doppler_fu_185_out_d_02_TVALID,
-        out_d_02_TREADY => grp_doppler_fu_185_out_d_02_TREADY,
-        out_d_02_TKEEP => grp_doppler_fu_185_out_d_02_TKEEP,
-        out_d_02_TSTRB => grp_doppler_fu_185_out_d_02_TSTRB,
-        out_d_02_TLAST => grp_doppler_fu_185_out_d_02_TLAST,
-        out_d_03_TDATA => grp_doppler_fu_185_out_d_03_TDATA,
-        out_d_03_TVALID => grp_doppler_fu_185_out_d_03_TVALID,
-        out_d_03_TREADY => grp_doppler_fu_185_out_d_03_TREADY,
-        out_d_03_TKEEP => grp_doppler_fu_185_out_d_03_TKEEP,
-        out_d_03_TSTRB => grp_doppler_fu_185_out_d_03_TSTRB,
-        out_d_03_TLAST => grp_doppler_fu_185_out_d_03_TLAST,
+        idx_stream_read => grp_doppler_fu_189_idx_stream_read,
+        out_d_02_TDATA => grp_doppler_fu_189_out_d_02_TDATA,
+        out_d_02_TVALID => grp_doppler_fu_189_out_d_02_TVALID,
+        out_d_02_TREADY => grp_doppler_fu_189_out_d_02_TREADY,
+        out_d_02_TKEEP => grp_doppler_fu_189_out_d_02_TKEEP,
+        out_d_02_TSTRB => grp_doppler_fu_189_out_d_02_TSTRB,
+        out_d_02_TLAST => grp_doppler_fu_189_out_d_02_TLAST,
+        out_d_03_TDATA => grp_doppler_fu_189_out_d_03_TDATA,
+        out_d_03_TVALID => grp_doppler_fu_189_out_d_03_TVALID,
+        out_d_03_TREADY => grp_doppler_fu_189_out_d_03_TREADY,
+        out_d_03_TKEEP => grp_doppler_fu_189_out_d_03_TKEEP,
+        out_d_03_TSTRB => grp_doppler_fu_189_out_d_03_TSTRB,
+        out_d_03_TLAST => grp_doppler_fu_189_out_d_03_TLAST,
         in_d_02_TDATA => in_d_02_TDATA_int_regslice,
         in_d_02_TVALID => in_d_02_TVALID_int_regslice,
-        in_d_02_TREADY => grp_doppler_fu_185_in_d_02_TREADY,
+        in_d_02_TREADY => grp_doppler_fu_189_in_d_02_TREADY,
         in_d_02_TKEEP => in_d_02_TKEEP_int_regslice,
         in_d_02_TSTRB => in_d_02_TSTRB_int_regslice,
         in_d_02_TLAST => in_d_02_TLAST_int_regslice,
         in_d_03_TDATA => in_d_03_TDATA_int_regslice,
         in_d_03_TVALID => in_d_03_TVALID_int_regslice,
-        in_d_03_TREADY => grp_doppler_fu_185_in_d_03_TREADY,
+        in_d_03_TREADY => grp_doppler_fu_189_in_d_03_TREADY,
         in_d_03_TKEEP => in_d_03_TKEEP_int_regslice,
         in_d_03_TSTRB => in_d_03_TSTRB_int_regslice,
         in_d_03_TLAST => in_d_03_TLAST_int_regslice,
-        doppler_mask_stream_din => grp_doppler_fu_185_doppler_mask_stream_din,
+        doppler_mask_stream_din => grp_doppler_fu_189_doppler_mask_stream_din,
         doppler_mask_stream_full_n => doppler_mask_stream_full_n,
-        doppler_mask_stream_write => grp_doppler_fu_185_doppler_mask_stream_write,
-        doppler_mask_stream_num_data_valid => ap_const_lv8_0,
-        doppler_mask_stream_fifo_cap => ap_const_lv8_0);
+        doppler_mask_stream_write => grp_doppler_fu_189_doppler_mask_stream_write,
+        doppler_mask_stream_num_data_valid => doppler_mask_stream_num_data_valid,
+        doppler_mask_stream_fifo_cap => doppler_mask_stream_fifo_cap);
 
     idx_stream_fifo_U : component kernel_fifo_w32_d128_A
     port map (
@@ -812,7 +811,7 @@ begin
         reset => ap_rst,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_seq_generator_fu_175_idx_stream_din,
+        if_din => grp_seq_generator_fu_179_idx_stream_din,
         if_full_n => idx_stream_full_n,
         if_write => idx_stream_write,
         if_dout => idx_stream_dout,
@@ -825,7 +824,7 @@ begin
         reset => ap_rst,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => grp_aie_range_consume_fu_148_mask_stream_din,
+        if_din => grp_aie_range_consume_fu_150_mask_stream_din,
         if_full_n => mask_stream_full_n,
         if_write => mask_stream_write,
         if_dout => mask_stream_dout,
@@ -951,7 +950,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_02_TDATA_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_02_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_02_TVALID,
         ack_in => out_d_02_TREADY_int_regslice,
         data_out => out_d_02_TDATA,
         vld_out => regslice_both_out_d_02_V_data_V_U_vld_out,
@@ -965,7 +964,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_02_TKEEP_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_02_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_02_TVALID,
         ack_in => regslice_both_out_d_02_V_keep_V_U_ack_in_dummy,
         data_out => out_d_02_TKEEP,
         vld_out => regslice_both_out_d_02_V_keep_V_U_vld_out,
@@ -979,7 +978,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_02_TSTRB_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_02_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_02_TVALID,
         ack_in => regslice_both_out_d_02_V_strb_V_U_ack_in_dummy,
         data_out => out_d_02_TSTRB,
         vld_out => regslice_both_out_d_02_V_strb_V_U_vld_out,
@@ -993,7 +992,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_02_TLAST_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_02_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_02_TVALID,
         ack_in => regslice_both_out_d_02_V_last_V_U_ack_in_dummy,
         data_out => out_d_02_TLAST,
         vld_out => regslice_both_out_d_02_V_last_V_U_vld_out,
@@ -1007,7 +1006,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_03_TDATA_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_03_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_03_TVALID,
         ack_in => out_d_03_TREADY_int_regslice,
         data_out => out_d_03_TDATA,
         vld_out => regslice_both_out_d_03_V_data_V_U_vld_out,
@@ -1021,7 +1020,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_03_TKEEP_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_03_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_03_TVALID,
         ack_in => regslice_both_out_d_03_V_keep_V_U_ack_in_dummy,
         data_out => out_d_03_TKEEP,
         vld_out => regslice_both_out_d_03_V_keep_V_U_vld_out,
@@ -1035,7 +1034,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_03_TSTRB_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_03_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_03_TVALID,
         ack_in => regslice_both_out_d_03_V_strb_V_U_ack_in_dummy,
         data_out => out_d_03_TSTRB,
         vld_out => regslice_both_out_d_03_V_strb_V_U_vld_out,
@@ -1049,7 +1048,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         data_in => out_d_03_TLAST_int_regslice,
-        vld_in => grp_doppler_fu_185_out_d_03_TVALID,
+        vld_in => grp_doppler_fu_189_out_d_03_TVALID,
         ack_in => regslice_both_out_d_03_V_last_V_U_ack_in_dummy,
         data_out => out_d_03_TLAST,
         vld_out => regslice_both_out_d_03_V_last_V_U_vld_out,
@@ -1200,48 +1199,48 @@ begin
     end process;
 
 
-    grp_aie_range_consume_fu_148_ap_start_reg_assign_proc : process(ap_clk)
+    grp_aie_range_consume_fu_150_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_aie_range_consume_fu_148_ap_start_reg <= ap_const_logic_0;
+                grp_aie_range_consume_fu_150_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                    grp_aie_range_consume_fu_148_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_aie_range_consume_fu_148_ap_ready = ap_const_logic_1)) then 
-                    grp_aie_range_consume_fu_148_ap_start_reg <= ap_const_logic_0;
+                    grp_aie_range_consume_fu_150_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_aie_range_consume_fu_150_ap_ready = ap_const_logic_1)) then 
+                    grp_aie_range_consume_fu_150_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_doppler_fu_185_ap_start_reg_assign_proc : process(ap_clk)
+    grp_doppler_fu_189_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_doppler_fu_185_ap_start_reg <= ap_const_logic_0;
+                grp_doppler_fu_189_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-                    grp_doppler_fu_185_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_doppler_fu_185_ap_ready = ap_const_logic_1)) then 
-                    grp_doppler_fu_185_ap_start_reg <= ap_const_logic_0;
+                    grp_doppler_fu_189_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_doppler_fu_189_ap_ready = ap_const_logic_1)) then 
+                    grp_doppler_fu_189_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_seq_generator_fu_175_ap_start_reg_assign_proc : process(ap_clk)
+    grp_seq_generator_fu_179_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_seq_generator_fu_175_ap_start_reg <= ap_const_logic_0;
+                grp_seq_generator_fu_179_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-                    grp_seq_generator_fu_175_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_seq_generator_fu_175_ap_ready = ap_const_logic_1)) then 
-                    grp_seq_generator_fu_175_ap_start_reg <= ap_const_logic_0;
+                    grp_seq_generator_fu_179_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_seq_generator_fu_179_ap_ready = ap_const_logic_1)) then 
+                    grp_seq_generator_fu_179_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -1267,35 +1266,35 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state2)) then
-                mm_read_reg_246 <= mm;
-                num_chirps_read_reg_241 <= num_chirps;
+                mm_read_reg_250 <= mm;
+                num_chirps_read_reg_245 <= num_chirps;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((grp_doppler_fu_185_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
-                out_d_02_TDATA_reg <= grp_doppler_fu_185_out_d_02_TDATA;
-                out_d_02_TKEEP_reg <= grp_doppler_fu_185_out_d_02_TKEEP;
-                out_d_02_TLAST_reg <= grp_doppler_fu_185_out_d_02_TLAST;
-                out_d_02_TSTRB_reg <= grp_doppler_fu_185_out_d_02_TSTRB;
+            if (((grp_doppler_fu_189_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
+                out_d_02_TDATA_reg <= grp_doppler_fu_189_out_d_02_TDATA;
+                out_d_02_TKEEP_reg <= grp_doppler_fu_189_out_d_02_TKEEP;
+                out_d_02_TLAST_reg <= grp_doppler_fu_189_out_d_02_TLAST;
+                out_d_02_TSTRB_reg <= grp_doppler_fu_189_out_d_02_TSTRB;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((grp_doppler_fu_185_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
-                out_d_03_TDATA_reg <= grp_doppler_fu_185_out_d_03_TDATA;
-                out_d_03_TKEEP_reg <= grp_doppler_fu_185_out_d_03_TKEEP;
-                out_d_03_TLAST_reg <= grp_doppler_fu_185_out_d_03_TLAST;
-                out_d_03_TSTRB_reg <= grp_doppler_fu_185_out_d_03_TSTRB;
+            if (((grp_doppler_fu_189_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
+                out_d_03_TDATA_reg <= grp_doppler_fu_189_out_d_03_TDATA;
+                out_d_03_TKEEP_reg <= grp_doppler_fu_189_out_d_03_TKEEP;
+                out_d_03_TLAST_reg <= grp_doppler_fu_189_out_d_03_TLAST;
+                out_d_03_TSTRB_reg <= grp_doppler_fu_189_out_d_03_TSTRB;
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_CS_fsm, ap_CS_fsm_state1, grp_aie_range_consume_fu_148_ap_done, grp_seq_generator_fu_175_ap_done, grp_doppler_fu_185_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state5, ap_CS_fsm_state7, ap_CS_fsm_state8, ap_block_state8, ap_block_state1)
+    ap_NS_fsm_assign_proc : process (ap_CS_fsm, ap_CS_fsm_state1, grp_aie_range_consume_fu_150_ap_done, grp_seq_generator_fu_179_ap_done, grp_doppler_fu_189_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state5, ap_CS_fsm_state7, ap_CS_fsm_state8, ap_block_state8, ap_block_state1)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -1307,7 +1306,7 @@ begin
             when ap_ST_fsm_state2 => 
                 ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_aie_range_consume_fu_148_ap_done = ap_const_logic_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_aie_range_consume_fu_150_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state4;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
@@ -1315,7 +1314,7 @@ begin
             when ap_ST_fsm_state4 => 
                 ap_NS_fsm <= ap_ST_fsm_state5;
             when ap_ST_fsm_state5 => 
-                if (((grp_seq_generator_fu_175_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
+                if (((grp_seq_generator_fu_179_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
                     ap_NS_fsm <= ap_ST_fsm_state6;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state5;
@@ -1323,7 +1322,7 @@ begin
             when ap_ST_fsm_state6 => 
                 ap_NS_fsm <= ap_ST_fsm_state7;
             when ap_ST_fsm_state7 => 
-                if (((grp_doppler_fu_185_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
+                if (((grp_doppler_fu_189_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
                     ap_NS_fsm <= ap_ST_fsm_state8;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state7;
@@ -1358,9 +1357,9 @@ begin
 
     ap_ST_fsm_state2_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state3_blk_assign_proc : process(grp_aie_range_consume_fu_148_ap_done)
+    ap_ST_fsm_state3_blk_assign_proc : process(grp_aie_range_consume_fu_150_ap_done)
     begin
-        if ((grp_aie_range_consume_fu_148_ap_done = ap_const_logic_0)) then 
+        if ((grp_aie_range_consume_fu_150_ap_done = ap_const_logic_0)) then 
             ap_ST_fsm_state3_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state3_blk <= ap_const_logic_0;
@@ -1369,9 +1368,9 @@ begin
 
     ap_ST_fsm_state4_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state5_blk_assign_proc : process(grp_seq_generator_fu_175_ap_done)
+    ap_ST_fsm_state5_blk_assign_proc : process(grp_seq_generator_fu_179_ap_done)
     begin
-        if ((grp_seq_generator_fu_175_ap_done = ap_const_logic_0)) then 
+        if ((grp_seq_generator_fu_179_ap_done = ap_const_logic_0)) then 
             ap_ST_fsm_state5_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state5_blk <= ap_const_logic_0;
@@ -1380,9 +1379,9 @@ begin
 
     ap_ST_fsm_state6_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state7_blk_assign_proc : process(grp_doppler_fu_185_ap_done)
+    ap_ST_fsm_state7_blk_assign_proc : process(grp_doppler_fu_189_ap_done)
     begin
-        if ((grp_doppler_fu_185_ap_done = ap_const_logic_0)) then 
+        if ((grp_doppler_fu_189_ap_done = ap_const_logic_0)) then 
             ap_ST_fsm_state7_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state7_blk <= ap_const_logic_0;
@@ -1432,28 +1431,28 @@ begin
     end process;
 
     ap_ready <= internal_ap_ready;
-    doppler_mask_stream_din <= grp_doppler_fu_185_doppler_mask_stream_din;
-    doppler_mask_stream_write <= grp_doppler_fu_185_doppler_mask_stream_write;
-    grp_aie_range_consume_fu_148_ap_start <= grp_aie_range_consume_fu_148_ap_start_reg;
-    grp_doppler_fu_185_ap_start <= grp_doppler_fu_185_ap_start_reg;
-    grp_doppler_fu_185_out_d_02_TREADY <= (out_d_02_TREADY_int_regslice and ap_CS_fsm_state7);
-    grp_doppler_fu_185_out_d_03_TREADY <= (out_d_03_TREADY_int_regslice and ap_CS_fsm_state7);
-    grp_seq_generator_fu_175_ap_start <= grp_seq_generator_fu_175_ap_start_reg;
+    doppler_mask_stream_din <= grp_doppler_fu_189_doppler_mask_stream_din;
+    doppler_mask_stream_write <= grp_doppler_fu_189_doppler_mask_stream_write;
+    grp_aie_range_consume_fu_150_ap_start <= grp_aie_range_consume_fu_150_ap_start_reg;
+    grp_doppler_fu_189_ap_start <= grp_doppler_fu_189_ap_start_reg;
+    grp_doppler_fu_189_out_d_02_TREADY <= (out_d_02_TREADY_int_regslice and ap_CS_fsm_state7);
+    grp_doppler_fu_189_out_d_03_TREADY <= (out_d_03_TREADY_int_regslice and ap_CS_fsm_state7);
+    grp_seq_generator_fu_179_ap_start <= grp_seq_generator_fu_179_ap_start_reg;
 
-    idx_stream_read_assign_proc : process(grp_doppler_fu_185_idx_stream_read, ap_CS_fsm_state7)
+    idx_stream_read_assign_proc : process(grp_doppler_fu_189_idx_stream_read, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            idx_stream_read <= grp_doppler_fu_185_idx_stream_read;
+            idx_stream_read <= grp_doppler_fu_189_idx_stream_read;
         else 
             idx_stream_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    idx_stream_write_assign_proc : process(grp_seq_generator_fu_175_idx_stream_write, ap_CS_fsm_state5)
+    idx_stream_write_assign_proc : process(grp_seq_generator_fu_179_idx_stream_write, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            idx_stream_write <= grp_seq_generator_fu_175_idx_stream_write;
+            idx_stream_write <= grp_seq_generator_fu_179_idx_stream_write;
         else 
             idx_stream_write <= ap_const_logic_0;
         end if; 
@@ -1461,10 +1460,10 @@ begin
 
     in_d_02_TREADY <= regslice_both_in_d_02_V_data_V_U_ack_in;
 
-    in_d_02_TREADY_int_regslice_assign_proc : process(grp_doppler_fu_185_in_d_02_TREADY, ap_CS_fsm_state7)
+    in_d_02_TREADY_int_regslice_assign_proc : process(grp_doppler_fu_189_in_d_02_TREADY, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            in_d_02_TREADY_int_regslice <= grp_doppler_fu_185_in_d_02_TREADY;
+            in_d_02_TREADY_int_regslice <= grp_doppler_fu_189_in_d_02_TREADY;
         else 
             in_d_02_TREADY_int_regslice <= ap_const_logic_0;
         end if; 
@@ -1472,10 +1471,10 @@ begin
 
     in_d_03_TREADY <= regslice_both_in_d_03_V_data_V_U_ack_in;
 
-    in_d_03_TREADY_int_regslice_assign_proc : process(grp_doppler_fu_185_in_d_03_TREADY, ap_CS_fsm_state7)
+    in_d_03_TREADY_int_regslice_assign_proc : process(grp_doppler_fu_189_in_d_03_TREADY, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            in_d_03_TREADY_int_regslice <= grp_doppler_fu_185_in_d_03_TREADY;
+            in_d_03_TREADY_int_regslice <= grp_doppler_fu_189_in_d_03_TREADY;
         else 
             in_d_03_TREADY_int_regslice <= ap_const_logic_0;
         end if; 
@@ -1483,10 +1482,10 @@ begin
 
     in_r_00_TREADY <= regslice_both_in_r_00_V_data_V_U_ack_in;
 
-    in_r_00_TREADY_int_regslice_assign_proc : process(grp_aie_range_consume_fu_148_in_r_00_TREADY, ap_CS_fsm_state3)
+    in_r_00_TREADY_int_regslice_assign_proc : process(grp_aie_range_consume_fu_150_in_r_00_TREADY, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_r_00_TREADY_int_regslice <= grp_aie_range_consume_fu_148_in_r_00_TREADY;
+            in_r_00_TREADY_int_regslice <= grp_aie_range_consume_fu_150_in_r_00_TREADY;
         else 
             in_r_00_TREADY_int_regslice <= ap_const_logic_0;
         end if; 
@@ -1494,10 +1493,10 @@ begin
 
     in_r_01_TREADY <= regslice_both_in_r_01_V_data_V_U_ack_in;
 
-    in_r_01_TREADY_int_regslice_assign_proc : process(grp_aie_range_consume_fu_148_in_r_01_TREADY, ap_CS_fsm_state3)
+    in_r_01_TREADY_int_regslice_assign_proc : process(grp_aie_range_consume_fu_150_in_r_01_TREADY, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_r_01_TREADY_int_regslice <= grp_aie_range_consume_fu_148_in_r_01_TREADY;
+            in_r_01_TREADY_int_regslice <= grp_aie_range_consume_fu_150_in_r_01_TREADY;
         else 
             in_r_01_TREADY_int_regslice <= ap_const_logic_0;
         end if; 
@@ -1513,369 +1512,369 @@ begin
         end if; 
     end process;
 
-    m_axi_gmem_0_ARADDR <= grp_doppler_fu_185_m_axi_gmem_0_ARADDR;
-    m_axi_gmem_0_ARBURST <= grp_doppler_fu_185_m_axi_gmem_0_ARBURST;
-    m_axi_gmem_0_ARCACHE <= grp_doppler_fu_185_m_axi_gmem_0_ARCACHE;
-    m_axi_gmem_0_ARID <= grp_doppler_fu_185_m_axi_gmem_0_ARID;
-    m_axi_gmem_0_ARLEN <= grp_doppler_fu_185_m_axi_gmem_0_ARLEN;
-    m_axi_gmem_0_ARLOCK <= grp_doppler_fu_185_m_axi_gmem_0_ARLOCK;
-    m_axi_gmem_0_ARPROT <= grp_doppler_fu_185_m_axi_gmem_0_ARPROT;
-    m_axi_gmem_0_ARQOS <= grp_doppler_fu_185_m_axi_gmem_0_ARQOS;
-    m_axi_gmem_0_ARREGION <= grp_doppler_fu_185_m_axi_gmem_0_ARREGION;
-    m_axi_gmem_0_ARSIZE <= grp_doppler_fu_185_m_axi_gmem_0_ARSIZE;
-    m_axi_gmem_0_ARUSER <= grp_doppler_fu_185_m_axi_gmem_0_ARUSER;
+    m_axi_gmem_0_ARADDR <= grp_doppler_fu_189_m_axi_gmem_0_ARADDR;
+    m_axi_gmem_0_ARBURST <= grp_doppler_fu_189_m_axi_gmem_0_ARBURST;
+    m_axi_gmem_0_ARCACHE <= grp_doppler_fu_189_m_axi_gmem_0_ARCACHE;
+    m_axi_gmem_0_ARID <= grp_doppler_fu_189_m_axi_gmem_0_ARID;
+    m_axi_gmem_0_ARLEN <= grp_doppler_fu_189_m_axi_gmem_0_ARLEN;
+    m_axi_gmem_0_ARLOCK <= grp_doppler_fu_189_m_axi_gmem_0_ARLOCK;
+    m_axi_gmem_0_ARPROT <= grp_doppler_fu_189_m_axi_gmem_0_ARPROT;
+    m_axi_gmem_0_ARQOS <= grp_doppler_fu_189_m_axi_gmem_0_ARQOS;
+    m_axi_gmem_0_ARREGION <= grp_doppler_fu_189_m_axi_gmem_0_ARREGION;
+    m_axi_gmem_0_ARSIZE <= grp_doppler_fu_189_m_axi_gmem_0_ARSIZE;
+    m_axi_gmem_0_ARUSER <= grp_doppler_fu_189_m_axi_gmem_0_ARUSER;
 
-    m_axi_gmem_0_ARVALID_assign_proc : process(grp_doppler_fu_185_m_axi_gmem_0_ARVALID, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_ARVALID_assign_proc : process(grp_doppler_fu_189_m_axi_gmem_0_ARVALID, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_ARVALID <= grp_doppler_fu_185_m_axi_gmem_0_ARVALID;
+            m_axi_gmem_0_ARVALID <= grp_doppler_fu_189_m_axi_gmem_0_ARVALID;
         else 
             m_axi_gmem_0_ARVALID <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWADDR_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR, grp_doppler_fu_185_m_axi_gmem_0_AWADDR, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWADDR_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR, grp_doppler_fu_189_m_axi_gmem_0_AWADDR, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWADDR <= grp_doppler_fu_185_m_axi_gmem_0_AWADDR;
+            m_axi_gmem_0_AWADDR <= grp_doppler_fu_189_m_axi_gmem_0_AWADDR;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWADDR <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWADDR;
+            m_axi_gmem_0_AWADDR <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWADDR;
         else 
             m_axi_gmem_0_AWADDR <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWBURST_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST, grp_doppler_fu_185_m_axi_gmem_0_AWBURST, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWBURST_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST, grp_doppler_fu_189_m_axi_gmem_0_AWBURST, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWBURST <= grp_doppler_fu_185_m_axi_gmem_0_AWBURST;
+            m_axi_gmem_0_AWBURST <= grp_doppler_fu_189_m_axi_gmem_0_AWBURST;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWBURST <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWBURST;
+            m_axi_gmem_0_AWBURST <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWBURST;
         else 
             m_axi_gmem_0_AWBURST <= "XX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWCACHE_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE, grp_doppler_fu_185_m_axi_gmem_0_AWCACHE, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWCACHE_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE, grp_doppler_fu_189_m_axi_gmem_0_AWCACHE, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWCACHE <= grp_doppler_fu_185_m_axi_gmem_0_AWCACHE;
+            m_axi_gmem_0_AWCACHE <= grp_doppler_fu_189_m_axi_gmem_0_AWCACHE;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWCACHE <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWCACHE;
+            m_axi_gmem_0_AWCACHE <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWCACHE;
         else 
             m_axi_gmem_0_AWCACHE <= "XXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID, grp_doppler_fu_185_m_axi_gmem_0_AWID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID, grp_doppler_fu_189_m_axi_gmem_0_AWID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWID <= grp_doppler_fu_185_m_axi_gmem_0_AWID;
+            m_axi_gmem_0_AWID <= grp_doppler_fu_189_m_axi_gmem_0_AWID;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWID <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWID;
+            m_axi_gmem_0_AWID <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWID;
         else 
             m_axi_gmem_0_AWID <= "X";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWLEN_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN, grp_doppler_fu_185_m_axi_gmem_0_AWLEN, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWLEN_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN, grp_doppler_fu_189_m_axi_gmem_0_AWLEN, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWLEN <= grp_doppler_fu_185_m_axi_gmem_0_AWLEN;
+            m_axi_gmem_0_AWLEN <= grp_doppler_fu_189_m_axi_gmem_0_AWLEN;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWLEN <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLEN;
+            m_axi_gmem_0_AWLEN <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLEN;
         else 
             m_axi_gmem_0_AWLEN <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWLOCK_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK, grp_doppler_fu_185_m_axi_gmem_0_AWLOCK, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWLOCK_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK, grp_doppler_fu_189_m_axi_gmem_0_AWLOCK, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWLOCK <= grp_doppler_fu_185_m_axi_gmem_0_AWLOCK;
+            m_axi_gmem_0_AWLOCK <= grp_doppler_fu_189_m_axi_gmem_0_AWLOCK;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWLOCK <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWLOCK;
+            m_axi_gmem_0_AWLOCK <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWLOCK;
         else 
             m_axi_gmem_0_AWLOCK <= "XX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWPROT_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT, grp_doppler_fu_185_m_axi_gmem_0_AWPROT, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWPROT_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT, grp_doppler_fu_189_m_axi_gmem_0_AWPROT, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWPROT <= grp_doppler_fu_185_m_axi_gmem_0_AWPROT;
+            m_axi_gmem_0_AWPROT <= grp_doppler_fu_189_m_axi_gmem_0_AWPROT;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWPROT <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWPROT;
+            m_axi_gmem_0_AWPROT <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWPROT;
         else 
             m_axi_gmem_0_AWPROT <= "XXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWQOS_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS, grp_doppler_fu_185_m_axi_gmem_0_AWQOS, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWQOS_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS, grp_doppler_fu_189_m_axi_gmem_0_AWQOS, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWQOS <= grp_doppler_fu_185_m_axi_gmem_0_AWQOS;
+            m_axi_gmem_0_AWQOS <= grp_doppler_fu_189_m_axi_gmem_0_AWQOS;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWQOS <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWQOS;
+            m_axi_gmem_0_AWQOS <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWQOS;
         else 
             m_axi_gmem_0_AWQOS <= "XXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWREGION_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION, grp_doppler_fu_185_m_axi_gmem_0_AWREGION, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWREGION_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION, grp_doppler_fu_189_m_axi_gmem_0_AWREGION, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWREGION <= grp_doppler_fu_185_m_axi_gmem_0_AWREGION;
+            m_axi_gmem_0_AWREGION <= grp_doppler_fu_189_m_axi_gmem_0_AWREGION;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWREGION <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWREGION;
+            m_axi_gmem_0_AWREGION <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWREGION;
         else 
             m_axi_gmem_0_AWREGION <= "XXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWSIZE_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE, grp_doppler_fu_185_m_axi_gmem_0_AWSIZE, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWSIZE_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE, grp_doppler_fu_189_m_axi_gmem_0_AWSIZE, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWSIZE <= grp_doppler_fu_185_m_axi_gmem_0_AWSIZE;
+            m_axi_gmem_0_AWSIZE <= grp_doppler_fu_189_m_axi_gmem_0_AWSIZE;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWSIZE <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWSIZE;
+            m_axi_gmem_0_AWSIZE <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWSIZE;
         else 
             m_axi_gmem_0_AWSIZE <= "XXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWUSER_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER, grp_doppler_fu_185_m_axi_gmem_0_AWUSER, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWUSER_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER, grp_doppler_fu_189_m_axi_gmem_0_AWUSER, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWUSER <= grp_doppler_fu_185_m_axi_gmem_0_AWUSER;
+            m_axi_gmem_0_AWUSER <= grp_doppler_fu_189_m_axi_gmem_0_AWUSER;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWUSER <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWUSER;
+            m_axi_gmem_0_AWUSER <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWUSER;
         else 
             m_axi_gmem_0_AWUSER <= "X";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_AWVALID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID, grp_doppler_fu_185_m_axi_gmem_0_AWVALID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_AWVALID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID, grp_doppler_fu_189_m_axi_gmem_0_AWVALID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_AWVALID <= grp_doppler_fu_185_m_axi_gmem_0_AWVALID;
+            m_axi_gmem_0_AWVALID <= grp_doppler_fu_189_m_axi_gmem_0_AWVALID;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_AWVALID <= grp_aie_range_consume_fu_148_m_axi_gmem_0_AWVALID;
+            m_axi_gmem_0_AWVALID <= grp_aie_range_consume_fu_150_m_axi_gmem_0_AWVALID;
         else 
             m_axi_gmem_0_AWVALID <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    m_axi_gmem_0_BREADY_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY, grp_doppler_fu_185_m_axi_gmem_0_BREADY, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_BREADY_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY, grp_doppler_fu_189_m_axi_gmem_0_BREADY, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_BREADY <= grp_doppler_fu_185_m_axi_gmem_0_BREADY;
+            m_axi_gmem_0_BREADY <= grp_doppler_fu_189_m_axi_gmem_0_BREADY;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_BREADY <= grp_aie_range_consume_fu_148_m_axi_gmem_0_BREADY;
+            m_axi_gmem_0_BREADY <= grp_aie_range_consume_fu_150_m_axi_gmem_0_BREADY;
         else 
             m_axi_gmem_0_BREADY <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    m_axi_gmem_0_RREADY_assign_proc : process(grp_doppler_fu_185_m_axi_gmem_0_RREADY, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_RREADY_assign_proc : process(grp_doppler_fu_189_m_axi_gmem_0_RREADY, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_RREADY <= grp_doppler_fu_185_m_axi_gmem_0_RREADY;
+            m_axi_gmem_0_RREADY <= grp_doppler_fu_189_m_axi_gmem_0_RREADY;
         else 
             m_axi_gmem_0_RREADY <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    m_axi_gmem_0_WDATA_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA, grp_doppler_fu_185_m_axi_gmem_0_WDATA, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_WDATA_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA, grp_doppler_fu_189_m_axi_gmem_0_WDATA, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_WDATA <= grp_doppler_fu_185_m_axi_gmem_0_WDATA;
+            m_axi_gmem_0_WDATA <= grp_doppler_fu_189_m_axi_gmem_0_WDATA;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_WDATA <= grp_aie_range_consume_fu_148_m_axi_gmem_0_WDATA;
+            m_axi_gmem_0_WDATA <= grp_aie_range_consume_fu_150_m_axi_gmem_0_WDATA;
         else 
             m_axi_gmem_0_WDATA <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_WID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_WID, grp_doppler_fu_185_m_axi_gmem_0_WID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_WID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_WID, grp_doppler_fu_189_m_axi_gmem_0_WID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_WID <= grp_doppler_fu_185_m_axi_gmem_0_WID;
+            m_axi_gmem_0_WID <= grp_doppler_fu_189_m_axi_gmem_0_WID;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_WID <= grp_aie_range_consume_fu_148_m_axi_gmem_0_WID;
+            m_axi_gmem_0_WID <= grp_aie_range_consume_fu_150_m_axi_gmem_0_WID;
         else 
             m_axi_gmem_0_WID <= "X";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_WLAST_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST, grp_doppler_fu_185_m_axi_gmem_0_WLAST, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_WLAST_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST, grp_doppler_fu_189_m_axi_gmem_0_WLAST, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_WLAST <= grp_doppler_fu_185_m_axi_gmem_0_WLAST;
+            m_axi_gmem_0_WLAST <= grp_doppler_fu_189_m_axi_gmem_0_WLAST;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_WLAST <= grp_aie_range_consume_fu_148_m_axi_gmem_0_WLAST;
+            m_axi_gmem_0_WLAST <= grp_aie_range_consume_fu_150_m_axi_gmem_0_WLAST;
         else 
             m_axi_gmem_0_WLAST <= 'X';
         end if; 
     end process;
 
 
-    m_axi_gmem_0_WSTRB_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB, grp_doppler_fu_185_m_axi_gmem_0_WSTRB, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_WSTRB_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB, grp_doppler_fu_189_m_axi_gmem_0_WSTRB, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_WSTRB <= grp_doppler_fu_185_m_axi_gmem_0_WSTRB;
+            m_axi_gmem_0_WSTRB <= grp_doppler_fu_189_m_axi_gmem_0_WSTRB;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_WSTRB <= grp_aie_range_consume_fu_148_m_axi_gmem_0_WSTRB;
+            m_axi_gmem_0_WSTRB <= grp_aie_range_consume_fu_150_m_axi_gmem_0_WSTRB;
         else 
             m_axi_gmem_0_WSTRB <= "XXXX";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_WUSER_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER, grp_doppler_fu_185_m_axi_gmem_0_WUSER, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_WUSER_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER, grp_doppler_fu_189_m_axi_gmem_0_WUSER, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_WUSER <= grp_doppler_fu_185_m_axi_gmem_0_WUSER;
+            m_axi_gmem_0_WUSER <= grp_doppler_fu_189_m_axi_gmem_0_WUSER;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_WUSER <= grp_aie_range_consume_fu_148_m_axi_gmem_0_WUSER;
+            m_axi_gmem_0_WUSER <= grp_aie_range_consume_fu_150_m_axi_gmem_0_WUSER;
         else 
             m_axi_gmem_0_WUSER <= "X";
         end if; 
     end process;
 
 
-    m_axi_gmem_0_WVALID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID, grp_doppler_fu_185_m_axi_gmem_0_WVALID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    m_axi_gmem_0_WVALID_assign_proc : process(ap_CS_fsm_state2, grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID, grp_doppler_fu_189_m_axi_gmem_0_WVALID, ap_CS_fsm_state3, ap_CS_fsm_state6, ap_CS_fsm_state7)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_state7) or (ap_const_logic_1 = ap_CS_fsm_state6))) then 
-            m_axi_gmem_0_WVALID <= grp_doppler_fu_185_m_axi_gmem_0_WVALID;
+            m_axi_gmem_0_WVALID <= grp_doppler_fu_189_m_axi_gmem_0_WVALID;
         elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            m_axi_gmem_0_WVALID <= grp_aie_range_consume_fu_148_m_axi_gmem_0_WVALID;
+            m_axi_gmem_0_WVALID <= grp_aie_range_consume_fu_150_m_axi_gmem_0_WVALID;
         else 
             m_axi_gmem_0_WVALID <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    mask_stream_read_assign_proc : process(grp_seq_generator_fu_175_mask_stream_read, ap_CS_fsm_state5)
+    mask_stream_read_assign_proc : process(grp_seq_generator_fu_179_mask_stream_read, ap_CS_fsm_state5)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            mask_stream_read <= grp_seq_generator_fu_175_mask_stream_read;
+            mask_stream_read <= grp_seq_generator_fu_179_mask_stream_read;
         else 
             mask_stream_read <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    mask_stream_write_assign_proc : process(grp_aie_range_consume_fu_148_mask_stream_write, ap_CS_fsm_state3)
+    mask_stream_write_assign_proc : process(grp_aie_range_consume_fu_150_mask_stream_write, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            mask_stream_write <= grp_aie_range_consume_fu_148_mask_stream_write;
+            mask_stream_write <= grp_aie_range_consume_fu_150_mask_stream_write;
         else 
             mask_stream_write <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    out_d_02_TDATA_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_02_TDATA, grp_doppler_fu_185_out_d_02_TVALID, ap_CS_fsm_state7, out_d_02_TDATA_reg)
+    out_d_02_TDATA_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_02_TDATA, grp_doppler_fu_189_out_d_02_TVALID, ap_CS_fsm_state7, out_d_02_TDATA_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_02_TDATA_int_regslice <= grp_doppler_fu_185_out_d_02_TDATA;
+        if (((grp_doppler_fu_189_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_02_TDATA_int_regslice <= grp_doppler_fu_189_out_d_02_TDATA;
         else 
             out_d_02_TDATA_int_regslice <= out_d_02_TDATA_reg;
         end if; 
     end process;
 
 
-    out_d_02_TKEEP_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_02_TVALID, grp_doppler_fu_185_out_d_02_TKEEP, ap_CS_fsm_state7, out_d_02_TKEEP_reg)
+    out_d_02_TKEEP_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_02_TVALID, grp_doppler_fu_189_out_d_02_TKEEP, ap_CS_fsm_state7, out_d_02_TKEEP_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_02_TKEEP_int_regslice <= grp_doppler_fu_185_out_d_02_TKEEP;
+        if (((grp_doppler_fu_189_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_02_TKEEP_int_regslice <= grp_doppler_fu_189_out_d_02_TKEEP;
         else 
             out_d_02_TKEEP_int_regslice <= out_d_02_TKEEP_reg;
         end if; 
     end process;
 
 
-    out_d_02_TLAST_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_02_TVALID, grp_doppler_fu_185_out_d_02_TLAST, ap_CS_fsm_state7, out_d_02_TLAST_reg)
+    out_d_02_TLAST_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_02_TVALID, grp_doppler_fu_189_out_d_02_TLAST, ap_CS_fsm_state7, out_d_02_TLAST_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_02_TLAST_int_regslice <= grp_doppler_fu_185_out_d_02_TLAST;
+        if (((grp_doppler_fu_189_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_02_TLAST_int_regslice <= grp_doppler_fu_189_out_d_02_TLAST;
         else 
             out_d_02_TLAST_int_regslice <= out_d_02_TLAST_reg;
         end if; 
     end process;
 
 
-    out_d_02_TSTRB_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_02_TVALID, grp_doppler_fu_185_out_d_02_TSTRB, ap_CS_fsm_state7, out_d_02_TSTRB_reg)
+    out_d_02_TSTRB_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_02_TVALID, grp_doppler_fu_189_out_d_02_TSTRB, ap_CS_fsm_state7, out_d_02_TSTRB_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_02_TSTRB_int_regslice <= grp_doppler_fu_185_out_d_02_TSTRB;
+        if (((grp_doppler_fu_189_out_d_02_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_02_TSTRB_int_regslice <= grp_doppler_fu_189_out_d_02_TSTRB;
         else 
             out_d_02_TSTRB_int_regslice <= out_d_02_TSTRB_reg;
         end if; 
     end process;
 
     out_d_02_TVALID <= regslice_both_out_d_02_V_data_V_U_vld_out;
-    out_d_02_TVALID_int_regslice <= grp_doppler_fu_185_out_d_02_TVALID;
+    out_d_02_TVALID_int_regslice <= grp_doppler_fu_189_out_d_02_TVALID;
 
-    out_d_03_TDATA_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_03_TDATA, grp_doppler_fu_185_out_d_03_TVALID, ap_CS_fsm_state7, out_d_03_TDATA_reg)
+    out_d_03_TDATA_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_03_TDATA, grp_doppler_fu_189_out_d_03_TVALID, ap_CS_fsm_state7, out_d_03_TDATA_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_03_TDATA_int_regslice <= grp_doppler_fu_185_out_d_03_TDATA;
+        if (((grp_doppler_fu_189_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_03_TDATA_int_regslice <= grp_doppler_fu_189_out_d_03_TDATA;
         else 
             out_d_03_TDATA_int_regslice <= out_d_03_TDATA_reg;
         end if; 
     end process;
 
 
-    out_d_03_TKEEP_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_03_TVALID, grp_doppler_fu_185_out_d_03_TKEEP, ap_CS_fsm_state7, out_d_03_TKEEP_reg)
+    out_d_03_TKEEP_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_03_TVALID, grp_doppler_fu_189_out_d_03_TKEEP, ap_CS_fsm_state7, out_d_03_TKEEP_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_03_TKEEP_int_regslice <= grp_doppler_fu_185_out_d_03_TKEEP;
+        if (((grp_doppler_fu_189_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_03_TKEEP_int_regslice <= grp_doppler_fu_189_out_d_03_TKEEP;
         else 
             out_d_03_TKEEP_int_regslice <= out_d_03_TKEEP_reg;
         end if; 
     end process;
 
 
-    out_d_03_TLAST_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_03_TVALID, grp_doppler_fu_185_out_d_03_TLAST, ap_CS_fsm_state7, out_d_03_TLAST_reg)
+    out_d_03_TLAST_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_03_TVALID, grp_doppler_fu_189_out_d_03_TLAST, ap_CS_fsm_state7, out_d_03_TLAST_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_03_TLAST_int_regslice <= grp_doppler_fu_185_out_d_03_TLAST;
+        if (((grp_doppler_fu_189_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_03_TLAST_int_regslice <= grp_doppler_fu_189_out_d_03_TLAST;
         else 
             out_d_03_TLAST_int_regslice <= out_d_03_TLAST_reg;
         end if; 
     end process;
 
 
-    out_d_03_TSTRB_int_regslice_assign_proc : process(grp_doppler_fu_185_out_d_03_TVALID, grp_doppler_fu_185_out_d_03_TSTRB, ap_CS_fsm_state7, out_d_03_TSTRB_reg)
+    out_d_03_TSTRB_int_regslice_assign_proc : process(grp_doppler_fu_189_out_d_03_TVALID, grp_doppler_fu_189_out_d_03_TSTRB, ap_CS_fsm_state7, out_d_03_TSTRB_reg)
     begin
-        if (((grp_doppler_fu_185_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-            out_d_03_TSTRB_int_regslice <= grp_doppler_fu_185_out_d_03_TSTRB;
+        if (((grp_doppler_fu_189_out_d_03_TVALID = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            out_d_03_TSTRB_int_regslice <= grp_doppler_fu_189_out_d_03_TSTRB;
         else 
             out_d_03_TSTRB_int_regslice <= out_d_03_TSTRB_reg;
         end if; 
     end process;
 
     out_d_03_TVALID <= regslice_both_out_d_03_V_data_V_U_vld_out;
-    out_d_03_TVALID_int_regslice <= grp_doppler_fu_185_out_d_03_TVALID;
+    out_d_03_TVALID_int_regslice <= grp_doppler_fu_189_out_d_03_TVALID;
 
     real_start_assign_proc : process(ap_start, start_full_n, start_once_reg)
     begin

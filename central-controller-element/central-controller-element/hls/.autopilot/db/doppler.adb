@@ -721,7 +721,7 @@
               <coreId>4294967295</coreId>
               <rtlModuleName></rtlModuleName>
             </Obj>
-            <bitwidth>2816</bitwidth>
+            <bitwidth>64</bitwidth>
           </Value>
           <direction>1</direction>
           <if_type>3</if_type>
@@ -2054,7 +2054,7 @@
           <m_isOnCriticalPath>0</m_isOnCriticalPath>
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0.00</m_delay>
+          <m_delay>3.25</m_delay>
           <m_topoIndex>22</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
@@ -2179,10 +2179,10 @@
             <Obj>
               <type>0</type>
               <id>66</id>
-              <name>doppler_mask_stream_write_ln132</name>
+              <name>doppler_mask_stream_write_ln124</name>
               <fileName>src/doppler_part.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
-              <lineNumber>132</lineNumber>
+              <lineNumber>124</lineNumber>
               <contextFuncName>doppler</contextFuncName>
               <contextNormFuncName>doppler</contextNormFuncName>
               <inlineStackInfo>
@@ -2198,7 +2198,7 @@
                         <first>src/doppler_part.cpp</first>
                         <second>doppler</second>
                       </first>
-                      <second>132</second>
+                      <second>124</second>
                     </item>
                   </second>
                 </item>
@@ -2239,10 +2239,10 @@
             <Obj>
               <type>0</type>
               <id>67</id>
-              <name>_ln133</name>
+              <name>_ln125</name>
               <fileName>src/doppler_part.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
-              <lineNumber>133</lineNumber>
+              <lineNumber>125</lineNumber>
               <contextFuncName>doppler</contextFuncName>
               <contextNormFuncName>doppler</contextNormFuncName>
               <inlineStackInfo>
@@ -2258,7 +2258,7 @@
                         <first>src/doppler_part.cpp</first>
                         <second>doppler</second>
                       </first>
-                      <second>133</second>
+                      <second>125</second>
                     </item>
                   </second>
                 </item>
@@ -2755,7 +2755,7 @@
               <coreId>4294967295</coreId>
               <rtlModuleName></rtlModuleName>
             </Obj>
-            <bitwidth>2816</bitwidth>
+            <bitwidth>64</bitwidth>
           </Value>
           <const_type>0</const_type>
           <content>65535</content>
@@ -2972,7 +2972,7 @@
           <Obj>
             <type>3</type>
             <id>68</id>
-            <name>for.end46.critedge</name>
+            <name>for.end30.critedge</name>
             <fileName></fileName>
             <fileDirectory></fileDirectory>
             <lineNumber>0</lineNumber>
@@ -3846,8 +3846,8 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>16</mMinTripCount>
         <mMaxTripCount>16</mMaxTripCount>
-        <mMinLatency>26640</mMinLatency>
-        <mMaxLatency>30240</mMaxLatency>
+        <mMinLatency>26672</mMinLatency>
+        <mMaxLatency>29760</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"></mDfPipe>
       </item>
@@ -4313,15 +4313,15 @@
             </item>
             <item>
               <first>DSP</first>
-              <second>22</second>
+              <second>10</second>
             </item>
             <item>
               <first>FF</first>
-              <second>6535</second>
+              <second>2171</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>7897</second>
+              <second>3162</second>
             </item>
             <item>
               <first>URAM</first>
@@ -4675,11 +4675,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>2816</second>
+              <second>64</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>5632</second>
+              <second>128</second>
             </item>
             <item>
               <first>FF</first>
@@ -6291,7 +6291,7 @@
         </second>
       </item>
       <item>
-        <first>write_ln132_write_fu_144</first>
+        <first>write_ln124_write_fu_144</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

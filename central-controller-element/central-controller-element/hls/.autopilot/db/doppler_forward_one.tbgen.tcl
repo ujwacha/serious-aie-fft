@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 24
+set cdfgNum 27
 set C_modelName {doppler_forward_one}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]

@@ -81,7 +81,7 @@ void seq_generator(hls::stream<MaskPacket> &mask_in,
 void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
              hls::stream<pkt> &out_d_02, hls::stream<pkt> &out_d_03,
              hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-             hls::stream<DopplerMaskPacket> &mask_stream) {
+             hls::stream<ap_uint<64>> &mask_stream) {
   // One long window: 16 range bins x every chirp of the frame.  It is kept
   // whole so a single Doppler pass sees the complete chirp axis; the window is
   // not split per chirp or per call.
@@ -119,17 +119,9 @@ void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
 
   // End-of-frame marker, written once after the last range block.  dummy()
   // drains the mask stream until it sees this; without it the sink blocks and
-  // csim reports an empty stream read.
-  DopplerMaskPacket end;
-  end.rank = 0xFFFF;
-  end.mask = 0;
-  end.seq = 0;
-  end.index = 0;
-  for (int i = 0; i < 86; i++) {
-#pragma HLS UNROLL
-    end.data[i] = 0;
-  }
-  mask_stream.write(end);
+  // csim reports an empty stream read.  One beat is enough: the header word
+  // carries rank = 0xFFFF and no payload follows.
+  mask_stream.write((ap_uint<64>)0xFFFF);
 }
 
 void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
@@ -184,7 +176,7 @@ void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
 
 
 void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-                         hls::stream<DopplerMaskPacket> &mask_stream,
+                         hls::stream<ap_uint<64>> &mask_stream,
                          ap_uint<32> *mm, ap_uint<16> seq, ap_uint<16> ind) {
 
   unsigned int histogram[64] = {0};
@@ -232,7 +224,23 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
 
   // ---- histogram (Q24 reciprocal, 32-bit scale, DSP multiply) -----------
   uint32_t mean_u = (mean > 0) ? (uint32_t)mean : 1u;
-  uint32_t scale_q24 = (mean > 0) ? ((16u << 24) / mean_u) : 0u;
+
+  // scale_q24 = (16 << 24) / mean_u.  The HLS divider macro is a 34-stage
+  // sequential unit whose internal path is 7.0 ns; do the same restoring
+  // division here over short pipelined steps instead.  (16 << 24) is 2^28,
+  // so only the first dividend bit is set and 29 iterations cover the
+  // 29-bit quotient.
+  uint32_t scale_q24 = 0;
+  uint32_t div_rem = 0;
+  for (int i = 0; i < 29; i++) {
+#pragma HLS PIPELINE II = 2
+    div_rem = (div_rem << 1) | ((i == 0) ? 1u : 0u);
+    scale_q24 <<= 1;
+    if (div_rem >= mean_u) {
+      div_rem -= mean_u;
+      scale_q24 |= 1u;
+    }
+  }
 
   for (int i = 0; i < 256; i++) {
 #pragma HLS PIPELINE II = 2
@@ -253,27 +261,28 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
     }
   }
 
-  // ---- threshold --------------------------------------------------------
-  // Bin width of the [0, 4*mean] range, then the median power at the centre
-  // of its bin.  The threshold is that noise floor scaled by the same
-  // 8.393 dB margin the AIE threshold kernel uses, in power form.
+  // ---- threshold (integer fixed point) ----------------------------------
+  // Same value as the old float expression, with no float or double at all:
+  //   threshold = 6.9072 * (median_bin + 0.5) * (mean / 16)
+  //             = (2*median_bin + 1) * mean * 6.9072 / 32
+  // 884 / 4096 is 6.9072 / 32 in Q12.  Both multiplies are bound to pipelined
+  // DSPs: the extra latency costs a few cycles but keeps every combinational
+  // path short (the old double->int cast was a 137-bit variable shifter).
+  const uint32_t thr_q12 = 884u; // round(6.9072 / 32 * 4096)
 
-  
-  const int32_t bin_width = (4.0 * mean) / 64.0;
-  const int32_t median_mag =   (median_bin + 0.5f) * bin_width; //  (median_bin * bin_width) + (bin_width / 2);
-  const int32_t threshold = median_mag * kThrMagMult;
+  uint32_t a = (uint32_t)(median_bin * 2 + 1); // 1 .. 127
 
+  uint64_t a_mean;
+#pragma HLS BIND_OP variable = a_mean op = mul impl = dsp latency = 4
+  a_mean = (uint64_t)a * mean_u;
 
+  uint64_t thr_prod;
+#pragma HLS BIND_OP variable = thr_prod op = mul impl = dsp latency = 4
+  thr_prod = a_mean * thr_q12;
 
-
-  // // ---- threshold --------------------------------------------------------
-  // uint32_t bin_width = mean_u >> 4;
-  
-  // // Cast median_bin to 8-bit so HLS uses ONE DSP block instead of 4
-  // uint32_t median_mag = ((uint32_t)(uint8_t)median_bin * bin_width) + (bin_width >> 1);
-  
-  // // Multiply by 7 using shift and subtract (zero multipliers)
-  // uint32_t threshold = (median_mag << 3) - median_mag;
+  uint64_t thr64 = thr_prod >> 12;
+  uint32_t threshold =
+      (thr64 > 0xFFFFFFFFull) ? 0xFFFFFFFFu : (uint32_t)thr64;
 
 
   
@@ -306,30 +315,26 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
     }
   }
 
-  // The 256 magnitudes do not fit in one 4096-bit stream element, so they are
-  // shipped in 3 ranks of 86 floats.  Rank 0 also carries the mask and the
-  // range/sequence coordinates; the last rank has 2 unused slots.
-  for (int rank = 0; rank < 3; rank++) {
-#pragma HLS loop_flatten off
-    DopplerMaskPacket dmask;
-    dmask.rank = (ap_uint<16>)rank;
-    dmask.mask = 0;
-    dmask.seq = 0;
-    dmask.index = 0;
+  // One packet per bin: all 256 powers plus the header.  Ship it as 64-bit
+  // beats so the stream is a narrow, easily routed 64-bit line instead of a
+  // 2816-bit bus.  Header beat first, then two powers per beat.
+  DopplerMaskPacket dmask;
+  dmask.rank = 0;
+  dmask.mask = mask;
+  dmask.seq = seq;
+  dmask.index = ind;
 
-    if (rank == 0) {
-      dmask.mask = mask;
-      dmask.seq = seq;
-      dmask.index = ind;
-    }
-
-    for (int i = 0; i < 86; i++) {
+  for (int i = 0; i < TOTAL_CHIRPS; i++) {
 #pragma HLS PIPELINE II = 1
-#pragma HLS LOOP_TRIPCOUNT min = 86 max = 86
-      int src = rank * 86 + i;
-      dmask.data[i] = (src < TOTAL_CHIRPS) ? in_data_mag[src] : 0;
-    }
+#pragma HLS LOOP_TRIPCOUNT min = 256 max = 256
+    dmask.data[i] = in_data_mag[i];
+  }
 
-    mask_stream.write(dmask);
+  // Reinterpret the whole packet as 129 uint64 beats and push them in order.
+  const ap_uint<64> *words = reinterpret_cast<const ap_uint<64> *>(&dmask);
+  for (int i = 0; i < kDopplerPacketWords; i++) {
+#pragma HLS PIPELINE II = 1
+#pragma HLS LOOP_TRIPCOUNT min = 129 max = 129
+    mask_stream.write(words[i]);
   }
 }

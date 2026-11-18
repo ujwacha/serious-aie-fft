@@ -1,7 +1,7 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "3 1 7 6 2",
+    "calls": "7 5 2 4 3",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "main.cpp",
@@ -9,113 +9,27 @@
     "instructions": 28,
     "memory_accesses": 0,
     "name": "kernel",
-    "total_instructions": 2772
+    "total_instructions": 2402
   },
   "1": {
-    "basicblocks": 20,
-    "calls": "",
-    "control_depth": 4,
-    "def_use_depth": 7,
-    "file": "range_part.cpp",
-    "fileloc": 84,
-    "instructions": 1291,
-    "loads": {
-      "L": 116
-    },
-    "memory_accesses": 238,
-    "name": "aie_range_consume",
-    "stores": {
-      "L": 154
-    },
-    "total_instructions": 1291
-  },
-  "2": {
-    "basicblocks": 4,
-    "calls": "",
-    "control_depth": 1,
-    "def_use_depth": 3,
-    "file": "angle_part.cpp",
-    "fileloc": 3,
-    "instructions": 8,
-    "memory_accesses": 1,
-    "name": "dummy",
-    "total_instructions": 8
-  },
-  "3": {
-    "basicblocks": 7,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 7,
-    "file": "range_part.cpp",
-    "fileloc": 50,
-    "instructions": 275,
-    "loads": {
-      "G": 4,
-      "L": 16
-    },
-    "memory_accesses": 50,
-    "name": "adc_forward",
-    "stores": {
-      "L": 27
-    },
-    "total_instructions": 275
-  },
-  "4": {
-    "basicblocks": 24,
+    "basicblocks": 22,
     "calls": "",
     "control_depth": 2,
-    "def_use_depth": 91,
+    "def_use_depth": 20,
     "file": "doppler_part.cpp",
-    "fileloc": 186,
-    "instructions": 932,
+    "fileloc": 178,
+    "instructions": 538,
     "loads": {
-      "L": 174
+      "L": 77
     },
-    "memory_accesses": 128,
+    "memory_accesses": 130,
     "name": "aie_consume_doppler",
     "stores": {
-      "L": 62
+      "L": 54
     },
-    "total_instructions": 932
+    "total_instructions": 538
   },
-  "5": {
-    "basicblocks": 3,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 6,
-    "file": "doppler_part.cpp",
-    "fileloc": 135,
-    "instructions": 135,
-    "loads": {
-      "G": 4,
-      "L": 12
-    },
-    "memory_accesses": 30,
-    "name": "doppler_forward_one",
-    "stores": {
-      "L": 12
-    },
-    "total_instructions": 135
-  },
-  "6": {
-    "basicblocks": 10,
-    "calls": "5 4",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "doppler_part.cpp",
-    "fileloc": 81,
-    "instructions": 52,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 2,
-    "name": "doppler",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 1119
-  },
-  "7": {
+  "2": {
     "basicblocks": 15,
     "calls": "",
     "control_depth": 2,
@@ -132,5 +46,92 @@
       "G": 3
     },
     "total_instructions": 51
+  },
+  "3": {
+    "basicblocks": 6,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "angle_part.cpp",
+    "fileloc": 3,
+    "instructions": 13,
+    "memory_accesses": 1,
+    "name": "dummy",
+    "total_instructions": 13
+  },
+  "4": {
+    "basicblocks": 10,
+    "calls": "6 1",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "doppler_part.cpp",
+    "fileloc": 81,
+    "instructions": 51,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "doppler",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 724
+  },
+  "5": {
+    "basicblocks": 22,
+    "calls": "",
+    "control_depth": 4,
+    "def_use_depth": 7,
+    "file": "range_part.cpp",
+    "fileloc": 89,
+    "instructions": 1306,
+    "loads": {
+      "G": 2,
+      "L": 116
+    },
+    "memory_accesses": 238,
+    "name": "aie_range_consume",
+    "stores": {
+      "L": 154
+    },
+    "total_instructions": 1306
+  },
+  "6": {
+    "basicblocks": 3,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 6,
+    "file": "doppler_part.cpp",
+    "fileloc": 127,
+    "instructions": 135,
+    "loads": {
+      "G": 4,
+      "L": 12
+    },
+    "memory_accesses": 30,
+    "name": "doppler_forward_one",
+    "stores": {
+      "L": 12
+    },
+    "total_instructions": 135
+  },
+  "7": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 7,
+    "file": "range_part.cpp",
+    "fileloc": 50,
+    "instructions": 280,
+    "loads": {
+      "G": 4,
+      "L": 16
+    },
+    "memory_accesses": 50,
+    "name": "adc_forward",
+    "stores": {
+      "L": 27
+    },
+    "total_instructions": 280
   }
 }

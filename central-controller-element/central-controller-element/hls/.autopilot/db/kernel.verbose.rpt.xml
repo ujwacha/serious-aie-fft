@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'kernel'" level="0">
-<item name = "Date">Tue Nov 10 11:50:42 2026
+<item name = "Date">Sat Nov 14 14:52:50 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -33,7 +33,7 @@
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
 <column name="adc_forward_U0">adc_forward, ?, ?, ?, ?, ?, ?, no</column>
 <column name="Block_entry_gmem_wr_proc_U0">Block_entry_gmem_wr_proc, ?, ?, ?, ?, ?, ?, no</column>
-<column name="dummy_U0">dummy, ?, ?, ?, ?, 0, 0, loop auto-rewind stp (delay=0 cycle(s))</column>
+<column name="dummy_U0">dummy, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -51,23 +51,23 @@
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 14, -</column>
-<column name="FIFO">157, -, 157, 74, -</column>
-<column name="Instance">39, 30, 10834, 14826, 0</column>
+<column name="FIFO">4, -, 157, 74, -</column>
+<column name="Instance">39, 18, 6540, 10277, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, 0, 18, -</column>
 <column name="Register">-, -, 2, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
-<specialColumn name="Utilization (%)">36, 7, 6, 18, 0</specialColumn>
+<specialColumn name="Utilization (%)">8, 4, 4, 13, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="Block_entry_gmem_wr_proc_U0">Block_entry_gmem_wr_proc, 35, 26, 9588, 13482, 0</column>
-<column name="adc_forward_U0">adc_forward, 2, 4, 330, 327, 0</column>
+<column name="Block_entry_gmem_wr_proc_U0">Block_entry_gmem_wr_proc, 35, 14, 5242, 8779, 0</column>
+<column name="adc_forward_U0">adc_forward, 2, 4, 367, 363, 0</column>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 144, 232, 0</column>
-<column name="dummy_U0">dummy, 0, 0, 2, 43, 0</column>
+<column name="dummy_U0">dummy, 0, 0, 17, 161, 0</column>
 <column name="gmem_m_axi_U">gmem_m_axi, 2, 0, 770, 742, 0</column>
 </table>
 </item>
@@ -81,7 +81,7 @@
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
-<column name="doppler_mask_stream_U">157, 157, 74, 0, 128, 2816, 360448</column>
+<column name="doppler_mask_stream_U">4, 157, 74, 0, 128, 64, 8192</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">

@@ -1,38 +1,19 @@
 # This script segment is generated automatically by AutoPilot
 
-set name kernel_fadd_32ns_32ns_32_8_full_dsp_1
+set name kernel_mul_31ns_7ns_38_5_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {fadd} IMPL {fulldsp} LATENCY 7 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {dsp} LATENCY 4 ALLOW_PRAGMA 1
 }
 
 
-set name kernel_fmul_32ns_32ns_32_4_max_dsp_1
+set name kernel_mul_38ns_11ns_48_5_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {fmul} IMPL {maxdsp} LATENCY 3 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {dsp} LATENCY 4 ALLOW_PRAGMA 1
 }
 
 
-set name kernel_sitofp_32ns_32_7_no_dsp_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {sitofp} IMPL {auto} LATENCY 6 ALLOW_PRAGMA 1
-}
-
-
-set name kernel_dmul_64ns_64ns_64_9_max_dsp_1
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {dmul} IMPL {maxdsp} LATENCY 8 ALLOW_PRAGMA 1
-}
-
-
-set name kernel_sitodp_32ns_64_7_no_dsp_1
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {sitodp} IMPL {auto} LATENCY 6 ALLOW_PRAGMA 1
-}
-
-
-set name kernel_udiv_30ns_31ns_29_34_seq_1
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {udiv} IMPL {auto_seq} LATENCY 33 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler kernel_aie_consume_doppler_dmask_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
 }
 
 
@@ -43,11 +24,6 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler kernel_aie_consume_doppler_in_data_mag_RAM_1WNR_AUTO_1R1W BINDTYPE {storage} TYPE {ram_1wnr} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler kernel_aie_consume_doppler_dmask_data_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
 }
 
 
@@ -62,7 +38,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 166 \
+    id 163 \
     name in_d_02_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -81,7 +57,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 167 \
+    id 164 \
     name in_d_02_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -100,7 +76,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 168 \
+    id 165 \
     name in_d_02_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -119,7 +95,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 169 \
+    id 166 \
     name in_d_02_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -138,7 +114,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 170 \
+    id 167 \
     name in_d_03_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -157,7 +133,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 171 \
+    id 168 \
     name in_d_03_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -176,7 +152,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 172 \
+    id 169 \
     name in_d_03_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -195,7 +171,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 173 \
+    id 170 \
     name in_d_03_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -213,7 +189,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 174 \
+    id 171 \
     name doppler_mask_stream \
     type fifo \
     dir O \
@@ -221,14 +197,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_doppler_mask_stream \
     op interface \
-    ports { doppler_mask_stream_din { O 2816 vector } doppler_mask_stream_full_n { I 1 bit } doppler_mask_stream_write { O 1 bit } doppler_mask_stream_num_data_valid { I 8 vector } doppler_mask_stream_fifo_cap { I 8 vector } } \
+    ports { doppler_mask_stream_din { O 64 vector } doppler_mask_stream_full_n { I 1 bit } doppler_mask_stream_write { O 1 bit } doppler_mask_stream_num_data_valid { I 32 vector } doppler_mask_stream_fifo_cap { I 32 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 175 \
+    id 172 \
     name gmem \
     type other \
     dir O \
@@ -243,7 +219,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 176 \
+    id 173 \
     name mm \
     type other \
     dir I \
@@ -258,7 +234,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 177 \
+    id 174 \
     name seq \
     type other \
     dir I \
@@ -273,7 +249,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 178 \
+    id 175 \
     name ind \
     type other \
     dir I \

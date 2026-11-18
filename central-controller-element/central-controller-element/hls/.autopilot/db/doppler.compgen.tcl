@@ -16,7 +16,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 183 \
+    id 180 \
     name out_d_02_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -35,7 +35,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 184 \
+    id 181 \
     name out_d_02_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -54,7 +54,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 185 \
+    id 182 \
     name out_d_02_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -73,7 +73,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 186 \
+    id 183 \
     name out_d_02_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -92,7 +92,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 187 \
+    id 184 \
     name out_d_03_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -111,7 +111,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 188 \
+    id 185 \
     name out_d_03_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -130,7 +130,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 189 \
+    id 186 \
     name out_d_03_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -149,7 +149,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 190 \
+    id 187 \
     name out_d_03_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -168,7 +168,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 191 \
+    id 188 \
     name in_d_02_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -187,7 +187,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 192 \
+    id 189 \
     name in_d_02_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -206,7 +206,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 193 \
+    id 190 \
     name in_d_02_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -225,7 +225,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 194 \
+    id 191 \
     name in_d_02_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -244,7 +244,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 195 \
+    id 192 \
     name in_d_03_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -263,7 +263,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 196 \
+    id 193 \
     name in_d_03_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -282,7 +282,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 197 \
+    id 194 \
     name in_d_03_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -301,7 +301,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 198 \
+    id 195 \
     name in_d_03_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -319,7 +319,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 180 \
+    id 177 \
     name gmem \
     type other \
     dir IO \
@@ -334,7 +334,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 181 \
+    id 178 \
     name mm \
     type other \
     dir I \
@@ -349,7 +349,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 182 \
+    id 179 \
     name idx_stream \
     type fifo \
     dir I \
@@ -364,7 +364,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 199 \
+    id 196 \
     name doppler_mask_stream \
     type fifo \
     dir O \
@@ -372,7 +372,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_doppler_mask_stream \
     op interface \
-    ports { doppler_mask_stream_din { O 2816 vector } doppler_mask_stream_full_n { I 1 bit } doppler_mask_stream_write { O 1 bit } doppler_mask_stream_num_data_valid { I 8 vector } doppler_mask_stream_fifo_cap { I 8 vector } } \
+    ports { doppler_mask_stream_din { O 64 vector } doppler_mask_stream_full_n { I 1 bit } doppler_mask_stream_write { O 1 bit } doppler_mask_stream_num_data_valid { I 32 vector } doppler_mask_stream_fifo_cap { I 32 vector } } \
 } "
 }
 

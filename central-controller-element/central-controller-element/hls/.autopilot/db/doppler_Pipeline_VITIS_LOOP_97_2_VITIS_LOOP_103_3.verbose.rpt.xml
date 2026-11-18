@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3'" level="0">
-<item name = "Date">Tue Nov 10 11:50:41 2026
+<item name = "Date">Sat Nov 14 14:52:49 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -89,7 +89,7 @@
 <column name="icmp_ln103_fu_172_p2">icmp, 0, 0, 14, 5, 6</column>
 <column name="icmp_ln97_fu_157_p2">icmp, 0, 0, 17, 13, 14</column>
 <column name="ap_block_pp0_stage0_11001">or, 0, 0, 2, 1, 1</column>
-<column name="empty_69_fu_198_p3">select, 0, 0, 2, 1, 1</column>
+<column name="empty_73_fu_198_p3">select, 0, 0, 2, 1, 1</column>
 <column name="select_ln97_fu_178_p3">select, 0, 0, 5, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>

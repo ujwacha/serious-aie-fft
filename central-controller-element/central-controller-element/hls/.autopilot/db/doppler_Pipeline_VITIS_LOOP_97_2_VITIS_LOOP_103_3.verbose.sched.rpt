@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3'
 ================================================================
-* Date:           Tue Nov 10 11:50:39 2026
+* Date:           Sat Nov 14 14:52:47 2026
 
 * Version:        2026.1 (Build 6493734 on Jun 16 2026)
 * Project:        central-controller-element
@@ -102,7 +102,7 @@ ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%indvar_flatten = alloca i32 1"   -
 ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%mm_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %mm"   --->   Operation 19 'read' 'mm_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln100_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %zext_ln100"   --->   Operation 20 'read' 'zext_ln100_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%zext_ln100_cast = zext i32 %zext_ln100_read"   --->   Operation 21 'zext' 'zext_ln100_cast' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty_29, i32 0, i32 0, void @empty_17, i32 0, i32 201326592, void @empty_2, void @empty_3, void @empty_17, i32 16, i32 16, i32 16, i32 16, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty_6, i32 0, i32 0, void @empty_43, i32 0, i32 201326592, void @empty_5, void @empty_4, void @empty_43, i32 16, i32 16, i32 16, i32 16, void @empty_43, void @empty_43, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 23 [1/1] (1.58ns)   --->   "%store_ln0 = store i13 0, i13 %indvar_flatten"   --->   Operation 23 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
 ST_1 : Operation 24 [1/1] (1.58ns)   --->   "%store_ln97 = store i9 0, i9 %c" [src/doppler_part.cpp:97]   --->   Operation 24 'store' 'store_ln97' <Predicate = true> <Delay = 1.58>
 ST_1 : Operation 25 [1/1] (1.58ns)   --->   "%store_ln103 = store i5 0, i5 %j" [src/doppler_part.cpp:103]   --->   Operation 25 'store' 'store_ln103' <Predicate = true> <Delay = 1.58>
@@ -119,8 +119,8 @@ ST_1 : Operation 35 [1/1] (1.58ns)   --->   "%store_ln97 = store i13 %add_ln97_1
 
 State 2 <SV = 1> <Delay = 6.36>
 ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%c_load = load i9 %c" [src/doppler_part.cpp:97]   --->   Operation 36 'load' 'c_load' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 37 [1/1] (0.00ns) (grouped into LUT with out node add_ln97)   --->   "%empty_69 = select i1 %icmp_ln103, i9 1, i9 0" [src/doppler_part.cpp:103]   --->   Operation 37 'select' 'empty_69' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 38 [1/1] (1.82ns) (out node of the LUT)   --->   "%add_ln97 = add i9 %c_load, i9 %empty_69" [src/doppler_part.cpp:97]   --->   Operation 38 'add' 'add_ln97' <Predicate = true> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 37 [1/1] (0.00ns) (grouped into LUT with out node add_ln97)   --->   "%empty_73 = select i1 %icmp_ln103, i9 1, i9 0" [src/doppler_part.cpp:103]   --->   Operation 37 'select' 'empty_73' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 38 [1/1] (1.82ns) (out node of the LUT)   --->   "%add_ln97 = add i9 %c_load, i9 %empty_73" [src/doppler_part.cpp:97]   --->   Operation 38 'add' 'add_ln97' <Predicate = true> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 39 [1/1] (1.78ns)   --->   "%first_iter_0 = icmp_eq  i5 %select_ln97, i5 0" [src/doppler_part.cpp:97]   --->   Operation 39 'icmp' 'first_iter_0' <Predicate = true> <Delay = 1.78> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%trunc_ln100 = trunc i9 %add_ln97" [src/doppler_part.cpp:100]   --->   Operation 40 'trunc' 'trunc_ln100' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i19 @_ssdm_op_BitConcatenate.i19.i8.i11, i8 %trunc_ln100, i11 0" [src/doppler_part.cpp:100]   --->   Operation 41 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
@@ -176,7 +176,7 @@ ST_12 : Operation 74 [1/1] (1.58ns)   --->   "%ret_ln0 = ret"   --->   Operation
 State 13 <SV = 12> <Delay = 3.25>
 ST_13 : Operation 69 [1/1] (0.00ns)   --->   "%zext_ln107_1 = zext i12 %add_ln107" [src/doppler_part.cpp:107]   --->   Operation 69 'zext' 'zext_ln107_1' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 70 [1/1] (0.00ns)   --->   "%window_addr = getelementptr i32 %window, i64 0, i64 %zext_ln107_1" [src/doppler_part.cpp:107]   --->   Operation 70 'getelementptr' 'window_addr' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 71 [1/1] (0.00ns)   --->   "%specpipeline_ln104 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, i32 4294967295, void @empty_17" [src/doppler_part.cpp:104]   --->   Operation 71 'specpipeline' 'specpipeline_ln104' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 71 [1/1] (0.00ns)   --->   "%specpipeline_ln104 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, i32 4294967295, void @empty_43" [src/doppler_part.cpp:104]   --->   Operation 71 'specpipeline' 'specpipeline_ln104' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 72 [1/1] ( I:3.25ns O:3.25ns )   --->   "%store_ln107 = store i32 %gmem_addr_read, i12 %window_addr" [src/doppler_part.cpp:107]   --->   Operation 72 'store' 'store_ln107' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
 ST_13 : Operation 73 [1/1] (0.00ns)   --->   "%br_ln103 = br void %for.inc" [src/doppler_part.cpp:103]   --->   Operation 73 'br' 'br_ln103' <Predicate = true> <Delay = 0.00>
 

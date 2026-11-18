@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'kernel'" level="0">
-<item name = "Date">Tue Nov 10 11:50:40 2026
+<item name = "Date">Sat Nov 14 14:52:48 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -31,9 +31,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_adc_forward_fu_192">adc_forward, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_Block_entry_gmem_wr_proc_fu_224">Block_entry_gmem_wr_proc, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_dummy_fu_289">dummy, ?, ?, ?, ?, 0, 0, loop auto-rewind stp (delay=0 cycle(s))</column>
+<column name="grp_adc_forward_fu_194">adc_forward, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_Block_entry_gmem_wr_proc_fu_226">Block_entry_gmem_wr_proc, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_dummy_fu_293">dummy, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

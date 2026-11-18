@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3'
 ================================================================
-* Date:           Tue Nov 10 11:50:41 2026
+* Date:           Sat Nov 14 14:52:49 2026
 
 * Version:        2026.1 (Build 6493734 on Jun 16 2026)
 * Project:        central-controller-element
@@ -96,7 +96,7 @@
     |icmp_ln103_fu_172_p2       |      icmp|   0|  0|  14|           5|           6|
     |icmp_ln97_fu_157_p2        |      icmp|   0|  0|  17|          13|          14|
     |ap_block_pp0_stage0_11001  |        or|   0|  0|   2|           1|           1|
-    |empty_69_fu_198_p3         |    select|   0|  0|   2|           1|           1|
+    |empty_73_fu_198_p3         |    select|   0|  0|   2|           1|           1|
     |select_ln97_fu_178_p3      |    select|   0|  0|   5|           1|           1|
     |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
     +---------------------------+----------+----+---+----+------------+------------+

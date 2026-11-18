@@ -205,7 +205,7 @@ wire    ap_block_pp0_stage0_11001_grp0;
 reg    ap_block_pp0_stage0_subdone_grp0_done_reg;
 wire    ap_block_pp0_stage0_subdone_grp0;
 reg    window_ce0_local;
-wire   [8:0] empty_69_fu_198_p3;
+wire   [8:0] empty_73_fu_198_p3;
 wire   [7:0] trunc_ln100_fu_216_p1;
 wire   [18:0] shl_ln_fu_220_p3;
 wire   [32:0] zext_ln100_1_fu_228_p1;
@@ -639,7 +639,7 @@ assign add_ln107_fu_248_p2 = (tmp_5_fu_241_p3 + zext_ln107_fu_237_p1);
 
 assign add_ln97_1_fu_163_p2 = (ap_sig_allocacmp_indvar_flatten_load + 13'd1);
 
-assign add_ln97_fu_205_p2 = (c_fu_90 + empty_69_fu_198_p3);
+assign add_ln97_fu_205_p2 = (c_fu_90 + empty_73_fu_198_p3);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
@@ -679,7 +679,7 @@ assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = ap_ready_sig;
 
-assign empty_69_fu_198_p3 = ((icmp_ln103_reg_344[0:0] == 1'b1) ? 9'd1 : 9'd0);
+assign empty_73_fu_198_p3 = ((icmp_ln103_reg_344[0:0] == 1'b1) ? 9'd1 : 9'd0);
 
 assign first_iter_0_fu_211_p2 = ((select_ln97_reg_349 == 5'd0) ? 1'b1 : 1'b0);
 

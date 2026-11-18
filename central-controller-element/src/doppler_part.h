@@ -29,14 +29,14 @@ void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
 void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
              hls::stream<pkt> &out_d_02, hls::stream<pkt> &out_d_03,
              hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-             hls::stream<DopplerMaskPacket> &mask_stream);
+             hls::stream<ap_uint<64>> &mask_stream);
 
 /* Consume one Doppler-FFT frame: histogram/median/threshold on the magnitudes,
  * write the kept bins to mm, and emit the keep mask, sequence and range index
  * on mask_stream for the CFAR stage. */
 void aie_consume_doppler(hls::stream<pkt> &in_d_02,
                          hls::stream<pkt> &in_d_03,
-                         hls::stream<DopplerMaskPacket> &mask_stream,
+                         hls::stream<ap_uint<64>> &mask_stream,
                          ap_uint<32> *mm, ap_uint<16> seq, ap_uint<16> ind);
 
 #endif /* DOPPLER_PART_H */

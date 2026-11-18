@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 24
+set cdfgNum 27
 set C_modelName {kernel}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -389,6 +389,7 @@ set ArgLastReadFirstWriteLatency {
 		in_d_03_V_last_V {Type I LastRead 1 FirstWrite -1}
 		num_chirps {Type I LastRead 1 FirstWrite -1}
 		hamming_window_2048_real {Type I LastRead -1 FirstWrite -1}
+		agg_tmp1_ids {Type I LastRead -1 FirstWrite -1}
 		mask_seqs {Type IO LastRead -1 FirstWrite -1}
 		seqs_done {Type IO LastRead -1 FirstWrite -1}
 		hamming_window_256_real {Type I LastRead -1 FirstWrite -1}}
@@ -407,7 +408,7 @@ set ArgLastReadFirstWriteLatency {
 		out_r_01_V_last_V {Type O LastRead -1 FirstWrite 3}
 		num_chirps {Type I LastRead 0 FirstWrite -1}
 		hamming_window_2048_real {Type I LastRead -1 FirstWrite -1}}
-	adc_forward_Pipeline_VITIS_LOOP_54_2 {
+	adc_forward_Pipeline_VITIS_LOOP_58_3 {
 		in_adc0_V_data_V {Type I LastRead 1 FirstWrite -1}
 		in_adc0_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_adc0_V_strb_V {Type I LastRead 1 FirstWrite -1}
@@ -450,6 +451,7 @@ set ArgLastReadFirstWriteLatency {
 		in_d_03_V_strb_V {Type I LastRead 1 FirstWrite -1}
 		in_d_03_V_last_V {Type I LastRead 1 FirstWrite -1}
 		doppler_mask_stream {Type O LastRead -1 FirstWrite 2}
+		agg_tmp1_ids {Type I LastRead -1 FirstWrite -1}
 		mask_seqs {Type IO LastRead -1 FirstWrite -1}
 		seqs_done {Type IO LastRead -1 FirstWrite -1}
 		hamming_window_256_real {Type I LastRead -1 FirstWrite -1}}
@@ -465,8 +467,9 @@ set ArgLastReadFirstWriteLatency {
 		mask_stream {Type O LastRead -1 FirstWrite 39}
 		gmem {Type O LastRead 20 FirstWrite 4}
 		mm {Type I LastRead 0 FirstWrite -1}
-		num_chirps {Type I LastRead 0 FirstWrite -1}}
-	aie_range_consume_Pipeline_VITIS_LOOP_96_2 {
+		num_chirps {Type I LastRead 0 FirstWrite -1}
+		agg_tmp1_ids {Type I LastRead -1 FirstWrite -1}}
+	aie_range_consume_Pipeline_VITIS_LOOP_102_3 {
 		in_r_00_V_data_V {Type I LastRead 1 FirstWrite -1}
 		in_r_00_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_r_00_V_strb_V {Type I LastRead 1 FirstWrite -1}
@@ -480,10 +483,11 @@ set ArgLastReadFirstWriteLatency {
 		mask_head {Type I LastRead 0 FirstWrite -1}
 		adr_buf {Type O LastRead -1 FirstWrite 2}
 		n_out {Type O LastRead -1 FirstWrite 2}}
-	aie_range_consume_Pipeline_VITIS_LOOP_105_3 {
+	aie_range_consume_Pipeline_VITIS_LOOP_112_4 {
 		n_reload {Type I LastRead 0 FirstWrite -1}
 		adr_buf {Type I LastRead 0 FirstWrite -1}
-		shl_ln {Type I LastRead 0 FirstWrite -1}
+		seq {Type I LastRead 0 FirstWrite -1}
+		zext_ln138 {Type I LastRead 0 FirstWrite -1}
 		mm {Type I LastRead 0 FirstWrite -1}
 		gmem {Type O LastRead 20 FirstWrite 4}
 		in_r_00_V_data_V {Type I LastRead 18 FirstWrite -1}
@@ -551,14 +555,14 @@ set ArgLastReadFirstWriteLatency {
 		in_d_03_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_d_03_V_strb_V {Type I LastRead 1 FirstWrite -1}
 		in_d_03_V_last_V {Type I LastRead 1 FirstWrite -1}
-		doppler_mask_stream {Type O LastRead -1 FirstWrite 142}
+		doppler_mask_stream {Type O LastRead -1 FirstWrite 2}
 		gmem {Type O LastRead 27 FirstWrite 11}
-		mm {Type I LastRead 5 FirstWrite -1}
-		seq {Type I LastRead 5 FirstWrite -1}
-		ind {Type I LastRead 5 FirstWrite -1}}
+		mm {Type I LastRead 10 FirstWrite -1}
+		seq {Type I LastRead 10 FirstWrite -1}
+		ind {Type I LastRead 10 FirstWrite -1}}
 	aie_consume_doppler_Pipeline_1 {
 		histogram {Type O LastRead -1 FirstWrite 1}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_196_1 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_188_1 {
 		in_d_02_V_data_V {Type I LastRead 1 FirstWrite -1}
 		in_d_02_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_d_02_V_strb_V {Type I LastRead 1 FirstWrite -1}
@@ -569,34 +573,41 @@ set ArgLastReadFirstWriteLatency {
 		in_d_03_V_last_V {Type I LastRead 1 FirstWrite -1}
 		in_data_real {Type O LastRead -1 FirstWrite 1}
 		in_data_imag {Type O LastRead -1 FirstWrite 1}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_207_2 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_199_2 {
 		in_data_real {Type I LastRead 0 FirstWrite -1}
 		in_data_imag {Type I LastRead 0 FirstWrite -1}
 		in_data_mag {Type O LastRead -1 FirstWrite 4}
 		mean_acc_out {Type O LastRead -1 FirstWrite 3}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_237_3 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_235_3 {
+		mean_u {Type I LastRead 0 FirstWrite -1}
+		scale_q24_out {Type O LastRead -1 FirstWrite 0}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_245_4 {
 		in_data_mag {Type I LastRead 0 FirstWrite -1}
-		zext_ln237 {Type I LastRead 0 FirstWrite -1}
+		zext_ln247 {Type I LastRead 0 FirstWrite -1}
 		histogram {Type IO LastRead 6 FirstWrite 8}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_248_4 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_256_5 {
 		histogram {Type I LastRead 1 FirstWrite -1}
-		i_6_out {Type O LastRead -1 FirstWrite 2}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_287_5 {
+		i_9_out {Type O LastRead -1 FirstWrite 2}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_296_6 {
 		shl_ln2 {Type I LastRead 0 FirstWrite -1}
-		zext_ln287 {Type I LastRead 0 FirstWrite -1}
+		zext_ln296 {Type I LastRead 0 FirstWrite -1}
 		mm {Type I LastRead 0 FirstWrite -1}
 		in_data_mag {Type I LastRead 8 FirstWrite -1}
-		result_11 {Type I LastRead 0 FirstWrite -1}
+		threshold {Type I LastRead 0 FirstWrite -1}
 		in_data_real {Type I LastRead 17 FirstWrite -1}
 		in_data_imag {Type I LastRead 17 FirstWrite -1}
 		gmem {Type O LastRead 27 FirstWrite 11}
 		mask_out {Type O LastRead -1 FirstWrite 15}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_326_9 {
-		phi_mul {Type I LastRead 0 FirstWrite -1}
-		in_data_mag {Type I LastRead 1 FirstWrite -1}
-		dmask_data {Type O LastRead -1 FirstWrite 3}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_327_9 {
+		in_data_mag {Type I LastRead 0 FirstWrite -1}
+		dmask {Type O LastRead -1 FirstWrite 2}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_335_10 {
+		dmask {Type I LastRead 1 FirstWrite -1}
+		doppler_mask_stream {Type O LastRead -1 FirstWrite 2}}
 	dummy {
-		doppler_mask_stream {Type I LastRead 0 FirstWrite -1}}}
+		doppler_mask_stream {Type I LastRead 1 FirstWrite -1}}
+	dummy_Pipeline_VITIS_LOOP_15_2 {
+		doppler_mask_stream {Type I LastRead 1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

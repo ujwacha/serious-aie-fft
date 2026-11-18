@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dummy'" level="0">
-<item name = "Date">Tue Nov 10 11:50:42 2026
+<item name = "Date">Sat Nov 14 14:52:50 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">8.00 ns, 4.997 ns, 2.16 ns</column>
+<column name="ap_clk">8.00 ns, 5.091 ns, 2.16 ns</column>
 </table>
 </item>
 </section>
@@ -24,18 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, 0, 0, loop auto-rewind stp (delay=0 cycle(s))</column>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_dummy_Pipeline_VITIS_LOOP_15_2_fu_28">dummy_Pipeline_VITIS_LOOP_15_2, 130, 130, 1.040 us, 1.040 us, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_7_1">?, ?, 1, 1, N/A, ?, yes</column>
+<column name="- VITIS_LOOP_9_1">?, ?, 133, -, -, ?, no</column>
 </table>
 </item>
 </section>
@@ -50,10 +51,10 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 25, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, -, -, -</column>
+<column name="Instance">-, -, 11, 79, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, 0, 18, -</column>
-<column name="Register">-, -, 2, -, -</column>
+<column name="Multiplexer">-, -, 0, 57, -</column>
+<column name="Register">-, -, 6, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -62,6 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="grp_dummy_Pipeline_VITIS_LOOP_15_2_fu_28">dummy_Pipeline_VITIS_LOOP_15_2, 0, 0, 11, 79, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -78,20 +80,23 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="icmp_ln9_fu_32_p2">icmp, 0, 0, 23, 16, 2</column>
-<column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln12_fu_38_p2">icmp, 0, 0, 23, 16, 2</column>
+<column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_done_int">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">25, 5, 1, 5</column>
+<column name="ap_done">9, 2, 1, 2</column>
 <column name="doppler_mask_stream_blk_n">9, 2, 1, 2</column>
+<column name="doppler_mask_stream_read">14, 3, 1, 3</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">4, 0, 4, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="grp_dummy_Pipeline_VITIS_LOOP_15_2_fu_28_ap_start_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -108,7 +113,7 @@
 <column name="ap_continue">in, 1, ap_ctrl_hs, dummy, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, dummy, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, dummy, return value</column>
-<column name="doppler_mask_stream_dout">in, 2816, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_dout">in, 64, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_empty_n">in, 1, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_read">out, 1, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_num_data_valid">in, 8, ap_fifo, doppler_mask_stream, pointer</column>

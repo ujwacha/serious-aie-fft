@@ -2,12 +2,51 @@
 #define TEST_LIBRARY_LIB_H
 
 #include <stddef.h>
+#include <stdint.h>
 
-const char *testlib_name(void);
-const char *testlib_version(void);
 
-/* Writes "greetings from <who>" into buf and returns the snprintf-style
- * length. A non-positive return means the buffer was too small or invalid. */
-int testlib_greet(char *buf, size_t size, const char *who);
+// our data
+// 2048
+// 128 of them
+
+#define TOTAL_SEQUENCE 128
+#define BURST_LEN 16
+
+
+typedef struct {
+  int16_t real;
+  int16_t imag;
+} cint16;
+
+typedef struct {
+  uint64_t high;
+  uint64_t low;
+} rmask;
+typedef uint16_t dmask;
+typedef uint8_t amask;
+
+
+typedef union {
+  rmask mt[TOTAL_SEQUENCE];
+  dmask md[TOTAL_SEQUENCE];
+  amask ma[TOTAL_SEQUENCE];
+} mask;
+
+
+typedef struct {
+  mask m;
+  cint16 *head_pointer[TOTAL_SEQUENCE];
+  cint16 *space;
+  uint32_t len;
+} allocation;
+
+typedef struct {
+  cint16 data[BURST_LEN];
+} burst;
+
+typedef struct {
+  burst data;
+  uint32_t next;
+} block;
 
 #endif /* TEST_LIBRARY_LIB_H */

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'doppler'" level="0">
-<item name = "Date">Tue Nov 10 11:50:40 2026
+<item name = "Date">Sat Nov 14 14:52:48 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -35,8 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_91_1">?, ?, 30752 ~ 34352, -, -, ?, no</column>
-<column name=" + VITIS_LOOP_113_4">26640, 30240, 1665 ~ 1890, -, -, 16, no</column>
+<column name="- VITIS_LOOP_91_1">?, ?, 30784 ~ 33872, -, -, ?, no</column>
+<column name=" + VITIS_LOOP_113_4">26672, 29760, 1667 ~ 1860, -, -, 16, no</column>
 </table>
 </item>
 </section>

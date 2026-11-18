@@ -113,7 +113,7 @@ attribute shreg_extract : string;
 
 
 begin
-    bitselect_1ns_128ns_7ns_1_1_1_U83 : component kernel_bitselect_1ns_128ns_7ns_1_1_1
+    bitselect_1ns_128ns_7ns_1_1_1_U85 : component kernel_bitselect_1ns_128ns_7ns_1_1_1
     generic map (
         DATAWIDTH => 128,
         ADDRWIDTH => 7)

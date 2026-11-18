@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 24
+set cdfgNum 27
 set C_modelName {doppler}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -39,7 +39,7 @@ set C_modelArgList {
 	{ in_d_03_V_keep_V int 4 regular {axi_s 0 volatile  { in_d_03 Keep } }  }
 	{ in_d_03_V_strb_V int 4 regular {axi_s 0 volatile  { in_d_03 Strb } }  }
 	{ in_d_03_V_last_V int 1 regular {axi_s 0 volatile  { in_d_03 Last } }  }
-	{ doppler_mask_stream int 2816 regular {fifo 1 volatile }  }
+	{ doppler_mask_stream int 64 regular {fifo 1 volatile }  }
 }
 set hasAXIMCache 0
 set l_AXIML2Cache [list]
@@ -64,7 +64,7 @@ set C_modelArgMapList {[
  	{ "Name" : "in_d_03_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "in_d_03_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "in_d_03_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "doppler_mask_stream", "interface" : "fifo", "bitwidth" : 2816, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "doppler_mask_stream", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 85
 set portList { 
@@ -148,11 +148,11 @@ set portList {
 	{ in_d_03_TKEEP sc_in sc_lv 4 signal 16 } 
 	{ in_d_03_TSTRB sc_in sc_lv 4 signal 17 } 
 	{ in_d_03_TLAST sc_in sc_lv 1 signal 18 } 
-	{ doppler_mask_stream_din sc_out sc_lv 2816 signal 19 } 
+	{ doppler_mask_stream_din sc_out sc_lv 64 signal 19 } 
 	{ doppler_mask_stream_full_n sc_in sc_logic 1 signal 19 } 
 	{ doppler_mask_stream_write sc_out sc_logic 1 signal 19 } 
-	{ doppler_mask_stream_num_data_valid sc_in sc_lv 8 signal 19 } 
-	{ doppler_mask_stream_fifo_cap sc_in sc_lv 8 signal 19 } 
+	{ doppler_mask_stream_num_data_valid sc_in sc_lv 32 signal 19 } 
+	{ doppler_mask_stream_fifo_cap sc_in sc_lv 32 signal 19 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -235,11 +235,11 @@ set NewPortList {[
  	{ "name": "in_d_03_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "in_d_03_V_keep_V", "role": "default" }} , 
  	{ "name": "in_d_03_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "in_d_03_V_strb_V", "role": "default" }} , 
  	{ "name": "in_d_03_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "in_d_03_V_last_V", "role": "default" }} , 
- 	{ "name": "doppler_mask_stream_din", "direction": "out", "datatype": "sc_lv", "bitwidth":2816, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "din" }} , 
+ 	{ "name": "doppler_mask_stream_din", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "din" }} , 
  	{ "name": "doppler_mask_stream_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "full_n" }} , 
  	{ "name": "doppler_mask_stream_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "write" }} , 
- 	{ "name": "doppler_mask_stream_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "num_data_valid" }} , 
- 	{ "name": "doppler_mask_stream_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "fifo_cap" }}  ]}
+ 	{ "name": "doppler_mask_stream_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "num_data_valid" }} , 
+ 	{ "name": "doppler_mask_stream_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "doppler_mask_stream", "role": "fifo_cap" }}  ]}
 
 set ArgLastReadFirstWriteLatency {
 	doppler {
@@ -290,14 +290,14 @@ set ArgLastReadFirstWriteLatency {
 		in_d_03_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_d_03_V_strb_V {Type I LastRead 1 FirstWrite -1}
 		in_d_03_V_last_V {Type I LastRead 1 FirstWrite -1}
-		doppler_mask_stream {Type O LastRead -1 FirstWrite 142}
+		doppler_mask_stream {Type O LastRead -1 FirstWrite 2}
 		gmem {Type O LastRead 27 FirstWrite 11}
-		mm {Type I LastRead 5 FirstWrite -1}
-		seq {Type I LastRead 5 FirstWrite -1}
-		ind {Type I LastRead 5 FirstWrite -1}}
+		mm {Type I LastRead 10 FirstWrite -1}
+		seq {Type I LastRead 10 FirstWrite -1}
+		ind {Type I LastRead 10 FirstWrite -1}}
 	aie_consume_doppler_Pipeline_1 {
 		histogram {Type O LastRead -1 FirstWrite 1}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_196_1 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_188_1 {
 		in_d_02_V_data_V {Type I LastRead 1 FirstWrite -1}
 		in_d_02_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_d_02_V_strb_V {Type I LastRead 1 FirstWrite -1}
@@ -308,32 +308,37 @@ set ArgLastReadFirstWriteLatency {
 		in_d_03_V_last_V {Type I LastRead 1 FirstWrite -1}
 		in_data_real {Type O LastRead -1 FirstWrite 1}
 		in_data_imag {Type O LastRead -1 FirstWrite 1}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_207_2 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_199_2 {
 		in_data_real {Type I LastRead 0 FirstWrite -1}
 		in_data_imag {Type I LastRead 0 FirstWrite -1}
 		in_data_mag {Type O LastRead -1 FirstWrite 4}
 		mean_acc_out {Type O LastRead -1 FirstWrite 3}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_237_3 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_235_3 {
+		mean_u {Type I LastRead 0 FirstWrite -1}
+		scale_q24_out {Type O LastRead -1 FirstWrite 0}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_245_4 {
 		in_data_mag {Type I LastRead 0 FirstWrite -1}
-		zext_ln237 {Type I LastRead 0 FirstWrite -1}
+		zext_ln247 {Type I LastRead 0 FirstWrite -1}
 		histogram {Type IO LastRead 6 FirstWrite 8}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_248_4 {
+	aie_consume_doppler_Pipeline_VITIS_LOOP_256_5 {
 		histogram {Type I LastRead 1 FirstWrite -1}
-		i_6_out {Type O LastRead -1 FirstWrite 2}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_287_5 {
+		i_9_out {Type O LastRead -1 FirstWrite 2}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_296_6 {
 		shl_ln2 {Type I LastRead 0 FirstWrite -1}
-		zext_ln287 {Type I LastRead 0 FirstWrite -1}
+		zext_ln296 {Type I LastRead 0 FirstWrite -1}
 		mm {Type I LastRead 0 FirstWrite -1}
 		in_data_mag {Type I LastRead 8 FirstWrite -1}
-		result_11 {Type I LastRead 0 FirstWrite -1}
+		threshold {Type I LastRead 0 FirstWrite -1}
 		in_data_real {Type I LastRead 17 FirstWrite -1}
 		in_data_imag {Type I LastRead 17 FirstWrite -1}
 		gmem {Type O LastRead 27 FirstWrite 11}
 		mask_out {Type O LastRead -1 FirstWrite 15}}
-	aie_consume_doppler_Pipeline_VITIS_LOOP_326_9 {
-		phi_mul {Type I LastRead 0 FirstWrite -1}
-		in_data_mag {Type I LastRead 1 FirstWrite -1}
-		dmask_data {Type O LastRead -1 FirstWrite 3}}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_327_9 {
+		in_data_mag {Type I LastRead 0 FirstWrite -1}
+		dmask {Type O LastRead -1 FirstWrite 2}}
+	aie_consume_doppler_Pipeline_VITIS_LOOP_335_10 {
+		dmask {Type I LastRead 1 FirstWrite -1}
+		doppler_mask_stream {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -365,5 +370,5 @@ set Spec2ImplPortList {
 	in_d_03_V_keep_V { axis {  { in_d_03_TKEEP in_data 0 4 } } }
 	in_d_03_V_strb_V { axis {  { in_d_03_TSTRB in_data 0 4 } } }
 	in_d_03_V_last_V { axis {  { in_d_03_TVALID in_vld 0 1 }  { in_d_03_TREADY in_acc 1 1 }  { in_d_03_TLAST in_data 0 1 } } }
-	doppler_mask_stream { ap_fifo {  { doppler_mask_stream_din fifo_data_out 1 2816 }  { doppler_mask_stream_full_n fifo_status_empty 0 1 }  { doppler_mask_stream_write fifo_data_in 1 1 }  { doppler_mask_stream_num_data_valid fifo_update 0 8 }  { doppler_mask_stream_fifo_cap fifo_data 0 8 } } }
+	doppler_mask_stream { ap_fifo {  { doppler_mask_stream_din fifo_data_out 1 64 }  { doppler_mask_stream_full_n fifo_status_empty 0 1 }  { doppler_mask_stream_write fifo_data_in 1 1 }  { doppler_mask_stream_num_data_valid fifo_update 0 32 }  { doppler_mask_stream_fifo_cap fifo_data 0 32 } } }
 }

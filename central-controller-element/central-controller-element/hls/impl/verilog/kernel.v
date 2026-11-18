@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=196,HLS_SYN_DSP=0,HLS_SYN_FF=10993,HLS_SYN_LUT=14932,HLS_VERSION=2026_1}" *)
+(* CORE_GENERATION_INFO="kernel_kernel,hls_ip_2026_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xa7z030-fbg484-1I,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.026000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=43,HLS_SYN_DSP=0,HLS_SYN_FF=6699,HLS_SYN_LUT=10383,HLS_VERSION=2026_1}" *)
 
 (* DowngradeIPIdentifiedWarnings="yes" *)
 module kernel (
@@ -362,8 +362,10 @@ wire   [3:0] Block_entry_gmem_wr_proc_U0_out_d_03_TSTRB;
 wire   [0:0] Block_entry_gmem_wr_proc_U0_out_d_03_TLAST;
 wire    Block_entry_gmem_wr_proc_U0_in_d_02_TREADY;
 wire    Block_entry_gmem_wr_proc_U0_in_d_03_TREADY;
-wire   [2815:0] Block_entry_gmem_wr_proc_U0_doppler_mask_stream_din;
+wire   [63:0] Block_entry_gmem_wr_proc_U0_doppler_mask_stream_din;
 wire    Block_entry_gmem_wr_proc_U0_doppler_mask_stream_write;
+wire   [31:0] Block_entry_gmem_wr_proc_U0_doppler_mask_stream_num_data_valid;
+wire   [31:0] Block_entry_gmem_wr_proc_U0_doppler_mask_stream_fifo_cap;
 wire    dummy_U0_ap_start;
 wire    dummy_U0_ap_done;
 wire    dummy_U0_ap_continue;
@@ -371,7 +373,7 @@ wire    dummy_U0_ap_idle;
 wire    dummy_U0_ap_ready;
 wire    dummy_U0_doppler_mask_stream_read;
 wire    doppler_mask_stream_full_n;
-wire   [2815:0] doppler_mask_stream_dout;
+wire   [63:0] doppler_mask_stream_dout;
 wire    doppler_mask_stream_empty_n;
 wire   [7:0] doppler_mask_stream_num_data_valid;
 wire   [7:0] doppler_mask_stream_fifo_cap;
@@ -645,8 +647,8 @@ kernel_Block_entry_gmem_wr_proc Block_entry_gmem_wr_proc_U0(
     .doppler_mask_stream_din(Block_entry_gmem_wr_proc_U0_doppler_mask_stream_din),
     .doppler_mask_stream_full_n(doppler_mask_stream_full_n),
     .doppler_mask_stream_write(Block_entry_gmem_wr_proc_U0_doppler_mask_stream_write),
-    .doppler_mask_stream_num_data_valid(doppler_mask_stream_num_data_valid),
-    .doppler_mask_stream_fifo_cap(doppler_mask_stream_fifo_cap)
+    .doppler_mask_stream_num_data_valid(Block_entry_gmem_wr_proc_U0_doppler_mask_stream_num_data_valid),
+    .doppler_mask_stream_fifo_cap(Block_entry_gmem_wr_proc_U0_doppler_mask_stream_fifo_cap)
 );
 
 kernel_dummy dummy_U0(
@@ -664,7 +666,7 @@ kernel_dummy dummy_U0(
     .doppler_mask_stream_fifo_cap(doppler_mask_stream_fifo_cap)
 );
 
-kernel_fifo_w2816_d128_A doppler_mask_stream_U(
+kernel_fifo_w64_d128_A doppler_mask_stream_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -719,6 +721,10 @@ end
 assign Block_entry_gmem_wr_proc_U0_ap_continue = ap_sync_done;
 
 assign Block_entry_gmem_wr_proc_U0_ap_start = ((ap_sync_reg_Block_entry_gmem_wr_proc_U0_ap_ready ^ 1'b1) & ap_start & 1'b1);
+
+assign Block_entry_gmem_wr_proc_U0_doppler_mask_stream_fifo_cap = doppler_mask_stream_fifo_cap;
+
+assign Block_entry_gmem_wr_proc_U0_doppler_mask_stream_num_data_valid = doppler_mask_stream_num_data_valid;
 
 assign adc_forward_U0_ap_continue = ap_sync_done;
 

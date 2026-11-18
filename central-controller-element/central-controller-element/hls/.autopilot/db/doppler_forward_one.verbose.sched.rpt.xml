@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'doppler_forward_one'" level="0">
-<item name = "Date">Tue Nov 10 11:50:39 2026
+<item name = "Date">Sat Nov 14 14:52:47 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_137_1">131, 131, 5, 1, 1, 128, yes</column>
+<column name="- VITIS_LOOP_129_1">131, 131, 5, 1, 1, 128, yes</column>
 </table>
 </item>
 </section>

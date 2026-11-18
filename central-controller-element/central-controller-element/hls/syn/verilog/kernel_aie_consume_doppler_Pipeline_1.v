@@ -41,7 +41,7 @@ wire    ap_enable_reg_pp0_iter0;
 reg    ap_enable_reg_pp0_iter1;
 reg    ap_idle_pp0;
 wire    ap_block_pp0_stage0_subdone;
-wire   [0:0] exitcond624_fu_50_p2;
+wire   [0:0] exitcond654_fu_50_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
@@ -50,7 +50,7 @@ wire    ap_block_pp0_stage0_11001;
 wire   [63:0] p_cast_fu_67_p1;
 wire    ap_block_pp0_stage0;
 reg   [6:0] empty_fu_24;
-wire   [6:0] empty_107_fu_56_p2;
+wire   [6:0] empty_111_fu_56_p2;
 wire    ap_loop_init;
 reg   [6:0] ap_sig_allocacmp_p_load;
 reg    histogram_we0_local;
@@ -122,8 +122,8 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        if (((exitcond624_fu_50_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
-            empty_fu_24 <= empty_107_fu_56_p2;
+        if (((exitcond654_fu_50_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            empty_fu_24 <= empty_111_fu_56_p2;
         end else if ((ap_loop_init == 1'b1)) begin
             empty_fu_24 <= 7'd0;
         end
@@ -137,7 +137,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if (((exitcond624_fu_50_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((exitcond654_fu_50_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -229,9 +229,9 @@ assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = ap_ready_sig;
 
-assign empty_107_fu_56_p2 = (ap_sig_allocacmp_p_load + 7'd1);
+assign empty_111_fu_56_p2 = (ap_sig_allocacmp_p_load + 7'd1);
 
-assign exitcond624_fu_50_p2 = ((ap_sig_allocacmp_p_load == 7'd64) ? 1'b1 : 1'b0);
+assign exitcond654_fu_50_p2 = ((ap_sig_allocacmp_p_load == 7'd64) ? 1'b1 : 1'b0);
 
 assign histogram_address0 = p_cast_fu_67_p1;
 

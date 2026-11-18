@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'seq_generator'
 ================================================================
-* Date:           Tue Nov 10 11:50:41 2026
+* Date:           Sat Nov 14 14:52:49 2026
 
 * Version:        2026.1 (Build 6493734 on Jun 16 2026)
 * Project:        central-controller-element
@@ -78,7 +78,7 @@
     +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
     |                     Instance                     |                 Module                 | BRAM_18K| DSP| FF | LUT | URAM|
     +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
-    |bitset_128ns_128ns_7ns_1s_128_1_1_U88             |bitset_128ns_128ns_7ns_1s_128_1_1       |        0|   0|   0|  143|    0|
+    |bitset_128ns_128ns_7ns_1s_128_1_1_U90             |bitset_128ns_128ns_7ns_1s_128_1_1       |        0|   0|   0|  143|    0|
     |grp_seq_generator_Pipeline_VITIS_LOOP_49_2_fu_91  |seq_generator_Pipeline_VITIS_LOOP_49_2  |        0|   0|  19|  114|    0|
     +--------------------------------------------------+----------------------------------------+---------+----+----+-----+-----+
     |Total                                             |                                        |        0|   0|  19|  257|    0|
@@ -213,12 +213,12 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %idx_stream, void @empty_10, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 8 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i160 %mask_stream, void @empty_10, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %idx_stream, void @empty_20, i32 0, i32 0, void @empty_43, i32 0, i32 0, void @empty_43, void @empty_43, void @empty_43, i32 0, i32 0, i32 0, i32 0, void @empty_43, void @empty_43, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 8 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i160 %mask_stream, void @empty_20, i32 0, i32 0, void @empty_43, i32 0, i32 0, void @empty_43, void @empty_43, void @empty_43, i32 0, i32 0, i32 0, i32 0, void @empty_43, void @empty_43, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%br_ln28 = br void %for.cond" [src/doppler_part.cpp:28]   --->   Operation 10 'br' 'br_ln28' <Predicate = true> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 4.99>
-ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%specloopname_ln28 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22" [src/doppler_part.cpp:28]   --->   Operation 11 'specloopname' 'specloopname_ln28' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%specloopname_ln28 = specloopname void @_ssdm_op_SpecLoopName, void @empty_27" [src/doppler_part.cpp:28]   --->   Operation 11 'specloopname' 'specloopname_ln28' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 12 [1/1] ( I:2.92ns O:2.92ns )   --->   "%mask_stream_read = read i160 @_ssdm_op_Read.ap_fifo.volatile.i160P0A, i160 %mask_stream" [src/doppler_part.cpp:29]   --->   Operation 12 'read' 'mask_stream_read' <Predicate = true> <Delay = 2.92> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.52> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 160> <Depth = 128> <FIFO>
 ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%mask_mask = trunc i160 %mask_stream_read" [src/doppler_part.cpp:29]   --->   Operation 13 'trunc' 'mask_mask' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%mask_seq = partselect i16 @_ssdm_op_PartSelect.i16.i160.i32.i32, i160 %mask_stream_read, i32 128, i32 143" [src/doppler_part.cpp:29]   --->   Operation 14 'partselect' 'mask_seq' <Predicate = true> <Delay = 0.00>
@@ -374,7 +374,7 @@ ret_ln79          (ret          ) [ 00000000]
 <pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_10"/></StgValue>
+<StgValue><ssdm name="empty_20"/></StgValue>
 </bind>
 </comp>
 
@@ -392,7 +392,7 @@ ret_ln79          (ret          ) [ 00000000]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_17"/></StgValue>
+<StgValue><ssdm name="empty_43"/></StgValue>
 </bind>
 </comp>
 
@@ -419,7 +419,7 @@ ret_ln79          (ret          ) [ 00000000]
 <pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_22"/></StgValue>
+<StgValue><ssdm name="empty_27"/></StgValue>
 </bind>
 </comp>
 

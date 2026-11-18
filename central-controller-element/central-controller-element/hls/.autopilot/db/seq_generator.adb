@@ -1246,7 +1246,7 @@
                 </item>
               </inlineStackInfo>
               <originalName></originalName>
-              <rtlName>bitset_128ns_128ns_7ns_1s_128_1_1_U88</rtlName>
+              <rtlName>bitset_128ns_128ns_7ns_1s_128_1_1_U90</rtlName>
               <control>auto</control>
               <opType>bitset</opType>
               <implIndex>auto</implIndex>
@@ -3797,7 +3797,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item class_id="38" tracking_level="0" version="0">
-          <first>bitset_128ns_128ns_7ns_1s_128_1_1_U88 (bitset_128ns_128ns_7ns_1s_128_1_1)</first>
+          <first>bitset_128ns_128ns_7ns_1s_128_1_1_U90 (bitset_128ns_128ns_7ns_1s_128_1_1)</first>
           <second class_id="39" tracking_level="0" version="0">
             <count>2</count>
             <item_version>0</item_version>
@@ -4445,7 +4445,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item>
-          <first>bitset_128ns_128ns_7ns_1s_128_1_1_U88</first>
+          <first>bitset_128ns_128ns_7ns_1s_128_1_1_U90</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
@@ -4463,7 +4463,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item class_id="42" tracking_level="0" version="0">
-          <first>bitset_128ns_128ns_7ns_1s_128_1_1_U88 (bitset_128ns_128ns_7ns_1s_128_1_1)</first>
+          <first>bitset_128ns_128ns_7ns_1s_128_1_1_U90 (bitset_128ns_128ns_7ns_1s_128_1_1)</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>

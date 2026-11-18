@@ -383,7 +383,7 @@
 						<name>i</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -399,7 +399,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -441,7 +441,7 @@
 						<name>in_adc0_offset_read</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -457,7 +457,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -500,7 +500,7 @@
 						<name>tmp</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -516,7 +516,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -557,10 +557,10 @@
 					<Obj>
 						<type>0</type>
 						<id>19</id>
-						<name>i_write_ln137</name>
+						<name>i_write_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -576,7 +576,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -616,10 +616,10 @@
 					<Obj>
 						<type>0</type>
 						<id>20</id>
-						<name>br_ln137</name>
+						<name>br_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -635,7 +635,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -674,10 +674,10 @@
 					<Obj>
 						<type>0</type>
 						<id>22</id>
-						<name>i_3</name>
+						<name>i_5</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -693,7 +693,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -736,7 +736,7 @@
 						<name>tmp_4</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -752,7 +752,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -793,10 +793,10 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>br_ln137</name>
+						<name>br_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -812,7 +812,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -853,10 +853,10 @@
 					<Obj>
 						<type>0</type>
 						<id>26</id>
-						<name>zext_ln137</name>
+						<name>zext_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -872,7 +872,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -911,10 +911,10 @@
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>zext_ln141</name>
+						<name>zext_ln133</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -930,7 +930,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -969,10 +969,10 @@
 					<Obj>
 						<type>0</type>
 						<id>28</id>
-						<name>add_ln141</name>
+						<name>add_ln133</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -988,7 +988,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -1028,10 +1028,10 @@
 					<Obj>
 						<type>0</type>
 						<id>29</id>
-						<name>zext_ln141_1</name>
+						<name>zext_ln133_1</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1047,7 +1047,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -1089,7 +1089,7 @@
 						<name>in_adc0_addr</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1105,7 +1105,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -1149,7 +1149,7 @@
 						<name>bits</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>133</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1165,7 +1165,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -1198,7 +1198,7 @@
 				<m_delay>3.25</m_delay>
 				<m_topoIndex>16</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-				<BindID>85899345954</BindID>
+				<BindID>94489280546</BindID>
 			</item>
 			<item class_id_reference="9" object_id="_25">
 				<Value>
@@ -1231,7 +1231,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -1296,7 +1296,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>141</second>
+										<second>133</second>
 									</item>
 								</second>
 							</item>
@@ -1340,7 +1340,7 @@
 						<name>tmp_2</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1356,7 +1356,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1401,7 +1401,7 @@
 						<name>or_ln</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1417,7 +1417,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1458,10 +1458,10 @@
 					<Obj>
 						<type>0</type>
 						<id>39</id>
-						<name>zext_ln142</name>
+						<name>zext_ln134</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1477,7 +1477,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1519,7 +1519,7 @@
 						<name>tmp_3</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1535,7 +1535,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1577,10 +1577,10 @@
 					<Obj>
 						<type>0</type>
 						<id>41</id>
-						<name>zext_ln142_1</name>
+						<name>zext_ln134_1</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1596,7 +1596,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1638,7 +1638,7 @@
 						<name>in_adc0_addr_1</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1654,7 +1654,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1698,7 +1698,7 @@
 						<name>bits_1</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>134</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1714,7 +1714,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1747,7 +1747,7 @@
 				<m_delay>3.25</m_delay>
 				<m_topoIndex>23</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-				<BindID>85899345954</BindID>
+				<BindID>94489280546</BindID>
 			</item>
 			<item class_id_reference="9" object_id="_34">
 				<Value>
@@ -1780,7 +1780,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1845,7 +1845,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>142</second>
+										<second>134</second>
 									</item>
 								</second>
 							</item>
@@ -1889,7 +1889,7 @@
 						<name>hamming_window_256_real_addr</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>145</lineNumber>
+						<lineNumber>137</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1905,7 +1905,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>145</second>
+										<second>137</second>
 									</item>
 								</second>
 							</item>
@@ -1949,7 +1949,7 @@
 						<name>b_real</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>149</lineNumber>
+						<lineNumber>141</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -1965,7 +1965,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2007,7 +2007,7 @@
 						<name>hamming_window_256_real_addr_1</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>146</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -2023,7 +2023,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>146</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
@@ -2067,7 +2067,7 @@
 						<name>b_real_1</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>142</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -2083,7 +2083,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -2148,7 +2148,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2213,7 +2213,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2278,7 +2278,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2344,7 +2344,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2409,7 +2409,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2477,7 +2477,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2543,7 +2543,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>149</second>
+										<second>141</second>
 									</item>
 								</second>
 							</item>
@@ -2611,7 +2611,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -2676,7 +2676,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -2741,7 +2741,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -2807,7 +2807,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -2872,7 +2872,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -2940,7 +2940,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -3006,7 +3006,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>150</second>
+										<second>142</second>
 									</item>
 								</second>
 							</item>
@@ -3074,7 +3074,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>154</second>
+										<second>146</second>
 									</item>
 								</second>
 							</item>
@@ -3141,7 +3141,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>155</second>
+										<second>147</second>
 									</item>
 								</second>
 							</item>
@@ -3182,10 +3182,10 @@
 					<Obj>
 						<type>0</type>
 						<id>66</id>
-						<name>out_d_02_V_data_V_write_ln158</name>
+						<name>out_d_02_V_data_V_write_ln150</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>158</lineNumber>
+						<lineNumber>150</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -3201,7 +3201,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>158</second>
+										<second>150</second>
 									</item>
 								</second>
 							</item>
@@ -3248,10 +3248,10 @@
 					<Obj>
 						<type>0</type>
 						<id>67</id>
-						<name>out_d_03_V_data_V_write_ln159</name>
+						<name>out_d_03_V_data_V_write_ln151</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>159</lineNumber>
+						<lineNumber>151</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -3267,7 +3267,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>159</second>
+										<second>151</second>
 									</item>
 								</second>
 							</item>
@@ -3314,10 +3314,10 @@
 					<Obj>
 						<type>0</type>
 						<id>68</id>
-						<name>add_ln137</name>
+						<name>add_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -3333,7 +3333,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -3373,10 +3373,10 @@
 					<Obj>
 						<type>0</type>
 						<id>69</id>
-						<name>i_write_ln137</name>
+						<name>i_write_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -3392,7 +3392,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -3434,10 +3434,10 @@
 					<Obj>
 						<type>0</type>
 						<id>70</id>
-						<name>br_ln137</name>
+						<name>br_ln129</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>137</lineNumber>
+						<lineNumber>129</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -3453,7 +3453,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>137</second>
+										<second>129</second>
 									</item>
 								</second>
 							</item>
@@ -3492,10 +3492,10 @@
 					<Obj>
 						<type>0</type>
 						<id>72</id>
-						<name>_ln161</name>
+						<name>_ln153</name>
 						<fileName>src/doppler_part.cpp</fileName>
 						<fileDirectory>/home/light/MajorProject/serious-aie-fft/central-controller-element</fileDirectory>
-						<lineNumber>161</lineNumber>
+						<lineNumber>153</lineNumber>
 						<contextFuncName>doppler_forward_one</contextFuncName>
 						<contextNormFuncName>doppler_forward_one</contextNormFuncName>
 						<inlineStackInfo>
@@ -3511,7 +3511,7 @@
 											<first>src/doppler_part.cpp</first>
 											<second>doppler_forward_one</second>
 										</first>
-										<second>161</second>
+										<second>153</second>
 									</item>
 								</second>
 							</item>
@@ -4941,8 +4941,8 @@
 		</item>
 		<item class_id_reference="22" object_id="_189">
 			<mId>3</mId>
-			<mTag>VITIS_LOOP_137_1</mTag>
-			<mNormTag>VITIS_LOOP_137_1</mNormTag>
+			<mTag>VITIS_LOOP_129_1</mTag>
+			<mNormTag>VITIS_LOOP_129_1</mNormTag>
 			<mType>1</mType>
 			<sub_regions>
 				<count>0</count>
@@ -5386,7 +5386,7 @@
 		<count>1</count>
 		<item_version>0</item_version>
 		<item class_id="33" tracking_level="1" version="0" object_id="_191">
-			<region_name>VITIS_LOOP_137_1</region_name>
+			<region_name>VITIS_LOOP_129_1</region_name>
 			<basic_blocks>
 				<count>2</count>
 				<item_version>0</item_version>
@@ -5467,7 +5467,7 @@
 				<Category>RAM</Category>
 				<ResourceType>RAM_2P</ResourceType>
 				<source_obj>1</source_obj>
-				<BindID>85899345954</BindID>
+				<BindID>94489280546</BindID>
 				<SubResources class_id="42" tracking_level="0" version="0">
 					<PortName>0_RW</PortName>
 					<Ops class_id="43" tracking_level="0" version="0">

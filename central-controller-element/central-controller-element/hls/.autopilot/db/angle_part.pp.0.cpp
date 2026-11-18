@@ -55478,13 +55478,24 @@ struct Addr {
 };
 
 
+struct SequenceList {
+    unsigned int ids[8];
+    unsigned int num;
+};
+
+
 struct DopplerMaskPacket {
     ap_uint<16> rank;
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    int32_t data[86];
+    int32_t data[256];
 };
+
+
+
+
+constexpr int kDopplerPacketWords = sizeof(DopplerMaskPacket) / 8;
 
 
 void build_mask_indices(const ap_uint<32> *mask_words,
@@ -55540,16 +55551,24 @@ void kernel(ap_uint<32> *mm,
 
 
 
-void dummy(hls::stream<DopplerMaskPacket> &mask_stream);
+void dummy(hls::stream<ap_uint<64>> &mask_stream);
 # 2 "src/angle_part.cpp" 2
 
-void dummy(hls::stream<DopplerMaskPacket> &mask_stream) {
+void dummy(hls::stream<ap_uint<64>> &mask_stream) {
 
 
 
-  VITIS_LOOP_7_1: for (;;) {
-    DopplerMaskPacket p = mask_stream.read();
-    if (p.rank == 0xFFFF)
+
+
+  VITIS_LOOP_9_1: for (;;) {
+    ap_uint<64> header = mask_stream.read();
+    ap_uint<16> rank = header.range(15, 0);
+    if (rank == 0xFFFF)
       break;
+
+    VITIS_LOOP_15_2: for (int i = 1; i < kDopplerPacketWords; i++) {
+#pragma HLS PIPELINE II = 1
+      mask_stream.read();
+    }
   }
 }

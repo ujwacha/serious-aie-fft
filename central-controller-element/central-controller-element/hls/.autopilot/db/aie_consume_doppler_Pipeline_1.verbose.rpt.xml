@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'aie_consume_doppler_Pipeline_1'" level="0">
-<item name = "Date">Tue Nov 10 11:50:41 2026
+<item name = "Date">Sat Nov 14 14:52:49 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -78,8 +78,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="empty_107_fu_56_p2">+, 0, 0, 14, 7, 1</column>
-<column name="exitcond624_fu_50_p2">icmp, 0, 0, 15, 7, 8</column>
+<column name="empty_111_fu_56_p2">+, 0, 0, 14, 7, 1</column>
+<column name="exitcond654_fu_50_p2">icmp, 0, 0, 15, 7, 8</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>

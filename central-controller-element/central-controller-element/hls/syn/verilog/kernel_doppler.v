@@ -182,11 +182,11 @@ output   in_d_03_TREADY;
 input  [3:0] in_d_03_TKEEP;
 input  [3:0] in_d_03_TSTRB;
 input  [0:0] in_d_03_TLAST;
-output  [2815:0] doppler_mask_stream_din;
+output  [63:0] doppler_mask_stream_din;
 input   doppler_mask_stream_full_n;
 output   doppler_mask_stream_write;
-input  [7:0] doppler_mask_stream_num_data_valid;
-input  [7:0] doppler_mask_stream_fifo_cap;
+input  [31:0] doppler_mask_stream_num_data_valid;
+input  [31:0] doppler_mask_stream_fifo_cap;
 
 reg ap_done;
 reg ap_idle;
@@ -207,7 +207,7 @@ reg[3:0] out_d_03_TSTRB;
 reg[0:0] out_d_03_TLAST;
 reg in_d_02_TREADY;
 reg in_d_03_TREADY;
-reg[2815:0] doppler_mask_stream_din;
+reg[63:0] doppler_mask_stream_din;
 reg doppler_mask_stream_write;
 
 (* fsm_encoding = "none" *) reg   [5:0] ap_CS_fsm;
@@ -300,7 +300,7 @@ wire    grp_aie_consume_doppler_fu_196_ap_idle;
 wire    grp_aie_consume_doppler_fu_196_ap_ready;
 wire    grp_aie_consume_doppler_fu_196_in_d_02_TREADY;
 wire    grp_aie_consume_doppler_fu_196_in_d_03_TREADY;
-wire   [2815:0] grp_aie_consume_doppler_fu_196_doppler_mask_stream_din;
+wire   [63:0] grp_aie_consume_doppler_fu_196_doppler_mask_stream_din;
 wire    grp_aie_consume_doppler_fu_196_doppler_mask_stream_write;
 wire    grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWVALID;
 wire   [63:0] grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWADDR;
@@ -498,8 +498,8 @@ kernel_aie_consume_doppler grp_aie_consume_doppler_fu_196(
     .doppler_mask_stream_din(grp_aie_consume_doppler_fu_196_doppler_mask_stream_din),
     .doppler_mask_stream_full_n(doppler_mask_stream_full_n),
     .doppler_mask_stream_write(grp_aie_consume_doppler_fu_196_doppler_mask_stream_write),
-    .doppler_mask_stream_num_data_valid(8'd0),
-    .doppler_mask_stream_fifo_cap(8'd0),
+    .doppler_mask_stream_num_data_valid(doppler_mask_stream_num_data_valid),
+    .doppler_mask_stream_fifo_cap(doppler_mask_stream_fifo_cap),
     .m_axi_gmem_0_AWVALID(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWVALID),
     .m_axi_gmem_0_AWREADY(m_axi_gmem_0_AWREADY),
     .m_axi_gmem_0_AWADDR(grp_aie_consume_doppler_fu_196_m_axi_gmem_0_AWADDR),
@@ -714,7 +714,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state6) & (doppler_mask_stream_full_n == 1'b1))) begin
-        doppler_mask_stream_din = 2816'd65535;
+        doppler_mask_stream_din = 64'd65535;
     end else if ((1'b1 == ap_CS_fsm_state5)) begin
         doppler_mask_stream_din = grp_aie_consume_doppler_fu_196_doppler_mask_stream_din;
     end else begin

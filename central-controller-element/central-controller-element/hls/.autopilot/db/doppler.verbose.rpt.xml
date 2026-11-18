@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'doppler'" level="0">
-<item name = "Date">Tue Nov 10 11:50:42 2026
+<item name = "Date">Sat Nov 14 14:52:50 2026
 </item>
 <item name = "Version">2026.1 (Build 6493734 on Jun 16 2026)</item>
 <item name = "Project">central-controller-element</item>
@@ -33,13 +33,13 @@
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
 <column name="grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163">doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3, 4109, 4109, 32.872 us, 32.872 us, 0, 0, loop pipeline stp</column>
 <column name="grp_doppler_forward_one_fu_172">doppler_forward_one, 133, 133, 1.064 us, 1.064 us, 0, 0, loop pipeline stp</column>
-<column name="grp_aie_consume_doppler_fu_196">aie_consume_doppler, 1663, 1888, 13.304 us, 15.104 us, 1663, 1888, no</column>
+<column name="grp_aie_consume_doppler_fu_196">aie_consume_doppler, 1665, 1858, 13.320 us, 14.864 us, 1665, 1858, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_91_1">?, ?, 30752 ~ 34352, -, -, ?, no</column>
-<column name=" + VITIS_LOOP_113_4">26640, 30240, 1665 ~ 1890, -, -, 16, no</column>
+<column name="- VITIS_LOOP_91_1">?, ?, 30784 ~ 33872, -, -, ?, no</column>
+<column name=" + VITIS_LOOP_113_4">26672, 29760, 1667 ~ 1860, -, -, 16, no</column>
 </table>
 </item>
 </section>
@@ -54,19 +54,19 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 79, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">9, 26, 7089, 8378, 0</column>
+<column name="Instance">9, 14, 2725, 3643, 0</column>
 <column name="Memory">8, -, 0, 0, 0</column>
 <column name="Multiplexer">-, -, 0, 268, -</column>
 <column name="Register">-, -, 182, -, -</column>
 <specialColumn name="Available">530, 400, 157200, 78600, 0</specialColumn>
-<specialColumn name="Utilization (%)">3, 6, 4, 11, 0</specialColumn>
+<specialColumn name="Utilization (%)">3, 3, 1, 5, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_aie_consume_doppler_fu_196">aie_consume_doppler, 8, 22, 6535, 7897, 0</column>
+<column name="grp_aie_consume_doppler_fu_196">aie_consume_doppler, 8, 10, 2171, 3162, 0</column>
 <column name="grp_doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3_fu_163">doppler_Pipeline_VITIS_LOOP_97_2_VITIS_LOOP_103_3, 0, 0, 365, 371, 0</column>
 <column name="grp_doppler_forward_one_fu_172">doppler_forward_one, 1, 4, 189, 110, 0</column>
 </table>
@@ -100,7 +100,7 @@
 <column name="ap_NS_fsm">37, 7, 1, 7</column>
 <column name="b_reg_152">9, 2, 5, 10</column>
 <column name="doppler_mask_stream_blk_n">9, 2, 1, 2</column>
-<column name="doppler_mask_stream_din">9, 2, 2816, 5632</column>
+<column name="doppler_mask_stream_din">9, 2, 64, 128</column>
 <column name="doppler_mask_stream_write">14, 3, 1, 3</column>
 <column name="idx_stream_blk_n">9, 2, 1, 2</column>
 <column name="in_d_02_TREADY">9, 2, 1, 2</column>
@@ -234,11 +234,11 @@
 <column name="in_d_03_TLAST">in, 1, axis, in_d_03_V_last_V, pointer</column>
 <column name="in_d_03_TKEEP">in, 4, axis, in_d_03_V_keep_V, pointer</column>
 <column name="in_d_03_TSTRB">in, 4, axis, in_d_03_V_strb_V, pointer</column>
-<column name="doppler_mask_stream_din">out, 2816, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_din">out, 64, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_full_n">in, 1, ap_fifo, doppler_mask_stream, pointer</column>
 <column name="doppler_mask_stream_write">out, 1, ap_fifo, doppler_mask_stream, pointer</column>
-<column name="doppler_mask_stream_num_data_valid">in, 8, ap_fifo, doppler_mask_stream, pointer</column>
-<column name="doppler_mask_stream_fifo_cap">in, 8, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_num_data_valid">in, 32, ap_fifo, doppler_mask_stream, pointer</column>
+<column name="doppler_mask_stream_fifo_cap">in, 32, ap_fifo, doppler_mask_stream, pointer</column>
 </table>
 </item>
 </section>

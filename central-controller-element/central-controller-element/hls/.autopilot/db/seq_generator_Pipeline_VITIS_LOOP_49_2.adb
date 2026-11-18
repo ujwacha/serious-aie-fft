@@ -727,7 +727,7 @@
                 </item>
               </inlineStackInfo>
               <originalName></originalName>
-              <rtlName>bitselect_1ns_128ns_7ns_1_1_1_U83</rtlName>
+              <rtlName>bitselect_1ns_128ns_7ns_1_1_1_U85</rtlName>
               <control>auto</control>
               <opType>bitselect</opType>
               <implIndex>auto</implIndex>
@@ -2196,7 +2196,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item class_id="36" tracking_level="0" version="0">
-          <first>bitselect_1ns_128ns_7ns_1_1_1_U83 (bitselect_1ns_128ns_7ns_1_1_1)</first>
+          <first>bitselect_1ns_128ns_7ns_1_1_1_U85 (bitselect_1ns_128ns_7ns_1_1_1)</first>
           <second class_id="37" tracking_level="0" version="0">
             <count>2</count>
             <item_version>0</item_version>
@@ -2606,7 +2606,7 @@
         <count>2</count>
         <item_version>0</item_version>
         <item>
-          <first>bitselect_1ns_128ns_7ns_1_1_1_U83</first>
+          <first>bitselect_1ns_128ns_7ns_1_1_1_U85</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
@@ -2624,7 +2624,7 @@
         <count>1</count>
         <item_version>0</item_version>
         <item class_id="40" tracking_level="0" version="0">
-          <first>bitselect_1ns_128ns_7ns_1_1_1_U83 (bitselect_1ns_128ns_7ns_1_1_1)</first>
+          <first>bitselect_1ns_128ns_7ns_1_1_1_U85 (bitselect_1ns_128ns_7ns_1_1_1)</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>

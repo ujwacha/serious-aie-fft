@@ -55478,13 +55478,24 @@ struct Addr {
 };
 
 
+struct SequenceList {
+    unsigned int ids[8];
+    unsigned int num;
+};
+
+
 struct DopplerMaskPacket {
     ap_uint<16> rank;
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    int32_t data[86];
+    int32_t data[256];
 };
+
+
+
+
+constexpr int kDopplerPacketWords = sizeof(DopplerMaskPacket) / 8;
 
 
 void build_mask_indices(const ap_uint<32> *mask_words,
@@ -55554,14 +55565,14 @@ void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
 void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
              hls::stream<pkt> &out_d_02, hls::stream<pkt> &out_d_03,
              hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-             hls::stream<DopplerMaskPacket> &mask_stream);
+             hls::stream<ap_uint<64>> &mask_stream);
 
 
 
 
 void aie_consume_doppler(hls::stream<pkt> &in_d_02,
                          hls::stream<pkt> &in_d_03,
-                         hls::stream<DopplerMaskPacket> &mask_stream,
+                         hls::stream<ap_uint<64>> &mask_stream,
                          ap_uint<32> *mm, ap_uint<16> seq, ap_uint<16> ind);
 # 2 "src/doppler_part.cpp" 2
 
@@ -71431,7 +71442,7 @@ void seq_generator(hls::stream<MaskPacket> &mask_in,
 void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
              hls::stream<pkt> &out_d_02, hls::stream<pkt> &out_d_03,
              hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-             hls::stream<DopplerMaskPacket> &mask_stream) {
+             hls::stream<ap_uint<64>> &mask_stream) {
 
 
 
@@ -71470,21 +71481,13 @@ void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
 
 
 
-  DopplerMaskPacket end;
-  end.rank = 0xFFFF;
-  end.mask = 0;
-  end.seq = 0;
-  end.index = 0;
-  VITIS_LOOP_128_5: for (int i = 0; i < 86; i++) {
-#pragma HLS UNROLL
-    end.data[i] = 0;
-  }
-  mask_stream.write(end);
+
+  mask_stream.write((ap_uint<64>)0xFFFF);
 }
 
 void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
                          hls::stream<pkt> &out_d_03) {
-  VITIS_LOOP_137_1: for (int i = 0; i < 256; i += 2) {
+  VITIS_LOOP_129_1: for (int i = 0; i < 256; i += 2) {
 #pragma HLS PIPELINE II = 1
 
 
@@ -71509,9 +71512,9 @@ void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
     out_d_03.write(q1);
   }
 }
-# 186 "src/doppler_part.cpp"
+# 178 "src/doppler_part.cpp"
 void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-                         hls::stream<DopplerMaskPacket> &mask_stream,
+                         hls::stream<ap_uint<64>> &mask_stream,
                          ap_uint<32> *mm, ap_uint<16> seq, ap_uint<16> ind) {
 
   unsigned int histogram[64] = {0};
@@ -71520,7 +71523,7 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
   int32_t in_data_mag[256];
 
 
-  VITIS_LOOP_196_1: for (int i = 0; i < 256; i += 2) {
+  VITIS_LOOP_188_1: for (int i = 0; i < 256; i += 2) {
 #pragma HLS PIPELINE II = 1
     auto even_element = bits_to_cint16(in_d_02.read().get_data());
     auto odd_element = bits_to_cint16(in_d_03.read().get_data());
@@ -71531,7 +71534,7 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
 
   int64_t mean_acc = 0;
 
-  VITIS_LOOP_207_2: for (int i = 0; i < 256; i++) {
+  VITIS_LOOP_199_2: for (int i = 0; i < 256; i++) {
 #pragma HLS PIPELINE II = 1
     int32_t re = (int32_t)in_data[i].real;
     int32_t im = (int32_t)in_data[i].imag;
@@ -71546,11 +71549,27 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
 
 
   int32_t mean = (int32_t)(mean_acc >> 8);
-# 234 "src/doppler_part.cpp"
+# 226 "src/doppler_part.cpp"
   uint32_t mean_u = (mean > 0) ? (uint32_t)mean : 1u;
-  uint32_t scale_q24 = (mean > 0) ? ((16u << 24) / mean_u) : 0u;
 
-  VITIS_LOOP_237_3: for (int i = 0; i < 256; i++) {
+
+
+
+
+
+  uint32_t scale_q24 = 0;
+  uint32_t div_rem = 0;
+  VITIS_LOOP_235_3: for (int i = 0; i < 29; i++) {
+#pragma HLS PIPELINE II = 2
+    div_rem = (div_rem << 1) | ((i == 0) ? 1u : 0u);
+    scale_q24 <<= 1;
+    if (div_rem >= mean_u) {
+      div_rem -= mean_u;
+      scale_q24 |= 1u;
+    }
+  }
+
+  VITIS_LOOP_245_4: for (int i = 0; i < 256; i++) {
 #pragma HLS PIPELINE II = 2
     uint64_t bin64 = ((uint64_t)(uint32_t)in_data_mag[i] * scale_q24) >> 24;
     uint32_t bin = (bin64 > 63u) ? 63u : (uint32_t)bin64;
@@ -71561,24 +71580,32 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
 
   int sum = 0;
   int median_bin = 0;
-  VITIS_LOOP_248_4: for (int i = 0; i < 64; i++) {
+  VITIS_LOOP_256_5: for (int i = 0; i < 64; i++) {
     sum += histogram[i];
     if (sum > 256 / 2) {
       median_bin = i;
       break;
     }
   }
+# 271 "src/doppler_part.cpp"
+  const uint32_t thr_q12 = 884u;
+
+  uint32_t a = (uint32_t)(median_bin * 2 + 1);
+
+  uint64_t a_mean;
+#pragma HLS BIND_OP variable = a_mean op = mul impl = dsp latency = 4
+  a_mean = (uint64_t)a * mean_u;
+
+  uint64_t thr_prod;
+#pragma HLS BIND_OP variable = thr_prod op = mul impl = dsp latency = 4
+  thr_prod = a_mean * thr_q12;
+
+  uint64_t thr64 = thr_prod >> 12;
+  uint32_t threshold =
+      (thr64 > 0xFFFFFFFFull) ? 0xFFFFFFFFu : (uint32_t)thr64;
 
 
 
-
-
-
-
-  const int32_t bin_width = (4.0 * mean) / 64.0;
-  const int32_t median_mag = (median_bin + 0.5f) * bin_width;
-  const int32_t threshold = median_mag * kThrMagMult;
-# 280 "src/doppler_part.cpp"
   ap_uint<16> mask = 0;
 
 
@@ -71586,11 +71613,11 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
 
 
 
-  VITIS_LOOP_287_5: for (int b = 0; b < 256 / 16; b++) {
+  VITIS_LOOP_296_6: for (int b = 0; b < 256 / 16; b++) {
 #pragma HLS PIPELINE II = 1
     bool keep = false;
 
-    VITIS_LOOP_291_6: for (int j = 0; j < 16; j++) {
+    VITIS_LOOP_300_7: for (int j = 0; j < 16; j++) {
 #pragma HLS UNROLL
       if ((uint32_t)in_data_mag[b * 16 + j] > threshold)
         keep = true;
@@ -71599,7 +71626,7 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
     if (keep) {
       mask[b] = 1;
       ap_uint<32> *dst = doppler_bin_ptr(mm, seq, (ap_uint<16>)(b * 16), ind);
-      VITIS_LOOP_300_7: for (int j = 0; j < 16; j++) {
+      VITIS_LOOP_309_8: for (int j = 0; j < 16; j++) {
 #pragma HLS UNROLL
         dst[j] = cint16_to_bits(in_data[b * 16 + j]);
       }
@@ -71611,27 +71638,23 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
 
 
 
-  VITIS_LOOP_312_8: for (int rank = 0; rank < 3; rank++) {
-#pragma HLS loop_flatten off
-    DopplerMaskPacket dmask;
-    dmask.rank = (ap_uint<16>)rank;
-    dmask.mask = 0;
-    dmask.seq = 0;
-    dmask.index = 0;
+  DopplerMaskPacket dmask;
+  dmask.rank = 0;
+  dmask.mask = mask;
+  dmask.seq = seq;
+  dmask.index = ind;
 
-    if (rank == 0) {
-      dmask.mask = mask;
-      dmask.seq = seq;
-      dmask.index = ind;
-    }
-
-    VITIS_LOOP_326_9: for (int i = 0; i < 86; i++) {
+  VITIS_LOOP_327_9: for (int i = 0; i < 256; i++) {
 #pragma HLS PIPELINE II = 1
-#pragma HLS LOOP_TRIPCOUNT min = 86 max = 86
-      int src = rank * 86 + i;
-      dmask.data[i] = (src < 256) ? in_data_mag[src] : 0;
-    }
+#pragma HLS LOOP_TRIPCOUNT min = 256 max = 256
+    dmask.data[i] = in_data_mag[i];
+  }
 
-    mask_stream.write(dmask);
+
+  const ap_uint<64> *words = reinterpret_cast<const ap_uint<64> *>(&dmask);
+  VITIS_LOOP_335_10: for (int i = 0; i < kDopplerPacketWords; i++) {
+#pragma HLS PIPELINE II = 1
+#pragma HLS LOOP_TRIPCOUNT min = 129 max = 129
+    mask_stream.write(words[i]);
   }
 }

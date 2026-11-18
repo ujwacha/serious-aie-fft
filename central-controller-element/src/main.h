@@ -20,14 +20,25 @@ struct Addr {
     ap_uint<16> seq;
 };
 
+/* Sequence IDs to process this frame, e.g. {0, 1}. */
+struct SequenceList {
+    unsigned int ids[8];
+    unsigned int num;
+};
+
 
 struct DopplerMaskPacket {
-    ap_uint<16> rank;     /* 0..2: magnitude payload is split in 3        */
-    ap_uint<16> mask;     /* 256 / 16 bits: one keep bit per 16-sample bin */
-    ap_uint<16> seq;      /* sequence number (rank 0 only)                */
-    ap_uint<16> index;    /* range index     (rank 0 only)                */
-    int32_t       data[86]; /* 1/3 of the 256 powers (|x|^2), per rank      */
+    ap_uint<16> rank;      /* 0 = data, 0xFFFF = end-of-frame marker       */
+    ap_uint<16> mask;      /* 256 / 16 bits: one keep bit per 16-sample bin */
+    ap_uint<16> seq;       /* sequence number                              */
+    ap_uint<16> index;     /* range index                                  */
+    int32_t     data[256]; /* all 256 powers (|x|^2)                       */
 };
+
+/* The packet is shipped on a 64-bit stream: the first beat is the header word
+ * (rank/mask/seq/index) and the next 128 beats carry two powers each.
+ * 1032 bytes / 8 = 129 beats. */
+constexpr int kDopplerPacketWords = sizeof(DopplerMaskPacket) / 8;
 
 // helper — exposed for testbench unit test
 void build_mask_indices(const ap_uint<32> *mask_words,

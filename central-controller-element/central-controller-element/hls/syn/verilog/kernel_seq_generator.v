@@ -144,7 +144,7 @@ kernel_seq_generator_Pipeline_VITIS_LOOP_49_2 grp_seq_generator_Pipeline_VITIS_L
 kernel_bitset_128ns_128ns_7ns_1s_128_1_1 #(
     .DATAWIDTH( 128 ),
     .ADDRWIDTH( 7 ))
-bitset_128ns_128ns_7ns_1s_128_1_1_U88(
+bitset_128ns_128ns_7ns_1s_128_1_1_U90(
     .din(seqs_done),
     .sel(tmp_1_fu_181_p2),
     .value(1'd1),

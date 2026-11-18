@@ -55474,13 +55474,24 @@ struct Addr {
 };
 
 
+struct SequenceList {
+    unsigned int ids[8];
+    unsigned int num;
+};
+
+
 struct DopplerMaskPacket {
     ap_uint<16> rank;
     ap_uint<16> mask;
     ap_uint<16> seq;
     ap_uint<16> index;
-    int32_t data[86];
+    int32_t data[256];
 };
+
+
+
+
+constexpr int kDopplerPacketWords = sizeof(DopplerMaskPacket) / 8;
 
 
 void build_mask_indices(const ap_uint<32> *mask_words,
@@ -55534,7 +55545,7 @@ __attribute__((sdx_kernel("kernel", 0))) void kernel(ap_uint<32> *mm,
 
 # 1 "src/angle_part.h" 1
 # 10 "src/angle_part.h"
-void dummy(hls::stream<DopplerMaskPacket> &mask_stream);
+void dummy(hls::stream<ap_uint<64>> &mask_stream);
 # 4 "src/main.cpp" 2
 # 1 "src/doppler_part.h" 1
 # 14 "src/doppler_part.h"
@@ -55556,14 +55567,14 @@ void doppler_forward_one(ap_uint<32> *in_adc0, hls::stream<pkt> &out_d_02,
 void doppler(ap_uint<32> *mm, hls::stream<Addr> &idx_in,
              hls::stream<pkt> &out_d_02, hls::stream<pkt> &out_d_03,
              hls::stream<pkt> &in_d_02, hls::stream<pkt> &in_d_03,
-             hls::stream<DopplerMaskPacket> &mask_stream);
+             hls::stream<ap_uint<64>> &mask_stream);
 
 
 
 
 void aie_consume_doppler(hls::stream<pkt> &in_d_02,
                          hls::stream<pkt> &in_d_03,
-                         hls::stream<DopplerMaskPacket> &mask_stream,
+                         hls::stream<ap_uint<64>> &mask_stream,
                          ap_uint<32> *mm, ap_uint<16> seq, ap_uint<16> ind);
 # 5 "src/main.cpp" 2
 # 1 "src/range_part.h" 1
@@ -55575,13 +55586,14 @@ void aie_consume_doppler(hls::stream<pkt> &in_d_02,
 
 
 void adc_forward(hls::stream<pkt_adc> &in_adc0, hls::stream<pkt> &out_r_00,
-                 hls::stream<pkt> &out_r_01, unsigned int num_chirps);
+                 hls::stream<pkt> &out_r_01, unsigned int num_chirps,
+                 SequenceList sequences);
 
 
 
 void aie_range_consume(hls::stream<pkt> &in_r_00, hls::stream<pkt> &in_r_01,
                        hls::stream<MaskPacket> &mask_stream, ap_uint<32> *mm,
-                       unsigned int sequence, unsigned int num_chirps);
+                       unsigned int num_chirps, SequenceList sequences);
 # 6 "src/main.cpp" 2
 
 
@@ -55627,16 +55639,19 @@ __attribute__((sdx_kernel("kernel", 0))) void kernel(ap_uint<32> *mm, hls::strea
 #pragma HLS STREAM variable = in_d_03 depth = 1024
 
 
+  SequenceList sequences = {{0, 1}, 2};
+
+
 
   hls::stream<MaskPacket> mask_stream;
   hls::stream<Addr> idx_stream;
-  hls::stream<DopplerMaskPacket> doppler_mask_stream;
+  hls::stream<ap_uint<64>> doppler_mask_stream;
 #pragma HLS STREAM variable = mask_stream depth = 128
 #pragma HLS STREAM variable = idx_stream depth = 128
 #pragma HLS STREAM variable = doppler_mask_stream depth = 128
 #pragma HLS DATAFLOW
-  adc_forward(in_adc0, out_r_00, out_r_01, num_chirps);
-  aie_range_consume(in_r_00, in_r_01, mask_stream, mm, 0, num_chirps);
+  adc_forward(in_adc0, out_r_00, out_r_01, num_chirps, sequences);
+  aie_range_consume(in_r_00, in_r_01, mask_stream, mm, num_chirps, sequences);
   seq_generator(mask_stream, idx_stream);
   doppler(mm, idx_stream, out_d_02, out_d_03, in_d_02, in_d_03,
           doppler_mask_stream);

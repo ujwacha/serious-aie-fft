@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'doppler_forward_one'
 ================================================================
-* Date:           Tue Nov 10 11:50:39 2026
+* Date:           Sat Nov 14 14:52:47 2026
 
 * Version:        2026.1 (Build 6493734 on Jun 16 2026)
 * Project:        central-controller-element
@@ -41,7 +41,7 @@
         |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +--------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_137_1  |      131|      131|         5|          1|          1|   128|       yes|
+        |- VITIS_LOOP_129_1  |      131|      131|         5|          1|          1|   128|       yes|
         +--------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -88,76 +88,76 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 4.99>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/doppler_part.cpp:137]   --->   Operation 8 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%in_adc0_offset_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %in_adc0_offset" [src/doppler_part.cpp:141]   --->   Operation 9 'read' 'in_adc0_offset_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i4.i8, i4 %in_adc0_offset_read, i8 0" [src/doppler_part.cpp:141]   --->   Operation 10 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 0, i1 %out_d_03_V_last_V, i1 0, i1 0, void @empty_16"   --->   Operation 11 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 0, i1 %out_d_02_V_last_V, i1 0, i1 0, void @empty_40"   --->   Operation 12 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_03_V_last_V, i4 %out_d_03_V_strb_V, i4 %out_d_03_V_keep_V, i32 %out_d_03_V_data_V, void @empty_1, i32 0, i32 0, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_02_V_last_V, i4 %out_d_02_V_strb_V, i4 %out_d_02_V_keep_V, i32 %out_d_02_V_data_V, void @empty_1, i32 0, i32 0, void @empty_8, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (1.58ns)   --->   "%store_ln137 = store i9 0, i9 %i" [src/doppler_part.cpp:137]   --->   Operation 15 'store' 'store_ln137' <Predicate = true> <Delay = 1.58>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln137 = br void %for.inc" [src/doppler_part.cpp:137]   --->   Operation 16 'br' 'br_ln137' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%i_3 = load i9 %i" [src/doppler_part.cpp:137]   --->   Operation 17 'load' 'i_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_4 = bitselect i1 @_ssdm_op_BitSelect.i1.i9.i32, i9 %i_3, i32 8" [src/doppler_part.cpp:137]   --->   Operation 18 'bitselect' 'tmp_4' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln137 = br i1 %tmp_4, void %for.inc.split, void %for.end" [src/doppler_part.cpp:137]   --->   Operation 19 'br' 'br_ln137' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (1.82ns)   --->   "%add_ln137 = add i9 %i_3, i9 2" [src/doppler_part.cpp:137]   --->   Operation 20 'add' 'add_ln137' <Predicate = (!tmp_4)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln137 = store i9 %add_ln137, i9 %i" [src/doppler_part.cpp:137]   --->   Operation 21 'store' 'store_ln137' <Predicate = (!tmp_4)> <Delay = 1.58>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/doppler_part.cpp:129]   --->   Operation 8 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%in_adc0_offset_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %in_adc0_offset" [src/doppler_part.cpp:133]   --->   Operation 9 'read' 'in_adc0_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i4.i8, i4 %in_adc0_offset_read, i8 0" [src/doppler_part.cpp:133]   --->   Operation 10 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 0, i1 %out_d_03_V_last_V, i1 0, i1 0, void @empty_12"   --->   Operation 11 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 0, i1 %out_d_02_V_last_V, i1 0, i1 0, void @empty_17"   --->   Operation 12 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_03_V_last_V, i4 %out_d_03_V_strb_V, i4 %out_d_03_V_keep_V, i32 %out_d_03_V_data_V, void @empty_16, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_43, void @empty_43, void @empty_43, i32 0, i32 0, i32 0, i32 0, void @empty_43, void @empty_43, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_d_02_V_last_V, i4 %out_d_02_V_strb_V, i4 %out_d_02_V_keep_V, i32 %out_d_02_V_data_V, void @empty_16, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_43, void @empty_43, void @empty_43, i32 0, i32 0, i32 0, i32 0, void @empty_43, void @empty_43, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (1.58ns)   --->   "%store_ln129 = store i9 0, i9 %i" [src/doppler_part.cpp:129]   --->   Operation 15 'store' 'store_ln129' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln129 = br void %for.inc" [src/doppler_part.cpp:129]   --->   Operation 16 'br' 'br_ln129' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%i_5 = load i9 %i" [src/doppler_part.cpp:129]   --->   Operation 17 'load' 'i_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_4 = bitselect i1 @_ssdm_op_BitSelect.i1.i9.i32, i9 %i_5, i32 8" [src/doppler_part.cpp:129]   --->   Operation 18 'bitselect' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln129 = br i1 %tmp_4, void %for.inc.split, void %for.end" [src/doppler_part.cpp:129]   --->   Operation 19 'br' 'br_ln129' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.82ns)   --->   "%add_ln129 = add i9 %i_5, i9 2" [src/doppler_part.cpp:129]   --->   Operation 20 'add' 'add_ln129' <Predicate = (!tmp_4)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln129 = store i9 %add_ln129, i9 %i" [src/doppler_part.cpp:129]   --->   Operation 21 'store' 'store_ln129' <Predicate = (!tmp_4)> <Delay = 1.58>
 
 State 2 <SV = 1> <Delay = 4.80>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln137 = zext i9 %i_3" [src/doppler_part.cpp:137]   --->   Operation 22 'zext' 'zext_ln137' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%zext_ln141 = zext i9 %i_3" [src/doppler_part.cpp:141]   --->   Operation 23 'zext' 'zext_ln141' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (1.54ns)   --->   "%add_ln141 = add i12 %tmp, i12 %zext_ln141" [src/doppler_part.cpp:141]   --->   Operation 24 'add' 'add_ln141' <Predicate = true> <Delay = 1.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln141_1 = zext i12 %add_ln141" [src/doppler_part.cpp:141]   --->   Operation 25 'zext' 'zext_ln141_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%in_adc0_addr = getelementptr i32 %in_adc0, i64 0, i64 %zext_ln141_1" [src/doppler_part.cpp:141]   --->   Operation 26 'getelementptr' 'in_adc0_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 27 [2/2] (3.25ns)   --->   "%bits = load i12 %in_adc0_addr" [src/doppler_part.cpp:141]   --->   Operation 27 'load' 'bits' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
-ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_2 = partselect i7 @_ssdm_op_PartSelect.i7.i9.i32.i32, i9 %i_3, i32 1, i32 7" [src/doppler_part.cpp:142]   --->   Operation 28 'partselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i8 @_ssdm_op_BitConcatenate.i8.i7.i1, i7 %tmp_2, i1 1" [src/doppler_part.cpp:142]   --->   Operation 29 'bitconcatenate' 'or_ln' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln142 = zext i8 %or_ln" [src/doppler_part.cpp:142]   --->   Operation 30 'zext' 'zext_ln142' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_3 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i4.i7.i1, i4 %in_adc0_offset_read, i7 %tmp_2, i1 1" [src/doppler_part.cpp:142]   --->   Operation 31 'bitconcatenate' 'tmp_3' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln142_1 = zext i12 %tmp_3" [src/doppler_part.cpp:142]   --->   Operation 32 'zext' 'zext_ln142_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%in_adc0_addr_1 = getelementptr i32 %in_adc0, i64 0, i64 %zext_ln142_1" [src/doppler_part.cpp:142]   --->   Operation 33 'getelementptr' 'in_adc0_addr_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 34 [2/2] (3.25ns)   --->   "%bits_1 = load i12 %in_adc0_addr_1" [src/doppler_part.cpp:142]   --->   Operation 34 'load' 'bits_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
-ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%hamming_window_256_real_addr = getelementptr i15 %hamming_window_256_real, i64 0, i64 %zext_ln137" [src/doppler_part.cpp:145]   --->   Operation 35 'getelementptr' 'hamming_window_256_real_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 36 [2/2] (3.25ns)   --->   "%b_real = load i8 %hamming_window_256_real_addr" [src/doppler_part.cpp:149]   --->   Operation 36 'load' 'b_real' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
-ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%hamming_window_256_real_addr_1 = getelementptr i15 %hamming_window_256_real, i64 0, i64 %zext_ln142" [src/doppler_part.cpp:146]   --->   Operation 37 'getelementptr' 'hamming_window_256_real_addr_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 38 [2/2] (3.25ns)   --->   "%b_real_1 = load i8 %hamming_window_256_real_addr_1" [src/doppler_part.cpp:150]   --->   Operation 38 'load' 'b_real_1' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln129 = zext i9 %i_5" [src/doppler_part.cpp:129]   --->   Operation 22 'zext' 'zext_ln129' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%zext_ln133 = zext i9 %i_5" [src/doppler_part.cpp:133]   --->   Operation 23 'zext' 'zext_ln133' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (1.54ns)   --->   "%add_ln133 = add i12 %tmp, i12 %zext_ln133" [src/doppler_part.cpp:133]   --->   Operation 24 'add' 'add_ln133' <Predicate = true> <Delay = 1.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln133_1 = zext i12 %add_ln133" [src/doppler_part.cpp:133]   --->   Operation 25 'zext' 'zext_ln133_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%in_adc0_addr = getelementptr i32 %in_adc0, i64 0, i64 %zext_ln133_1" [src/doppler_part.cpp:133]   --->   Operation 26 'getelementptr' 'in_adc0_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [2/2] (3.25ns)   --->   "%bits = load i12 %in_adc0_addr" [src/doppler_part.cpp:133]   --->   Operation 27 'load' 'bits' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_2 = partselect i7 @_ssdm_op_PartSelect.i7.i9.i32.i32, i9 %i_5, i32 1, i32 7" [src/doppler_part.cpp:134]   --->   Operation 28 'partselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i8 @_ssdm_op_BitConcatenate.i8.i7.i1, i7 %tmp_2, i1 1" [src/doppler_part.cpp:134]   --->   Operation 29 'bitconcatenate' 'or_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln134 = zext i8 %or_ln" [src/doppler_part.cpp:134]   --->   Operation 30 'zext' 'zext_ln134' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_3 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i4.i7.i1, i4 %in_adc0_offset_read, i7 %tmp_2, i1 1" [src/doppler_part.cpp:134]   --->   Operation 31 'bitconcatenate' 'tmp_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln134_1 = zext i12 %tmp_3" [src/doppler_part.cpp:134]   --->   Operation 32 'zext' 'zext_ln134_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%in_adc0_addr_1 = getelementptr i32 %in_adc0, i64 0, i64 %zext_ln134_1" [src/doppler_part.cpp:134]   --->   Operation 33 'getelementptr' 'in_adc0_addr_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [2/2] (3.25ns)   --->   "%bits_1 = load i12 %in_adc0_addr_1" [src/doppler_part.cpp:134]   --->   Operation 34 'load' 'bits_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%hamming_window_256_real_addr = getelementptr i15 %hamming_window_256_real, i64 0, i64 %zext_ln129" [src/doppler_part.cpp:137]   --->   Operation 35 'getelementptr' 'hamming_window_256_real_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [2/2] (3.25ns)   --->   "%b_real = load i8 %hamming_window_256_real_addr" [src/doppler_part.cpp:141]   --->   Operation 36 'load' 'b_real' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%hamming_window_256_real_addr_1 = getelementptr i15 %hamming_window_256_real, i64 0, i64 %zext_ln134" [src/doppler_part.cpp:138]   --->   Operation 37 'getelementptr' 'hamming_window_256_real_addr_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [2/2] (3.25ns)   --->   "%b_real_1 = load i8 %hamming_window_256_real_addr_1" [src/doppler_part.cpp:142]   --->   Operation 38 'load' 'b_real_1' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
 
 State 3 <SV = 2> <Delay = 3.25>
-ST_3 : Operation 39 [1/2] ( I:3.25ns O:3.25ns )   --->   "%bits = load i12 %in_adc0_addr" [src/doppler_part.cpp:141]   --->   Operation 39 'load' 'bits' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
-ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%c_real_2 = trunc i32 %bits" [src/complex-math.cpp:5->src/doppler_part.cpp:141]   --->   Operation 40 'trunc' 'c_real_2' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%c_imag_2 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32, i32 %bits, i32 16" [src/complex-math.cpp:6->src/doppler_part.cpp:141]   --->   Operation 41 'partselect' 'c_imag_2' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 42 [1/2] ( I:3.25ns O:3.25ns )   --->   "%bits_1 = load i12 %in_adc0_addr_1" [src/doppler_part.cpp:142]   --->   Operation 42 'load' 'bits_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
-ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%c_real_3 = trunc i32 %bits_1" [src/complex-math.cpp:5->src/doppler_part.cpp:142]   --->   Operation 43 'trunc' 'c_real_3' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%c_imag_3 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32, i32 %bits_1, i32 16" [src/complex-math.cpp:6->src/doppler_part.cpp:142]   --->   Operation 44 'partselect' 'c_imag_3' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 45 [1/2] ( I:3.25ns O:3.25ns )   --->   "%b_real = load i8 %hamming_window_256_real_addr" [src/doppler_part.cpp:149]   --->   Operation 45 'load' 'b_real' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
-ST_3 : Operation 46 [1/2] ( I:3.25ns O:3.25ns )   --->   "%b_real_1 = load i8 %hamming_window_256_real_addr_1" [src/doppler_part.cpp:150]   --->   Operation 46 'load' 'b_real_1' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
+ST_3 : Operation 39 [1/2] ( I:3.25ns O:3.25ns )   --->   "%bits = load i12 %in_adc0_addr" [src/doppler_part.cpp:133]   --->   Operation 39 'load' 'bits' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%c_real_2 = trunc i32 %bits" [src/complex-math.cpp:5->src/doppler_part.cpp:133]   --->   Operation 40 'trunc' 'c_real_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%c_imag_2 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32, i32 %bits, i32 16" [src/complex-math.cpp:6->src/doppler_part.cpp:133]   --->   Operation 41 'partselect' 'c_imag_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 42 [1/2] ( I:3.25ns O:3.25ns )   --->   "%bits_1 = load i12 %in_adc0_addr_1" [src/doppler_part.cpp:134]   --->   Operation 42 'load' 'bits_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 81 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%c_real_3 = trunc i32 %bits_1" [src/complex-math.cpp:5->src/doppler_part.cpp:134]   --->   Operation 43 'trunc' 'c_real_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%c_imag_3 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32, i32 %bits_1, i32 16" [src/complex-math.cpp:6->src/doppler_part.cpp:134]   --->   Operation 44 'partselect' 'c_imag_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 45 [1/2] ( I:3.25ns O:3.25ns )   --->   "%b_real = load i8 %hamming_window_256_real_addr" [src/doppler_part.cpp:141]   --->   Operation 45 'load' 'b_real' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
+ST_3 : Operation 46 [1/2] ( I:3.25ns O:3.25ns )   --->   "%b_real_1 = load i8 %hamming_window_256_real_addr_1" [src/doppler_part.cpp:142]   --->   Operation 46 'load' 'b_real_1' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 94 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 15> <Depth = 256> <ROM>
 
 State 4 <SV = 3> <Delay = 5.58>
-ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%sext_ln19 = sext i16 %c_real_2" [src/complex-math.cpp:19->src/doppler_part.cpp:149]   --->   Operation 47 'sext' 'sext_ln19' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln19 = zext i15 %b_real" [src/complex-math.cpp:19->src/doppler_part.cpp:149]   --->   Operation 48 'zext' 'zext_ln19' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 49 [1/1] (5.58ns)   --->   "%mul_ln19 = mul i31 %sext_ln19, i31 %zext_ln19" [src/complex-math.cpp:19->src/doppler_part.cpp:149]   --->   Operation 49 'mul' 'mul_ln19' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%sext_ln19_1 = sext i16 %c_imag_2" [src/complex-math.cpp:19->src/doppler_part.cpp:149]   --->   Operation 50 'sext' 'sext_ln19_1' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%r_real = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln19, i32 15, i32 30" [src/complex-math.cpp:19->src/doppler_part.cpp:149]   --->   Operation 51 'partselect' 'r_real' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 52 [1/1] (5.58ns)   --->   "%mul_ln20 = mul i31 %sext_ln19_1, i31 %zext_ln19" [src/complex-math.cpp:20->src/doppler_part.cpp:149]   --->   Operation 52 'mul' 'mul_ln20' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%r_imag = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln20, i32 15, i32 30" [src/complex-math.cpp:20->src/doppler_part.cpp:149]   --->   Operation 53 'partselect' 'r_imag' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%sext_ln19_2 = sext i16 %c_real_3" [src/complex-math.cpp:19->src/doppler_part.cpp:150]   --->   Operation 54 'sext' 'sext_ln19_2' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%zext_ln19_1 = zext i15 %b_real_1" [src/complex-math.cpp:19->src/doppler_part.cpp:150]   --->   Operation 55 'zext' 'zext_ln19_1' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 56 [1/1] (5.58ns)   --->   "%mul_ln19_1 = mul i31 %sext_ln19_2, i31 %zext_ln19_1" [src/complex-math.cpp:19->src/doppler_part.cpp:150]   --->   Operation 56 'mul' 'mul_ln19_1' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%sext_ln19_3 = sext i16 %c_imag_3" [src/complex-math.cpp:19->src/doppler_part.cpp:150]   --->   Operation 57 'sext' 'sext_ln19_3' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%r_real_1 = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln19_1, i32 15, i32 30" [src/complex-math.cpp:19->src/doppler_part.cpp:150]   --->   Operation 58 'partselect' 'r_real_1' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 59 [1/1] (5.58ns)   --->   "%mul_ln20_1 = mul i31 %sext_ln19_3, i31 %zext_ln19_1" [src/complex-math.cpp:20->src/doppler_part.cpp:150]   --->   Operation 59 'mul' 'mul_ln20_1' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%r_imag_1 = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln20_1, i32 15, i32 30" [src/complex-math.cpp:20->src/doppler_part.cpp:150]   --->   Operation 60 'partselect' 'r_imag_1' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 69 [1/1] (1.58ns)   --->   "%ret_ln161 = ret" [src/doppler_part.cpp:161]   --->   Operation 69 'ret' 'ret_ln161' <Predicate = (tmp_4)> <Delay = 1.58>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%sext_ln19 = sext i16 %c_real_2" [src/complex-math.cpp:19->src/doppler_part.cpp:141]   --->   Operation 47 'sext' 'sext_ln19' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln19 = zext i15 %b_real" [src/complex-math.cpp:19->src/doppler_part.cpp:141]   --->   Operation 48 'zext' 'zext_ln19' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 49 [1/1] (5.58ns)   --->   "%mul_ln19 = mul i31 %sext_ln19, i31 %zext_ln19" [src/complex-math.cpp:19->src/doppler_part.cpp:141]   --->   Operation 49 'mul' 'mul_ln19' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%sext_ln19_1 = sext i16 %c_imag_2" [src/complex-math.cpp:19->src/doppler_part.cpp:141]   --->   Operation 50 'sext' 'sext_ln19_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%r_real = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln19, i32 15, i32 30" [src/complex-math.cpp:19->src/doppler_part.cpp:141]   --->   Operation 51 'partselect' 'r_real' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (5.58ns)   --->   "%mul_ln20 = mul i31 %sext_ln19_1, i31 %zext_ln19" [src/complex-math.cpp:20->src/doppler_part.cpp:141]   --->   Operation 52 'mul' 'mul_ln20' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%r_imag = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln20, i32 15, i32 30" [src/complex-math.cpp:20->src/doppler_part.cpp:141]   --->   Operation 53 'partselect' 'r_imag' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%sext_ln19_2 = sext i16 %c_real_3" [src/complex-math.cpp:19->src/doppler_part.cpp:142]   --->   Operation 54 'sext' 'sext_ln19_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%zext_ln19_1 = zext i15 %b_real_1" [src/complex-math.cpp:19->src/doppler_part.cpp:142]   --->   Operation 55 'zext' 'zext_ln19_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (5.58ns)   --->   "%mul_ln19_1 = mul i31 %sext_ln19_2, i31 %zext_ln19_1" [src/complex-math.cpp:19->src/doppler_part.cpp:142]   --->   Operation 56 'mul' 'mul_ln19_1' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%sext_ln19_3 = sext i16 %c_imag_3" [src/complex-math.cpp:19->src/doppler_part.cpp:142]   --->   Operation 57 'sext' 'sext_ln19_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%r_real_1 = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln19_1, i32 15, i32 30" [src/complex-math.cpp:19->src/doppler_part.cpp:142]   --->   Operation 58 'partselect' 'r_real_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (5.58ns)   --->   "%mul_ln20_1 = mul i31 %sext_ln19_3, i31 %zext_ln19_1" [src/complex-math.cpp:20->src/doppler_part.cpp:142]   --->   Operation 59 'mul' 'mul_ln20_1' <Predicate = true> <Delay = 5.58> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 5.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%r_imag_1 = partselect i16 @_ssdm_op_PartSelect.i16.i31.i32.i32, i31 %mul_ln20_1, i32 15, i32 30" [src/complex-math.cpp:20->src/doppler_part.cpp:142]   --->   Operation 60 'partselect' 'r_imag_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (1.58ns)   --->   "%ret_ln153 = ret" [src/doppler_part.cpp:153]   --->   Operation 69 'ret' 'ret_ln153' <Predicate = (tmp_4)> <Delay = 1.58>
 
 State 5 <SV = 4> <Delay = 1.29>
-ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%specpipeline_ln138 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_17" [src/doppler_part.cpp:138]   --->   Operation 61 'specpipeline' 'specpipeline_ln138' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 62 [1/1] (0.00ns)   --->   "%speclooptripcount_ln137 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 128, i64 128, i64 128" [src/doppler_part.cpp:137]   --->   Operation 62 'speclooptripcount' 'speclooptripcount_ln137' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%specloopname_ln137 = specloopname void @_ssdm_op_SpecLoopName, void @empty_28" [src/doppler_part.cpp:137]   --->   Operation 63 'specloopname' 'specloopname_ln137' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 64 [1/1] (0.00ns)   --->   "%bits_2 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %r_imag, i16 %r_real" [src/complex-math.cpp:13->src/doppler_part.cpp:154]   --->   Operation 64 'bitconcatenate' 'bits_2' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%bits_3 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %r_imag_1, i16 %r_real_1" [src/complex-math.cpp:13->src/doppler_part.cpp:155]   --->   Operation 65 'bitconcatenate' 'bits_3' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 66 [1/1] ( I:1.29ns O:1.29ns )   --->   "%write_ln158 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %bits_2, i4 15, i4 15, i1 0" [src/doppler_part.cpp:158]   --->   Operation 66 'write' 'write_ln158' <Predicate = true> <Delay = 1.29> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.86> <Adapter> <Opcode : 'read' 'write'>
-ST_5 : Operation 67 [1/1] ( I:1.29ns O:1.29ns )   --->   "%write_ln159 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i32 %bits_3, i4 15, i4 15, i1 0" [src/doppler_part.cpp:159]   --->   Operation 67 'write' 'write_ln159' <Predicate = true> <Delay = 1.29> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.86> <Adapter> <Opcode : 'read' 'write'>
-ST_5 : Operation 68 [1/1] (0.00ns)   --->   "%br_ln137 = br void %for.inc" [src/doppler_part.cpp:137]   --->   Operation 68 'br' 'br_ln137' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%specpipeline_ln130 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_43" [src/doppler_part.cpp:130]   --->   Operation 61 'specpipeline' 'specpipeline_ln130' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 62 [1/1] (0.00ns)   --->   "%speclooptripcount_ln129 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 128, i64 128, i64 128" [src/doppler_part.cpp:129]   --->   Operation 62 'speclooptripcount' 'speclooptripcount_ln129' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%specloopname_ln129 = specloopname void @_ssdm_op_SpecLoopName, void @empty_32" [src/doppler_part.cpp:129]   --->   Operation 63 'specloopname' 'specloopname_ln129' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [1/1] (0.00ns)   --->   "%bits_2 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %r_imag, i16 %r_real" [src/complex-math.cpp:13->src/doppler_part.cpp:146]   --->   Operation 64 'bitconcatenate' 'bits_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%bits_3 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %r_imag_1, i16 %r_real_1" [src/complex-math.cpp:13->src/doppler_part.cpp:147]   --->   Operation 65 'bitconcatenate' 'bits_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 66 [1/1] ( I:1.29ns O:1.29ns )   --->   "%write_ln150 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A, i32 %out_d_02_V_data_V, i4 %out_d_02_V_keep_V, i4 %out_d_02_V_strb_V, i1 %out_d_02_V_last_V, i32 %bits_2, i4 15, i4 15, i1 0" [src/doppler_part.cpp:150]   --->   Operation 66 'write' 'write_ln150' <Predicate = true> <Delay = 1.29> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.86> <Adapter> <Opcode : 'read' 'write'>
+ST_5 : Operation 67 [1/1] ( I:1.29ns O:1.29ns )   --->   "%write_ln151 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A, i32 %out_d_03_V_data_V, i4 %out_d_03_V_keep_V, i4 %out_d_03_V_strb_V, i1 %out_d_03_V_last_V, i32 %bits_3, i4 15, i4 15, i1 0" [src/doppler_part.cpp:151]   --->   Operation 67 'write' 'write_ln151' <Predicate = true> <Delay = 1.29> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.86> <Adapter> <Opcode : 'read' 'write'>
+ST_5 : Operation 68 [1/1] (0.00ns)   --->   "%br_ln129 = br void %for.inc" [src/doppler_part.cpp:129]   --->   Operation 68 'br' 'br_ln129' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -167,28 +167,28 @@ Target clock period: 8.000ns, clock uncertainty: 2.160ns.
 
  <State 1>: 4.999ns
 The critical path consists of the following:
-	'store' operation ('store_ln137', src/doppler_part.cpp:137) of constant 0 9 bit on local variable 'i', src/doppler_part.cpp:137 [19]  (1.588 ns)
-	'load' operation 9 bit ('i', src/doppler_part.cpp:137) on local variable 'i', src/doppler_part.cpp:137 [22]  (0.000 ns)
-	'add' operation 9 bit ('add_ln137', src/doppler_part.cpp:137) [68]  (1.823 ns)
-	'store' operation ('store_ln137', src/doppler_part.cpp:137) of variable 'add_ln137', src/doppler_part.cpp:137 9 bit on local variable 'i', src/doppler_part.cpp:137 [69]  (1.588 ns)
+	'store' operation ('store_ln129', src/doppler_part.cpp:129) of constant 0 9 bit on local variable 'i', src/doppler_part.cpp:129 [19]  (1.588 ns)
+	'load' operation 9 bit ('i', src/doppler_part.cpp:129) on local variable 'i', src/doppler_part.cpp:129 [22]  (0.000 ns)
+	'add' operation 9 bit ('add_ln129', src/doppler_part.cpp:129) [68]  (1.823 ns)
+	'store' operation ('store_ln129', src/doppler_part.cpp:129) of variable 'add_ln129', src/doppler_part.cpp:129 9 bit on local variable 'i', src/doppler_part.cpp:129 [69]  (1.588 ns)
 
  <State 2>: 4.801ns
 The critical path consists of the following:
-	'add' operation 12 bit ('add_ln141', src/doppler_part.cpp:141) [28]  (1.547 ns)
-	'getelementptr' operation 12 bit ('in_adc0_addr', src/doppler_part.cpp:141) [30]  (0.000 ns)
-	'load' operation 32 bit ('bits', src/doppler_part.cpp:141) on array 'in_adc0' [34]  (3.254 ns)
+	'add' operation 12 bit ('add_ln133', src/doppler_part.cpp:133) [28]  (1.547 ns)
+	'getelementptr' operation 12 bit ('in_adc0_addr', src/doppler_part.cpp:133) [30]  (0.000 ns)
+	'load' operation 32 bit ('bits', src/doppler_part.cpp:133) on array 'in_adc0' [34]  (3.254 ns)
 
  <State 3>: 3.254ns
 The critical path consists of the following:
-	'load' operation 32 bit ('bits', src/doppler_part.cpp:141) on array 'in_adc0' [34]  (3.254 ns)
+	'load' operation 32 bit ('bits', src/doppler_part.cpp:133) on array 'in_adc0' [34]  (3.254 ns)
 
  <State 4>: 5.580ns
 The critical path consists of the following:
-	'mul' operation 31 bit ('mul_ln19', src/complex-math.cpp:19->src/doppler_part.cpp:149) [52]  (5.580 ns)
+	'mul' operation 31 bit ('mul_ln19', src/complex-math.cpp:19->src/doppler_part.cpp:141) [52]  (5.580 ns)
 
  <State 5>: 1.290ns
 The critical path consists of the following:
-	axis write operation ('write_ln158', src/doppler_part.cpp:158) on port 'out_d_02_V_data_V' (src/doppler_part.cpp:158) [66]  (1.290 ns)
+	axis write operation ('write_ln150', src/doppler_part.cpp:150) on port 'out_d_02_V_data_V' (src/doppler_part.cpp:150) [66]  (1.290 ns)
 
 
 ============================================================

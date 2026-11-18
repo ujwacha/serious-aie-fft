@@ -1,7 +1,7 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "17 3 24 22 5",
+    "calls": "10 8 3 7 4",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "main.cpp",
@@ -9,136 +9,34 @@
     "instructions": 28,
     "memory_accesses": 0,
     "name": "kernel",
-    "total_instructions": 3170
+    "total_instructions": 2783
   },
   "1": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 1,
-    "file": "x_hls_utils.h",
-    "fileloc": 349,
-    "instructions": 3,
+    "basicblocks": 22,
+    "calls": "12 12 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5",
+    "control_depth": 2,
+    "def_use_depth": 20,
+    "file": "doppler_part.cpp",
+    "fileloc": 178,
+    "instructions": 520,
     "loads": {
-      "L": 1
+      "L": 77
     },
-    "memory_accesses": 0,
-    "name": "__signbit",
-    "total_instructions": 3
+    "memory_accesses": 125,
+    "name": "aie_consume_doppler",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 631
   },
   "10": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 2,
-    "file": "x_hls_utils.h",
-    "fileloc": 456,
-    "instructions": 8,
-    "memory_accesses": 0,
-    "name": "fp_struct",
-    "stores": {
-      "L": 3
-    },
-    "total_instructions": 8
-  },
-  "11": {
-    "basicblocks": 1,
-    "calls": "16",
-    "control_depth": 0,
-    "def_use_depth": 1,
-    "file": "lib_floatconversion.cpp",
-    "fileloc": 55,
-    "instructions": 2,
-    "memory_accesses": 0,
-    "name": "__hls_fptosi_double_i32",
-    "total_instructions": 55
-  },
-  "12": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 2,
-    "file": "x_hls_utils.h",
-    "fileloc": 283,
-    "instructions": 8,
-    "memory_accesses": 0,
-    "name": "fp_struct",
-    "stores": {
-      "L": 3
-    },
-    "total_instructions": 8
-  },
-  "13": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "complex-math.cpp",
-    "fileloc": 10,
-    "instructions": 5,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 0,
-    "name": "cint16_to_bits",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 5
-  },
-  "14": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "x_hls_utils.h",
-    "fileloc": 340,
-    "instructions": 6,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 0,
-    "name": "mantissa",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 6
-  },
-  "15": {
-    "basicblocks": 1,
-    "calls": "12 14 27 1",
-    "control_depth": 0,
-    "def_use_depth": 10,
-    "file": "hls_case_IEEE754.h",
-    "fileloc": 12,
-    "instructions": 30,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 0,
-    "name": "generic_cast_IEEE754<int, AP_TRN_ZERO, float>",
-    "total_instructions": 51
-  },
-  "16": {
-    "basicblocks": 1,
-    "calls": "4",
-    "control_depth": 0,
-    "def_use_depth": 1,
-    "file": "hls_case_IEEE754.h",
-    "fileloc": 116,
-    "instructions": 2,
-    "memory_accesses": 0,
-    "name": "generic_cast_IEEE754<int, double>",
-    "total_instructions": 53
-  },
-  "17": {
-    "basicblocks": 6,
-    "calls": "26 26 8 8 13 13",
+    "basicblocks": 8,
+    "calls": "12 12 6 6 5 5",
     "control_depth": 0,
     "def_use_depth": 4,
     "file": "range_part.cpp",
     "fileloc": 50,
-    "instructions": 232,
+    "instructions": 237,
     "loads": {
       "G": 4,
       "L": 16
@@ -148,27 +46,9 @@
     "stores": {
       "L": 8
     },
-    "total_instructions": 298
+    "total_instructions": 303
   },
-  "18": {
-    "basicblocks": 24,
-    "calls": "26 26 11 6 6 7 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13",
-    "control_depth": 2,
-    "def_use_depth": 90,
-    "file": "doppler_part.cpp",
-    "fileloc": 186,
-    "instructions": 766,
-    "loads": {
-      "L": 162
-    },
-    "memory_accesses": 123,
-    "name": "aie_consume_doppler",
-    "stores": {
-      "L": 24
-    },
-    "total_instructions": 1042
-  },
-  "19": {
+  "11": {
     "basicblocks": 7,
     "calls": "",
     "control_depth": 4,
@@ -186,83 +66,46 @@
     },
     "total_instructions": 32
   },
-  "2": {
+  "12": {
     "basicblocks": 1,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 1,
-    "file": "x_hls_utils.h",
-    "fileloc": 512,
-    "instructions": 3,
-    "loads": {
-      "L": 1
-    },
+    "file": "complex-math.cpp",
+    "fileloc": 3,
+    "instructions": 5,
     "memory_accesses": 0,
-    "name": "__signbit",
-    "total_instructions": 3
-  },
-  "20": {
-    "basicblocks": 3,
-    "calls": "26 26 8 8 13 13",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "doppler_part.cpp",
-    "fileloc": 135,
-    "instructions": 107,
-    "loads": {
-      "G": 4,
-      "L": 12
-    },
-    "memory_accesses": 26,
-    "name": "doppler_forward_one",
+    "name": "bits_to_cint16",
     "stores": {
       "L": 2
     },
-    "total_instructions": 161
+    "total_instructions": 5
   },
-  "21": {
-    "basicblocks": 1,
-    "calls": "15",
-    "control_depth": 0,
-    "def_use_depth": 1,
-    "file": "hls_case_IEEE754.h",
-    "fileloc": 116,
-    "instructions": 2,
-    "memory_accesses": 0,
-    "name": "generic_cast_IEEE754<int, float>",
-    "total_instructions": 53
-  },
-  "22": {
-    "basicblocks": 11,
-    "calls": "23 20 18",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "doppler_part.cpp",
-    "fileloc": 81,
-    "instructions": 44,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 2,
-    "name": "doppler",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 1259
-  },
-  "23": {
+  "13": {
     "basicblocks": 1,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 4,
     "file": "main.h",
-    "fileloc": 55,
+    "fileloc": 66,
     "instructions": 12,
     "memory_accesses": 0,
     "name": "range_bin_ptr",
     "total_instructions": 12
   },
-  "24": {
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "main.h",
+    "fileloc": 72,
+    "instructions": 13,
+    "memory_accesses": 0,
+    "name": "doppler_bin_ptr",
+    "total_instructions": 13
+  },
+  "3": {
     "basicblocks": 16,
     "calls": "",
     "control_depth": 2,
@@ -280,121 +123,37 @@
     },
     "total_instructions": 54
   },
-  "25": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 2,
-    "file": "x_hls_utils.h",
-    "fileloc": 485,
-    "instructions": 4,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 0,
-    "name": "expv",
-    "total_instructions": 4
-  },
-  "26": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 1,
-    "file": "complex-math.cpp",
-    "fileloc": 3,
-    "instructions": 5,
-    "memory_accesses": 0,
-    "name": "bits_to_cint16",
-    "stores": {
-      "L": 2
-    },
-    "total_instructions": 5
-  },
-  "27": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 2,
-    "file": "x_hls_utils.h",
-    "fileloc": 316,
-    "instructions": 4,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 0,
-    "name": "expv",
-    "total_instructions": 4
-  },
-  "3": {
-    "basicblocks": 12,
-    "calls": "19 23",
-    "control_depth": 2,
-    "def_use_depth": 134,
-    "file": "range_part.cpp",
-    "fileloc": 84,
-    "instructions": 1343,
-    "loads": {
-      "L": 115
-    },
-    "memory_accesses": 168,
-    "name": "aie_range_consume",
-    "stores": {
-      "L": 49
-    },
-    "total_instructions": 1523
-  },
   "4": {
-    "basicblocks": 1,
-    "calls": "10 9 25 2",
-    "control_depth": 0,
-    "def_use_depth": 10,
-    "file": "hls_case_IEEE754.h",
-    "fileloc": 12,
-    "instructions": 30,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 0,
-    "name": "generic_cast_IEEE754<int, AP_TRN_ZERO, double>",
-    "total_instructions": 51
-  },
-  "5": {
-    "basicblocks": 4,
+    "basicblocks": 7,
     "calls": "",
-    "control_depth": 1,
+    "control_depth": 0,
     "def_use_depth": 3,
     "file": "angle_part.cpp",
     "fileloc": 3,
-    "instructions": 8,
+    "instructions": 16,
     "memory_accesses": 1,
     "name": "dummy",
-    "total_instructions": 8
+    "total_instructions": 16
   },
-  "6": {
-    "basicblocks": 1,
-    "calls": "21",
-    "control_depth": 0,
-    "def_use_depth": 1,
-    "file": "lib_floatconversion.cpp",
-    "fileloc": 51,
-    "instructions": 2,
-    "memory_accesses": 0,
-    "name": "__hls_fptosi_float_i32",
-    "total_instructions": 55
-  },
-  "7": {
+  "5": {
     "basicblocks": 1,
     "calls": "",
     "control_depth": 0,
-    "def_use_depth": 5,
-    "file": "main.h",
-    "fileloc": 61,
-    "instructions": 13,
+    "def_use_depth": 3,
+    "file": "complex-math.cpp",
+    "fileloc": 10,
+    "instructions": 5,
+    "loads": {
+      "L": 1
+    },
     "memory_accesses": 0,
-    "name": "doppler_bin_ptr",
-    "total_instructions": 13
+    "name": "cint16_to_bits",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 5
   },
-  "8": {
+  "6": {
     "basicblocks": 1,
     "calls": "",
     "control_depth": 0,
@@ -409,22 +168,60 @@
     },
     "total_instructions": 17
   },
-  "9": {
-    "basicblocks": 1,
-    "calls": "",
+  "7": {
+    "basicblocks": 11,
+    "calls": "13 9 1",
     "control_depth": 0,
     "def_use_depth": 3,
-    "file": "x_hls_utils.h",
-    "fileloc": 503,
-    "instructions": 6,
+    "file": "doppler_part.cpp",
+    "fileloc": 81,
+    "instructions": 43,
     "loads": {
       "L": 1
     },
-    "memory_accesses": 0,
-    "name": "mantissa",
+    "memory_accesses": 2,
+    "name": "doppler",
     "stores": {
       "L": 1
     },
-    "total_instructions": 6
+    "total_instructions": 847
+  },
+  "8": {
+    "basicblocks": 14,
+    "calls": "11 13",
+    "control_depth": 2,
+    "def_use_depth": 134,
+    "file": "range_part.cpp",
+    "fileloc": 89,
+    "instructions": 1355,
+    "loads": {
+      "G": 2,
+      "L": 115
+    },
+    "memory_accesses": 168,
+    "name": "aie_range_consume",
+    "stores": {
+      "L": 49
+    },
+    "total_instructions": 1535
+  },
+  "9": {
+    "basicblocks": 3,
+    "calls": "12 12 6 6 5 5",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "doppler_part.cpp",
+    "fileloc": 127,
+    "instructions": 107,
+    "loads": {
+      "G": 4,
+      "L": 12
+    },
+    "memory_accesses": 26,
+    "name": "doppler_forward_one",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 161
   }
 }

@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 24
+set cdfgNum 27
 set C_modelName {adc_forward}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -125,7 +125,7 @@ set ArgLastReadFirstWriteLatency {
 		out_r_01_V_last_V {Type O LastRead -1 FirstWrite 3}
 		num_chirps {Type I LastRead 0 FirstWrite -1}
 		hamming_window_2048_real {Type I LastRead -1 FirstWrite -1}}
-	adc_forward_Pipeline_VITIS_LOOP_54_2 {
+	adc_forward_Pipeline_VITIS_LOOP_58_3 {
 		in_adc0_V_data_V {Type I LastRead 1 FirstWrite -1}
 		in_adc0_V_keep_V {Type I LastRead 1 FirstWrite -1}
 		in_adc0_V_strb_V {Type I LastRead 1 FirstWrite -1}

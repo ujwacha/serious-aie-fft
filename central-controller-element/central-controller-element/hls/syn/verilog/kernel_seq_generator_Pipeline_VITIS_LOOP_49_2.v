@@ -88,7 +88,7 @@ end
 kernel_bitselect_1ns_128ns_7ns_1_1_1 #(
     .DATAWIDTH( 128 ),
     .ADDRWIDTH( 7 ))
-bitselect_1ns_128ns_7ns_1_1_1_U83(
+bitselect_1ns_128ns_7ns_1_1_1_U85(
     .din(current_mask),
     .sel(tmp_fu_95_p2),
     .dout(tmp_fu_95_p3)
