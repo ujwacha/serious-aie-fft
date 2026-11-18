@@ -1,0 +1,152 @@
+
+
+================================================================
+== Vitis HLS Report for 'aie_consume_doppler_Pipeline_VITIS_LOOP_335_10'
+================================================================
+* Date:           Sat Nov 14 14:52:50 2026
+
+* Version:        2026.1 (Build 6493734 on Jun 16 2026)
+* Project:        central-controller-element
+* Solution:       hls
+* Product family: azynq
+* Target device:  xa7z030-fbg484-1I
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  8.00 ns|  5.091 ns|     2.16 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |      Pipeline     |
+    |   min   |   max   |    min   |    max   | min | max |        Type       |
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |      132|      132|  1.056 us|  1.056 us|    0|    0|  loop pipeline stp|
+    +---------+---------+----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_335_10  |      130|      130|         3|          1|          1|   129|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     34|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     45|    -|
+|Register         |        -|    -|      77|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      77|     79|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      530|  400|  157200|  78600|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |add_ln335_fu_94_p2              |         +|   0|  0|  15|           8|           1|
+    |ap_block_pp0_stage0_01001_grp1  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln335_fu_88_p2             |      icmp|   0|  0|  15|           8|           8|
+    |ap_enable_pp0                   |       xor|   0|  0|   2|           1|           2|
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |Total                           |          |   0|  0|  34|          18|          12|
+    +--------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------+----+-----------+-----+-----------+
+    |            Name           | LUT| Input Size| Bits| Total Bits|
+    +---------------------------+----+-----------+-----+-----------+
+    |ap_done_int                |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1    |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_7       |   9|          2|    8|         16|
+    |doppler_mask_stream_blk_n  |   9|          2|    1|          2|
+    |i_fu_44                    |   9|          2|    8|         16|
+    +---------------------------+----+-----------+-----+-----------+
+    |Total                      |  45|         10|   19|         38|
+    +---------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |dmask_load_1_reg_164              |  32|   0|   32|          0|
+    |dmask_load_reg_159                |  32|   0|   32|          0|
+    |i_fu_44                           |   8|   0|    8|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             |  77|   0|   77|          0|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------------+-----+-----+------------+------------------------------------------------+--------------+
+|              RTL Ports             | Dir | Bits|  Protocol  |                  Source Object                 |    C Type    |
++------------------------------------+-----+-----+------------+------------------------------------------------+--------------+
+|ap_clk                              |   in|    1|  ap_ctrl_hs|  aie_consume_doppler_Pipeline_VITIS_LOOP_335_10|  return value|
+|ap_rst                              |   in|    1|  ap_ctrl_hs|  aie_consume_doppler_Pipeline_VITIS_LOOP_335_10|  return value|
+|ap_start                            |   in|    1|  ap_ctrl_hs|  aie_consume_doppler_Pipeline_VITIS_LOOP_335_10|  return value|
+|ap_done                             |  out|    1|  ap_ctrl_hs|  aie_consume_doppler_Pipeline_VITIS_LOOP_335_10|  return value|
+|ap_idle                             |  out|    1|  ap_ctrl_hs|  aie_consume_doppler_Pipeline_VITIS_LOOP_335_10|  return value|
+|ap_ready                            |  out|    1|  ap_ctrl_hs|  aie_consume_doppler_Pipeline_VITIS_LOOP_335_10|  return value|
+|doppler_mask_stream_din             |  out|   64|     ap_fifo|                             doppler_mask_stream|       pointer|
+|doppler_mask_stream_full_n          |   in|    1|     ap_fifo|                             doppler_mask_stream|       pointer|
+|doppler_mask_stream_write           |  out|    1|     ap_fifo|                             doppler_mask_stream|       pointer|
+|doppler_mask_stream_num_data_valid  |   in|   32|     ap_fifo|                             doppler_mask_stream|       pointer|
+|doppler_mask_stream_fifo_cap        |   in|   32|     ap_fifo|                             doppler_mask_stream|       pointer|
+|dmask_address0                      |  out|    9|   ap_memory|                                           dmask|         array|
+|dmask_ce0                           |  out|    1|   ap_memory|                                           dmask|         array|
+|dmask_q0                            |   in|   32|   ap_memory|                                           dmask|         array|
+|dmask_address1                      |  out|    9|   ap_memory|                                           dmask|         array|
+|dmask_ce1                           |  out|    1|   ap_memory|                                           dmask|         array|
+|dmask_q1                            |   in|   32|   ap_memory|                                           dmask|         array|
++------------------------------------+-----+-----+------------+------------------------------------------------+--------------+
+
